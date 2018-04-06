@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{seo.title}}</title>
+	<!-- javascript --> 
+	<script type="text/javascript" src="skin/js/jQuery-v3-3-1.js"></script>
+	<!-- bootstrap --> 
+	<link rel="stylesheet" type="text/css" href="skin/bootstrap/css/bootstrap.min.css">
+	<script src="skin/bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script>
+	<!-- controlador js --> 
+	<link rel="stylesheet" type="text/css" href="skin/styles.css">
+	<script type="text/javascript" src="skin/dashboard.js"></script>
+</head>
+<body>
+
+	<div class="container-fluid general-container">
+		 <nav class="navbar navbar-default menu-header">
+		  <div class="container-fluid">
+		    <div class="navbar-header" style="font-weight: bold;">
+		      <a class="navbar-brand" href="#">
+		        <img style="width: 60px;" alt="OMG Stock" src="https://th.content.jobsdbcdn.com/Content/CmsContent/Logo/TH/JobsDBFiles/CompanyLogo/logo-l/9956l.png"> 
+		      </a>
+		       <p id="providers" class="option-menu navbar-text navbar-right">Proveedores</p>
+		       <p id="feed" class="option-menu navbar-text navbar-right">FEED</p>
+		       <p id="dashboard-tab" class="option-menu navbar-text navbar-right">Dashboard</p>
+		       <p id="configuration" class="option-menu navbar-text navbar-right">Configuración</p>
+		    </div> 
+		  </div> 
+		</nav>
+		<div class="col-md-12">
+			<div class="col-md-9">
+				{% block content %}
+					{% block menu %}
+					{% endblock %}
+				{% endblock %}
+			</div>
+			<div class="col-md-3">
+				{{ include('sidebar.html.twig') }}
+			</div>
+		</div>
+	</div>
+</body>
+</html> 
