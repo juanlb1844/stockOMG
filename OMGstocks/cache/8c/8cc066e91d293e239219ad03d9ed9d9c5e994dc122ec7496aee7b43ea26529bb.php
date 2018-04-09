@@ -43,7 +43,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t      <a class=\"navbar-brand\" href=\"#\">
 \t\t        <img style=\"width: 60px;\" alt=\"OMG Stock\" src=\"https://th.content.jobsdbcdn.com/Content/CmsContent/Logo/TH/JobsDBFiles/CompanyLogo/logo-l/9956l.png\"> 
 \t\t      </a>
-\t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\">Proveedores</p>
+\t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\" style=\"color:red;\">Proveedores</p>
 \t\t       <p id=\"feed\" class=\"option-menu navbar-text navbar-right\">FEED</p>
 \t\t       <p id=\"dashboard-tab\" class=\"option-menu navbar-text navbar-right\">Dashboard</p>
 \t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\">Configuración</p>
@@ -133,7 +133,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t      <a class=\"navbar-brand\" href=\"#\">
 \t\t        <img style=\"width: 60px;\" alt=\"OMG Stock\" src=\"https://th.content.jobsdbcdn.com/Content/CmsContent/Logo/TH/JobsDBFiles/CompanyLogo/logo-l/9956l.png\"> 
 \t\t      </a>
-\t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\">Proveedores</p>
+\t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\" style=\"color:red;\">Proveedores</p>
 \t\t       <p id=\"feed\" class=\"option-menu navbar-text navbar-right\">FEED</p>
 \t\t       <p id=\"dashboard-tab\" class=\"option-menu navbar-text navbar-right\">Dashboard</p>
 \t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\">Configuración</p>
