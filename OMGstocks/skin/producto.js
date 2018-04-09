@@ -1,4 +1,5 @@
 
+var productData = null; 
 $(document).ready(function(){ 
 
 	var idProd = null; //id producto general 
@@ -17,14 +18,25 @@ $(document).ready(function(){
 	 			}, 
 	 	success: function(mensaje){
 	 		  //alert(mensaje); 
-	 		  var productData = JSON.parse(mensaje);   
+	 		  productData = JSON.parse(mensaje);   
+
+	 		  /*
 	 		  console.log(productData); 
 	 		  //$('#data-product-name').html( productData[0].value_attr );
 			  $('#data-product-name').val( productData[0].value_attr );
 	 		  $('#data-product-sku').val( productData[1].value_attr ); 
 	 		  $('#data-product-mainImg').attr('src', productData[7].value_attr ); 
 	 		  var description = productData[8].value_attr; 
-			  $('#summernote').summernote('code', description);
+			  $('#summernote').summernote('code', description); */ 
+
+			  for( x in productData ){  
+					  $('.form-horizontal').append( '<div class="form-group">'+ 
+					                        '<label for="inputEmail3" class="col-sm-2 control-label">'+productData[x].type_attr+'</label>' + 
+					                        ' <div class="col-sm-10">' + 
+					                          ' <input type="input" id="data-product-name" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control" name="">' + 
+					                        ' </div> ' + 
+					                      ' </div> '); 
+					}
 	 	}
 	 });
 	

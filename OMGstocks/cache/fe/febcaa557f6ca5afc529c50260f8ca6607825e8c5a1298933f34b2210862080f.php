@@ -40,6 +40,8 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"dashboard-window col-md-9\">
             <a href=\"?p=feedLocal\">Atrás</a> 
                      <form class=\"form-horizontal\">
+
+                     <!-- 
                       <div class=\"form-group\">
                         <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Título</label>
                         <div class=\"col-sm-10\">
@@ -62,7 +64,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Main Img</label>
                         <div class=\"row\">
                           <div class=\"col-sm-4\">
-                            <!-- <input type=\"password\" class=\"form-control\" id=\"inputPassword3\" placeholder=\"Password\"> --> 
                             <img id=\"data-product-mainImg\" src=\"http://www.ppimusic.ie/images/loading_anim.gif\" style=\"width: 170px;\">
                           </div>
                           <div class=\"col-sm-4\">
@@ -76,7 +77,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                       <div class=\"form-group\">
                         <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Descripción</label>
                         <div class=\"col-sm-10\">
-                          <!-- <input type=\"password\" class=\"form-control\" id=\"inputPassword3\" placeholder=\"Password\"> --> 
                          <form method=\"post\">
                                 <textarea style=\"width: 100%;\" id=\"summernote\" name=\"editordata\"></textarea>
                         </form>
@@ -86,13 +86,15 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         <div class=\"col-sm-offset-2 col-sm-10\">
                           <button type=\"submit\" id=\"getDescription\" class=\"btn btn-default\">Guardar</button>
                         </div>
-                      </div>
+                      </div> --> 
+
+
                     </form>
                     <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
            </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 64
+        // line 66
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -111,7 +113,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  96 => 64,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  98 => 66,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -136,6 +138,8 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"dashboard-window col-md-9\">
             <a href=\"?p=feedLocal\">Atrás</a> 
                      <form class=\"form-horizontal\">
+
+                     <!-- 
                       <div class=\"form-group\">
                         <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Título</label>
                         <div class=\"col-sm-10\">
@@ -158,7 +162,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Main Img</label>
                         <div class=\"row\">
                           <div class=\"col-sm-4\">
-                            <!-- <input type=\"password\" class=\"form-control\" id=\"inputPassword3\" placeholder=\"Password\"> --> 
                             <img id=\"data-product-mainImg\" src=\"http://www.ppimusic.ie/images/loading_anim.gif\" style=\"width: 170px;\">
                           </div>
                           <div class=\"col-sm-4\">
@@ -172,7 +175,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                       <div class=\"form-group\">
                         <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Descripción</label>
                         <div class=\"col-sm-10\">
-                          <!-- <input type=\"password\" class=\"form-control\" id=\"inputPassword3\" placeholder=\"Password\"> --> 
                          <form method=\"post\">
                                 <textarea style=\"width: 100%;\" id=\"summernote\" name=\"editordata\"></textarea>
                         </form>
@@ -182,7 +184,9 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         <div class=\"col-sm-offset-2 col-sm-10\">
                           <button type=\"submit\" id=\"getDescription\" class=\"btn btn-default\">Guardar</button>
                         </div>
-                      </div>
+                      </div> --> 
+
+
                     </form>
                     <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
            </div> 

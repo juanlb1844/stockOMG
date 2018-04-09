@@ -108,9 +108,6 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             <label for=\"message-text\" class=\"col-form-label\">Meta descripción:</label>
             <textarea class=\"form-control\" id=\"formCategoryMeta\"></textarea>
           </div>
-          <div class=\"form-group\">
-            <label> <input type=\"checkbox\" name=\"\">Principal</label>
-          </div>
         </form>
       </div>
       <div class=\"modal-footer\">
@@ -135,22 +132,22 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
         <form>
           <div class=\"form-group\">
             <label for=\"recipient-name\" class=\"col-form-label\">Nombre de categoría:</label>
-            <input type=\"text\" class=\"form-control\" id=\"formCategoryName\">
+            <input type=\"text\" class=\"form-control\" id=\"editCategoryName\"> 
           </div>
           <div class=\"form-group\">
             <label for=\"message-text\" class=\"col-form-label\">Descripción:</label>
-            <textarea class=\"form-control\" id=\"formCategoryDesc\"></textarea>
+            <textarea class=\"form-control\" id=\"editCategoryDesc\"></textarea>
           </div>
           <div class=\"form-group\">
             <label for=\"message-text\" class=\"col-form-label\">Meta descripción:</label>
-            <textarea class=\"form-control\" id=\"formCategoryMeta\"></textarea>
+            <textarea class=\"form-control\" id=\"editCategoryMeta\"></textarea>
           </div>
         </form>
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\" id=\"deleteCategory\">Borrar</button>
-        <button type=\"button\" class=\"btn btn-primary\" id=\"newCategoryBtn\">Guardar</button>
+        <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
       </div>
     </div>
   </div>
@@ -159,6 +156,9 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 <style type=\"text/css\">
   .tree-categories img {
     width: 15px; 
+  }
+  .tree-categories {
+    font-size: 10px; 
   }
 </style>
 
@@ -267,9 +267,6 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             <label for=\"message-text\" class=\"col-form-label\">Meta descripción:</label>
             <textarea class=\"form-control\" id=\"formCategoryMeta\"></textarea>
           </div>
-          <div class=\"form-group\">
-            <label> <input type=\"checkbox\" name=\"\">Principal</label>
-          </div>
         </form>
       </div>
       <div class=\"modal-footer\">
@@ -294,22 +291,22 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
         <form>
           <div class=\"form-group\">
             <label for=\"recipient-name\" class=\"col-form-label\">Nombre de categoría:</label>
-            <input type=\"text\" class=\"form-control\" id=\"formCategoryName\">
+            <input type=\"text\" class=\"form-control\" id=\"editCategoryName\"> 
           </div>
           <div class=\"form-group\">
             <label for=\"message-text\" class=\"col-form-label\">Descripción:</label>
-            <textarea class=\"form-control\" id=\"formCategoryDesc\"></textarea>
+            <textarea class=\"form-control\" id=\"editCategoryDesc\"></textarea>
           </div>
           <div class=\"form-group\">
             <label for=\"message-text\" class=\"col-form-label\">Meta descripción:</label>
-            <textarea class=\"form-control\" id=\"formCategoryMeta\"></textarea>
+            <textarea class=\"form-control\" id=\"editCategoryMeta\"></textarea>
           </div>
         </form>
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\" id=\"deleteCategory\">Borrar</button>
-        <button type=\"button\" class=\"btn btn-primary\" id=\"newCategoryBtn\">Guardar</button>
+        <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
       </div>
     </div>
   </div>
@@ -318,6 +315,9 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 <style type=\"text/css\">
   .tree-categories img {
     width: 15px; 
+  }
+  .tree-categories {
+    font-size: 10px; 
   }
 </style>
 

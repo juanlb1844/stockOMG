@@ -18,12 +18,7 @@ class __TwigTemplate_0d2fc86cd111cbd9a587c58fd40e64e7bcab3694a2a28eebab05cc90e78
         // line 1
         echo "<div style=\"height: 200px; background-color: #eff3f6; padding:40px; position: relative;\">
 \t<p>
-\t\tLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-\t\ttempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-\t\tquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-\t\tconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-\t\tcillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-\t\tproident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\t\t LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG 
 \t</p>
 </div>";
     }
@@ -50,12 +45,7 @@ class __TwigTemplate_0d2fc86cd111cbd9a587c58fd40e64e7bcab3694a2a28eebab05cc90e78
     {
         return new Twig_Source("<div style=\"height: 200px; background-color: #eff3f6; padding:40px; position: relative;\">
 \t<p>
-\t\tLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-\t\ttempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-\t\tquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-\t\tconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-\t\tcillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-\t\tproident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\t\t LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG 
 \t</p>
 </div>", "footer.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\footer.html.twig");
     }

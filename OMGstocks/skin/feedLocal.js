@@ -4,8 +4,47 @@ $(document).ready( function(){
 
 		getCategories(); 
 
+		$('#editCatBtn').click(function() {
+			$.ajax({
+				url: 'controladores/getCategories.php', 
+				method: 'POST', 
+				data: {
+					idCat : dataLocalCategory.idCatSelected 
+				},
+				success: function(response) {
+					var category = JSON.parse(response); 
+					$('#editCategoryName').val(category[0].name_category); 
+					$('#editCategoryDesc').val(category[0].description_category); 
+					$('#editCategoryMeta').val(category[0].meta_description_category); 
+					//window.location.href = "?p=feedLocal"; 
+				} 
+			}); 
+		}); 
 
+		$('#editCategoryBtn').click(function() {
+			var catName = $('#editCategoryName').val(); 
+			var catDesc = $('#editCategoryDesc').val(); 
+			var catMeta = $('#editCategoryMeta').val(); 
 
+			if(catName.length < 1) {
+				alert('Dato obligatorio'); 
+				return; 
+			}
+			$.ajax({
+				url: 'controladores/editCategory.php', 
+				method: 'POST', 
+				data: {
+					catName : catName, 
+					catDesc : catDesc, 
+					catMeta : catMeta, 
+					catParent : dataLocalCategory.idCatSelected 
+				},
+				success: function(response) {
+					alert(response); 
+					window.location.href = "?p=feedLocal"; 
+				} 
+			}); 
+		}); 
 		// Feed Local Categories 
 		$('#newCategoryBtn').click(function() {
 			var catName = $('#formCategoryName').val(); 
@@ -26,7 +65,6 @@ $(document).ready( function(){
 					catParent : dataLocalCategory.idCatSelected 
 				},
 				success: function(response) {
-					//alert(response); 
 					alert(response); 
 					window.location.href = "?p=feedLocal"; 
 				} 
