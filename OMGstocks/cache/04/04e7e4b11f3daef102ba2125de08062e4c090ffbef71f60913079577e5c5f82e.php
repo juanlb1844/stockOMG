@@ -16,42 +16,41 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "
-\t\t\t   \t\t<div class=\"col-md-12\" style=\"padding: 0px;\">
-\t\t\t   \t\t\t<div class=\"row\">
-\t\t\t   \t\t\t\t<div class=\"col-md-8\" style=\"padding-left: 0px; \">
-\t\t\t   \t\t\t\t\t<h4 style=\"font-weight: bold; \">Actividad de agentes</h4> 
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t\t<div class=\"col-md-4\" style=\"padding-top: 10px;\">
-\t\t\t   \t\t\t\t\t<a href=\"\">Administrar</a>
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t</div>
-\t\t\t   \t\t\t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
-\t\t\t   \t\t\t\t<div class=\"col-md-3\">
-\t\t\t   \t\t\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid red; width: 60px; border-radius: 50%;\">
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t\t<div class=\"col-md-9\" style=\"text-align: left;\">
-\t\t\t   \t\t\t\t\t<h5 style=\"font-weight: bold;\">Alejandra Estrada</h5>
-\t\t\t   \t\t\t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t</div>
-\t\t\t   \t\t\t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
-\t\t\t   \t\t\t\t<div class=\"col-md-3\">
-\t\t\t   \t\t\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 60px; border-radius: 50%;\">
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t\t<div class=\"col-md-9\" style=\"text-align: left;\">
-\t\t\t   \t\t\t\t\t<h5 style=\"font-weight: bold;\">Fernando Iglesias</h5>
-\t\t\t   \t\t\t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t</div>
-\t\t\t   \t\t</div>
-\t\t\t   \t\t<div>
-\t\t\t   \t\t\t<div class=\"row col-md-12\" style=\"padding-top: 50px; padding-left: 0px; \">
-\t\t\t\t   \t\t\t<button class=\"btn btn-primary\" style=\"font-weight: bold; \">Registrar</button>
-\t\t\t\t   \t\t\t<button style=\"font-weight: bold;\" class=\"btn btn-default\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button>
-\t\t\t   \t\t\t</div>
-\t\t\t   \t\t</div>
-\t\t";
+        echo "<div class=\"col-md-12\" style=\"padding: 0px;\">
+\t<div class=\"row\">
+\t\t<div class=\"col-md-8\" style=\"padding-left: 0px; \">
+\t\t\t<h4 style=\"font-weight: bold; \">Actividad de agentes</h4> 
+\t\t</div>
+\t\t<div class=\"col-md-4\" style=\"padding-top: 10px;\">
+\t\t\t<a href=\"\">Administrar</a>
+\t\t</div>
+\t</div>
+\t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
+\t\t<div class=\"col-md-3\">
+\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid red; width: 60px; border-radius: 50%;\">
+\t\t</div>
+\t\t<div class=\"col-md-9\" style=\"text-align: left;\">
+\t\t\t<h5 style=\"font-weight: bold;\">Alejandra Estrada</h5>
+\t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
+\t\t</div>
+\t</div>
+\t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
+\t\t<div class=\"col-md-3\">
+\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 60px; border-radius: 50%;\">
+\t\t</div>
+\t\t<div class=\"col-md-9\" style=\"text-align: left;\">
+\t\t\t<h5 style=\"font-weight: bold;\">Fernando Iglesias</h5>
+\t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
+\t\t</div>
+\t</div>
+</div>
+<div>
+\t<div class=\"row col-md-12\" style=\"padding-top: 50px; padding-left: 0px; \">
+\t\t<button class=\"btn btn-primary\" style=\"font-weight: bold; \">Registrar</button>
+\t\t<button style=\"font-weight: bold;\" class=\"btn btn-default\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button>
+\t</div>
+</div>
+";
     }
 
     public function getTemplateName()
@@ -74,41 +73,40 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 
     public function getSourceContext()
     {
-        return new Twig_Source("
-\t\t\t   \t\t<div class=\"col-md-12\" style=\"padding: 0px;\">
-\t\t\t   \t\t\t<div class=\"row\">
-\t\t\t   \t\t\t\t<div class=\"col-md-8\" style=\"padding-left: 0px; \">
-\t\t\t   \t\t\t\t\t<h4 style=\"font-weight: bold; \">Actividad de agentes</h4> 
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t\t<div class=\"col-md-4\" style=\"padding-top: 10px;\">
-\t\t\t   \t\t\t\t\t<a href=\"\">Administrar</a>
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t</div>
-\t\t\t   \t\t\t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
-\t\t\t   \t\t\t\t<div class=\"col-md-3\">
-\t\t\t   \t\t\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid red; width: 60px; border-radius: 50%;\">
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t\t<div class=\"col-md-9\" style=\"text-align: left;\">
-\t\t\t   \t\t\t\t\t<h5 style=\"font-weight: bold;\">Alejandra Estrada</h5>
-\t\t\t   \t\t\t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t</div>
-\t\t\t   \t\t\t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
-\t\t\t   \t\t\t\t<div class=\"col-md-3\">
-\t\t\t   \t\t\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 60px; border-radius: 50%;\">
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t\t<div class=\"col-md-9\" style=\"text-align: left;\">
-\t\t\t   \t\t\t\t\t<h5 style=\"font-weight: bold;\">Fernando Iglesias</h5>
-\t\t\t   \t\t\t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
-\t\t\t   \t\t\t\t</div>
-\t\t\t   \t\t\t</div>
-\t\t\t   \t\t</div>
-\t\t\t   \t\t<div>
-\t\t\t   \t\t\t<div class=\"row col-md-12\" style=\"padding-top: 50px; padding-left: 0px; \">
-\t\t\t\t   \t\t\t<button class=\"btn btn-primary\" style=\"font-weight: bold; \">Registrar</button>
-\t\t\t\t   \t\t\t<button style=\"font-weight: bold;\" class=\"btn btn-default\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button>
-\t\t\t   \t\t\t</div>
-\t\t\t   \t\t</div>
-\t\t", "sidebar.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\sidebar.html.twig");
+        return new Twig_Source("<div class=\"col-md-12\" style=\"padding: 0px;\">
+\t<div class=\"row\">
+\t\t<div class=\"col-md-8\" style=\"padding-left: 0px; \">
+\t\t\t<h4 style=\"font-weight: bold; \">Actividad de agentes</h4> 
+\t\t</div>
+\t\t<div class=\"col-md-4\" style=\"padding-top: 10px;\">
+\t\t\t<a href=\"\">Administrar</a>
+\t\t</div>
+\t</div>
+\t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
+\t\t<div class=\"col-md-3\">
+\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid red; width: 60px; border-radius: 50%;\">
+\t\t</div>
+\t\t<div class=\"col-md-9\" style=\"text-align: left;\">
+\t\t\t<h5 style=\"font-weight: bold;\">Alejandra Estrada</h5>
+\t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
+\t\t</div>
+\t</div>
+\t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
+\t\t<div class=\"col-md-3\">
+\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 60px; border-radius: 50%;\">
+\t\t</div>
+\t\t<div class=\"col-md-9\" style=\"text-align: left;\">
+\t\t\t<h5 style=\"font-weight: bold;\">Fernando Iglesias</h5>
+\t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
+\t\t</div>
+\t</div>
+</div>
+<div>
+\t<div class=\"row col-md-12\" style=\"padding-top: 50px; padding-left: 0px; \">
+\t\t<button class=\"btn btn-primary\" style=\"font-weight: bold; \">Registrar</button>
+\t\t<button style=\"font-weight: bold;\" class=\"btn btn-default\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button>
+\t</div>
+</div>
+", "sidebar.html.twig", "C:\\xampp\\htdocs\\GIT\\OMGstock\\stockOMG\\OMGstocks\\templates\\sidebar.html.twig");
     }
 }

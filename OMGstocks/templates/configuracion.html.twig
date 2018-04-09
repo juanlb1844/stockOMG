@@ -1,0 +1,50 @@
+{% extends "layout.html.twig" %}
+
+{% block content %} 
+	{{parent()}} 
+	<div class="col-md-12">
+		<h1>Configuración</h1>
+		 <div class="export-controllers">
+		  	<button id="export-all" class="btn-sty1">EXPORTAR</button>
+		  	<button id="delete-all" class="btn-sty1">Borrar todo</button>
+		  	 <select class="form-control" id="empresa-ws">
+				<option>CVA</option>
+				<option>Tech Data</option>
+				<option>Ingram</option>
+			 </select>
+		  </div>
+		  	<!-- loading --> 
+		    <div id="loading">
+	    		<p></p>
+				<div class="container-space">
+					<span>Cargando...</span>
+					<div class="element-space">
+					</div> 
+				</div>
+		    </div>
+		    <!-- tabla CVA --> 
+				<div id="cvaDiv" style="width: 100%; overflow-x: visible;">
+					<hr>
+					<div>		
+					    <table id="example" class="display" cellspacing="0" width="100%" style="width: 100%; overflow-x: visible; font-size: 12px;">
+				      	  <thead> </thead> 
+				     	   <tbody></tbody>
+				   		 </table>
+					</div>
+				</div>
+            <!-- tabla techData --> 
+				<div id="techDataDiv" class="inactive">
+					<table id="techData" class="display" cellspacing="0" width="100%" style="font-size: 10px;">
+			      	  <thead> </thead>
+			     	   <tbody></tbody>
+			   		 </table>
+				</div>
+            <!-- tabla ingram --> 
+			   <div id="ingramDiv" class="inactive">
+					<table id="ingram" class="display table" cellspacing="0" width="100%" style="font-size: 10px;">
+			      	   <thead></thead>
+			     	   <tbody></tbody>
+			   		 </table>
+				</div> 		
+	</div>
+{% endblock %}

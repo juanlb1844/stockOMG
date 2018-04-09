@@ -7,9 +7,15 @@
 	<!-- bootstrap --> 
 	<link rel="stylesheet" type="text/css" href="skin/bootstrap/css/bootstrap.min.css">
 	<script src="skin/bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script>
-	<!-- controlador js --> 
+	<!-- datatables js --> 
+	<script type="text/javascript" src="skin/datatable1.10.16/jquery.dataTables.js"></script>
+	<link rel="stylesheet" type="text/css" href="skin/css/datatables.css">
+	<link rel="stylesheet" type="text/css" href="skin/css/dataTables.bootstrap.css">
+	<!-- controlador js / css --> 
 	<link rel="stylesheet" type="text/css" href="skin/styles.css">
 	<script type="text/javascript" src="skin/dashboard.js"></script>
+
+	<meta charset="utf-8">
 </head>
 <body>
 
@@ -20,24 +26,18 @@
 		      <a class="navbar-brand" href="#">
 		        <img style="width: 60px;" alt="OMG Stock" src="https://th.content.jobsdbcdn.com/Content/CmsContent/Logo/TH/JobsDBFiles/CompanyLogo/logo-l/9956l.png"> 
 		      </a>
-		       <p id="providers" class="option-menu navbar-text navbar-right">Proveedores</p>
-		       <p id="feed" class="option-menu navbar-text navbar-right">FEED</p>
-		       <p id="dashboard-tab" class="option-menu navbar-text navbar-right">Dashboard</p>
-		       <p id="configuration" class="option-menu navbar-text navbar-right">Configuración</p>
+		       <p id="providers" class="option-menu navbar-text navbar-right"><a href="?p=proveedores">Proveedores</a></p>
+		       <p id="feed" class="option-menu navbar-text navbar-right"><a href="?p=feedLocal">FeedLocal</a></p>
+		       <p id="dashboard-tab" class="option-menu navbar-text navbar-right"><a href="?p=dashboard">Dashboard</a></p>
+		       <p id="configuration" class="option-menu navbar-text navbar-right"><a href="?p=configuracion">Configuración</a></p>
 		    </div> 
 		  </div> 
 		</nav>
-		<div class="col-md-12">
-			<div class="col-md-9">
-				{% block content %}
-					{% block menu %}
-					{% endblock %}
-				{% endblock %}
-			</div>
-			<div class="col-md-3">
-				{{ include('sidebar.html.twig') }}
-			</div>
+		<div class="col-md-12" style="min-height: 600px; padding-bottom: 100px;">
+			{% block content %}
+			{% endblock %}
 		</div>
 	</div>
+		{{ include('footer.html.twig') }}
 </body>
 </html> 

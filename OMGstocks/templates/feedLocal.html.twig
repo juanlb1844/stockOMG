@@ -1,0 +1,126 @@
+{% extends "layout.html.twig" %}
+
+{% block content %} 
+	{{parent()}} 
+	<script type="text/javascript" src="skin/feedLocal.js"></script>
+  <link rel="stylesheet" type="text/css" href="skin/styles-feedLocal.css">
+     <div class="show-data col-md-9 hiding-window"> 
+        <div class="row col-md-3">
+            <div class="col-md-12">
+                <h4>Categorías</h4>
+                <div style="margin-bottom: 20px; ">
+                  	<button class="btn btn-primary" id="newCatBtn" data-toggle="modal" data-target="#newCat">Nueva</button>
+                    <button class="btn btn-primary" id="editCatBtn" data-toggle="modal" data-target="#eddCat">..</button>
+                </div>
+
+            </div>
+            <ul class="tree-categories"> 
+            	<li>
+            		<img style="width: 20px;" src="skin/media/folder-open.png"> Electrónicos
+            		<ul>
+            			<li id="idCat20"> 
+            				<img style="width: 20px;" src="skin/media/folder-open.png">
+            				 Laptops 
+            			</li>
+            			<li>
+            				<img style="width: 20px;" src="skin/media/folder-open.png">
+            				 Pantallas
+            			</li>
+            			<li>
+            				<img style="width: 20px;" src="skin/media/folder-open.png">
+            				 Celulares
+            			</li>
+            		</ul>
+            	</li>
+            	<li>
+            		<img style="width: 20px;" src="skin/media/folder-open.png">
+            		 Ropa
+            	</li>
+            </ul>
+        </div> 
+        <div class="row col-md-9">
+        	<h1 class="title-template">Datos del feed</h1>
+     		<div style="height: 200px;  width: 100%; margin: auto; ">            
+         		<table id="tableFeed" class="display table" cellspacing="0" width="100%" style="font-size: 10px;">
+			      	<thead></thead>
+    				<tbody></tbody>
+    		   </table>
+     		</div>
+        </div>
+    </div> 
+	<div class="col-md-3">
+		{{ include('sidebar.html.twig') }}
+	</div>
+
+
+<div class="modal fade" id="newCat" tabindex="-1" role="dialog" aria-labelledby="NuevaCategoria" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newCatLabel">Nueva categoría</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre de categoría:</label>
+            <input type="text" class="form-control" id="formCategoryName">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Descripción:</label>
+            <textarea class="form-control" id="formCategoryDesc"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Meta descripción:</label>
+            <textarea class="form-control" id="formCategoryMeta"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="newCategoryBtn">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="eddCat" tabindex="-1" role="dialog" aria-labelledby="editarCategoria" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newCatLabel">Editar categoría</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre de categoría:</label>
+            <input type="text" class="form-control" id="formCategoryName">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Descripción:</label>
+            <textarea class="form-control" id="formCategoryDesc"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Meta descripción:</label>
+            <textarea class="form-control" id="formCategoryMeta"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="deleteCategory">Borrar</button>
+        <button type="button" class="btn btn-primary" id="newCategoryBtn">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+

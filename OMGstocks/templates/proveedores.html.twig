@@ -1,0 +1,62 @@
+{% extends "layout.html.twig" %}
+
+{% block content %} 
+	{{parent()}} 
+	<div class="col-md-9">
+               <div class="tab-providers hiding-window">
+               <div style="width: 80%; margin: auto; ">
+		        <h1 style="font-weight: 300">Proveedores</h1>
+     			 <table class="table table-bordered table-striped">
+     				<thead>
+     					<tr>
+     						<th>
+     							Proveedor
+     						</th>
+     						<th>
+     							Estado
+     						</th>
+     					</tr>
+     				</thead> 
+     				<tbody>
+     					<tr>
+     						<td>
+     							CVA
+     						</td>
+     						<td style="text-align: center;">
+     							<span class="label label-success switch-provider">
+     								Activo
+     							</span>
+     						</td>
+     					</tr>
+     					<tr>
+     						<td>
+     							Tech Data
+     						</td>
+     						<td style="text-align: center;">
+     							<span class="label label-success switch-provider">
+     								Activo
+     							</span>
+     						</td>
+     					</tr>
+     					<tr>
+     						<td>
+     							Ingram Micro
+     						</td>
+     						<td style="text-align: center;">
+     							<span class="label label-success switch-provider">
+     								Activo
+     							</span>
+     						</td>
+     					</tr>
+     				</tbody>
+     			</table>
+     			<div>
+     			 <h4><a href="">Solicitar nuevo servicio</a></h4>
+     			</div>
+     		</div>
+     	</div>	
+	</div>
+	<div class="col-md-3">
+		{{ include('sidebar.html.twig') }}
+	</div>
+{% endblock %}
