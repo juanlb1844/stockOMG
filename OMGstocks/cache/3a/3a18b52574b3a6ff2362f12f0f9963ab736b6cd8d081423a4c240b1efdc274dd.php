@@ -40,7 +40,7 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
      </style>
 \t<div class=\"col-md-9\">
                <div class=\"tab-providers hiding-window\">
-               <div style=\"width: 80%; margin: auto; \">
+               <div>
 \t\t        <h2 style=\"font-weight: 300;\">Grupos de atributos</h2>
                     <div class=\"col-md-4\"> 
                          <ul class=\"tree-categories\"> 
@@ -133,7 +133,7 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
      </style>
 \t<div class=\"col-md-9\">
                <div class=\"tab-providers hiding-window\">
-               <div style=\"width: 80%; margin: auto; \">
+               <div>
 \t\t        <h2 style=\"font-weight: 300;\">Grupos de atributos</h2>
                     <div class=\"col-md-4\"> 
                          <ul class=\"tree-categories\"> 
