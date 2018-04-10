@@ -45,6 +45,15 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     .tree-categories {
       padding-left: 0px; 
     }
+    .paginate_button .current {
+      background-color: gray; 
+    }
+    input[type=\"search\"] {
+      border: none;
+    background-color: #efefef;
+    height: 30px;
+    box-shadow: #ced2f7 0px 1px 4px 0px;
+    }
   </style>
      <div class=\"show-data col-md-9 hiding-window\"> 
         <div class=\"row col-md-3\">
@@ -93,7 +102,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 65
+        // line 74
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -191,7 +200,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 
     public function getDebugInfo()
     {
-        return array (  97 => 65,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  106 => 74,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -220,6 +229,15 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     }
     .tree-categories {
       padding-left: 0px; 
+    }
+    .paginate_button .current {
+      background-color: gray; 
+    }
+    input[type=\"search\"] {
+      border: none;
+    background-color: #efefef;
+    height: 30px;
+    box-shadow: #ced2f7 0px 1px 4px 0px;
     }
   </style>
      <div class=\"show-data col-md-9 hiding-window\"> 

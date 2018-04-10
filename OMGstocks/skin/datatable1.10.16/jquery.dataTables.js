@@ -11338,7 +11338,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "Siguiente",
 	
 	
 				/**
