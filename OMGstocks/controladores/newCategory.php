@@ -2,7 +2,7 @@
 	include_once 'database.php'; 
 
 	$db = new db(); 
-
+	
 	$nameCat  = $_POST['catName'];
 	$nameDesc = $_POST['catDesc'];
 	$nameMeta = $_POST['catMeta']; 
@@ -17,3 +17,4 @@
    			echo 'Error'; 
    		}
 	 mysqli_close($db); 
+
