@@ -48,7 +48,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t      <a class=\"navbar-brand\" href=\"#\">
 \t\t        <img style=\"width: 60px;\" alt=\"OMG Stock\" src=\"https://th.content.jobsdbcdn.com/Content/CmsContent/Logo/TH/JobsDBFiles/CompanyLogo/logo-l/9956l.png\"> 
 \t\t      </a>
-\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a style=\"color:red;\" href=\"?p=grupos_atributos\">Grupos de atributos</a></p>
+\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a style=\"color:black;\" href=\"?p=grupos_atributos\">Grupos de atributos</a></p>
 \t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=proveedores\">Proveedores</a></p>
 \t\t       <p id=\"feed\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=feedLocal\">FeedLocal</a></p>
 \t\t       <p id=\"dashboard-tab\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=dashboard\">Dashboard</a></p>
@@ -131,7 +131,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t      <a class=\"navbar-brand\" href=\"#\">
 \t\t        <img style=\"width: 60px;\" alt=\"OMG Stock\" src=\"https://th.content.jobsdbcdn.com/Content/CmsContent/Logo/TH/JobsDBFiles/CompanyLogo/logo-l/9956l.png\"> 
 \t\t      </a>
-\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a style=\"color:red;\" href=\"?p=grupos_atributos\">Grupos de atributos</a></p>
+\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a style=\"color:black;\" href=\"?p=grupos_atributos\">Grupos de atributos</a></p>
 \t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=proveedores\">Proveedores</a></p>
 \t\t       <p id=\"feed\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=feedLocal\">FeedLocal</a></p>
 \t\t       <p id=\"dashboard-tab\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=dashboard\">Dashboard</a></p>
@@ -146,6 +146,6 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t</div>
 \t\t{{ include('footer.html.twig') }}
 </body>
-</html> ", "layout.html.twig", "C:\\xampp\\htdocs\\GIT\\OMGstock\\stockOMG\\OMGstocks\\templates\\layout.html.twig");
+</html> ", "layout.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\layout.html.twig");
     }
 }
