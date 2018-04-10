@@ -30,12 +30,28 @@ $(document).ready(function(){
 			  $('#summernote').summernote('code', description); */ 
 
 			  for( x in productData ){  
-					  $('.attributes_product').append( '<div class="form-group">'+ 
-					                        '<label for="inputEmail3" class="col-sm-2 control-label">'+productData[x].type_attr+'</label>' + 
-					                        ' <div class="col-sm-10">' + 
-					                          ' <input type="input" id="data-product-name" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control" name="">' + 
-					                        ' </div> ' + 
-					                      ' </div> '); 
+			  		  if( productData[x].type_attr == 'short_description' ) {
+			  		  		$('.attributes_product').append('<div class="form-group">' + 
+		                        ' <label for="inputPassword3" class="col-sm-2 control-label">Descripción</label>' + 
+		                        ' <div class="col-sm-10"> ' + 
+		                         ' <form method="post"> ' + 
+		                                ' <textarea style="width: 100%;" id="summernote" name="editordata"></textarea>' + 
+		                         ' </form>' + 
+		                        ' </div> ' + 
+		                       ' </div>'); 
+			  		  		$('#summernote').summernote({
+								 	height : 200
+								});
+			  		  		var description = productData[x].value_attr; 
+			  				$('#summernote').summernote('code', description);  
+			  		  } else {
+						  $('.attributes_product').append( '<div class="form-group">'+ 
+		                        '<label for="inputEmail3" class="col-sm-2 control-label">'+productData[x].type_attr+'</label>' + 
+		                        ' <div class="col-sm-10">' + 
+		                          ' <input type="input" id="data-product-name" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control" name="">' + 
+		                        ' </div> ' + 
+		                      ' </div> '); 
+			  		  }
 					}
 	 	}
 	 });

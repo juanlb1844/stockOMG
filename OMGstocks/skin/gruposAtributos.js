@@ -18,4 +18,13 @@ $(document).ready( function() {
 		 	}
 		 });
 
+		 $('.tree-categories').click(function(event){
+			$('.tree-categories li').css('font-weight', '400'); 
+			console.log($(event.target).css('font-weight', 'bold'));
+			$(event.target).addClass('selected-category');
+			var cadIdCat = $(event.target).attr('id');
+			cadIdCat = cadIdCat.substr( 5, cadIdCat.length );  
+			dataLocalCategory.idCatSelected = cadIdCat;  
+			//alert( cadIdCat );	
+		});
 }); 
