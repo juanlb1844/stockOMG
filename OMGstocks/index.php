@@ -41,6 +41,9 @@ switch ($page) {
   break;
   case 'producto': 
     echo $twig->render('producto.html.twig'); 
+  break;  
+  case 'grupos_atributos': 
+    echo $twig->render('gruposAtributos.html.twig'); 
   break;   
 }
 

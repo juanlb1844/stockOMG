@@ -30,7 +30,7 @@ $(document).ready(function(){
 			  $('#summernote').summernote('code', description); */ 
 
 			  for( x in productData ){  
-					  $('.form-horizontal').append( '<div class="form-group">'+ 
+					  $('.attributes_product').append( '<div class="form-group">'+ 
 					                        '<label for="inputEmail3" class="col-sm-2 control-label">'+productData[x].type_attr+'</label>' + 
 					                        ' <div class="col-sm-10">' + 
 					                          ' <input type="input" id="data-product-name" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control" name="">' + 

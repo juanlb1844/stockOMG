@@ -1,0 +1,58 @@
+{% extends "layout.html.twig" %}
+
+{% block content %} 
+	{{parent()}} 
+     <script type="text/javascript" src="skin/gruposAtributos.js"></script>
+	<div class="col-md-9">
+               <div class="tab-providers hiding-window">
+               <div style="width: 80%; margin: auto; ">
+		        <h2 style="font-weight: 300;">Grupos de atributos</h2>
+                    <div class="col-md-4"> 
+                         <ul class="tree-categories"> 
+                              <li>
+                                   <img style="width: 20px;" src="skin/media/folder-open.png"> Electrónicos
+                                   <ul>
+                                        <li id="idCat20"> 
+                                             <img style="width: 20px;" src="skin/media/folder-open.png">
+                                              Laptops 
+                                        </li>
+                                        <li>
+                                             <img style="width: 20px;" src="skin/media/folder-open.png">
+                                              Pantallas
+                                        </li>
+                                        <li>
+                                             <img style="width: 20px;" src="skin/media/folder-open.png">
+                                              Celulares
+                                        </li>
+                                   </ul>
+                              </li>
+                              <li>
+                                   <img style="width: 20px;" src="skin/media/folder-open.png">
+                                    Ropa
+                              </li>
+                         </ul>
+                    </div>
+                    <div class="col-md-8">
+                              <div class="bs-example" data-example-id="striped-table">
+                                   <table class="table table-striped"> 
+                                        <thead> 
+                                             <tr> 
+                                                  <th>#</th> 
+                                                  <th>default_attr</th> 
+                                                  <th>type_attr</th> 
+                                                  <th>ID</th>
+                                             </tr> 
+                                        </thead> 
+                                        <tbody class="attributes"> 
+                                        </tbody> 
+                                   </table> 
+                                   <button class="btn btn-primary">Agregar</button>
+                              </div>
+                    </div>
+     		</div>
+     	</div>	
+	</div>
+	<div class="col-md-3">
+		{{ include('sidebar.html.twig') }}
+	</div>
+{% endblock %}

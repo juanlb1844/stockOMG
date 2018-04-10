@@ -9,7 +9,10 @@
 
             <div class="dashboard-window col-md-9">
             <a href="?p=feedLocal">Atrás</a> 
-                     <form class="form-horizontal">
+
+                     
+                            
+                     <form class="form-horizontal attributes_product">
 
                      <!-- 
                       <div class="form-group">
@@ -57,9 +60,19 @@
                           <button type="submit" id="getDescription" class="btn btn-default">Guardar</button>
                         </div>
                       </div> --> 
-
-
                     </form>
+
+                    <div class="form-horizontal">
+                         <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Categorías</label>
+                        <div class="col-sm-4">
+                          <select class="form-control">
+                            <option>Laptops</option>
+                          </select>
+                        </div>
+                      </div>
+                     </div>
+
                     <div data-bind="component: {name: 'dashboard-grid', params: $data}"></div>
            </div> 
 	<div class="col-md-3">

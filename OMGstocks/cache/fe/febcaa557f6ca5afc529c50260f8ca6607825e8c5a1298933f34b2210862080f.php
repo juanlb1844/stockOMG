@@ -39,7 +39,10 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
             <div class=\"dashboard-window col-md-9\">
             <a href=\"?p=feedLocal\">Atrás</a> 
-                     <form class=\"form-horizontal\">
+
+                     
+                            
+                     <form class=\"form-horizontal attributes_product\">
 
                      <!-- 
                       <div class=\"form-group\">
@@ -87,14 +90,24 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                           <button type=\"submit\" id=\"getDescription\" class=\"btn btn-default\">Guardar</button>
                         </div>
                       </div> --> 
-
-
                     </form>
+
+                    <div class=\"form-horizontal\">
+                         <div class=\"form-group\">
+                        <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Categorías</label>
+                        <div class=\"col-sm-4\">
+                          <select class=\"form-control\">
+                            <option>Laptops</option>
+                          </select>
+                        </div>
+                      </div>
+                     </div>
+
                     <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
            </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 66
+        // line 79
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -113,7 +126,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  98 => 66,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  111 => 79,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -137,7 +150,10 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
             <div class=\"dashboard-window col-md-9\">
             <a href=\"?p=feedLocal\">Atrás</a> 
-                     <form class=\"form-horizontal\">
+
+                     
+                            
+                     <form class=\"form-horizontal attributes_product\">
 
                      <!-- 
                       <div class=\"form-group\">
@@ -185,9 +201,19 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                           <button type=\"submit\" id=\"getDescription\" class=\"btn btn-default\">Guardar</button>
                         </div>
                       </div> --> 
-
-
                     </form>
+
+                    <div class=\"form-horizontal\">
+                         <div class=\"form-group\">
+                        <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Categorías</label>
+                        <div class=\"col-sm-4\">
+                          <select class=\"form-control\">
+                            <option>Laptops</option>
+                          </select>
+                        </div>
+                      </div>
+                     </div>
+
                     <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
            </div> 
 \t<div class=\"col-md-3\">

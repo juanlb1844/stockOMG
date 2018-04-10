@@ -1,19 +1,33 @@
-{% extends "layout.html.twig" %}
+ {% extends "layout.html.twig" %}
 
 {% block content %} 
 	{{parent()}} 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.3.0/gridstack.min.css"/>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.3.0/gridstack.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.3.0/gridstack.jQueryUI.min.js'></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <!-- <script type="text/javascript" src="skin/graphs.js"></script> --> 
+
 	<div class="col-md-9">
 		<h1 class="title-template">Dashbard</h1>
-		 <h1 style="font-weight: 100;">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		 </h1>		
+			
+
+			        <div style="padding-left: 10px;">
+       					<h2 style="font-weight: 300; letter-spacing: 5px;
+    color: #337ab7;">Estadisticas de cuenta</h2> 
+			            <!--<button class="btn btn-default btn-sty1" id="addWidget" data-bind="click: addNewWidget">Añadir Indicador</button>--> 
+			        </div>
+
+			        <div data-bind="component: {name: 'dashboard-grid', params: $data}"></div>
+
+
 	</div>
 	<div class="col-md-3">
 		{{ include('sidebar.html.twig') }}
 	</div>
+
+	
 {% endblock %}
