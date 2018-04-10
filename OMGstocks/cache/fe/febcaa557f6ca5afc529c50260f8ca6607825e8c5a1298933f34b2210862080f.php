@@ -101,13 +101,18 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                           </select>
                         </div>
                       </div>
+                       <div class=\"form-group\">
+                        <div class=\"col-sm-offset-2 col-sm-10\">
+                          <button type=\"submit\" id=\"saveProduct\" class=\"btn btn-primary\">Guardar</button>
+                        </div>
+                       </div>
                      </div>
 
-                    <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
+
            </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 79
+        // line 84
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -126,7 +131,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  111 => 79,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  116 => 84,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -212,9 +217,14 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                           </select>
                         </div>
                       </div>
+                       <div class=\"form-group\">
+                        <div class=\"col-sm-offset-2 col-sm-10\">
+                          <button type=\"submit\" id=\"saveProduct\" class=\"btn btn-primary\">Guardar</button>
+                        </div>
+                       </div>
                      </div>
 
-                    <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
+
            </div> 
 \t<div class=\"col-md-3\">
 \t\t{{ include('sidebar.html.twig') }}

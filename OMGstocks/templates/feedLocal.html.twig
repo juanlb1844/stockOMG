@@ -4,6 +4,18 @@
 	{{parent()}} 
 	<script type="text/javascript" src="skin/feedLocal.js"></script>
   <link rel="stylesheet" type="text/css" href="skin/styles-feedLocal.css">
+  <style type="text/css">
+    ul {
+      list-style: none; 
+    }
+    li {
+      border-left: 1px solid gray;  
+      padding-left: 2px; 
+    }
+    .tree-categories {
+      padding-left: 0px; 
+    }
+  </style>
      <div class="show-data col-md-9 hiding-window"> 
         <div class="row col-md-3">
             <div class="col-md-12">
@@ -13,29 +25,31 @@
                     <button class="btn btn-primary" id="editCatBtn" data-toggle="modal" data-target="#eddCat">..</button>
                 </div>
             </div>
-            <ul class="tree-categories"> 
-            	<li>
-            		<img style="width: 20px;" src="skin/media/folder-open.png"> Electrónicos
-            		<ul>
-            			<li id="idCat20"> 
-            				<img style="width: 20px;" src="skin/media/folder-open.png">
-            				 Laptops 
-            			</li>
-            			<li>
-            				<img style="width: 20px;" src="skin/media/folder-open.png">
-            				 Pantallas
-            			</li>
-            			<li>
-            				<img style="width: 20px;" src="skin/media/folder-open.png">
-            				 Celulares
-            			</li>
-            		</ul>
-            	</li>
-            	<li>
-            		<img style="width: 20px;" src="skin/media/folder-open.png">
-            		 Ropa
-            	</li>
-            </ul>
+            <div class="col-md-12">
+              <ul class="tree-categories"> 
+              	<li>
+              		<img style="width: 20px;" src="skin/media/folder-open.png"> Electrónicos
+              		<ul>
+              			<li id="idCat20"> 
+              				<img style="width: 20px;" src="skin/media/folder-open.png">
+              				 Laptops 
+              			</li>
+              			<li>
+              				<img style="width: 20px;" src="skin/media/folder-open.png">
+              				 Pantallas
+              			</li>
+              			<li>
+              				<img style="width: 20px;" src="skin/media/folder-open.png">
+              				 Celulares
+              			</li>
+              		</ul>
+              	</li>
+              	<li>
+              		<img style="width: 20px;" src="skin/media/folder-open.png">
+              		 Ropa
+              	</li>
+              </ul>
+            </div>
         </div> 
         <div class="row col-md-9">
         	<h1 class="title-template">Datos del feed</h1>
