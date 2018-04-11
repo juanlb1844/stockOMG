@@ -27,7 +27,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t</div>
 \t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
 \t\t<div class=\"col-md-3\">
-\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid red; width: 60px; border-radius: 50%;\">
+\t\t\t<img src=\"media/users/user-1.png\" style=\"border: 2px solid red; width: 60px; border-radius: 50%;\">
 \t\t</div>
 \t\t<div class=\"col-md-9\" style=\"text-align: left;\">
 \t\t\t<h5 style=\"font-weight: bold;\">Alejandra Estrada</h5>
@@ -36,7 +36,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t</div>
 \t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
 \t\t<div class=\"col-md-3\">
-\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 60px; border-radius: 50%;\">
+\t\t\t<img src=\"media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 60px; border-radius: 50%;\">
 \t\t</div>
 \t\t<div class=\"col-md-9\" style=\"text-align: left;\">
 \t\t\t<h5 style=\"font-weight: bold;\">Cristina Rendón</h5>
@@ -84,7 +84,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t</div>
 \t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
 \t\t<div class=\"col-md-3\">
-\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid red; width: 60px; border-radius: 50%;\">
+\t\t\t<img src=\"media/users/user-1.png\" style=\"border: 2px solid red; width: 60px; border-radius: 50%;\">
 \t\t</div>
 \t\t<div class=\"col-md-9\" style=\"text-align: left;\">
 \t\t\t<h5 style=\"font-weight: bold;\">Alejandra Estrada</h5>
@@ -93,7 +93,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t</div>
 \t<div class=\"container-notifer row\" style=\" padding: 0px; border-radius: 4px; background-color: #eff3f6; padding: 5px 10px; padding-top: 10px;\">
 \t\t<div class=\"col-md-3\">
-\t\t\t<img src=\"https://www.laptopmexico.mx/app-ws/media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 60px; border-radius: 50%;\">
+\t\t\t<img src=\"media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 60px; border-radius: 50%;\">
 \t\t</div>
 \t\t<div class=\"col-md-9\" style=\"text-align: left;\">
 \t\t\t<h5 style=\"font-weight: bold;\">Cristina Rendón</h5>

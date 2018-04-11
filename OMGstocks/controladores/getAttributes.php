@@ -5,13 +5,7 @@
 	
 	$idCat = isset($_POST['idCat']) ? $_POST['idCat'] : 0; 
 
-	$query = "SELECT CAT.name_category, ATT.name_attribute FROM 
-	category AS CAT 
-		INNER JOIN group_attribute AS GA
-			ON CAT.id_category = GA.id_category 
-				INNER JOIN attribute AS ATT
-					ON GA.id_attribute = ATT.id_attribute  
-				WHERE CAT.id_category = 32"; 
+	$query = "SELECT id_attribute, name_attribute, type_value FROM attribute;"; 
 
 	if ($resultado = mysqli_query($db, $query)) {
     	if ($resultado->num_rows > 0) {
