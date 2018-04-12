@@ -6,13 +6,13 @@
 	
 	$idCat = $_POST['idCat']; 
 
-	$query = "SELECT CAT.name_category, ATT.name_attribute, ATT.type_value FROM 
+	$query = "SELECT GA.id_attribute, CAT.name_category, ATT.name_attribute, ATT.type_value FROM 
 	category AS CAT 
 		INNER JOIN group_attribute AS GA
 			ON CAT.id_category = GA.id_category 
 				INNER JOIN attribute AS ATT
 					ON GA.id_attribute = ATT.id_attribute  
-				WHERE CAT.id_category = $idCat"; 
+				WHERE CAT.id_category = $idCat ORDER BY GA.id_attribute DESC"; 
 
 	if ($resultado = mysqli_query($db, $query)) {
     	if ($resultado->num_rows > 0) {

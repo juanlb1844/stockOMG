@@ -54,6 +54,12 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
           ul img {
                width: 15px; 
           }
+          .line-switch:hover {
+            cursor: pointer;
+          }
+          table:hover {
+            cursor: pointer;
+          }
      </style>
 \t<div class=\"col-md-9\">
                <div class=\"tab-providers hiding-window\">
@@ -102,13 +108,14 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
                                    <h4 style=\"font-weight: 400;\">Atributos globales</h4>
                               </div>
                               <div class=\"bs-example\" data-example-id=\"striped-table\">
-                                   <table class=\"table table-striped\"> 
+                                   <table class=\"table table-striped table-hover\"> 
                                         <thead> 
                                              <tr> 
                                                   <th>#</th> 
                                                   <th>default_attr</th> 
                                                   <th>type_attr</th> 
                                                   <th>att_type</th>
+                                                  <th>id_attr</th>
                                              </tr> 
                                         </thead> 
                                         <tbody class=\"attributes\"> 
@@ -121,11 +128,38 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 93
+        // line 100
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
 
+<style type=\"text/css\">
+  .line-switch {
+    text-align: center;
+    width: 35px;
+    height: 10px;
+    display: inline-block;
+    background-color: gray;
+    border-radius: 4px;
+}
+.bullet-switch {
+    transition-property: all;
+    transition-duration: .2s;
+    width: 20px;
+    top: -5px;
+    left: -7px;
+    position: relative;
+    height: 20px;
+    display: inline-block;
+    background-color: #CCDDCC;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.title-action-attr {
+  font-size: 15px; display: block; padding-bottom: 7px;
+}
+.active-switch { background-color: #5ACC5A; left: 7px; transition-property: all; transition-duration: .2s; }
+</style>
 
 <!-- modal nuevo atributo --> 
  <div class=\"modal fade\" id=\"newAttribute\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"newAttribute\" aria-hidden=\"true\">
@@ -137,33 +171,46 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
           <span aria-hidden=\"true\">&times;</span>
         </button>
       </div>
-      <div class=\"modal-body\">
-        <form>
+      <div class=\"modal-body\"> 
           <div class=\"form-group\">
-               <div class=\"col-sm-6\">
+               <div class=\"col-sm-5\">
                     <label  for=\"recipient-name\" class=\"col-form-label\"><input style=\"margin-right: 15px;\" type=\"checkbox\" name=\"\"> Atributo GLOBAL (todas las categorías):</label>
                </div>
-               <div class=\"col-sm-6\">
+                <div class=\"col-sm-3\">
+                      <div class=\"col-md-3 row\"> 
+                        <div style=\"position: absolute; display: inline-block; text-align: center; width: 200px; padding-top: 20px;\"> 
+                        <span class=\"title-action-attr\">Seleccionar</span>
+                            <span class=\"line-switch\">
+                              <span class=\"bullet-switch active-switch\"></span>
+                            </span>
+                        </div>
+                      </div>               
+                </div>
+               <div class=\"col-sm-4\">
                     <label for=\"recipient-name\" class=\"col-form-label\">Atributos existentes:</label>
                     <select id=\"selectAttribute\" class=\"form-control selectpicker\" data-live-search=\"true\">
                     </select>
                </div>
           </div>
+        <form class=\"form-attribute\">
           <div class=\"form-group\">
             <label for=\"recipient-name\" class=\"col-form-label\">Nombre del attributo:</label>
-            <input type=\"text\" placeholder=\"Nombre del atributo\" class=\"form-control\" id=\"nameAttribute\"> 
+            <input disabled type=\"text\" placeholder=\"Nombre del atributo\" class=\"form-control\" id=\"nameAttribute\"> 
           </div>
           <div class=\"form-group\">
             <label for=\"recipient-name\" class=\"col-form-label\">Tipo:</label>
-            <select class=\"form-control\" id=\"attributeType\">
-                    <option> int </option>
-                    <option> varchar </option>
-                    <option> text </option>
+            <select disabled class=\"form-control\" id=\"attributeType\">
+                    <option value=\"int\"> int </option>
+                    <option value=\"varchar\"> varchar </option>
+                    <option value=\"text\"> text </option>
+                    <option value=\"double\"> double </option>
+                    <option value=\"img\"> img </option>
+                    <option value=\"int\"> int </option>
             </select>
           </div>
           <div class=\"form-group\">
             <label for=\"recipient-name\" class=\"col-form-label\">Valor por defecto:</label>
-            <input placeholder=\"Valor por defecto\" type=\"text\" class=\"form-control\" id=\"editCategoryName\"> 
+            <input disabled placeholder=\"Valor por defecto\" type=\"text\" class=\"form-control\" id=\"defaultValue\"> 
           </div>
         </form>
       </div>
@@ -174,6 +221,50 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
     </div>
   </div>
 </div>
+
+
+
+<!-- editar / borrar atributo --> 
+
+
+<div class=\"modal fade\" id=\"editAttribute\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\" role=\"document\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Editar atributo</h5>
+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+          <span aria-hidden=\"true\">&times;</span>
+        </button>
+      </div>
+      <div class=\"modal-body\">
+        <form>
+          <div class=\"form-group\">
+            <label for=\"recipient-name\" class=\"col-form-label\">Nombre:</label>
+            <input type=\"text\" class=\"form-control\" id=\"recipient-name\">
+          </div>
+          <div class=\"form-group\">
+            <label for=\"message-text\" class=\"col-form-label\">Tipo de dato:</label>
+            <select class=\"form-control\">
+                <option>text</option>
+                <option>int</option>
+                <option>varchar</option>
+                <option>double</option>
+            </select>
+          </div>
+          <div class=\"form-group\">
+            <label for=\"recipient-name\" class=\"col-form-label\">Valor por defecto:</label>
+            <input type=\"text\" class=\"form-control\" id=\"recipient-name\">
+          </div>
+        </form>
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+        <button type=\"button\" class=\"btn btn-primary\">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 ";
     }
@@ -190,7 +281,7 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
 
     public function getDebugInfo()
     {
-        return array (  125 => 93,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  132 => 100,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -229,6 +320,12 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
           ul img {
                width: 15px; 
           }
+          .line-switch:hover {
+            cursor: pointer;
+          }
+          table:hover {
+            cursor: pointer;
+          }
      </style>
 \t<div class=\"col-md-9\">
                <div class=\"tab-providers hiding-window\">
@@ -277,13 +374,14 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
                                    <h4 style=\"font-weight: 400;\">Atributos globales</h4>
                               </div>
                               <div class=\"bs-example\" data-example-id=\"striped-table\">
-                                   <table class=\"table table-striped\"> 
+                                   <table class=\"table table-striped table-hover\"> 
                                         <thead> 
                                              <tr> 
                                                   <th>#</th> 
                                                   <th>default_attr</th> 
                                                   <th>type_attr</th> 
                                                   <th>att_type</th>
+                                                  <th>id_attr</th>
                                              </tr> 
                                         </thead> 
                                         <tbody class=\"attributes\"> 
@@ -298,6 +396,33 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
 \t\t{{ include('sidebar.html.twig') }}
 \t</div>
 
+<style type=\"text/css\">
+  .line-switch {
+    text-align: center;
+    width: 35px;
+    height: 10px;
+    display: inline-block;
+    background-color: gray;
+    border-radius: 4px;
+}
+.bullet-switch {
+    transition-property: all;
+    transition-duration: .2s;
+    width: 20px;
+    top: -5px;
+    left: -7px;
+    position: relative;
+    height: 20px;
+    display: inline-block;
+    background-color: #CCDDCC;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.title-action-attr {
+  font-size: 15px; display: block; padding-bottom: 7px;
+}
+.active-switch { background-color: #5ACC5A; left: 7px; transition-property: all; transition-duration: .2s; }
+</style>
 
 <!-- modal nuevo atributo --> 
  <div class=\"modal fade\" id=\"newAttribute\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"newAttribute\" aria-hidden=\"true\">
@@ -309,33 +434,46 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
           <span aria-hidden=\"true\">&times;</span>
         </button>
       </div>
-      <div class=\"modal-body\">
-        <form>
+      <div class=\"modal-body\"> 
           <div class=\"form-group\">
-               <div class=\"col-sm-6\">
+               <div class=\"col-sm-5\">
                     <label  for=\"recipient-name\" class=\"col-form-label\"><input style=\"margin-right: 15px;\" type=\"checkbox\" name=\"\"> Atributo GLOBAL (todas las categorías):</label>
                </div>
-               <div class=\"col-sm-6\">
+                <div class=\"col-sm-3\">
+                      <div class=\"col-md-3 row\"> 
+                        <div style=\"position: absolute; display: inline-block; text-align: center; width: 200px; padding-top: 20px;\"> 
+                        <span class=\"title-action-attr\">Seleccionar</span>
+                            <span class=\"line-switch\">
+                              <span class=\"bullet-switch active-switch\"></span>
+                            </span>
+                        </div>
+                      </div>               
+                </div>
+               <div class=\"col-sm-4\">
                     <label for=\"recipient-name\" class=\"col-form-label\">Atributos existentes:</label>
                     <select id=\"selectAttribute\" class=\"form-control selectpicker\" data-live-search=\"true\">
                     </select>
                </div>
           </div>
+        <form class=\"form-attribute\">
           <div class=\"form-group\">
             <label for=\"recipient-name\" class=\"col-form-label\">Nombre del attributo:</label>
-            <input type=\"text\" placeholder=\"Nombre del atributo\" class=\"form-control\" id=\"nameAttribute\"> 
+            <input disabled type=\"text\" placeholder=\"Nombre del atributo\" class=\"form-control\" id=\"nameAttribute\"> 
           </div>
           <div class=\"form-group\">
             <label for=\"recipient-name\" class=\"col-form-label\">Tipo:</label>
-            <select class=\"form-control\" id=\"attributeType\">
-                    <option> int </option>
-                    <option> varchar </option>
-                    <option> text </option>
+            <select disabled class=\"form-control\" id=\"attributeType\">
+                    <option value=\"int\"> int </option>
+                    <option value=\"varchar\"> varchar </option>
+                    <option value=\"text\"> text </option>
+                    <option value=\"double\"> double </option>
+                    <option value=\"img\"> img </option>
+                    <option value=\"int\"> int </option>
             </select>
           </div>
           <div class=\"form-group\">
             <label for=\"recipient-name\" class=\"col-form-label\">Valor por defecto:</label>
-            <input placeholder=\"Valor por defecto\" type=\"text\" class=\"form-control\" id=\"editCategoryName\"> 
+            <input disabled placeholder=\"Valor por defecto\" type=\"text\" class=\"form-control\" id=\"defaultValue\"> 
           </div>
         </form>
       </div>
@@ -347,7 +485,51 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
   </div>
 </div>
 
+
+
+<!-- editar / borrar atributo --> 
+
+
+<div class=\"modal fade\" id=\"editAttribute\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\" role=\"document\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Editar atributo</h5>
+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+          <span aria-hidden=\"true\">&times;</span>
+        </button>
+      </div>
+      <div class=\"modal-body\">
+        <form>
+          <div class=\"form-group\">
+            <label for=\"recipient-name\" class=\"col-form-label\">Nombre:</label>
+            <input type=\"text\" class=\"form-control\" id=\"recipient-name\">
+          </div>
+          <div class=\"form-group\">
+            <label for=\"message-text\" class=\"col-form-label\">Tipo de dato:</label>
+            <select class=\"form-control\">
+                <option>text</option>
+                <option>int</option>
+                <option>varchar</option>
+                <option>double</option>
+            </select>
+          </div>
+          <div class=\"form-group\">
+            <label for=\"recipient-name\" class=\"col-form-label\">Valor por defecto:</label>
+            <input type=\"text\" class=\"form-control\" id=\"recipient-name\">
+          </div>
+        </form>
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
+        <button type=\"button\" class=\"btn btn-primary\">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
-", "gruposAtributos.html.twig", "C:\\xampp\\htdocs\\GIT\\OMGstock\\stockOMG\\OMGstocks\\templates\\gruposAtributos.html.twig");
+", "gruposAtributos.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\gruposAtributos.html.twig");
     }
 }

@@ -6,7 +6,6 @@
 
 	echo count( $productData ); 
 
-
 	foreach ($productData as $key => $value) {
 		$db = new db();  
 		$valueAttr = $value['localValue']; 

@@ -5,7 +5,9 @@
 	
 	$idCat = isset($_POST['idCat']) ? $_POST['idCat'] : 0; 
 
-	$query = "SELECT id_attribute, name_attribute, type_value FROM attribute;"; 
+	$query = "SELECT id_attribute, name_attribute, type_value, default_value 
+				FROM attribute 
+					ORDER BY id_attribute DESC;"; 
 
 	if ($resultado = mysqli_query($db, $query)) {
     	if ($resultado->num_rows > 0) {
