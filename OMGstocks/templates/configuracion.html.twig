@@ -2,11 +2,15 @@
 
 {% block content %} 
 	{{parent()}} 
+	<script type="text/javascript" src="skin/configuracion.js"></script>
 	<div class="col-md-12">
 		<h1>Configuración</h1>
 		 <div class="export-controllers">
-		  	<button id="export-all" class="btn-sty1">EXPORTAR</button>
-		  	<button id="delete-all" class="btn-sty1">Borrar todo</button>
+		 	<div class="form">
+			  	<button id="export-all" class="btn btn-default">EXPORTAR</button>
+			  	<button id="delete-all" class="btn btn-default">Borrar todo</button>
+		 	</div>
+		  	<br> 
 		  	 <select class="form-control" id="empresa-ws">
 				<option>CVA</option>
 				<option>Tech Data</option>
@@ -25,15 +29,17 @@
 		    <!-- tabla CVA --> 
 				<div id="cvaDiv" style="width: 100%; overflow-x: visible;">
 					<hr>
+					<h2>CVA</h2>
 					<div>		
 					    <table id="example" class="display" cellspacing="0" width="100%" style="width: 100%; overflow-x: visible; font-size: 12px;">
-				      	  <thead> </thead> 
+				      	  <thead></thead> 
 				     	   <tbody></tbody>
 				   		 </table>
 					</div>
 				</div>
             <!-- tabla techData --> 
 				<div id="techDataDiv" class="inactive">
+					<h2>TechData</h2>
 					<table id="techData" class="display" cellspacing="0" width="100%" style="font-size: 10px;">
 			      	  <thead> </thead>
 			     	   <tbody></tbody>
@@ -41,6 +47,7 @@
 				</div>
             <!-- tabla ingram --> 
 			   <div id="ingramDiv" class="inactive">
+			   		<h2>Ingram</h2>
 					<table id="ingram" class="display table" cellspacing="0" width="100%" style="font-size: 10px;">
 			      	   <thead></thead>
 			     	   <tbody></tbody>

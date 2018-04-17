@@ -32,11 +32,15 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
         // line 4
         $this->displayParentBlock("content", $context, $blocks);
         echo " 
+\t<script type=\"text/javascript\" src=\"skin/configuracion.js\"></script>
 \t<div class=\"col-md-12\">
 \t\t<h1>Configuración</h1>
 \t\t <div class=\"export-controllers\">
-\t\t  \t<button id=\"export-all\" class=\"btn-sty1\">EXPORTAR</button>
-\t\t  \t<button id=\"delete-all\" class=\"btn-sty1\">Borrar todo</button>
+\t\t \t<div class=\"form\">
+\t\t\t  \t<button id=\"export-all\" class=\"btn btn-default\">EXPORTAR</button>
+\t\t\t  \t<button id=\"delete-all\" class=\"btn btn-default\">Borrar todo</button>
+\t\t \t</div>
+\t\t  \t<br> 
 \t\t  \t <select class=\"form-control\" id=\"empresa-ws\">
 \t\t\t\t<option>CVA</option>
 \t\t\t\t<option>Tech Data</option>
@@ -55,15 +59,17 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t    <!-- tabla CVA --> 
 \t\t\t\t<div id=\"cvaDiv\" style=\"width: 100%; overflow-x: visible;\">
 \t\t\t\t\t<hr>
+\t\t\t\t\t<h2>CVA</h2>
 \t\t\t\t\t<div>\t\t
 \t\t\t\t\t    <table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"100%\" style=\"width: 100%; overflow-x: visible; font-size: 12px;\">
-\t\t\t\t      \t  <thead> </thead> 
+\t\t\t\t      \t  <thead></thead> 
 \t\t\t\t     \t   <tbody></tbody>
 \t\t\t\t   \t\t </table>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
             <!-- tabla techData --> 
 \t\t\t\t<div id=\"techDataDiv\" class=\"inactive\">
+\t\t\t\t\t<h2>TechData</h2>
 \t\t\t\t\t<table id=\"techData\" class=\"display\" cellspacing=\"0\" width=\"100%\" style=\"font-size: 10px;\">
 \t\t\t      \t  <thead> </thead>
 \t\t\t     \t   <tbody></tbody>
@@ -71,6 +77,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t\t</div>
             <!-- tabla ingram --> 
 \t\t\t   <div id=\"ingramDiv\" class=\"inactive\">
+\t\t\t   \t\t<h2>Ingram</h2>
 \t\t\t\t\t<table id=\"ingram\" class=\"display table\" cellspacing=\"0\" width=\"100%\" style=\"font-size: 10px;\">
 \t\t\t      \t   <thead></thead>
 \t\t\t     \t   <tbody></tbody>
@@ -109,11 +116,15 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 
 {% block content %} 
 \t{{parent()}} 
+\t<script type=\"text/javascript\" src=\"skin/configuracion.js\"></script>
 \t<div class=\"col-md-12\">
 \t\t<h1>Configuración</h1>
 \t\t <div class=\"export-controllers\">
-\t\t  \t<button id=\"export-all\" class=\"btn-sty1\">EXPORTAR</button>
-\t\t  \t<button id=\"delete-all\" class=\"btn-sty1\">Borrar todo</button>
+\t\t \t<div class=\"form\">
+\t\t\t  \t<button id=\"export-all\" class=\"btn btn-default\">EXPORTAR</button>
+\t\t\t  \t<button id=\"delete-all\" class=\"btn btn-default\">Borrar todo</button>
+\t\t \t</div>
+\t\t  \t<br> 
 \t\t  \t <select class=\"form-control\" id=\"empresa-ws\">
 \t\t\t\t<option>CVA</option>
 \t\t\t\t<option>Tech Data</option>
@@ -132,15 +143,17 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t    <!-- tabla CVA --> 
 \t\t\t\t<div id=\"cvaDiv\" style=\"width: 100%; overflow-x: visible;\">
 \t\t\t\t\t<hr>
+\t\t\t\t\t<h2>CVA</h2>
 \t\t\t\t\t<div>\t\t
 \t\t\t\t\t    <table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"100%\" style=\"width: 100%; overflow-x: visible; font-size: 12px;\">
-\t\t\t\t      \t  <thead> </thead> 
+\t\t\t\t      \t  <thead></thead> 
 \t\t\t\t     \t   <tbody></tbody>
 \t\t\t\t   \t\t </table>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
             <!-- tabla techData --> 
 \t\t\t\t<div id=\"techDataDiv\" class=\"inactive\">
+\t\t\t\t\t<h2>TechData</h2>
 \t\t\t\t\t<table id=\"techData\" class=\"display\" cellspacing=\"0\" width=\"100%\" style=\"font-size: 10px;\">
 \t\t\t      \t  <thead> </thead>
 \t\t\t     \t   <tbody></tbody>
@@ -148,6 +161,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t\t</div>
             <!-- tabla ingram --> 
 \t\t\t   <div id=\"ingramDiv\" class=\"inactive\">
+\t\t\t   \t\t<h2>Ingram</h2>
 \t\t\t\t\t<table id=\"ingram\" class=\"display table\" cellspacing=\"0\" width=\"100%\" style=\"font-size: 10px;\">
 \t\t\t      \t   <thead></thead>
 \t\t\t     \t   <tbody></tbody>
@@ -155,6 +169,6 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t\t</div> \t\t
 \t</div>
 {% endblock %}
-", "configuracion.html.twig", "C:\\xampp\\htdocs\\GIT\\OMGstock\\stockOMG\\OMGstocks\\templates\\configuracion.html.twig");
+", "configuracion.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\configuracion.html.twig");
     }
 }

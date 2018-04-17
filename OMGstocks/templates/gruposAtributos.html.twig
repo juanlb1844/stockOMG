@@ -72,7 +72,7 @@
                     </div>
                     <div class="col-md-8">
                               <div class="attr-controls">
-                                   <button class="btn btn-default" data-toggle="modal" data-target="#newAttribute">Atributo Dividido</button>
+                                   <button class="btn btn-primary" data-toggle="modal" data-target="#newAttribute">Agregar atributo</button>
                               </div>
                               <div style="margin-top: 20px;">
                                    <h4 style="font-weight: 400;">Atributos globales</h4>
@@ -207,26 +207,26 @@
         <form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input id="editNameAttr" type="text" class="form-control" id="recipient-name">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Tipo de dato:</label>
-            <select class="form-control">
+            <select id="editDataType" class="form-control">
                 <option>text</option>
                 <option>int</option>
-                <option>varchar</option>
+                <option>varchar</option> 
                 <option>double</option>
             </select>
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Valor por defecto:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input id="editDefaultData" type="text" class="form-control">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button id="editSaveAttr" type="button" class="btn btn-primary">Guardar</button>
       </div>
     </div>
   </div>

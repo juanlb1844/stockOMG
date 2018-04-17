@@ -6,7 +6,7 @@
 	
 	$idCat = $_POST['idCat']; 
 
-	$query = "SELECT GA.id_attribute, CAT.name_category, ATT.name_attribute, ATT.type_value FROM 
+	$query = "SELECT GA.id_attribute, CAT.name_category, ATT.name_attribute, ATT.type_value, ATT.default_value FROM 
 	category AS CAT 
 		INNER JOIN group_attribute AS GA
 			ON CAT.id_category = GA.id_category 

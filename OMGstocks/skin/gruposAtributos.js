@@ -1,7 +1,8 @@
 var idCatSelected = 1; 
 var attributes = null; 
 var idAttr = 0; 
-
+var attrsByCats = null; 
+var idAttributeEdit = null; 
 $(document).ready( function() {
 
 		class setData {
@@ -47,6 +48,7 @@ $(document).ready( function() {
 		getAttributes(function(mensaje){
 		  	productData = JSON.parse(mensaje); 
 		  	attributes = productData; 
+		  	attrsByCats = productData; 
 		  	var def = "";  
 	  		for( x in productData ){  
 			 		 $('.attributes').append('<tr><th scope="row">'+(parseInt(x)+1)+'</th>'+
@@ -61,14 +63,43 @@ $(document).ready( function() {
 
 			$('.attributes').off('click'); 
 			$('.attributes').on('click', 'tr', function(event) {
-				alert( $($($(event.target).parent().find('td'))[3]).text() ); 
+				idAttributeEdit = $($($(event.target).parent().find('td'))[3]).text(); 
+				for( x in attrsByCats) { 
+										if( attrsByCats[x].id_attribute == idAttributeEdit ) {
+											var nameAttr = attrsByCats[x].name_attribute; 
+											var dataType = attrsByCats[x].type_value; 
+											var defaultValue = attrsByCats[x].default_value; 
+											$('#editNameAttr').val(nameAttr); 
+											$('#editDataType').val(dataType); 
+											$('#editDefaultData').val(defaultValue); 
+										}
+									}
 				  $('#editAttribute').modal({
 				        show: 'false'
 				    }); 
+
 			}); 
 
 		}); 
 
+		$('#editSaveAttr').click(function() {
+			var nameAttr = $('#editNameAttr').val(); 
+			var dataType = $('#editDataType').val(); 
+			var defaultValue = $('#editDefaultData').val(); 
+			 $.ajax({
+			 	url: 'controladores/editAttribute.php', 
+			 	method: 'POST', 
+			 	data: { idAttr : idAttributeEdit, 
+			 			nameAttr : nameAttr, 
+			 			dataAttr : dataType, 
+			 			defaultAttr : defaultValue
+			 			}, 
+			 	success: function(response) {
+			 		window.location.href="?p=grupos_atributos"; 
+			 	}
+			 });
+
+		}); 
 
 		function getAttributes(action) {
 			 $.ajax({
@@ -132,24 +163,38 @@ $(document).ready( function() {
 					 	method: 'POST', 
 					 	data: { idCat: idCatSelected }, 
 					 	success: function(response){
-					 		  		dataAttributes =  JSON.parse(response);
+					 		  		dataAttributes = JSON.parse(response);
+					 		  		attrsByCats = dataAttributes; 
+					 		  		console.log('______________________'); 
+					 		  		console.log(attrsByCats);
 					 		  		iter = dataAttributes;  
+					 		  		var deff = ''; 
 					 		  		$('.attributes').html(''); 
-					 		  		console.log(dataAttributes); 
-					 		  		for( x in dataAttributes ){  
-								 		 $('.attributes').append('<tr><th scope="row">'+(parseInt(x)+1)+'</th><td>""</td>'+ 
-								  		'<td>'+dataAttributes[x].name_attribute+'</td>'+ 
-								  		'<td>'+dataAttributes[x].type_value+'</td>'+ 
-								  		'<td>'+productData[x].id_attribute+'</td>');
+					 		  		for( x in attrsByCats ){  
+								 		 $('.attributes').append('<tr><th scope="row">'+(parseInt(x)+1)+'</th>'+
+								 		'<td>'+(attrsByCats[x].default_value == null ? deff : attrsByCats[x].default_value)+'</td>'+ 
+								  		'<td>'+attrsByCats[x].name_attribute+'</td>'+ 
+								  		'<td>'+attrsByCats[x].type_value+'</td>'+ 
+								  		'<td>'+attrsByCats[x].id_attribute+'</td>');
 									}  
 
 								$('.attributes').off('click'); 
 								$('.attributes').on('click', 'tr', function(event) {
-									alert( $( $($(event.target).parent().find('td'))[3]).text() ); 
-								}); 
-								  $('#editAttribute').modal({
+									idAttributeEdit = $( $($(event.target).parent().find('td'))[3]).text(); 
+									for( x in attrsByCats) { 
+										if( attrsByCats[x].id_attribute == idAttributeEdit ) {
+											var nameAttr = attrsByCats[x].name_attribute; 
+											var dataType = attrsByCats[x].type_value; 
+											var defaultValue = attrsByCats[x].default_value; 
+											$('#editNameAttr').val(nameAttr); 
+											$('#editDataType').val(dataType); 
+											$('#editDefaultData').val(defaultValue); 
+										}
+									}
+									$('#editAttribute').modal({
 								        show: 'false'
-								    });  
+								    }); 
+								}); 
 					 	  }
 					 });
 			});
