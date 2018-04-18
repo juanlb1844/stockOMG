@@ -4,18 +4,13 @@
 	{{parent()}} 
 	<script type="text/javascript" src="skin/configuracion.js"></script>
 	<div class="col-md-12">
-		<h1>Configuración</h1>
+		<h2 style="font-weight: 300;">Configuración</h2>
 		 <div class="export-controllers">
 		 	<div class="form">
-			  	<button id="export-all" class="btn btn-default">EXPORTAR</button>
+			  	<button data-toggle="modal" data-target="#exportOptions" class="btn btn-default">Importar</button>
 			  	<button id="delete-all" class="btn btn-default">Borrar todo</button>
 		 	</div>
 		  	<br> 
-		  	 <select class="form-control" id="empresa-ws">
-				<option>CVA</option>
-				<option>Tech Data</option>
-				<option>Ingram</option>
-			 </select>
 		  </div>
 		  	<!-- loading --> 
 		    <div id="loading">
@@ -54,4 +49,42 @@
 			   		 </table>
 				</div> 		
 	</div>
+
+
+
+
+	<!-- editar / borrar atributo --> 
+
+
+<div class="modal fade" id="exportOptions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Importar datos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">        
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Importar: </label>
+            <button id="importCVA" class="btn btn-primary">CVA</button>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Importar: </label>
+            <button id="importTechData" class="btn btn-primary">Tech Data</button>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Importar: </label>
+            <button id="importIngram" class="btn btn-primary">Ingram</button>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="editSaveAttr" type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

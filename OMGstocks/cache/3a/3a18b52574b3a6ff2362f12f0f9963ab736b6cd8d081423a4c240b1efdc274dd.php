@@ -32,12 +32,11 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
         // line 4
         $this->displayParentBlock("content", $context, $blocks);
         echo " 
-     <script type=\"text/javascript\" src=\"skin/gruposAtributos.js\"></script>
+<script type=\"text/javascript\" src=\"skin/gruposAtributos.js\"></script>
 <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css\">
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js\"></script>
-     <style type=\"text/css\">
-     
 
+     <style type=\"text/css\">
           .tree-categories:hover {
                cursor: pointer;
           }   
@@ -61,6 +60,7 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
             cursor: pointer;
           }
      </style>
+     
 \t<div class=\"col-md-9\">
                <div class=\"tab-providers hiding-window\">
                <div>
@@ -298,12 +298,11 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
 
 {% block content %} 
 \t{{parent()}} 
-     <script type=\"text/javascript\" src=\"skin/gruposAtributos.js\"></script>
+<script type=\"text/javascript\" src=\"skin/gruposAtributos.js\"></script>
 <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css\">
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js\"></script>
-     <style type=\"text/css\">
-     
 
+     <style type=\"text/css\">
           .tree-categories:hover {
                cursor: pointer;
           }   
@@ -327,6 +326,7 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
             cursor: pointer;
           }
      </style>
+     
 \t<div class=\"col-md-9\">
                <div class=\"tab-providers hiding-window\">
                <div>

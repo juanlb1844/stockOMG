@@ -1,24 +1,49 @@
 $(document).ready(function() {
 
-
 	// EXPORT 
-	$('#export-all').click(function() {
-				$.ajax({
-						 	url: 'controladores/dataController.php', 
+	$('#importIngram').click( function() { 
+		$.ajax({
+				 	url: 'controladores/dataController.php', 
+				 	method: 'POST', 
+				 	data: {  url:  'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=ACCESORIOS%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0', 
+				 		     type: 'export',  
+				 		   	 WS:   'Ingram' }, 
+				 	success: function(mensaje){
+					 		 	 console.log(mensaje);
+				 	}
+			});
+	}); 
+
+	$('#importTechData').click( function importTechData() { 
+		$.ajax({
+		 	url: '../core/dataController.php?type=test', 
+		 	method: 'POST', 
+		 	data: { url : '', 
+		 			type: 'export', 
+		 			WS:   'TechData' }, 
+		 	success: function(mensaje){
+		 		 	 console.log( JSON.parse(mensaje) ); 
+		 	}
+		});  
+   });
+
+    $('#importCVA').click( function importCVA() {
+   		$.ajax({
+						 	url: '../core/dataController.php?type=test', 
 						 	method: 'POST', 
-						 	data: { url: 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=ACCESORIOS%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0', 
-						 		   type: 'export',  
-						 		   WS: 'Ingram' }, 
+						 	data: {  url:  'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=ACCESORIOS%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0', 
+						 		     type: 'export',  
+						 		     WS:   'CVA' }, 
 						 	success: function(mensaje){
 							 		 	 console.log(mensaje);
+							 		 	 alert('TERMINADO CVA'); 
 						 	}
 					});
-	}); 
+   }); 
 	// EXPORT --> 
 
 
 	//SHOW DATA 
-
 
 	cargaCVA(); 
 	techDataFun(); 

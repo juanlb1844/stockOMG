@@ -7,9 +7,9 @@
 
 
       if( $_POST['type'] == 'search'){
+
                    $url = $_POST['url']; 
                    echo json_encode( $object->getDataXML($url) ); 
-                   //echo $url;
 
        } if( $_POST['type'] == 'techData'){
 
@@ -36,7 +36,7 @@
             $WS  = $_POST['WS']; 
 
             if($WS == 'CVA'){
-        	      $dbObject->insertarArray2( $object->getDataXML($url) ); 
+        	      //$dbObject->insertarArray2( $object->getDataXML($url) ); 
                 print_r($object->getDataXML($url)); 
             }else if($WS == 'TechData'){
                  //$dbObject->insertarArrayTechData( $object->getDataTechData() ); 
