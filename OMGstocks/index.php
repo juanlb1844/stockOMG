@@ -45,6 +45,9 @@ switch ($page) {
   case 'grupos_atributos': 
     echo $twig->render('gruposAtributos.html.twig'); 
   break;   
+  case 'upload_files': 
+    echo $twig->render('uploadFiles.html.twig'); 
+  break; 
 }
 
 

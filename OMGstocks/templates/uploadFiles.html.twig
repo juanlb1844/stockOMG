@@ -1,0 +1,62 @@
+{% extends "layout.html.twig" %}
+
+{% block content %} 
+	{{parent()}} 
+
+		<!--  d r o p  z o n e  --> 
+	<link rel="stylesheet" type="text/css" href="skin/dropzone/dropzone.css">
+	<script type="text/javascript" src="skin/dropzone/dropzone.js"></script>
+
+	<div style="width: 600px;">
+		<div class="pull-right">
+			<button class="btn btn-default clearDropZone">Limpiar</button>
+		</div>
+		<!-- Drop zone --> 
+		<div id="dropzone1">
+		</div> 
+	</div>
+
+
+<script type="text/javascript">
+	/* D r o p  Z o n e */ 
+var idCatnom = 10; 
+var cateogoryName = 'pantallas'; 
+
+jQuery(document).ready( function () {
+
+  Dropzone.autoDiscover = false;
+  Dropzone.options.myDropzone = {
+  // The name that will be used to transfer the file
+  renameFile: function (file) {
+        file.name = new Date().getTime() + '_' + file.name;
+    }, 
+  maxFilesize: 1 
+};
+  // Now that the DOM is fully loaded, create the dropzone, and setup the
+  // event listeners
+  //
+  var myDropzone = new Dropzone("#dropzone1", { 
+    url:'controladores/FILES/webservice.php', 
+    init : function() {
+                    $('#dropzone1').addClass('dropzone'); 
+                    //alert('creado');
+                  },  
+    renameFile: function (file) { 
+        return file.name+':'+ idCatnom; 
+    }
+  });
+
+  myDropzone.on("addedfile", function(file) {
+      //alert('archivo anhadido.'); 
+      console.log(".."); 
+  });
+
+
+  $('#dropzone1').append('<div class="dz-message needsclick">  <h3 style="color: gray;" class="note needsclick"><strong>Arrastra archivos aquí o haz click para cargarlos</strong></h3></div>'); 
+
+
+});
+</script>
+
+
+{% endblock %}

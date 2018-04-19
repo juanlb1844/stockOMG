@@ -38,9 +38,8 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
   <script src=\"skin/summernote/summernote.js\"></script>
 
             <div class=\"dashboard-window col-md-9\">
-            <a href=\"?p=feedLocal\">Atrás</a> 
 
-                     
+            <a href=\"?p=feedLocal\">Atrás</a> 
                             
                      <form class=\"form-horizontal attributes_product\">
                      <!-- 
@@ -91,6 +90,22 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                       </div> --> 
                     </form>
 
+                    <form class=\"form-horizontal\">
+                      <div class=\"col-md-12\" style=\"text-align: center;\">
+                        <div class=\"col-md-2\"></div>
+                        <div class=\"col-md-10\">
+                          <h2 style=\"font-weight: 300;\">Galería</h2>
+                        </div>
+                      </div>
+                      <div class=\"form-group\">
+                        <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
+                          ";
+        // line 72
+        echo twig_include($this->env, $context, "uploaderFiles.html.twig");
+        echo "
+                      </div>
+                    </form>
+
                     <div class=\"form-horizontal\">
                       <!-- <div class=\"form-group\">
                         <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Categorías</label>
@@ -113,17 +128,27 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         </div>
                        </div>
                      </div>
+
+                     <ul>
+                       <li>
+                         GALERÍA 
+                       </li>
+                       <li>
+                         <img style=\"width: 200px;\" src=\"media/VsM3hbb9Q10.jpg\">
+                       </li>
+                     </ul>
+
            </div> 
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 89
+        // line 111
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 92
+        // line 114
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -143,7 +168,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  127 => 92,  121 => 89,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  152 => 114,  146 => 111,  104 => 72,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -166,9 +191,8 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
   <script src=\"skin/summernote/summernote.js\"></script>
 
             <div class=\"dashboard-window col-md-9\">
-            <a href=\"?p=feedLocal\">Atrás</a> 
 
-                     
+            <a href=\"?p=feedLocal\">Atrás</a> 
                             
                      <form class=\"form-horizontal attributes_product\">
                      <!-- 
@@ -219,6 +243,19 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                       </div> --> 
                     </form>
 
+                    <form class=\"form-horizontal\">
+                      <div class=\"col-md-12\" style=\"text-align: center;\">
+                        <div class=\"col-md-2\"></div>
+                        <div class=\"col-md-10\">
+                          <h2 style=\"font-weight: 300;\">Galería</h2>
+                        </div>
+                      </div>
+                      <div class=\"form-group\">
+                        <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
+                          {{ include('uploaderFiles.html.twig') }}
+                      </div>
+                    </form>
+
                     <div class=\"form-horizontal\">
                       <!-- <div class=\"form-group\">
                         <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Categorías</label>
@@ -241,6 +278,16 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         </div>
                        </div>
                      </div>
+
+                     <ul>
+                       <li>
+                         GALERÍA 
+                       </li>
+                       <li>
+                         <img style=\"width: 200px;\" src=\"media/VsM3hbb9Q10.jpg\">
+                       </li>
+                     </ul>
+
            </div> 
 \t<div class=\"col-md-3\">
     <div>
