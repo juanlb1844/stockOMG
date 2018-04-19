@@ -38,7 +38,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t <div class=\"export-controllers\">
 \t\t \t<div class=\"form\">
 \t\t\t  \t<button data-toggle=\"modal\" data-target=\"#exportOptions\" class=\"btn btn-default\">Importar</button>
-\t\t\t  \t<button id=\"delete-all\" class=\"btn btn-default\">Borrar todo</button>
+\t\t\t  \t<button id=\"deleteDataDB\" class=\"btn btn-default\">Borrar todo</button>
 \t\t \t</div>
 \t\t  \t<br> 
 \t\t  </div>
@@ -155,7 +155,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t <div class=\"export-controllers\">
 \t\t \t<div class=\"form\">
 \t\t\t  \t<button data-toggle=\"modal\" data-target=\"#exportOptions\" class=\"btn btn-default\">Importar</button>
-\t\t\t  \t<button id=\"delete-all\" class=\"btn btn-default\">Borrar todo</button>
+\t\t\t  \t<button id=\"deleteDataDB\" class=\"btn btn-default\">Borrar todo</button>
 \t\t \t</div>
 \t\t  \t<br> 
 \t\t  </div>

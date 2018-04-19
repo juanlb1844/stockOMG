@@ -43,13 +43,12 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
 \t\t</div>
 \t</div>
-</div>
-<div>
 \t<div class=\"row col-md-12\" style=\"padding-top: 50px; padding-left: 0px; \">
 \t\t<button class=\"btn btn-primary\" style=\"font-weight: bold; \">Registrar</button>
 \t\t<button style=\"font-weight: bold;\" class=\"btn btn-default\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button>
 \t</div>
 </div>
+<h1>&nbsp;</h1>
 ";
     }
 
@@ -100,13 +99,12 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t\t\t<h6 style=\"color: blue;\">Social comunity</h6>
 \t\t</div>
 \t</div>
-</div>
-<div>
 \t<div class=\"row col-md-12\" style=\"padding-top: 50px; padding-left: 0px; \">
 \t\t<button class=\"btn btn-primary\" style=\"font-weight: bold; \">Registrar</button>
 \t\t<button style=\"font-weight: bold;\" class=\"btn btn-default\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button>
 \t</div>
 </div>
+<h1>&nbsp;</h1>
 ", "sidebar.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\sidebar.html.twig");
     }
 }

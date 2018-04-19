@@ -37,11 +37,9 @@
 				$linea = utf8_encode($linea); 
 				$producto = explode(',', $linea);
 				$productosIngram[] = $producto; 
-		    }  */ 
-		     
-				  
+		    }  */ 				  
 				 	     
-		    for($i = 0; $i < 500; $i++){
+		    for($i = 0; $i < 950; $i++){
 				$linea = fgets($fp);
 				$linea = utf8_encode($linea); 
 				$producto = explode(',', $linea);

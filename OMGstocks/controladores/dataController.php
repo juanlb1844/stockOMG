@@ -5,8 +5,10 @@
    $dbObject = new model(); 
    $object = new formatData(); 
 
+       if ( $_POST['type'] == 'restart') {
+           $dbObject->restartDb(); 
 
-      if( $_POST['type'] == 'search'){
+       } if( $_POST['type'] == 'search'){
 
                    $url = $_POST['url']; 
                    echo json_encode( $object->getDataXML($url) ); 
@@ -36,14 +38,14 @@
             $WS  = $_POST['WS']; 
 
             if($WS == 'CVA'){
-        	      //$dbObject->insertarArray2( $object->getDataXML($url) ); 
-                print_r($object->getDataXML($url)); 
+        	      $dbObject->insertarArray2( $object->getDataXML($url) ); 
+                //print_r($object->getDataXML($url)); 
             }else if($WS == 'TechData'){
-                 //$dbObject->insertarArrayTechData( $object->getDataTechData() ); 
-                print_r($object->getDataTechData()); 
+                $dbObject->insertarArrayTechData( $object->getDataTechData() ); 
+                //print_r($object->getDataTechData()); 
             }else if($WS == 'Ingram'){
-                 //$dbObject->insertarIngramMicro($object->getDataIngram()); 
-                print_r($object->getDataIngram()); 
+                $dbObject->insertarIngramMicro($object->getDataIngram()); 
+                //print_r($object->getDataIngram()); 
             }
 
 

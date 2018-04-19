@@ -196,7 +196,7 @@
 															$d23.','.
 															$d24.','.
 															$inStock.')'; */ 
-						$query = "CALL create_product(3,'$nombreProducto', '$sku', $precio, '$nombreProducto', '$vpn', $inStock, '$proveedor', '$clase');";   
+						$query = "CALL create_product(3,'$nombreProducto', '$sku', $precio, '$nombreProducto', '$vpn', $inStock, '$proveedor', '$clase', 'https//');";   
 
 					    mysqli_query($db, $query);
 				 		mysqli_close($db); 
@@ -219,7 +219,7 @@
 				$MensajeError    = $value['MensajeError'];
 				$stockMonterrey  = $value['stockMonterrey'];
 				$stockCentral    = $value['stockCentral'];
-				$query = "CALL create_product(2,'$descripcion', '$codigo', $precio, '$descripcion', '$partNumber', $stockTotal, '$fabricante', '$categoria');";   
+				$query = "CALL create_product(2,'$descripcion', '$codigo', $precio, '$descripcion', '$partNumber', $stockTotal, '$fabricante', '$categoria', 'https://');";   
 				/*$query = 'INSERT INTO techData_products(codigo, partNumber, descripcion, stockTotal, precio, moneda, categoria, fabricante, stockMonterrey,stockCentral) VALUES( "'. $codigo .'","'. 
 							$partNumber .'","'. 
 							$descripcion.'",'. 

@@ -14,24 +14,35 @@ var quitSpace = function(str) {
 
 $(document).ready(function(){ 
 
+
 	$('#saveProduct').click(function() {
+		var selecteds = $('.tree-categories input:checked'); 
+		var idCatSelecteds = []; 
+
+		for( x = 0; x < selecteds.length; x++ ) { 
+			var idCat = $( $(selecteds[x]).parent() ).attr('id'); 
+			idCatSelecteds.push( idCat.substr(5, idCat.length) ); 
+		}
+
+		console.log(idCatSelecteds); 
+		 
 		for( i in productData) {
 			productData[i].localValue = $('#'+quitSpace(productData[i].type_attr)).val(); 
 			//console.log( $('#'+quitSpace(productData[i].type_attr)).val() ); 
 		}
-
 		$.ajax({
 		 	url: 'controladores/setAttributes.php', 
 		 	method: 'POST', 
-		 	data: { dataProduct: productData 
+		 	data: { dataProduct: productData, 
+		 			selectedCats: idCatSelecteds, 
+		 			idProd : productData[0].ID 
 		 			}, 
 		 	success: function(mensaje){
-		 		  alert(mensaje); 
+		 		  console.log(mensaje); 
+		 		  window.location.reload(); 
 		 	}
 		 });
-
 		console.log( productData ); 
-
 	}); 
 
 	var idProd = null; //id producto general 
@@ -93,6 +104,23 @@ $(document).ready(function(){
 
 			  		  }
 					}
+
+						
+			$.ajax({
+			 	url: 'controladores/getRelationCategory.php', 
+			 	method: 'POST', 
+			 	data: { idProd: productData[0].ID,  
+			 			}, 
+			 	success: function(mensaje){
+			 		  var relation = JSON.parse(mensaje); 
+			 		  console.log(relation); 
+			 		  for( var i = 0; i < relation.length; i++) {
+			 		  	var idRel = relation[i].category_id_categories; 
+			 		  	$('.tree-categories #idCat'+idRel+' input').first().attr('checked', true); 
+			 		  }
+			 	}
+			 });
+	
 	 	}
 	 });
 	

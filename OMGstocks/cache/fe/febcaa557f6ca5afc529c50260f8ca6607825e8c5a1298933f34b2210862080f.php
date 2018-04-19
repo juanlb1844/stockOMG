@@ -43,7 +43,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                      
                             
                      <form class=\"form-horizontal attributes_product\">
-
                      <!-- 
                       <div class=\"form-group\">
                         <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Título</label>
@@ -93,28 +92,41 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                     </form>
 
                     <div class=\"form-horizontal\">
-                         <div class=\"form-group\">
+                      <!-- <div class=\"form-group\">
                         <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Categorías</label>
                         <div class=\"col-sm-4\">
+                          <label>Copiar</label>
                           <select class=\"form-control\">
                             <option>Laptops</option>
                           </select>
                         </div>
-                      </div>
+                        <div class=\"col-sm-4\">
+                          <label>Mover</label>
+                          <select class=\"form-control\">
+                            <option>Laptops</option>
+                          </select>
+                        </div>
+                      </div> --> 
                        <div class=\"form-group\">
                         <div class=\"col-sm-offset-2 col-sm-10\">
                           <button type=\"submit\" id=\"saveProduct\" class=\"btn btn-primary\">Guardar</button>
                         </div>
                        </div>
                      </div>
-
-
            </div> 
 \t<div class=\"col-md-3\">
-\t\t";
-        // line 84
+    <div>
+      ";
+        // line 89
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
+    </div>
+    <div>
+      ";
+        // line 92
+        echo twig_include($this->env, $context, "tree-category.html.twig");
+        echo " 
+    </div>
 \t</div>
 ";
     }
@@ -131,7 +143,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  116 => 84,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  127 => 92,  121 => 89,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -159,7 +171,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                      
                             
                      <form class=\"form-horizontal attributes_product\">
-
                      <!-- 
                       <div class=\"form-group\">
                         <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Título</label>
@@ -209,25 +220,35 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                     </form>
 
                     <div class=\"form-horizontal\">
-                         <div class=\"form-group\">
+                      <!-- <div class=\"form-group\">
                         <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Categorías</label>
                         <div class=\"col-sm-4\">
+                          <label>Copiar</label>
                           <select class=\"form-control\">
                             <option>Laptops</option>
                           </select>
                         </div>
-                      </div>
+                        <div class=\"col-sm-4\">
+                          <label>Mover</label>
+                          <select class=\"form-control\">
+                            <option>Laptops</option>
+                          </select>
+                        </div>
+                      </div> --> 
                        <div class=\"form-group\">
                         <div class=\"col-sm-offset-2 col-sm-10\">
                           <button type=\"submit\" id=\"saveProduct\" class=\"btn btn-primary\">Guardar</button>
                         </div>
                        </div>
                      </div>
-
-
            </div> 
 \t<div class=\"col-md-3\">
-\t\t{{ include('sidebar.html.twig') }}
+    <div>
+      {{ include('sidebar.html.twig') }}
+    </div>
+    <div>
+      {{ include('tree-category.html.twig') }} 
+    </div>
 \t</div>
 {% endblock %}
 
