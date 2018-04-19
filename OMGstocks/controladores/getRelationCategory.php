@@ -1,6 +1,6 @@
 <?php 
 	include_once 'database.php'; 
-
+		$rows = null; 
  		$db = new db(); 
  		$idProd = $_POST['idProd'];  
 		$query = "SELECT category_id_categories FROM product_entity INNER JOIN category_has_entity  ON product_entity.id_entity = category_has_entity.product_entity_id WHERE id_entity = $idProd"; 

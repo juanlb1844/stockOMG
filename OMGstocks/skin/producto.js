@@ -12,7 +12,26 @@ var quitSpace = function(str) {
     return cadena;
 };
 
+	function getGallery () {
+		$.ajax({
+		 	url: 'controladores/getGallery.php', 
+		 	method: 'POST', 
+		 	data: { 
+		 			idProd : productData[0].ID 
+		 			}, 
+		 	success: function(mensaje){
+		 		  var gallery = JSON.parse(mensaje); 
+		 		   for( var i in gallery ) {
+		 		   		var element = '<li><img src="media/'+gallery[i].url+'"><p><a href="media/'+gallery[i].url+'">ver</a></p></li>';  
+		 		  		$('#entityGallery').append(element);  
+		 		   }
+		 	}
+		 });
+	}
+
 $(document).ready(function(){ 
+
+	// Obtener galería 
 
 
 	$('#saveProduct').click(function() {
@@ -104,6 +123,7 @@ $(document).ready(function(){
 
 			  		  }
 					}
+					getGallery(); 
 
 						
 			$.ajax({

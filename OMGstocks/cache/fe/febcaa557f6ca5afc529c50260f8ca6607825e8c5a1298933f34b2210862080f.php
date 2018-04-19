@@ -37,6 +37,18 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
   <link href=\"skin/summernote/summernote.css\" rel=\"stylesheet\">
   <script src=\"skin/summernote/summernote.js\"></script>
 
+  <style type=\"text/css\">
+    #entityGallery img {
+      width: 200px; 
+      border: 1px solid gray;
+    }
+    #entityGallery ul, #entityGallery li {
+      display: inline-block;
+      border: 0px;
+      text-align: center; 
+    }
+  </style>
+
             <div class=\"dashboard-window col-md-9\">
 
             <a href=\"?p=feedLocal\">Atrás</a> 
@@ -100,28 +112,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                       <div class=\"form-group\">
                         <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                           ";
-        // line 72
+        // line 84
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
                       </div>
                     </form>
 
                     <div class=\"form-horizontal\">
-                      <!-- <div class=\"form-group\">
-                        <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Categorías</label>
-                        <div class=\"col-sm-4\">
-                          <label>Copiar</label>
-                          <select class=\"form-control\">
-                            <option>Laptops</option>
-                          </select>
-                        </div>
-                        <div class=\"col-sm-4\">
-                          <label>Mover</label>
-                          <select class=\"form-control\">
-                            <option>Laptops</option>
-                          </select>
-                        </div>
-                      </div> --> 
                        <div class=\"form-group\">
                         <div class=\"col-sm-offset-2 col-sm-10\">
                           <button type=\"submit\" id=\"saveProduct\" class=\"btn btn-primary\">Guardar</button>
@@ -129,26 +126,20 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                        </div>
                      </div>
 
-                     <ul>
-                       <li>
-                         GALERÍA 
-                       </li>
-                       <li>
-                         <img style=\"width: 200px;\" src=\"media/VsM3hbb9Q10.jpg\">
-                       </li>
+                     <ul id=\"entityGallery\">
                      </ul>
 
            </div> 
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 111
+        // line 102
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 114
+        // line 105
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -168,7 +159,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  152 => 114,  146 => 111,  104 => 72,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  143 => 105,  137 => 102,  116 => 84,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -189,6 +180,18 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<script type=\"text/javascript\" src=\"skin/producto.js\"></script>
   <link href=\"skin/summernote/summernote.css\" rel=\"stylesheet\">
   <script src=\"skin/summernote/summernote.js\"></script>
+
+  <style type=\"text/css\">
+    #entityGallery img {
+      width: 200px; 
+      border: 1px solid gray;
+    }
+    #entityGallery ul, #entityGallery li {
+      display: inline-block;
+      border: 0px;
+      text-align: center; 
+    }
+  </style>
 
             <div class=\"dashboard-window col-md-9\">
 
@@ -257,21 +260,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                     </form>
 
                     <div class=\"form-horizontal\">
-                      <!-- <div class=\"form-group\">
-                        <label for=\"inputPassword3\" class=\"col-sm-2 control-label\">Categorías</label>
-                        <div class=\"col-sm-4\">
-                          <label>Copiar</label>
-                          <select class=\"form-control\">
-                            <option>Laptops</option>
-                          </select>
-                        </div>
-                        <div class=\"col-sm-4\">
-                          <label>Mover</label>
-                          <select class=\"form-control\">
-                            <option>Laptops</option>
-                          </select>
-                        </div>
-                      </div> --> 
                        <div class=\"form-group\">
                         <div class=\"col-sm-offset-2 col-sm-10\">
                           <button type=\"submit\" id=\"saveProduct\" class=\"btn btn-primary\">Guardar</button>
@@ -279,13 +267,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                        </div>
                      </div>
 
-                     <ul>
-                       <li>
-                         GALERÍA 
-                       </li>
-                       <li>
-                         <img style=\"width: 200px;\" src=\"media/VsM3hbb9Q10.jpg\">
-                       </li>
+                     <ul id=\"entityGallery\">
                      </ul>
 
            </div> 

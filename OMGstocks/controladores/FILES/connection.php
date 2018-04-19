@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "prueba_1";
+$servername = "www.laptopmexico.mx";
+$username = "juanlb";
+$password = "juanlb221";
+$dbname = "store_back";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 					$label = explode('.', $nomCat[0]); 
-					$sql = "INSERT INTO prueba(prueba) VALUES('xx')"; 
+					$sql = "INSERT INTO product_gall(url, url_min, id_entity) VALUES('$nameFile', '$nameFile', $nomCat[1])"; 
 					if ($conn->query($sql) === TRUE) {
 					    echo "Success";
 					} else {

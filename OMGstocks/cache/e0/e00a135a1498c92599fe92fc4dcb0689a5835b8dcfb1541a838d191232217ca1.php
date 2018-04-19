@@ -55,7 +55,7 @@ jQuery(document).ready( function () {
                     //alert('creado');
                   },  
     renameFile: function (file) { 
-        return file.name+':'+ idCatnom; 
+        return file.name+':'+productData[0].ID; 
     }
   });
 
@@ -133,7 +133,7 @@ jQuery(document).ready( function () {
                     //alert('creado');
                   },  
     renameFile: function (file) { 
-        return file.name+':'+ idCatnom; 
+        return file.name+':'+productData[0].ID; 
     }
   });
 
