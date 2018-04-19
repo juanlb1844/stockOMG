@@ -83,14 +83,14 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                                                   <th>Price</th>
                                              </tr> 
                                         </thead> 
-                                        <tbody class=\"attributes\"> 
+                                        <tbody id=\"relationProduct\"> 
                                           <tr>
-                                            <td>Ingram micro</td>
-                                            <td>Nombre del producto</td>
-                                            <td>ABC-SKU</td>
-                                            <td>10</td>
-                                            <td>1 hour ago</td>
-                                            <td>\$2,200.00</td>
+                                            <td id=\"relationDis\"></td>
+                                            <td id=\"relationName\">Nombre del producto</td>
+                                            <td id=\"relationSku\">ABC-SKU</td>
+                                            <td id=\"relationStock\">10</td>
+                                            <td id=\"relationUpdated\">1 hour ago</td>
+                                            <td id=\"relationPrice\">\$2,200.00</td>
                                           </tr>
                                         </tbody> 
                                    </table> 
@@ -293,14 +293,14 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                                                   <th>Price</th>
                                              </tr> 
                                         </thead> 
-                                        <tbody class=\"attributes\"> 
+                                        <tbody id=\"relationProduct\"> 
                                           <tr>
-                                            <td>Ingram micro</td>
-                                            <td>Nombre del producto</td>
-                                            <td>ABC-SKU</td>
-                                            <td>10</td>
-                                            <td>1 hour ago</td>
-                                            <td>\$2,200.00</td>
+                                            <td id=\"relationDis\"></td>
+                                            <td id=\"relationName\">Nombre del producto</td>
+                                            <td id=\"relationSku\">ABC-SKU</td>
+                                            <td id=\"relationStock\">10</td>
+                                            <td id=\"relationUpdated\">1 hour ago</td>
+                                            <td id=\"relationPrice\">\$2,200.00</td>
                                           </tr>
                                         </tbody> 
                                    </table> 

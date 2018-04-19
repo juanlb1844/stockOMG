@@ -100,7 +100,9 @@ $(document).ready(function(){
 			  $('#summernote').summernote('code', description); */ 
 
 			  for( x in productData ){  
-			  		  if( productData[x].type_attr == 'short_description' ) {
+			  		  if( productData[x].type_attr == 'distributor' ) {
+			  		  		console.log('jump'); 
+			  		  } else if( productData[x].type_attr == 'short_description' ) {
 
 			  		  		data = '<div class="form-group">' + 
 		                        ' <label for="inputPassword3" class="col-sm-2 control-label">Descripción</label>' + 
@@ -131,6 +133,21 @@ $(document).ready(function(){
 							$(data).prependTo($('.attributes_product')).slideDown('fast');  
 
 			  		  }
+
+					}
+
+					for(var i in productData) {
+						if(productData[i].type_attr == 'distributor') {
+			  		  		$('#relationDis').text(productData[i].value_attr); 
+						} else if ( productData[i].type_attr == 'Name Product' ) {
+							$('#relationName').text(productData[i].value_attr); 
+						} else if ( productData[i].type_attr == 'SKU' ) {
+							$('#relationSku').text(productData[i].value_attr); 
+						} else if ( productData[i].type_attr == 'stock' ) {
+							$('#relationStock').text(productData[i].value_attr); 
+						} else if ( productData[i].type_attr == 'Normal Price' ) {
+							$('#relationPrice').text(productData[i].value_attr); 
+						}
 					}
 					getGallery(); 
 
