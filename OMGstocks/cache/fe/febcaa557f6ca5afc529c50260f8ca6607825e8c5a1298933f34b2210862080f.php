@@ -38,9 +38,27 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
   <script src=\"skin/summernote/summernote.js\"></script>
 
   <style type=\"text/css\">
+    #entityGallery {
+      border-radius: 4px;
+      width: 100%;
+      background-color: #eff3f6;
+      padding-top: 10px;
+    }
+    #entityGallery li img:hover {
+      cursor: pointer;
+      transition-property: all; 
+      transition-duration: .2s; 
+      transform: scale(1.1);
+      z-index: 0; 
+    }
     #entityGallery img {
-      width: 200px; 
-      border: 1px solid gray;
+      transition-property: all; 
+      transition-duration: .2s; 
+      width: 120px; 
+      /*border: 1px solid gray;*/
+    }
+    #entityGallery li { 
+      margin-left: 10px; 
     }
     #entityGallery ul, #entityGallery li {
       display: inline-block;
@@ -50,8 +68,32 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
   </style>
 
             <div class=\"dashboard-window col-md-9\">
-
             <a href=\"?p=feedLocal\">Atrás</a> 
+            <ul id=\"entityGallery\">
+            </ul>
+            <br> 
+            <table class=\"table table-striped table-hover\"> 
+                                        <thead> 
+                                             <tr style=\"border: 3px solid #dbdbdb;\"> 
+                                                  <th>Distributor</th> 
+                                                  <th>Product</th> 
+                                                  <th>SKU</th> 
+                                                  <th>Stock</th>
+                                                  <th>Stock Updated</th>
+                                                  <th>Price</th>
+                                             </tr> 
+                                        </thead> 
+                                        <tbody class=\"attributes\"> 
+                                          <tr>
+                                            <td>Ingram micro</td>
+                                            <td>Nombre del producto</td>
+                                            <td>ABC-SKU</td>
+                                            <td>10</td>
+                                            <td>1 hour ago</td>
+                                            <td>\$2,200.00</td>
+                                          </tr>
+                                        </tbody> 
+                                   </table> 
                             
                      <form class=\"form-horizontal attributes_product\">
                      <!-- 
@@ -112,7 +154,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                       <div class=\"form-group\">
                         <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                           ";
-        // line 84
+        // line 126
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
                       </div>
@@ -126,24 +168,48 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                        </div>
                      </div>
 
-                     <ul id=\"entityGallery\">
-                     </ul>
-
            </div> 
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 102
+        // line 141
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 105
+        // line 144
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
 \t</div>
+
+<div class=\"modal fade\" id=\"infoImg\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"editarCategoria\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\" role=\"document\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\" id=\"newCatLabel\">Info IMG</h5>
+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+          <span aria-hidden=\"true\">&times;</span>
+        </button>
+      </div>
+      <div class=\"modal-body\">
+        <form>
+          <div class=\"form-group\">
+            <label for=\"recipient-name\" class=\"col-form-label\">URL:</label>
+            <input type=\"text\" class=\"form-control\" id=\"urlImg\"> 
+          </div>
+        </form>
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
+        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" id=\"deleteImg\">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 ";
     }
 
@@ -159,7 +225,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  143 => 105,  137 => 102,  116 => 84,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  182 => 144,  176 => 141,  158 => 126,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -182,9 +248,27 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
   <script src=\"skin/summernote/summernote.js\"></script>
 
   <style type=\"text/css\">
+    #entityGallery {
+      border-radius: 4px;
+      width: 100%;
+      background-color: #eff3f6;
+      padding-top: 10px;
+    }
+    #entityGallery li img:hover {
+      cursor: pointer;
+      transition-property: all; 
+      transition-duration: .2s; 
+      transform: scale(1.1);
+      z-index: 0; 
+    }
     #entityGallery img {
-      width: 200px; 
-      border: 1px solid gray;
+      transition-property: all; 
+      transition-duration: .2s; 
+      width: 120px; 
+      /*border: 1px solid gray;*/
+    }
+    #entityGallery li { 
+      margin-left: 10px; 
     }
     #entityGallery ul, #entityGallery li {
       display: inline-block;
@@ -194,8 +278,32 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
   </style>
 
             <div class=\"dashboard-window col-md-9\">
-
             <a href=\"?p=feedLocal\">Atrás</a> 
+            <ul id=\"entityGallery\">
+            </ul>
+            <br> 
+            <table class=\"table table-striped table-hover\"> 
+                                        <thead> 
+                                             <tr style=\"border: 3px solid #dbdbdb;\"> 
+                                                  <th>Distributor</th> 
+                                                  <th>Product</th> 
+                                                  <th>SKU</th> 
+                                                  <th>Stock</th>
+                                                  <th>Stock Updated</th>
+                                                  <th>Price</th>
+                                             </tr> 
+                                        </thead> 
+                                        <tbody class=\"attributes\"> 
+                                          <tr>
+                                            <td>Ingram micro</td>
+                                            <td>Nombre del producto</td>
+                                            <td>ABC-SKU</td>
+                                            <td>10</td>
+                                            <td>1 hour ago</td>
+                                            <td>\$2,200.00</td>
+                                          </tr>
+                                        </tbody> 
+                                   </table> 
                             
                      <form class=\"form-horizontal attributes_product\">
                      <!-- 
@@ -267,9 +375,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                        </div>
                      </div>
 
-                     <ul id=\"entityGallery\">
-                     </ul>
-
            </div> 
 \t<div class=\"col-md-3\">
     <div>
@@ -279,6 +384,33 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       {{ include('tree-category.html.twig') }} 
     </div>
 \t</div>
+
+<div class=\"modal fade\" id=\"infoImg\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"editarCategoria\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\" role=\"document\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\" id=\"newCatLabel\">Info IMG</h5>
+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+          <span aria-hidden=\"true\">&times;</span>
+        </button>
+      </div>
+      <div class=\"modal-body\">
+        <form>
+          <div class=\"form-group\">
+            <label for=\"recipient-name\" class=\"col-form-label\">URL:</label>
+            <input type=\"text\" class=\"form-control\" id=\"urlImg\"> 
+          </div>
+        </form>
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
+        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" id=\"deleteImg\">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
 
 ", "producto.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\producto.html.twig");

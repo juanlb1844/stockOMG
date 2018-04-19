@@ -25,6 +25,15 @@ var quitSpace = function(str) {
 		 		   		var element = '<li><img src="media/'+gallery[i].url+'"><p><a href="media/'+gallery[i].url+'">ver</a></p></li>';  
 		 		  		$('#entityGallery').append(element);  
 		 		   }
+		 		   $('#entityGallery').off('click'); 
+		 		   $('#entityGallery').on('click', 'img', function(event) {
+		 		   		   console.log($(event.target).parent().find('a').attr('href') ); 
+		 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
+				 		   $('#infoImg').modal({
+										        show: 'false'
+										    }); 
+		 		   }); 
+
 		 	}
 		 });
 	}
