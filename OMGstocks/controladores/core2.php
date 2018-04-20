@@ -39,11 +39,11 @@
 				$productosIngram[] = $producto; 
 		    }  */ 				  
 				 	     
-		    for($i = 0; $i < 1100; $i++){
+		    for($i = 0; $i < 10; $i++){
 				$linea = fgets($fp);
 				$linea = utf8_encode($linea); 
 				$producto = explode(',', $linea);
-				$productosIngram[] = $producto; 
+				$productosIngram[] = str_replace('"', '', $producto); 
 		    }     
 		      
 			fclose($fp);

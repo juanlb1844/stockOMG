@@ -36,17 +36,19 @@
 						    while($row = $resultado->fetch_assoc()) {
 						    	$rows[] = $row;
 						    	$attr_name = $row['name_attribute']; 
-						    	// INSERTAR NUEVO ATTRIBUTO EN EL PRODUCTO ( PARA QUE PUEDA SER LEIDO )
-						    	$db2 = new db();  
-						    	$query = "INSERT INTO entity_value_varchar(varchar_value, product_entity_id, name_attribute) VALUES('CREADO', $idProd, '$attr_name');"; 
-						    	if( $resNewAttr = mysqli_query($db2, $query) ) {
-						    		echo '_EJECUTADO_'; 
-						    	} else {
-						    		echo '_PROBLEMA_'; 
-						    		echo $query; 
+						    	if( $attr_name != 'main_img' && $attr_name != 'distributor' ) {
+							    	// INSERTAR NUEVO ATTRIBUTO EN EL PRODUCTO ( PARA QUE PUEDA SER LEIDO )
+							    	$db2 = new db();  
+							    	$query = "INSERT INTO entity_value_varchar(varchar_value, product_entity_id, name_attribute) VALUES('CREADO', $idProd, '$attr_name');"; 
+							    	if( $resNewAttr = mysqli_query($db2, $query) ) {
+							    		echo '_EJECUTADO_'; 
+							    	} else {
+							    		echo '_PROBLEMA_'; 
+							    		echo $query; 
+							    	}
+							    	mysqli_close($db2);  
 						    	}
 
-						    	mysqli_close($db2);  
 						    }
 						} else {
 						    echo "0 results";
@@ -70,23 +72,25 @@
 
 
 	foreach ($productData as $key => $value) {
-		$db = new db();  
-		$valueAttr = $value['localValue']; 
 		$typeAttr  = $value['type_attr']; 
-		$idAttr    = $value['ID']; 
+		if( $typeAttr != 'distributor' ) {
+				$db = new db();  
+				$valueAttr = $value['localValue']; 
+				$idAttr    = $value['ID']; 
 
-		if($typeAttr == "short_description"){
-				$query = "UPDATE entity_value_text SET text_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr"; 
-		} else {
-				$query = "UPDATE entity_value_varchar SET varchar_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr";
+				if($typeAttr == "short_description"){
+						$query = "UPDATE entity_value_text SET text_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr"; 
+				} else {
+						$query = "UPDATE entity_value_varchar SET varchar_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr";
+				}
+
+				if ($resultado = mysqli_query($db, $query)) {
+		    		echo "UPDATED"; 
+		   		}else {
+		   			echo "ERROR FATAL ALV"; 
+		   		}
+
+			    mysqli_close($db); 
 		}
-
-		if ($resultado = mysqli_query($db, $query)) {
-    		echo "UPDATED"; 
-   		}else {
-   			echo "ERROR FATAL ALV"; 
-   		}
-
-	    mysqli_close($db); 
 
 	}
