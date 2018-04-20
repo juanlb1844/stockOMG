@@ -1,3 +1,53 @@
+(function() {
+  /**
+   * Ajuste decimal de un número.
+   *
+   * @param {String}  tipo  El tipo de ajuste.
+   * @param {Number}  valor El numero.
+   * @param {Integer} exp   El exponente (el logaritmo 10 del ajuste base).
+   * @returns {Number} El valor ajustado.
+   */
+  function decimalAdjust(type, value, exp) {
+    // Si el exp no está definido o es cero...
+    if (typeof exp === 'undefined' || +exp === 0) {
+      return Math[type](value);
+    }
+    value = +value;
+    exp = +exp;
+    // Si el valor no es un número o el exp no es un entero...
+    if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+      return NaN;
+    }
+    // Shift
+    value = value.toString().split('e');
+    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+    // Shift back
+    value = value.toString().split('e');
+    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+  }
+
+  // Decimal round
+  if (!Math.round10) {
+    Math.round10 = function(value, exp) {
+      return decimalAdjust('round', value, exp);
+    };
+  }
+  // Decimal floor
+  if (!Math.floor10) {
+    Math.floor10 = function(value, exp) {
+      return decimalAdjust('floor', value, exp);
+    };
+  }
+  // Decimal ceil
+  if (!Math.ceil10) {
+    Math.ceil10 = function(value, exp) {
+      return decimalAdjust('ceil', value, exp);
+    };
+  }
+})();
+
+
+
 $(document).ready( function(){
 
 		initFeedWindow(); 
@@ -125,9 +175,9 @@ $(document).ready( function(){
 							var idCategory = categories[key].id_category; 
 							var parentId = categories[key].parent_id; 
 							if ( $($('#idCat'+parentId).find('ul')).html() != null && parentId != 1) {
-								$($('#idCat'+parentId).find('ul')).append('<li id="idCat'+idCategory+'"><img src="'+urlImg+'">'+nameCategory+'</li>');
+								$($('#idCat'+parentId).find('ul')).append('<li id="idCat'+idCategory+'"><span class="tree-child"></span><img src="'+urlImg+'">'+nameCategory+'</li>');
 							} else {
-								$('#idCat'+parentId).append('<ul><li id="idCat'+idCategory+'"><img src="'+urlImg+'">'+nameCategory+'</li></ul>'); 
+								$('#idCat'+parentId).append('<ul><li id="idCat'+idCategory+'"><span class="tree-child"></span><img src="'+urlImg+'">'+nameCategory+'</li></ul>'); 
 							}
 						}
 					}
@@ -171,11 +221,17 @@ $(document).ready( function(){
 									}else if ( val.type_attr == 'distributor' ) {
 											row.push( val.value_attr ); 
 											row.push(val.ID); 
+											var styleRow = '';
+											if(row[3] > 10) {
+												styleRow = 'style="font-size: 12px; font-weight: bold; color: green;"'; 
+											} else {
+												styleRow = 'style="font-size: 12px; font-weight: bold; color: orange;"'; 
+											}
 											lineProduct.push(Array(row[4], 
 																   row[0], 
 																   row[1], 
-																   row[3], 
-																   row[2], 
+																   '<div style="text-align:center;"><span '+styleRow+'>'+row[3]+'</span></div>', 
+																   '<span style="font-size:13px;">$'+Math.round10(row[2], -1)+'</span>', 
 																   '<span style="font-size: 14px; color:#03a87c;">&bullet; publicado</span>', 
 																   row[5]));
 									        row = []; 
@@ -205,13 +261,13 @@ $(document).ready( function(){
 		viewDataTable = $('#tableFeed').DataTable( {
 	        data: dataView, 
 	        columns: [
-	            { title: "Proveedor" },
-	            { title: "Nombre" }, 
-	            { title: "SKU" },
-	            { title: "Stock" },
-	            { title: "Precio" }, 
-	            { title: "Estado"}, 
-	            { title: "ID"}
+	            { title: "<span style='font-size: 15px;'>Proveedor<span>"}, 
+	            { title: "<span style='font-size: 15px;'>Nombre<span>"}, 
+	            { title: "<span style='font-size: 15px;'>SKU<span>"}, 
+	            { title: "<span style='font-size: 15px;'>Stock<span>"}, 
+	            { title: "<span style='font-size: 15px;'>Precio<span>"}, 
+	            { title: "<span style='font-size: 15px;'>Estado<span>"}, 
+	            { title: "<span style='font-size: 15px;'>#ID<span>"}
 	          ], 
 
 	        initComplete: function() {

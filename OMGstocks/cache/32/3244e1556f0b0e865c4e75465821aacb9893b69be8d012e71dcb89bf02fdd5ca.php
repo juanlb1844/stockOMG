@@ -40,10 +40,12 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     }
     li {
       border-left: 1px solid gray;  
+      border-left-style: dotted;
       padding-left: 2px; 
     }
     .tree-categories {
       padding-left: 0px; 
+      padding: 0px; 
     }
     .paginate_button .current {
       background-color: gray; 
@@ -54,7 +56,28 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     height: 30px;
     box-shadow: #ced2f7 0px 1px 4px 0px;
     }
+    tr:hover {
+      cursor: pointer;
+    }
   </style>
+ 
+ <!-- TREE --> 
+  <style type=\"text/css\">
+    .tree-child {
+      background-image: url('media/users/d.png');
+      height: 10px;
+      display: inline-block;
+      z-index: 9999;
+      left: 0px;
+      background-size: 10px;
+      background-position: -42px -1px;
+      background-size: auto;
+      width: 11px;
+      background-repeat: no-repeat; 
+      margin-left: -4px; 
+  } 
+  </style>
+
      <div class=\"show-data col-md-9 hiding-window\"> 
         <div class=\"row col-md-3\">
             <div class=\"col-md-12\">
@@ -65,29 +88,31 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
                 </div>
             </div>
             <div class=\"col-md-12\">
-              <ul class=\"tree-categories\"> 
-              \t<li>
-              \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\"> Electrónicos
-              \t\t<ul>
-              \t\t\t<li id=\"idCat20\"> 
-              \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
-              \t\t\t\t Laptops 
-              \t\t\t</li>
-              \t\t\t<li>
-              \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
-              \t\t\t\t Pantallas
-              \t\t\t</li>
-              \t\t\t<li>
-              \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
-              \t\t\t\t Celulares
-              \t\t\t</li>
-              \t\t</ul>
-              \t</li>
-              \t<li>
-              \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
-              \t\t Ropa
-              \t</li>
-              </ul>
+              <div class=\"container-tree-categories\" style=\"background-color: #eff3f6; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
+                <ul class=\"tree-categories\"> 
+                \t<li>
+                \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\"> Electrónicos
+                \t\t<ul>
+                \t\t\t<li id=\"idCat20\"> 
+                \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
+                \t\t\t\t Laptops 
+                \t\t\t</li>
+                \t\t\t<li>
+                \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
+                \t\t\t\t Pantallas
+                \t\t\t</li>
+                \t\t\t<li>
+                \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
+                \t\t\t\t Celulares
+                \t\t\t</li>
+                \t\t</ul>
+                \t</li>
+                \t<li>
+                \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
+                \t\t Ropa
+                \t</li>
+                </ul>
+              </div>
             </div>
         </div> 
         <div class=\"row col-md-9\">
@@ -102,7 +127,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 74
+        // line 99
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -183,6 +208,10 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
   .tree-categories {
     font-size: 10px; 
   }
+  ul {
+    padding-left: 20px; 
+    padding-top: 5px;
+  }
 </style>
 
 ";
@@ -200,7 +229,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 
     public function getDebugInfo()
     {
-        return array (  106 => 74,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  131 => 99,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -225,10 +254,12 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     }
     li {
       border-left: 1px solid gray;  
+      border-left-style: dotted;
       padding-left: 2px; 
     }
     .tree-categories {
       padding-left: 0px; 
+      padding: 0px; 
     }
     .paginate_button .current {
       background-color: gray; 
@@ -239,7 +270,28 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     height: 30px;
     box-shadow: #ced2f7 0px 1px 4px 0px;
     }
+    tr:hover {
+      cursor: pointer;
+    }
   </style>
+ 
+ <!-- TREE --> 
+  <style type=\"text/css\">
+    .tree-child {
+      background-image: url('media/users/d.png');
+      height: 10px;
+      display: inline-block;
+      z-index: 9999;
+      left: 0px;
+      background-size: 10px;
+      background-position: -42px -1px;
+      background-size: auto;
+      width: 11px;
+      background-repeat: no-repeat; 
+      margin-left: -4px; 
+  } 
+  </style>
+
      <div class=\"show-data col-md-9 hiding-window\"> 
         <div class=\"row col-md-3\">
             <div class=\"col-md-12\">
@@ -250,29 +302,31 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
                 </div>
             </div>
             <div class=\"col-md-12\">
-              <ul class=\"tree-categories\"> 
-              \t<li>
-              \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\"> Electrónicos
-              \t\t<ul>
-              \t\t\t<li id=\"idCat20\"> 
-              \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
-              \t\t\t\t Laptops 
-              \t\t\t</li>
-              \t\t\t<li>
-              \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
-              \t\t\t\t Pantallas
-              \t\t\t</li>
-              \t\t\t<li>
-              \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
-              \t\t\t\t Celulares
-              \t\t\t</li>
-              \t\t</ul>
-              \t</li>
-              \t<li>
-              \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
-              \t\t Ropa
-              \t</li>
-              </ul>
+              <div class=\"container-tree-categories\" style=\"background-color: #eff3f6; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
+                <ul class=\"tree-categories\"> 
+                \t<li>
+                \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\"> Electrónicos
+                \t\t<ul>
+                \t\t\t<li id=\"idCat20\"> 
+                \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
+                \t\t\t\t Laptops 
+                \t\t\t</li>
+                \t\t\t<li>
+                \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
+                \t\t\t\t Pantallas
+                \t\t\t</li>
+                \t\t\t<li>
+                \t\t\t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
+                \t\t\t\t Celulares
+                \t\t\t</li>
+                \t\t</ul>
+                \t</li>
+                \t<li>
+                \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\">
+                \t\t Ropa
+                \t</li>
+                </ul>
+              </div>
             </div>
         </div> 
         <div class=\"row col-md-9\">
@@ -365,11 +419,15 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
   .tree-categories {
     font-size: 10px; 
   }
+  ul {
+    padding-left: 20px; 
+    padding-top: 5px;
+  }
 </style>
 
 {% endblock %}
 
 
-", "feedLocal.html.twig", "C:\\xampp\\htdocs\\GIT\\OMGstock\\stockOMG\\OMGstocks\\templates\\feedLocal.html.twig");
+", "feedLocal.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\feedLocal.html.twig");
     }
 }
