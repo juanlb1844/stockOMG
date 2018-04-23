@@ -46,14 +46,16 @@
   }
 })();
 
-
+var dataLocalCategory = {
+			idCatSelected : 1
+		}; 
 
 $(document).ready( function(){
 
 		initFeedWindow(); 
-
 		getCategories(); 
 
+		// Colocar datos en modal 
 		$('#editCatBtn').click(function() {
 			$.ajax({
 				url: 'controladores/getCategories.php', 
@@ -71,6 +73,7 @@ $(document).ready( function(){
 			}); 
 		}); 
 
+		// Envíar datos para editar 
 		$('#editCategoryBtn').click(function() {
 			var catName = $('#editCategoryName').val(); 
 			var catDesc = $('#editCategoryDesc').val(); 
@@ -95,7 +98,8 @@ $(document).ready( function(){
 				} 
 			}); 
 		}); 
-		// Feed Local Categories 
+
+		// Envíar datos para nueva categoría  
 		$('#newCategoryBtn').click(function() {
 			var catName = $('#formCategoryName').val(); 
 			var catDesc = $('#formCategoryDesc').val(); 
@@ -118,18 +122,10 @@ $(document).ready( function(){
 					alert(response); 
 					window.location.href = "?p=feedLocal"; 
 				} 
-			}); 
-
+			}); 	
 		}); 
 
-		var dataLocalCategory = {
-			idCatSelected : 1
-		}; 
-
-		$('#editCatBtn').click(function() {
-			//alert(dataLocalCategory.idCatSelected); 
-		}); 
-
+		// Borrar categoría 
 		$('#deleteCategory').click(function() {
 			$.ajax({
 				url: 'controladores/deleteCategory.php', 
@@ -143,20 +139,19 @@ $(document).ready( function(){
 			});
 		}); 
 
+		//Cambiar categoría seleccionada 
 		$('.tree-categories').click(function(event){
-			$('.tree-categories li').css('font-weight', '400'); 
+			$('.tree-categories li').css('font-weight', '400');
+			$('.tree-categories li').css('color', '#333333');
 			console.log($(event.target).css('font-weight', 'bold'));
+			$(event.target).css('color', '#337ab7'); 
 			$(event.target).addClass('selected-category');
 			var cadIdCat = $(event.target).attr('id');
 			cadIdCat = cadIdCat.substr( 5, cadIdCat.length );  
 			dataLocalCategory.idCatSelected = cadIdCat;  
-			//alert( cadIdCat );	
 		});
 
-		$('#newCatBtn').click( function() {
-			//alert(dataLocalCategory.idCatSelected);   
-		}); 
-
+		// Armar árbol de categorías 
 		function getCategories() {
 			$.ajax({
 				url : 'controladores/getCategories.php', 
@@ -184,11 +179,8 @@ $(document).ready( function(){
 				} 
 			}); 
 		} 
-		// -- Feed Local Categories 
 
-
-
-
+		// -- Obtener productos para la tabla 
 		function initFeedWindow() {
 				 $.ajax({
 					 	url: 'controladores/core.php', 

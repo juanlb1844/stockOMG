@@ -52,9 +52,9 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     }
     input[type=\"search\"] {
       border: none;
-    background-color: #efefef;
-    height: 30px;
-    box-shadow: #ced2f7 0px 1px 4px 0px;
+      background-color: #efefef;
+      height: 30px;
+      box-shadow: #ced2f7 0px 1px 4px 0px;
     }
     tr:hover {
       cursor: pointer;
@@ -89,6 +89,14 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
             <div class=\"col-md-12\">
               <div class=\"container-tree-categories\" style=\"background-color: #eff3f6; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
+                <div class=\"row\" style=\"margin-bottom: 10px;\">
+                  <div class=\"col-md-6\">
+                    <a href=\"\" style=\"background-color: #9e9e9e; color:white; padding: 2px 4px 2px 4px; border-radius: 4px;\">contraer</a>
+                  </div>
+                  <div class=\"col-md-6\">
+                    <a style=\"background-color: #9e9e9e; color:white; padding: 2px 4px 2px 4px; border-radius: 4px;\" href=\"\">expander</a>                 
+                  </div>
+                </div>
                 <ul class=\"tree-categories\"> 
                 \t<li>
                 \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\"> Electrónicos
@@ -127,7 +135,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 99
+        // line 107
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -206,7 +214,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     width: 15px; 
   }
   .tree-categories {
-    font-size: 10px; 
+    font-size: 11px; 
   }
   ul {
     padding-left: 20px; 
@@ -229,7 +237,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 
     public function getDebugInfo()
     {
-        return array (  131 => 99,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  139 => 107,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -266,9 +274,9 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     }
     input[type=\"search\"] {
       border: none;
-    background-color: #efefef;
-    height: 30px;
-    box-shadow: #ced2f7 0px 1px 4px 0px;
+      background-color: #efefef;
+      height: 30px;
+      box-shadow: #ced2f7 0px 1px 4px 0px;
     }
     tr:hover {
       cursor: pointer;
@@ -303,6 +311,14 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
             <div class=\"col-md-12\">
               <div class=\"container-tree-categories\" style=\"background-color: #eff3f6; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
+                <div class=\"row\" style=\"margin-bottom: 10px;\">
+                  <div class=\"col-md-6\">
+                    <a href=\"\" style=\"background-color: #9e9e9e; color:white; padding: 2px 4px 2px 4px; border-radius: 4px;\">contraer</a>
+                  </div>
+                  <div class=\"col-md-6\">
+                    <a style=\"background-color: #9e9e9e; color:white; padding: 2px 4px 2px 4px; border-radius: 4px;\" href=\"\">expander</a>                 
+                  </div>
+                </div>
                 <ul class=\"tree-categories\"> 
                 \t<li>
                 \t\t<img style=\"width: 20px;\" src=\"skin/media/folder-open.png\"> Electrónicos
@@ -417,7 +433,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     width: 15px; 
   }
   .tree-categories {
-    font-size: 10px; 
+    font-size: 11px; 
   }
   ul {
     padding-left: 20px; 
@@ -428,6 +444,6 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 {% endblock %}
 
 
-", "feedLocal.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\feedLocal.html.twig");
+", "feedLocal.html.twig", "C:\\xampp\\htdocs\\GIT\\stockOMG\\OMGstocks\\templates\\feedLocal.html.twig");
     }
 }

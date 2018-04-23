@@ -1,5 +1,11 @@
 $(document).ready( function() {
 		getCategories(); 
+
+		var dataLocalCategory = {
+			idCatSelected : 1
+		}; 
+
+		// Armar árbol de categorías 
 		function getCategories() {
 			$.ajax({
 				url : 'controladores/getCategories.php', 
@@ -27,4 +33,14 @@ $(document).ready( function() {
 				} 
 			}); 
 		} 
+
+		//Cambiar categoría seleccionada 
+		$('.tree-categories').click(function(event){
+			$('.tree-categories li').css('font-weight', '400'); 
+			console.log($(event.target).css('font-weight', 'bold'));
+			$(event.target).addClass('selected-category');
+			var cadIdCat = $(event.target).attr('id');
+			cadIdCat = cadIdCat.substr( 5, cadIdCat.length );  
+			dataLocalCategory.idCatSelected = cadIdCat;  
+		});
 }); 
