@@ -444,6 +444,6 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 {% endblock %}
 
 
-", "feedLocal.html.twig", "C:\\xampp\\htdocs\\GIT\\stockOMG\\OMGstocks\\templates\\feedLocal.html.twig");
+", "feedLocal.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\stockOMG\\OMGstocks\\templates\\feedLocal.html.twig");
     }
 }
