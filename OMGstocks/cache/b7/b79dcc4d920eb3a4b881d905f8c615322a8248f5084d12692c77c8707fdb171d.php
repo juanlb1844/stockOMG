@@ -153,6 +153,6 @@ class __TwigTemplate_ce2dd0b0dceeeec605d7519278869dcc3660d3261095f7e52513b1ebc77
                      Ropa
                </li>
           </ul>
-     </div>", "tree-category.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\tree-category.html.twig");
+     </div>", "tree-category.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\stockOMG\\OMGstocks\\templates\\tree-category.html.twig");
     }
 }

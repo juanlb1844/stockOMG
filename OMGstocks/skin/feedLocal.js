@@ -52,7 +52,7 @@ var dataLocalCategory = {
 
 $(document).ready( function(){
 
-		initFeedWindow(); 
+		initFeedWindow('controladores/core.php', { url : '', type: 'user-view' }); 
 		getCategories(); 
 
 		// Colocar datos en modal 
@@ -139,6 +139,20 @@ $(document).ready( function(){
 			});
 		}); 
 
+				/* 
+		$.ajax({
+				url: 'controladores/getProductsByCat.php', 
+				method: 'POST', 
+				data: {
+					idCat : 52
+				},
+				success: function(response) {
+					var category = JSON.parse(response); 
+					console.log(category); 
+				} 
+			}); */ 
+
+
 		//Cambiar categoría seleccionada 
 		$('.tree-categories').click(function(event){
 			$('.tree-categories li').css('font-weight', '400');
@@ -148,7 +162,12 @@ $(document).ready( function(){
 			$(event.target).addClass('selected-category');
 			var cadIdCat = $(event.target).attr('id');
 			cadIdCat = cadIdCat.substr( 5, cadIdCat.length );  
-			dataLocalCategory.idCatSelected = cadIdCat;  
+			dataLocalCategory.idCatSelected = cadIdCat; 
+			if( cadIdCat == 1) {
+					initFeedWindow('controladores/core.php', { url : '', type: 'user-view' }); 
+			} else {
+					initFeedWindow('controladores/getProductsByCat.php', { idCat : cadIdCat });  
+			}
 		});
 
 		// Armar árbol de categorías 
@@ -180,15 +199,23 @@ $(document).ready( function(){
 			}); 
 		} 
 
-		// -- Obtener productos para la tabla 
-		function initFeedWindow() {
-				 $.ajax({
-					 	url: 'controladores/core.php', 
-					 	type: 'post', 
-					 	data: { url : '', type: 'user-view' }, 
-					 	success: function(mensaje){
-					 			 viewData = JSON.parse(mensaje); //datos brutos 
 
+
+		// -- Obtener productos para la tabla 
+
+
+		function initFeedWindow(url, dataService) {
+				 $('#tableFeed').html('<img src="media/users/loading.gif" style="width:70px;">');
+				 $.ajax({
+					 	url: url, 
+					 	type: 'post', 
+					 	data: dataService, 
+					 	success: function(mensaje){
+					 			 if(mensaje == 'sin datos') {
+					 			 	$("#tableFeed").html('<h2>Sin datos</h2>'); 
+					 			 	return; 
+					 			 }
+					 			 viewData = JSON.parse(mensaje); //datos brutos 
 					 			 // LOCAL 
 					 			 	var testObject = { 'one': 1, 'two': 2, 'three': 3 };
 									// Put the object into storage
@@ -245,8 +272,7 @@ $(document).ready( function(){
      function appendViewData(dataView){ 
 		arr  = new Array(); 
 		arr2 = new Array();
-		console.log('...................');   
-        console.log(dataView); 
+		$('#tableFeed').html(''); 
 
 		if(viewDataTable != null){ viewDataTable.destroy(); }
 

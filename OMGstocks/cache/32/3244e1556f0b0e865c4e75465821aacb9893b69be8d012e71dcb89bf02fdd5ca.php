@@ -28,10 +28,12 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     public function block_content($context, array $blocks = array())
     {
         echo " 
+
 \t";
-        // line 4
+        // line 5
         $this->displayParentBlock("content", $context, $blocks);
         echo " 
+
 \t<script type=\"text/javascript\" src=\"skin/feedLocal.js\"></script>
   <link rel=\"stylesheet\" type=\"text/css\" href=\"skin/styles-feedLocal.css\">
   <style type=\"text/css\">
@@ -122,6 +124,12 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
                 </ul>
               </div>
             </div>
+            <div class=\"col-md-12\">
+               ";
+        // line 98
+        echo twig_include($this->env, $context, "filters.html.twig");
+        echo "
+            </div>
         </div> 
         <div class=\"row col-md-9\">
         \t<h1 class=\"title-template\">Datos del feed</h1>
@@ -135,7 +143,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 107
+        // line 112
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -237,7 +245,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 
     public function getDebugInfo()
     {
-        return array (  139 => 107,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  147 => 112,  130 => 98,  34 => 5,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -253,7 +261,9 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
         return new Twig_Source("{% extends \"layout.html.twig\" %}
 
 {% block content %} 
+
 \t{{parent()}} 
+
 \t<script type=\"text/javascript\" src=\"skin/feedLocal.js\"></script>
   <link rel=\"stylesheet\" type=\"text/css\" href=\"skin/styles-feedLocal.css\">
   <style type=\"text/css\">
@@ -343,6 +353,9 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
                 \t</li>
                 </ul>
               </div>
+            </div>
+            <div class=\"col-md-12\">
+               {{ include('filters.html.twig') }}
             </div>
         </div> 
         <div class=\"row col-md-9\">

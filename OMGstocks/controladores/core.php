@@ -15,8 +15,6 @@
 				   ON E.`id_distributor` = DIS.`id_distributor`) ) AS S1 ORDER BY ID ASC "; 
 
 		if ($resultado = mysqli_query($db, $query)) {
-		    //printf("La selección devolvió %d filas.\n", mysqli_num_rows($resultado));
-		    //echo mysqli_num_rows($resultado); 
     		if ($resultado->num_rows > 0) {
 			    while($row = $resultado->fetch_assoc()) {
 			    	$rows[] = $row;
@@ -25,6 +23,5 @@
 			    echo "0 results";
 			}
 			echo json_encode($rows); 
-		    //mysqli_free_result($resultado);
    		}
 	    mysqli_close($db); 

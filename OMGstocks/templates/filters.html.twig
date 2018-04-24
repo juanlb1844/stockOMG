@@ -12,6 +12,14 @@
 	.filter-title {
 		border-bottom: 1px solid gray;
 	}
+	.close-filter {
+		font-size: 17px; 
+		color: orange;
+		padding-left: 10px; 
+	}
+	.close-filter:hover {
+		cursor: pointer;
+	}
 </style>
 
 <div id="filters">
@@ -20,9 +28,10 @@
 			<h4>Brand</h4>
 		</div>
 		<div class="filter-brand">
-			<p>
+			<!-- marcas --> 
+			<!-- <p>
 				<a href="">HP</a>
-			</p>
+			</p> --> 
 		</div>
 	</div>
 </div>
@@ -40,10 +49,22 @@
 			 		  		response = JSON.parse(response);  
 			 		  		for(i in response) {
 			 		  			var element = '<p>' + 
-												'<a href="">'+response[i].varchar_value+'</a>' + 
+												'<a class="brandAction" href="index.php?p=feedLocal&brand='+response[i].varchar_value+'">'+response[i].varchar_value+'</a>' + 
+												'</p>';
+								var element = '<p>' + 
+												'<p class="brandAction">'+response[i].varchar_value+'</p>' + 
 												'</p>';
 			 		  			$('.filter-brand').append(element); 
 			 		  		}
+			 		  		$('.filter-brand').off('.brandAction'); 
+			 		  		$('.filter-brand').on('click', '.brandAction', function(event) {
+			 		  			var string = null; 
+			 		  			string = $(event.target).text(); 
+			 		  			var element = '<p>' + 
+												'<p class="brandAction">'+string+'<span class="close-filter">&times</span></p>' +  
+												'</p>'; 
+								$('.filter-brand').html(element); 
+			 		  		}); 
 			 		  } 
 			 	}
 			 });
