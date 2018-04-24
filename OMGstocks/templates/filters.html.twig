@@ -26,3 +26,26 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+			getFilters(); 
+		function getFilters() {
+				$.ajax({
+			 	url: 'controladores/getMarcas.php', 
+			 	method: 'POST', 
+			 	data: { 
+			 			}, 
+			 	success: function(response){
+			 		  if( response != 'sin datos' ) {
+			 		  		response = JSON.parse(response);  
+			 		  		for(i in response) {
+			 		  			var element = '<p>' + 
+												'<a href="">'+response[i].varchar_value+'</a>' + 
+												'</p>';
+			 		  			$('.filter-brand').append(element); 
+			 		  		}
+			 		  } 
+			 	}
+			 });
+		}
+</script>
