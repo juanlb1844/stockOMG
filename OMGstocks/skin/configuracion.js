@@ -17,10 +17,12 @@ $(document).ready(function() {
 	// EXPORT 
 	$('#importIngram').click( function() { 
 		alert('Importar'); 
+		//PORTATILES
+		//ACCESORIOS 
 		$.ajax({
 				 	url: 'controladores/dataController.php', 
 				 	method: 'POST', 
-				 	data: {  url:  'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0', 
+				 	data: {  url:  'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=ACCESORIOS%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0', 
 				 		     type: 'export',  
 				 		   	 WS:   'Ingram' }, 
 				 	success: function(mensaje){
@@ -45,10 +47,12 @@ $(document).ready(function() {
    });
 
     $('#importCVA').click( function importCVA() {
+    	//https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0
+    	//ACCESORIOS 
    		$.ajax({
 						 	url: 'controladores/dataController.php', 
 						 	method: 'POST', 
-						 	data: {  url:  'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0', 
+						 	data: {  url:  'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo=ACCESORIOS%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0', 
 						 		     type: 'export',  
 						 		     WS:   'CVA' }, 
 						 	success: function(mensaje){

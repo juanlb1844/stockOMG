@@ -20,10 +20,20 @@
 	.close-filter:hover {
 		cursor: pointer;
 	}
+	.filter-brand {
+		color: #337ab7;
+	    font-weight: bold;
+	    line-height: 17px;
+	}
+	.brandAction:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
 </style>
 
 <div id="filters">
-	<div class="filter">
+
+	<div class="filter filter-brands">
 		<div class="filter-title">
 			<h4>Brand</h4>
 		</div>
@@ -34,39 +44,11 @@
 			</p> --> 
 		</div>
 	</div>
+	
 </div>
 
 <script type="text/javascript">
-			getFilters(); 
-		function getFilters() {
-				$.ajax({
-			 	url: 'controladores/getMarcas.php', 
-			 	method: 'POST', 
-			 	data: { 
-			 			}, 
-			 	success: function(response){
-			 		  if( response != 'sin datos' ) {
-			 		  		response = JSON.parse(response);  
-			 		  		for(i in response) {
-			 		  			var element = '<p>' + 
-												'<a class="brandAction" href="index.php?p=feedLocal&brand='+response[i].varchar_value+'">'+response[i].varchar_value+'</a>' + 
-												'</p>';
-								var element = '<p>' + 
-												'<p class="brandAction">'+response[i].varchar_value+'</p>' + 
-												'</p>';
-			 		  			$('.filter-brand').append(element); 
-			 		  		}
-			 		  		$('.filter-brand').off('.brandAction'); 
-			 		  		$('.filter-brand').on('click', '.brandAction', function(event) {
-			 		  			var string = null; 
-			 		  			string = $(event.target).text(); 
-			 		  			var element = '<p>' + 
-												'<p class="brandAction">'+string+'<span class="close-filter">&times</span></p>' +  
-												'</p>'; 
-								$('.filter-brand').html(element); 
-			 		  		}); 
-			 		  } 
-			 	}
-			 });
-		}
+
+		
+
 </script>

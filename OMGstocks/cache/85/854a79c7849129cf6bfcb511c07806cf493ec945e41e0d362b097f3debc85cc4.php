@@ -38,10 +38,20 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 \t.close-filter:hover {
 \t\tcursor: pointer;
 \t}
+\t.filter-brand {
+\t\tcolor: #337ab7;
+\t    font-weight: bold;
+\t    line-height: 17px;
+\t}
+\t.brandAction:hover {
+\t\ttext-decoration: underline;
+\t\tcursor: pointer;
+\t}
 </style>
 
 <div id=\"filters\">
-\t<div class=\"filter\">
+
+\t<div class=\"filter filter-brands\">
 \t\t<div class=\"filter-title\">
 \t\t\t<h4>Brand</h4>
 \t\t</div>
@@ -52,41 +62,13 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 \t\t\t</p> --> 
 \t\t</div>
 \t</div>
+\t
 </div>
 
 <script type=\"text/javascript\">
-\t\t\tgetFilters(); 
-\t\tfunction getFilters() {
-\t\t\t\t\$.ajax({
-\t\t\t \turl: 'controladores/getMarcas.php', 
-\t\t\t \tmethod: 'POST', 
-\t\t\t \tdata: { 
-\t\t\t \t\t\t}, 
-\t\t\t \tsuccess: function(response){
-\t\t\t \t\t  if( response != 'sin datos' ) {
-\t\t\t \t\t  \t\tresponse = JSON.parse(response);  
-\t\t\t \t\t  \t\tfor(i in response) {
-\t\t\t \t\t  \t\t\tvar element = '<p>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'<a class=\"brandAction\" href=\"index.php?p=feedLocal&brand='+response[i].varchar_value+'\">'+response[i].varchar_value+'</a>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'</p>';
-\t\t\t\t\t\t\t\tvar element = '<p>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'<p class=\"brandAction\">'+response[i].varchar_value+'</p>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'</p>';
-\t\t\t \t\t  \t\t\t\$('.filter-brand').append(element); 
-\t\t\t \t\t  \t\t}
-\t\t\t \t\t  \t\t\$('.filter-brand').off('.brandAction'); 
-\t\t\t \t\t  \t\t\$('.filter-brand').on('click', '.brandAction', function(event) {
-\t\t\t \t\t  \t\t\tvar string = null; 
-\t\t\t \t\t  \t\t\tstring = \$(event.target).text(); 
-\t\t\t \t\t  \t\t\tvar element = '<p>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'<p class=\"brandAction\">'+string+'<span class=\"close-filter\">&times</span></p>' +  
-\t\t\t\t\t\t\t\t\t\t\t\t'</p>'; 
-\t\t\t\t\t\t\t\t\$('.filter-brand').html(element); 
-\t\t\t \t\t  \t\t}); 
-\t\t\t \t\t  } 
-\t\t\t \t}
-\t\t\t });
-\t\t}
+
+\t\t
+
 </script>";
     }
 
@@ -132,10 +114,20 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 \t.close-filter:hover {
 \t\tcursor: pointer;
 \t}
+\t.filter-brand {
+\t\tcolor: #337ab7;
+\t    font-weight: bold;
+\t    line-height: 17px;
+\t}
+\t.brandAction:hover {
+\t\ttext-decoration: underline;
+\t\tcursor: pointer;
+\t}
 </style>
 
 <div id=\"filters\">
-\t<div class=\"filter\">
+
+\t<div class=\"filter filter-brands\">
 \t\t<div class=\"filter-title\">
 \t\t\t<h4>Brand</h4>
 \t\t</div>
@@ -146,41 +138,13 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 \t\t\t</p> --> 
 \t\t</div>
 \t</div>
+\t
 </div>
 
 <script type=\"text/javascript\">
-\t\t\tgetFilters(); 
-\t\tfunction getFilters() {
-\t\t\t\t\$.ajax({
-\t\t\t \turl: 'controladores/getMarcas.php', 
-\t\t\t \tmethod: 'POST', 
-\t\t\t \tdata: { 
-\t\t\t \t\t\t}, 
-\t\t\t \tsuccess: function(response){
-\t\t\t \t\t  if( response != 'sin datos' ) {
-\t\t\t \t\t  \t\tresponse = JSON.parse(response);  
-\t\t\t \t\t  \t\tfor(i in response) {
-\t\t\t \t\t  \t\t\tvar element = '<p>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'<a class=\"brandAction\" href=\"index.php?p=feedLocal&brand='+response[i].varchar_value+'\">'+response[i].varchar_value+'</a>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'</p>';
-\t\t\t\t\t\t\t\tvar element = '<p>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'<p class=\"brandAction\">'+response[i].varchar_value+'</p>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'</p>';
-\t\t\t \t\t  \t\t\t\$('.filter-brand').append(element); 
-\t\t\t \t\t  \t\t}
-\t\t\t \t\t  \t\t\$('.filter-brand').off('.brandAction'); 
-\t\t\t \t\t  \t\t\$('.filter-brand').on('click', '.brandAction', function(event) {
-\t\t\t \t\t  \t\t\tvar string = null; 
-\t\t\t \t\t  \t\t\tstring = \$(event.target).text(); 
-\t\t\t \t\t  \t\t\tvar element = '<p>' + 
-\t\t\t\t\t\t\t\t\t\t\t\t'<p class=\"brandAction\">'+string+'<span class=\"close-filter\">&times</span></p>' +  
-\t\t\t\t\t\t\t\t\t\t\t\t'</p>'; 
-\t\t\t\t\t\t\t\t\$('.filter-brand').html(element); 
-\t\t\t \t\t  \t\t}); 
-\t\t\t \t\t  } 
-\t\t\t \t}
-\t\t\t });
-\t\t}
+
+\t\t
+
 </script>", "filters.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\stockOMG\\OMGstocks\\templates\\filters.html.twig");
     }
 }
