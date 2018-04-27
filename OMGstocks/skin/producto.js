@@ -1,5 +1,6 @@
 
 var productData = null; 
+var main_img_data = null; 
 
 var quitSpace = function(str) {
     var cadena = '';
@@ -17,9 +18,7 @@ var quitSpace = function(str) {
 		$.ajax({
 		 	url: 'controladores/getGallery.php', 
 		 	method: 'POST', 
-		 	data: { 
-		 			idProd : productData[0].ID 
-		 			}, 
+		 	data: {  idProd : productData[0].ID  }, 
 		 	success: function(mensaje){
 		 		  var gallery = JSON.parse(mensaje); 
 		 		   for( var i in gallery ) {
@@ -28,11 +27,15 @@ var quitSpace = function(str) {
 		 		   }
 		 		   $('#entityGallery').off('click'); 
 		 		   $('#entityGallery').on('click', 'img', function(event) {
-		 		   		   console.log($(event.target).parent().find('a').attr('href') ); 
-		 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
-				 		   $('#infoImg').modal({
-										        show: 'false'
-										    }); 
+	 		   		   if ( $(event.target).attr('mainImg')) {
+							$('#imgMainSet').attr('checked', true); 
+						} else {
+							$('#imgMainSet').attr('checked', false); 
+						}
+	 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
+			 		   $('#infoImg').modal({
+									        show: 'false'
+									    }); 
 		 		   }); 
 
 		 	}
@@ -40,6 +43,10 @@ var quitSpace = function(str) {
 	}
 
 $(document).ready(function(){ 
+
+	$('#saveImg').click( function() {
+		alert('..'); 
+	}); 
 
 	// guardar datos del producto 
 	$('#saveProduct').click(function() {
@@ -76,6 +83,7 @@ $(document).ready(function(){
 	 	height : 200
 	});
 
+
 	var url = window.location.href; 
 	idProd = url.split('=')[2];
 	 $.ajax({
@@ -91,16 +99,19 @@ $(document).ready(function(){
 			  		  		console.log('jump'); 
 			  		  } else if(productData[x].type_attr == 'main_img') { 
 			  		  			urlImg = productData[x].value_attr; 
-				  		  		var element = '<li><img src="'+urlImg+'"><p><a href="'+urlImg+'">ver</a><label class="label label-primary">Main</label></p></li>';  
+			  		  			main_img_data = {'url' : urlImg}; 
+				  		  		var element = '<li><img mainImg="true" src="'+urlImg+'"><p><a href="'+urlImg+'">ver</a><label class="label label-primary">Main</label></p></li>';  
 			 		  			$('#entityGallery').append(element);
 			 		  			$('#entityGallery').off('click'); 
 						 		$('#entityGallery').on('click', 'img', function(event) {
-								console.log($(event.target).parent().find('a').attr('href') ); 
+								if ( $(event.target).attr('mainImg') ) {
+									$('#imgMainSet').attr('checked', true); 
+								} 
 						 		$('#urlImg').val($(event.target).parent().find('a').attr('href')); 
 								$('#infoImg').modal({
 													    show: 'false'
 												    }); 
-						 		 }); 
+						        }); 
 			  		  }else if( productData[x].type_attr == 'short_description' ) {
 
 			  		  		data = '<div class="form-group">' + 
