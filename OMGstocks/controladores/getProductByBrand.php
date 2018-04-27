@@ -3,9 +3,10 @@
 
 	$db = new db(); 
 	
-	$brandName = isset($_POST['brandName']) ? $_POST['brandName'] : 0; 
- 
-	$query = "CALL productByBrand('$brandName');"; 
+	$attrName = isset($_POST['attrName']) ? $_POST['attrName'] : 0; 
+ 	$attrValue = isset($_POST['attrValue']) ? $_POST['attrValue'] : 0; 
+
+	$query = "CALL getXProductByAttrVal('$attrName', '$attrValue');"; 
  
 	if ($resultado = mysqli_query($db, $query)) {
     	if ($resultado->num_rows > 0) {

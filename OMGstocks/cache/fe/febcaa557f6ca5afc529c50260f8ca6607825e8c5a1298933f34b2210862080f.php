@@ -214,6 +214,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
         <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" id=\"deleteImg\">Borrar</button>
+        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\" id=\"saveImg\">Guardar</button>
       </div>
     </div>
   </div>
@@ -426,6 +427,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
         <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" id=\"deleteImg\">Borrar</button>
+        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\" id=\"saveImg\">Guardar</button>
       </div>
     </div>
   </div>

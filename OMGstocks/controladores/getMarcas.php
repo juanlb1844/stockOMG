@@ -2,8 +2,14 @@
 	include_once 'database.php'; 
 
 	$db = new db(); 
+	$brandName = $_POST['attrName']; 
+	$filterType = $_POST['filterType']; 
 
-	$query = "SELECT * FROM `entity_value_varchar` WHERE name_attribute = 'marca' GROUP BY varchar_value"; 
+	if($filterType == 0) {
+		$query = "SELECT * FROM `entity_value_varchar` WHERE name_attribute = '$brandName' GROUP BY varchar_value"; 
+	} else {
+		$query = "SELECT * FROM `entity_value_varchar` WHERE name_attribute = '$brandName' GROUP BY varchar_value"; 
+	}
 
 	if ($resultado = mysqli_query($db, $query)) {
     	if ($resultado->num_rows > 0) {

@@ -85,8 +85,8 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             <div class=\"col-md-12\">
                 <h4>Categorías</h4>
                 <div style=\"margin-bottom: 20px; \">
-                  \t<button class=\"btn btn-primary\" id=\"newCatBtn\" data-toggle=\"modal\" data-target=\"#newCat\">Nueva</button>
-                    <button class=\"btn btn-primary\" id=\"editCatBtn\" data-toggle=\"modal\" data-target=\"#eddCat\">..</button>
+                  \t<button class=\"btn btn-primary btn-sm\" id=\"newCatBtn\" data-toggle=\"modal\" data-target=\"#newCat\">Nueva</button>
+                    <button class=\"btn btn-primary btn-sm\" id=\"editCatBtn\" data-toggle=\"modal\" data-target=\"#eddCat\">..</button>
                 </div>
             </div>
             <div class=\"col-md-12\">
@@ -315,8 +315,8 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             <div class=\"col-md-12\">
                 <h4>Categorías</h4>
                 <div style=\"margin-bottom: 20px; \">
-                  \t<button class=\"btn btn-primary\" id=\"newCatBtn\" data-toggle=\"modal\" data-target=\"#newCat\">Nueva</button>
-                    <button class=\"btn btn-primary\" id=\"editCatBtn\" data-toggle=\"modal\" data-target=\"#eddCat\">..</button>
+                  \t<button class=\"btn btn-primary btn-sm\" id=\"newCatBtn\" data-toggle=\"modal\" data-target=\"#newCat\">Nueva</button>
+                    <button class=\"btn btn-primary btn-sm\" id=\"editCatBtn\" data-toggle=\"modal\" data-target=\"#eddCat\">..</button>
                 </div>
             </div>
             <div class=\"col-md-12\">

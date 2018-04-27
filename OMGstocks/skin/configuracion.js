@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	initModal(); 
 	function initModal() {
-		var grouposCva = [" Todos Los Grupos", 
+		var grouposCva = [" TODO", 
 						"  ACCESORIOS", 
 						"  AIRE ACONDICIONADO", 
 						"  ALARMAS", 
@@ -49,13 +49,9 @@ $(document).ready(function() {
 						"  MULTIFUNCIONALES", 
 						"  OPTICOS", 
 						"  PARTES", 
-						"  PCS ALTO DESEMPE?O ( GAMERS )", 
+						"  GAMERS", 
 						"  PC'S", 
 						"  PIZARRON", 
-						"  POLIZA DE GARANTIAS COMPUTO GHIA 1 A?O", 
-						"  POLIZA DE GARANTIAS COMPUTO GHIA 2 A?OS", 
-						"  POLIZA DE GARANTIAS MONITOR GHIA 1A?O", 
-						"  POLIZA DE GARANTIAS MONITOR GHIA 2 A?OS", 
 						"  POLIZA DE SERVICIO", 
 						"  POLIZAS DE GARANTIA", 
 						"  PORTA RETRATO DIGITAL", 
@@ -147,8 +143,8 @@ $(document).ready(function() {
 
     $('#importCVA').click( function importCVA() {
     	var groupCvaSelected = $('#CVAgroups').val(); 
-    	alert(groupCvaSelected); 
     	var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupCvaSelected+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0'; 
+    	console.log(urlCva); 
     	//https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0
     	//ACCESORIOS 
     	
@@ -162,7 +158,7 @@ $(document).ready(function() {
 							 		 	 console.log(mensaje);
 							 		 	 alert('TERMINADO CVA'); 
 						 	}
-					});  
+					});   
    }); 
 	// EXPORT --> 
 

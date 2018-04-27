@@ -103,8 +103,6 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
             </div>
             <div class=\"col-md-5\">
 \t            <select class=\"form-control\" id=\"CVAgroups\">
-\t            \t<option>ACCESORIOS</option>
-\t            \t<option>VIDEO VIGILANCIA</option>
 \t            </select>
             </div>
           </div>
@@ -232,8 +230,6 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
             </div>
             <div class=\"col-md-5\">
 \t            <select class=\"form-control\" id=\"CVAgroups\">
-\t            \t<option>ACCESORIOS</option>
-\t            \t<option>VIDEO VIGILANCIA</option>
 \t            </select>
             </div>
           </div>

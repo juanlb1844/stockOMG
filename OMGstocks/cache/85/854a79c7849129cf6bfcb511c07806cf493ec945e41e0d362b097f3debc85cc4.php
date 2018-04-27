@@ -63,7 +63,7 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 
 \t<div class=\"filter filter-brands\">
 \t\t<div class=\"filter-title\">
-\t\t\t<h4>Brand </h4>
+\t\t\t<h4>Brands </h4>
 \t\t\t<span class=\"filter-n-res label label-primary\">?</span>
 \t\t</div>
 \t\t<div class=\"filter-brand filter-content\">
@@ -76,13 +76,34 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 
 \t<div class=\"filter\">
 \t\t<div class=\"filter-title\">
+\t\t\t<h4>Familia</h4>
+\t\t\t<span class=\"filter-n-res label label-primary\">?</span>
+\t\t</div>
+\t\t<div class=\"filter-family filter-content\">
+\t\t</div>
+\t</div>
+
+\t<div class=\"filter\">
+\t\t<div class=\"filter-title\">
 \t\t\t<h4>In stock </h4>
 \t\t</div>
 \t\t<div class=\"filter-stock filter-content\">
-\t\t\t<p class=\"brandAction\">IN</p>
-\t\t\t<p class=\"brandAction\">OUT</p>
+\t\t\t<!-- <p class=\"brandAction\">IN</p>
+\t\t\t<p class=\"brandAction\">OUT</p> --> 
 \t\t</div>
 \t</div>
+
+\t<div class=\"filter\">
+\t\t<div class=\"filter-title\">
+\t\t\t<h4>Distributors</h4>
+\t\t</div>
+\t\t<div class=\"filter-distributor filter-content\">
+\t\t\t<!-- <p class=\"brandAction\">CVA group</p>
+\t\t\t<p class=\"brandAction\">Tech Data</p>
+\t\t\t<p class=\"brandAction\">Ingram</p> --> 
+\t\t</div>
+\t</div>
+
 \t
 </div>
 
@@ -160,7 +181,7 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 
 \t<div class=\"filter filter-brands\">
 \t\t<div class=\"filter-title\">
-\t\t\t<h4>Brand </h4>
+\t\t\t<h4>Brands </h4>
 \t\t\t<span class=\"filter-n-res label label-primary\">?</span>
 \t\t</div>
 \t\t<div class=\"filter-brand filter-content\">
@@ -173,13 +194,34 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 
 \t<div class=\"filter\">
 \t\t<div class=\"filter-title\">
+\t\t\t<h4>Familia</h4>
+\t\t\t<span class=\"filter-n-res label label-primary\">?</span>
+\t\t</div>
+\t\t<div class=\"filter-family filter-content\">
+\t\t</div>
+\t</div>
+
+\t<div class=\"filter\">
+\t\t<div class=\"filter-title\">
 \t\t\t<h4>In stock </h4>
 \t\t</div>
 \t\t<div class=\"filter-stock filter-content\">
-\t\t\t<p class=\"brandAction\">IN</p>
-\t\t\t<p class=\"brandAction\">OUT</p>
+\t\t\t<!-- <p class=\"brandAction\">IN</p>
+\t\t\t<p class=\"brandAction\">OUT</p> --> 
 \t\t</div>
 \t</div>
+
+\t<div class=\"filter\">
+\t\t<div class=\"filter-title\">
+\t\t\t<h4>Distributors</h4>
+\t\t</div>
+\t\t<div class=\"filter-distributor filter-content\">
+\t\t\t<!-- <p class=\"brandAction\">CVA group</p>
+\t\t\t<p class=\"brandAction\">Tech Data</p>
+\t\t\t<p class=\"brandAction\">Ingram</p> --> 
+\t\t</div>
+\t</div>
+
 \t
 </div>
 

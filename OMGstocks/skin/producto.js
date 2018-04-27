@@ -90,17 +90,17 @@ $(document).ready(function(){
 			  		  if( productData[x].type_attr == 'distributor') {
 			  		  		console.log('jump'); 
 			  		  } else if(productData[x].type_attr == 'main_img') { 
-			  		  		urlImg = productData[x].value_attr; 
-			  		  		var element = '<li><img src="'+urlImg+'"><p><a href="'+urlImg+'">ver</a><label class="label label-primary">Main</label></p></li>';  
-		 		  			$('#entityGallery').append(element);
-		 		  			 $('#entityGallery').off('click'); 
-					 		 $('#entityGallery').on('click', 'img', function(event) {
-					 		   		   console.log($(event.target).parent().find('a').attr('href') ); 
-					 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
-							 		   $('#infoImg').modal({
-													        show: 'false'
-													    }); 
-					 		 }); 
+			  		  			urlImg = productData[x].value_attr; 
+				  		  		var element = '<li><img src="'+urlImg+'"><p><a href="'+urlImg+'">ver</a><label class="label label-primary">Main</label></p></li>';  
+			 		  			$('#entityGallery').append(element);
+			 		  			$('#entityGallery').off('click'); 
+						 		$('#entityGallery').on('click', 'img', function(event) {
+								console.log($(event.target).parent().find('a').attr('href') ); 
+						 		$('#urlImg').val($(event.target).parent().find('a').attr('href')); 
+								$('#infoImg').modal({
+													    show: 'false'
+												    }); 
+						 		 }); 
 			  		  }else if( productData[x].type_attr == 'short_description' ) {
 
 			  		  		data = '<div class="form-group">' + 

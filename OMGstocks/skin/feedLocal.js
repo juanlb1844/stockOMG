@@ -39,51 +39,84 @@
   }
 })();
 
+
+
+
+
+// datos generales 
+// ID de la categoría seleccionada | para editar / borrar  
+// ID de la categoría por defecto 
+
 var dataLocalCategory = {
 			idCatSelected : 1
-		};  
+	};  
+
+
 
 $(document).ready( function(){
+
+/* FILTRO OBJECTS */ 
+function filterFee(config) {
+	this.config = config ; 
+	this.brand = 'brandAction'; 
+
+	this.initFilter = function() {
+		$(this.config.selector).html('');  
+		$(this.config.selector).parent().find('.filter-n-res').text(config.response.length); // indicador de cantidad
+  		for(i in config.response) {
+			var element = '<p class="'+this.brand+'">'+config.response[i].varchar_value+'</p>'; 
+  			$(this.config.selector).append(element); 
+  		}
+  		// Subscribir eventos 
+  		$(this.config.selector).off('.'+this.brand); 
+  		filterSec = this.config.selector; 
+  		$(filterSec).on('click', '.'+this.brand, this.actionFilter); 
+	}
+
+	this.actionFilter = function (event) {
+		var string = null; 
+		string = $(event.target).text();  
+		// cargar los productos FILTRADOS 
+		initFeedWindow('controladores/getProductByBrand.php', { attrName : config.attrName , attrValue : string }); 
+		var element =  '<p class="brandResult">'+string+  
+							'<span class="close-filter">&times</span>'+ 
+						'</p>'; 
+		$(config.selector).html(element);   
+		$(config.selector +' .brandResult').on('click', '.close-filter', function() {
+			getFilters('controladores/getMarcas.php', {attrName : config.attrName, filterType : 0}, config.selector);  //mostrar TODAS las marcas 
+		}); 
+	}
+
+	this.restartFilter = function() {
+		$(this.config.selector).html(''); 
+	}
+
+}
 
 	//initFeedWindow('controladores/core.php', { url : '', type: 'user-view' }); 
 	initFeedWindow('controladores/getProductsByCat.php', { idCat : 57 });  
 	getCategories(); 
-	getFilters('controladores/getMarcas.php', null); 
+	filterStack = []; 
+	getFilters('controladores/getMarcas.php', {attrName : 'marca', filterType: 0}, '.filter-brand');
+	getFilters('controladores/getMarcas.php', {attrName : 'familia', filterType: 0}, '.filter-family');
 
-	function getFilters(url, data) {
+	// obtiene y renderiza los filtros || marca | stock | grupo por defecto desde el WS | etc.. 
+	function getFilters(url, data, selector) {
 			$.ajax({
 		 	url: url, 
 		 	method: 'POST', 
 		 	data: data , 
 		 	success: function(response){
 		 		  if( response != 'sin datos' ) {
-		 		  		response = JSON.parse(response);  
 		 		  		// añadir elementos del filtro 
-						$('.filter-brand').html(''); 
-						$('.filter-n-res').text(response.length);
-		 		  		for(i in response) {
-							var element = '<p>' + 
-											'<p class="brandAction">'+response[i].varchar_value+'</p>' + 
-										  '</p>';
-		 		  			$('.filter-brand').append(element); 
-		 		  		}
-		 		  		$('.filter-brand').off('.brandAction'); 
-		 		  		$('.filter-brand').on('click', '.brandAction', function(event) {
-		 		  			var string = null; 
-		 		  			string = $(event.target).text(); 
-		 		  			initFeedWindow('controladores/getProductByBrand.php', { brandName : string }); 
-		 		  			var element = '<p>' + 
-											'<p class="brandResult">'+string+'<span class="close-filter">&times</span></p>' +  
-											'</p>'; 
-							$('.filter-brand').html(element); 
-							$('.brandResult').on('click', '.close-filter', function() {
-								getFilters('controladores/getMarcas.php', null); 
-							}); 
-		 		  		}); 
+		 		  		response = JSON.parse(response);  
+						var F1 = new filterFee({response : response, selector : selector, attrName : data.attrName }); 
+						F1.initFilter(); 
+						filterStack.push(F1); 
 		 		  } else {  
-		 		  			$('.filter-brand').html(''); 
+		 		  			$('.filter-content').html(''); 
 		 		  			$('.filter-n-res').text('0');
-		 		  			$('.filter-brand').append('<p> . . . </p>');
+		 		  			$('.filter-content').append('<p> . . . </p>');
 		 		  		 } 
 		 		}
 		    });
@@ -190,12 +223,14 @@ $(document).ready( function(){
 				//initFeedWindow('controladores/getXProductsByAttrVal.php', { attributeName : 'marca', attributeVal: 'CISCO' }); 
 				//initFeedWindow('controladores/getXProductByCat.php', null); 
 				$('#tableFeed').html('<h2>Selecciona un filtro</h2>');
-				getFilters('controladores/getXAttrs.php' , { attrName : 'marca' }); 
+				//getFilters('controladores/getXAttrs.php' , { attrName : 'marca' }); 
+				getFilters('controladores/getMarcas.php', {attrName : 'marca', filterType: 0}, '.filter-brand');
+				getFilters('controladores/getMarcas.php', {attrName : 'familia', filterType: 0}, '.filter-family');
 		} else if( cadIdCat == 1) {
 				initFeedWindow('controladores/core.php', { url : '', type: 'user-view' }); 
 		} else {
 				initFeedWindow('controladores/getProductsByCat.php', { idCat : cadIdCat });  
-				window.history.pushState('page2', 'Feed Local', globalLocation+'/categorie/'+cadIdCat);
+				window.history.pushState('page2', 'Feed Local', globalLocation+'/categorie/'+cadIdCat); 				
 		}
 		if( cadIdCat != 58 ) {
 			getFilters('controladores/getAttrsByCat.php', { idCat : cadIdCat, attrName : 'marca' }); 
