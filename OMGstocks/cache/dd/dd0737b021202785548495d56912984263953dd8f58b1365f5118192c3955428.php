@@ -182,6 +182,6 @@ class __TwigTemplate_32ec87c888e9ef05f44e4a82eaa238932ccbb2c68006e8987cd9696b0d1
 \t\t{{ include('sidebar.html.twig') }}
 \t</div>
 {% endblock %}
-", "proveedores.html.twig", "C:\\xampp\\htdocs\\GIT\\OMGstock\\stockOMG\\OMGstocks\\templates\\proveedores.html.twig");
+", "proveedores.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\stockOMG\\OMGstocks\\templates\\proveedores.html.twig");
     }
 }

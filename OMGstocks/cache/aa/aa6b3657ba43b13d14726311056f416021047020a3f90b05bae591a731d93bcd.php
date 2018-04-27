@@ -95,18 +95,30 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
           <span aria-hidden=\"true\">&times;</span>
         </button>
       </div>
-      <div class=\"modal-body\">        
-          <div class=\"form-group\">
-            <label for=\"recipient-name\" class=\"col-form-label\">Importar: </label>
-            <button id=\"importCVA\" class=\"btn btn-primary\">CVA</button>
+      <div class=\"modal-body row\">        
+          <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
+            <label for=\"recipient-name\" class=\"col-md-3 col-form-label\">Importar: </label>
+            <div class=\"col-md-4\">
+            \t<button id=\"importCVA\" class=\"btn btn-primary\">CVA</button>  
+            </div>
+            <div class=\"col-md-5\">
+\t            <select class=\"form-control\" id=\"CVAgroups\">
+\t            \t<option>ACCESORIOS</option>
+\t            \t<option>VIDEO VIGILANCIA</option>
+\t            </select>
+            </div>
           </div>
-          <div class=\"form-group\">
-            <label for=\"message-text\" class=\"col-form-label\">Importar: </label>
-            <button id=\"importTechData\" class=\"btn btn-primary\">Tech Data</button>
+          <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
+            <label for=\"message-text\" class=\"col-md-3 col-form-label\">Importar: </label>
+            <div class=\"col-md-9\">
+            \t<button id=\"importTechData\" class=\"btn btn-primary\">Tech Data</button>
+            </div>
           </div>
-          <div class=\"form-group\">
-            <label for=\"recipient-name\" class=\"col-form-label\">Importar: </label>
-            <button id=\"importIngram\" class=\"btn btn-primary\">Ingram</button>
+          <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
+            <label for=\"recipient-name\" class=\"col-md-3 col-form-label\">Importar: </label>
+            <div class=\"col-md-9\">
+            \t<button id=\"importIngram\" class=\"btn btn-primary\">Ingram</button>
+            </div>
           </div>
       </div>
       <div class=\"modal-footer\">
@@ -212,18 +224,30 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
           <span aria-hidden=\"true\">&times;</span>
         </button>
       </div>
-      <div class=\"modal-body\">        
-          <div class=\"form-group\">
-            <label for=\"recipient-name\" class=\"col-form-label\">Importar: </label>
-            <button id=\"importCVA\" class=\"btn btn-primary\">CVA</button>
+      <div class=\"modal-body row\">        
+          <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
+            <label for=\"recipient-name\" class=\"col-md-3 col-form-label\">Importar: </label>
+            <div class=\"col-md-4\">
+            \t<button id=\"importCVA\" class=\"btn btn-primary\">CVA</button>  
+            </div>
+            <div class=\"col-md-5\">
+\t            <select class=\"form-control\" id=\"CVAgroups\">
+\t            \t<option>ACCESORIOS</option>
+\t            \t<option>VIDEO VIGILANCIA</option>
+\t            </select>
+            </div>
           </div>
-          <div class=\"form-group\">
-            <label for=\"message-text\" class=\"col-form-label\">Importar: </label>
-            <button id=\"importTechData\" class=\"btn btn-primary\">Tech Data</button>
+          <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
+            <label for=\"message-text\" class=\"col-md-3 col-form-label\">Importar: </label>
+            <div class=\"col-md-9\">
+            \t<button id=\"importTechData\" class=\"btn btn-primary\">Tech Data</button>
+            </div>
           </div>
-          <div class=\"form-group\">
-            <label for=\"recipient-name\" class=\"col-form-label\">Importar: </label>
-            <button id=\"importIngram\" class=\"btn btn-primary\">Ingram</button>
+          <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
+            <label for=\"recipient-name\" class=\"col-md-3 col-form-label\">Importar: </label>
+            <div class=\"col-md-9\">
+            \t<button id=\"importIngram\" class=\"btn btn-primary\">Ingram</button>
+            </div>
           </div>
       </div>
       <div class=\"modal-footer\">

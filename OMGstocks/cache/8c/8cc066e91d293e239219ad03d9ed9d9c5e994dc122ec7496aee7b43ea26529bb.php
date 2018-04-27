@@ -42,7 +42,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 <body>
 
 \t<div class=\"container-fluid general-container\">
-\t\t <nav class=\"navbar navbar-default menu-header\">
+\t\t <nav class=\"navbar navbar-default menu-header\" style=\"background-color: white;\">
 \t\t  <div class=\"container-fluid\">
 \t\t    <div class=\"navbar-header\" style=\"font-weight: bold;\">
 \t\t      <a class=\"navbar-brand\" href=\"#\">
@@ -61,7 +61,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=configuracion\">Configuración</a></p>
 \t\t    </div> 
 \t\t    <div class=\"pull-right\">
-\t\t    \t<div>
+\t\t    \t<div style=\"padding-top: 3px;\">
 \t\t    \t\t<img style=\"width: 45px; border-radius: 50%; font-weight: 300px;\" src=\"media/users/user-admin.png\">
 \t\t    \t\t<span>Admin</span>
 \t\t    \t</div>
@@ -137,7 +137,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 <body>
 
 \t<div class=\"container-fluid general-container\">
-\t\t <nav class=\"navbar navbar-default menu-header\">
+\t\t <nav class=\"navbar navbar-default menu-header\" style=\"background-color: white;\">
 \t\t  <div class=\"container-fluid\">
 \t\t    <div class=\"navbar-header\" style=\"font-weight: bold;\">
 \t\t      <a class=\"navbar-brand\" href=\"#\">
@@ -156,7 +156,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=configuracion\">Configuración</a></p>
 \t\t    </div> 
 \t\t    <div class=\"pull-right\">
-\t\t    \t<div>
+\t\t    \t<div style=\"padding-top: 3px;\">
 \t\t    \t\t<img style=\"width: 45px; border-radius: 50%; font-weight: 300px;\" src=\"media/users/user-admin.png\">
 \t\t    \t\t<span>Admin</span>
 \t\t    \t</div>

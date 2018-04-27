@@ -162,11 +162,11 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
                     <div class=\"form-horizontal\">
                        <div class=\"form-group\">
-                        <div class=\"col-sm-offset-2 col-sm-10\">
-                          <button type=\"submit\" id=\"saveProduct\" class=\"btn btn-primary\">Guardar</button>
+                        <div class=\"col-sm-offset-2 col-sm-10 save-action\">
+                          <button type=\"submit\" id=\"saveProduct\" class=\"btn-lg btn-save btn btn-primary\">Guardar</button>
                         </div>
                        </div>
-                     </div>
+                     </div> 
 
            </div> 
 \t<div class=\"col-md-3\">
@@ -194,12 +194,22 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
         </button>
       </div>
       <div class=\"modal-body\">
-        <form>
-          <div class=\"form-group\">
-            <label for=\"recipient-name\" class=\"col-form-label\">URL:</label>
-            <input type=\"text\" class=\"form-control\" id=\"urlImg\"> 
-          </div>
+
+        <form class=\"form-horizontal\">
+          <div class=\"form-group\"> 
+            <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">URL:</label> 
+             <div class=\"col-sm-9\"> 
+               <input type=\"input\" id=\"urlImg\" placeholder=\"cargando...\" value=\"\" class=\"form-control\" name=\"\"> 
+             </div>  
+           <div class=\"form-group\"> 
+            <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">Imágen principal:</label> 
+             <div class=\"col-sm-9\" style=\"text-align: left;\"> 
+               <input style=\"margin-top: 10px;\" type=\"checkbox\" id=\"imgMainSet\" placeholder=\"cargando...\" value=\"\" name=\"\"> 
+             </div>  
+           </div>
+           </div>
         </form>
+
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
@@ -208,6 +218,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     </div>
   </div>
 </div>
+
 
 
 ";
@@ -369,11 +380,11 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
                     <div class=\"form-horizontal\">
                        <div class=\"form-group\">
-                        <div class=\"col-sm-offset-2 col-sm-10\">
-                          <button type=\"submit\" id=\"saveProduct\" class=\"btn btn-primary\">Guardar</button>
+                        <div class=\"col-sm-offset-2 col-sm-10 save-action\">
+                          <button type=\"submit\" id=\"saveProduct\" class=\"btn-lg btn-save btn btn-primary\">Guardar</button>
                         </div>
                        </div>
-                     </div>
+                     </div> 
 
            </div> 
 \t<div class=\"col-md-3\">
@@ -395,12 +406,22 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
         </button>
       </div>
       <div class=\"modal-body\">
-        <form>
-          <div class=\"form-group\">
-            <label for=\"recipient-name\" class=\"col-form-label\">URL:</label>
-            <input type=\"text\" class=\"form-control\" id=\"urlImg\"> 
-          </div>
+
+        <form class=\"form-horizontal\">
+          <div class=\"form-group\"> 
+            <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">URL:</label> 
+             <div class=\"col-sm-9\"> 
+               <input type=\"input\" id=\"urlImg\" placeholder=\"cargando...\" value=\"\" class=\"form-control\" name=\"\"> 
+             </div>  
+           <div class=\"form-group\"> 
+            <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">Imágen principal:</label> 
+             <div class=\"col-sm-9\" style=\"text-align: left;\"> 
+               <input style=\"margin-top: 10px;\" type=\"checkbox\" id=\"imgMainSet\" placeholder=\"cargando...\" value=\"\" name=\"\"> 
+             </div>  
+           </div>
+           </div>
         </form>
+
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
@@ -409,6 +430,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     </div>
   </div>
 </div>
+
 
 
 {% endblock %}

@@ -10,8 +10,9 @@ var quitSpace = function(str) {
         }
     }
     return cadena;
-};
+};	
 
+	// obtener galería del producto 
 	function getGallery () {
 		$.ajax({
 		 	url: 'controladores/getGallery.php', 
@@ -40,9 +41,7 @@ var quitSpace = function(str) {
 
 $(document).ready(function(){ 
 
-	// Obtener galería 
-
-
+	// guardar datos del producto 
 	$('#saveProduct').click(function() {
 		var selecteds = $('.tree-categories input:checked'); 
 		var idCatSelecteds = []; 
@@ -51,13 +50,11 @@ $(document).ready(function(){
 			var idCat = $( $(selecteds[x]).parent() ).attr('id'); 
 			idCatSelecteds.push( idCat.substr(5, idCat.length) ); 
 		}
-
-		console.log(idCatSelecteds); 
 		 
 		for( i in productData) {
 			productData[i].localValue = $('#'+quitSpace(productData[i].type_attr)).val(); 
-			//console.log( $('#'+quitSpace(productData[i].type_attr)).val() ); 
 		}
+		$('.save-action').html('<img src="media/users/loading.gif" style="width:40px;"><span style="color:#2e6da4;">Guardando</span>');
 		$.ajax({
 		 	url: 'controladores/setAttributes.php', 
 		 	method: 'POST', 
@@ -73,7 +70,8 @@ $(document).ready(function(){
 		console.log( productData ); 
 	}); 
 
-	var idProd = null; //id producto general 
+	//id producto general 
+	var idProd = null; 
 	$('#summernote').summernote({
 	 	height : 200
 	});
@@ -87,22 +85,23 @@ $(document).ready(function(){
 	 			  type: 'showProduct'
 	 			}, 
 	 	success: function(mensaje){
-	 		  //alert(mensaje); 
-	 		  productData = JSON.parse(mensaje);   
-
-	 		  /*
-	 		  console.log(productData); 
-	 		  //$('#data-product-name').html( productData[0].value_attr );
-			  $('#data-product-name').val( productData[0].value_attr );
-	 		  $('#data-product-sku').val( productData[1].value_attr ); 
-	 		  $('#data-product-mainImg').attr('src', productData[7].value_attr ); 
-	 		  var description = productData[8].value_attr; 
-			  $('#summernote').summernote('code', description); */ 
-
+	 		  productData = JSON.parse(mensaje);   	 		  
 			  for( x in productData ){  
-			  		  if( productData[x].type_attr == 'distributor' ) {
+			  		  if( productData[x].type_attr == 'distributor') {
 			  		  		console.log('jump'); 
-			  		  } else if( productData[x].type_attr == 'short_description' ) {
+			  		  } else if(productData[x].type_attr == 'main_img') { 
+			  		  		urlImg = productData[x].value_attr; 
+			  		  		var element = '<li><img src="'+urlImg+'"><p><a href="'+urlImg+'">ver</a><label class="label label-primary">Main</label></p></li>';  
+		 		  			$('#entityGallery').append(element);
+		 		  			 $('#entityGallery').off('click'); 
+					 		 $('#entityGallery').on('click', 'img', function(event) {
+					 		   		   console.log($(event.target).parent().find('a').attr('href') ); 
+					 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
+							 		   $('#infoImg').modal({
+													        show: 'false'
+													    }); 
+					 		 }); 
+			  		  }else if( productData[x].type_attr == 'short_description' ) {
 
 			  		  		data = '<div class="form-group">' + 
 		                        ' <label for="inputPassword3" class="col-sm-2 control-label">Descripción</label>' + 
@@ -118,7 +117,7 @@ $(document).ready(function(){
 			  		  		//$(data).prependTo($('.attributes_product')).slideDown("fast");
 
 			  		  		$('#'+productData[x].type_attr).summernote({
-								 	height : 200
+								 	height : 320
 								});
 			  		  		var description = productData[x].value_attr; 
 			  				$('#'+productData[x].type_attr).summernote('code', description);  
@@ -129,29 +128,29 @@ $(document).ready(function(){
 		                          ' <input type="input" id="'+quitSpace(productData[x].type_attr)+'" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control" name="">' + 
 		                        ' </div> ' + 
 		                      ' </div> '; 
-						  //$('.attributes_product').append(data); 
 							$(data).prependTo($('.attributes_product')).slideDown('fast');  
 
 			  		  }
 
-					}
+				}
+				
+			// Agregar datos a table [relación de coincidencias de porductos por proveedor]
+			for(var i in productData) {
+				if(productData[i].type_attr == 'distributor') {
+	  		  		$('#relationDis').text(productData[i].value_attr); 
+				} else if ( productData[i].type_attr == 'Name Product' ) {
+					$('#relationName').text(productData[i].value_attr); 
+				} else if ( productData[i].type_attr == 'SKU' ) {
+					$('#relationSku').text(productData[i].value_attr); 
+				} else if ( productData[i].type_attr == 'stock' ) {
+					$('#relationStock').text(productData[i].value_attr); 
+				} else if ( productData[i].type_attr == 'Normal Price' ) {
+					$('#relationPrice').text(productData[i].value_attr); 
+				}
+			}
 
-					for(var i in productData) {
-						if(productData[i].type_attr == 'distributor') {
-			  		  		$('#relationDis').text(productData[i].value_attr); 
-						} else if ( productData[i].type_attr == 'Name Product' ) {
-							$('#relationName').text(productData[i].value_attr); 
-						} else if ( productData[i].type_attr == 'SKU' ) {
-							$('#relationSku').text(productData[i].value_attr); 
-						} else if ( productData[i].type_attr == 'stock' ) {
-							$('#relationStock').text(productData[i].value_attr); 
-						} else if ( productData[i].type_attr == 'Normal Price' ) {
-							$('#relationPrice').text(productData[i].value_attr); 
-						}
-					}
-					getGallery(); 
-
-						
+			getGallery(); 
+			// Seleccionar categorías a las que pertenece 	
 			$.ajax({
 			 	url: 'controladores/getRelationCategory.php', 
 			 	method: 'POST', 

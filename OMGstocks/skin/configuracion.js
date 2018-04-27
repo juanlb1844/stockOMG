@@ -1,6 +1,105 @@
 $(document).ready(function() {
-	// REINICIAR 
 
+	initModal(); 
+	function initModal() {
+		var grouposCva = [" Todos Los Grupos", 
+						"  ACCESORIOS", 
+						"  AIRE ACONDICIONADO", 
+						"  ALARMAS", 
+						"  ALMACENAMIENTO", 
+						"  ANTENAS", 
+						"  AUDIFONOS Y MICRO", 
+						"  AUDIO Y SONIDO", 
+						"  BACK PACK (MOCHILA)", 
+						"  BOCINAS", 
+						"  CABLEADO ESTRUCTURADO", 
+						"  CABLES", 
+						"  CAMARAS", 
+						"  CONMUTADORES", 
+						"  CONSUMIBLES", 
+						"  CONTROL DE ACCESO Y ASISTENCIA", 
+						"  CONTROLES", 
+						"  COPIADORA", 
+						"  DIGITALIZADOR", 
+						"  DISCOS DUROS", 
+						"  EMPAQUES", 
+						"  ENERGIA", 
+						"  EQUIPOS DE AUDIO", 
+						"  FAX", 
+						"  FUNDAS", 
+						"  GABINETES", 
+						"  GAMES", 
+						"  HERRAMIENTAS", 
+						"  IMPRESORA DE AMPLIO FORMATO (PLOTTER)", 
+						"  IMPRESORAS", 
+						"  INSUMOS", 
+						"  INSUMOS GHIA", 
+						"  INTERFON", 
+						"  JUGUETES", 
+						"  KIOSKO", 
+						"  LINEA BLANCA",
+						"  MALETINES", 
+						"  MAQUINAS DE COSER", 
+						"  MAQUINAS DE ESCRIBIR", 
+						"  MATERIALES PARA PRODUCCION GHIA",
+						"  MEMORIAS", 
+						"  MONITORES", 
+						"  MOUSE", 
+						"  MUEBLES PARA OFICINA", 
+						"  MULTIFUNCIONALES", 
+						"  OPTICOS", 
+						"  PARTES", 
+						"  PCS ALTO DESEMPE?O ( GAMERS )", 
+						"  PC'S", 
+						"  PIZARRON", 
+						"  POLIZA DE GARANTIAS COMPUTO GHIA 1 A?O", 
+						"  POLIZA DE GARANTIAS COMPUTO GHIA 2 A?OS", 
+						"  POLIZA DE GARANTIAS MONITOR GHIA 1A?O", 
+						"  POLIZA DE GARANTIAS MONITOR GHIA 2 A?OS", 
+						"  POLIZA DE SERVICIO", 
+						"  POLIZAS DE GARANTIA", 
+						"  PORTA RETRATO DIGITAL", 
+						"  PORTATILES", 
+						"  PRESENTADOR", 
+						"  PROCESADORES", 
+						"  PRODUCTOS DE LIMPIEZA", 
+						"  PROMOCIONALES", 
+						"  PUNTO DE VENTA", 
+						"  RACK", 
+						"  RADIO RELOJ", 
+						"  REDES", 
+						"  REFACCIONES GHIA / HAIER", 
+						"  RELOJES", 
+						"  REPRODUCTORES", 
+						"  SCANNER", 
+						"  SERVICIOS METROCARRIER↵", 
+						"  SERVIDORES", 
+						"  SMART HOME", 
+						"  SOFTWARE", 
+						"  SOLUCION INTERWRITE", 
+						"  SOLUCIONES GSM",
+						"  SOPORTES Y BASES ", 
+						"  TABLETAS", 
+						"  TARJETA CONTROLADORA", 
+						"  TARJETA MADRE", 
+						"  TECLADO Y MOUSE", 
+						"  TECLADOS", 
+						"  TELEFONIA", 
+						"  TELEVISOR", 
+						"  TIPO DE CONECTIVIDAD", 
+						"  TRITURADORA DE DOCUMENTOS", 
+						"  VENTILADORES", 
+						"  VIDEO", 
+						"  VIDEOCONFERENCIA", 
+						"  VIDEOGRABADORES", 
+						"  VIDEOPROYECTOR"]; 
+		grouposCva.forEach(function(value, index) {
+			$('#CVAgroups').append('<option>'+value.trim()+'</option>'); 
+		}); 
+	}
+
+
+	// REINICIAR 
 	$('#deleteDataDB').click(   function deleteAll() {
    		alert('Deleted'); 
    		$.ajax({
@@ -22,7 +121,7 @@ $(document).ready(function() {
 		$.ajax({
 				 	url: 'controladores/dataController.php', 
 				 	method: 'POST', 
-				 	data: {  url:  'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=ACCESORIOS%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0', 
+				 	data: {  url:  '', 
 				 		     type: 'export',  
 				 		   	 WS:   'Ingram' }, 
 				 	success: function(mensaje){
@@ -47,19 +146,23 @@ $(document).ready(function() {
    });
 
     $('#importCVA').click( function importCVA() {
+    	var groupCvaSelected = $('#CVAgroups').val(); 
+    	alert(groupCvaSelected); 
+    	var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupCvaSelected+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0'; 
     	//https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0
     	//ACCESORIOS 
+    	
    		$.ajax({
 						 	url: 'controladores/dataController.php', 
 						 	method: 'POST', 
-						 	data: {  url:  'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo=ACCESORIOS%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0', 
+						 	data: {  url:  urlCva, 
 						 		     type: 'export',  
 						 		     WS:   'CVA' }, 
 						 	success: function(mensaje){
 							 		 	 console.log(mensaje);
 							 		 	 alert('TERMINADO CVA'); 
 						 	}
-					});
+					});  
    }); 
 	// EXPORT --> 
 

@@ -60,6 +60,7 @@ $(document).ready( function(){
 		 		  		response = JSON.parse(response);  
 		 		  		// añadir elementos del filtro 
 						$('.filter-brand').html(''); 
+						$('.filter-n-res').text(response.length);
 		 		  		for(i in response) {
 							var element = '<p>' + 
 											'<p class="brandAction">'+response[i].varchar_value+'</p>' + 
@@ -81,6 +82,7 @@ $(document).ready( function(){
 		 		  		}); 
 		 		  } else {  
 		 		  			$('.filter-brand').html(''); 
+		 		  			$('.filter-n-res').text('0');
 		 		  			$('.filter-brand').append('<p> . . . </p>');
 		 		  		 } 
 		 		}
@@ -186,7 +188,8 @@ $(document).ready( function(){
 		dataLocalCategory.idCatSelected = cadIdCat; 
 		if( cadIdCat == 58) {
 				//initFeedWindow('controladores/getXProductsByAttrVal.php', { attributeName : 'marca', attributeVal: 'CISCO' }); 
-				initFeedWindow('controladores/getXProductByCat.php', null); 
+				//initFeedWindow('controladores/getXProductByCat.php', null); 
+				$('#tableFeed').html('<h2>Selecciona un filtro</h2>');
 				getFilters('controladores/getXAttrs.php' , { attrName : 'marca' }); 
 		} else if( cadIdCat == 1) {
 				initFeedWindow('controladores/core.php', { url : '', type: 'user-view' }); 

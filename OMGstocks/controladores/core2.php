@@ -43,7 +43,9 @@
 				$linea = fgets($fp);
 				$linea = utf8_encode($linea); 
 				$producto = explode(',', $linea);
-				$productosIngram[] = str_replace('"', '', $producto); 
+				$lineProd = str_replace('"', '', $producto); 
+				$lineProd = array_map('trim', $lineProd); 
+				$productosIngram[] = str_replace('"', '', $lineProd); 
 		    }     
 		      
 			fclose($fp);

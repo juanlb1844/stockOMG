@@ -1,5 +1,8 @@
 <style type="text/css">
 	#filters {
+		
+	}
+	.filter {
 		margin-top: 10px;
 		padding: 5px 10px 10px 10px; 
 		background-color: #eff3f6; 
@@ -12,6 +15,9 @@
 	.filter-title {
 		border-bottom: 1px solid gray;
 	}
+	.filter-title h4 {
+		display: inline-block;
+	}
 	.close-filter {
 		font-size: 17px; 
 		color: orange;
@@ -21,9 +27,13 @@
 		cursor: pointer;
 	}
 	.filter-brand {
+	}
+	.filter-content {
 		color: #337ab7;
 	    font-weight: bold;
 	    line-height: 17px;
+	    max-height: 250px; 
+	    overflow-y: auto; 
 	}
 	.brandAction:hover {
 		text-decoration: underline;
@@ -35,13 +45,24 @@
 
 	<div class="filter filter-brands">
 		<div class="filter-title">
-			<h4>Brand</h4>
+			<h4>Brand </h4>
+			<span class="filter-n-res label label-primary">?</span>
 		</div>
-		<div class="filter-brand">
+		<div class="filter-brand filter-content">
 			<!-- marcas --> 
 			<!-- <p>
 				<a href="">HP</a>
 			</p> --> 
+		</div>
+	</div>
+
+	<div class="filter">
+		<div class="filter-title">
+			<h4>In stock </h4>
+		</div>
+		<div class="filter-stock filter-content">
+			<p class="brandAction">IN</p>
+			<p class="brandAction">OUT</p>
 		</div>
 	</div>
 	
