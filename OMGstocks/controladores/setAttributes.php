@@ -8,6 +8,7 @@
 	if( count($idCats) > 0 ) {
 
 		$db = new db();  
+		// Reiniciar relación con categorías 
 		$query = "DELETE FROM category_has_entity WHERE product_entity_id = $idProd"; 
 		if( $resultado = mysqli_query($db, $query) ) {
 			echo 'EJECUTADO'; 
@@ -16,6 +17,7 @@
 		}
 		mysqli_close($db);  
 
+		// Asignar nuevas categorías 
 		foreach ($idCats as $k => $value) {
 					$db = new db();  
 
@@ -57,6 +59,7 @@
 			   		}
 			   	mysqli_close($db); 
 		}
+	  // Si se han borrado las relaciones de categorías 
 	} else {
 		echo 'nada'; 
 		$db = new db();  
@@ -70,7 +73,7 @@
 	}
 
 
-
+	// Guardar atributos del producto 
 	foreach ($productData as $key => $value) {
 		$typeAttr  = $value['type_attr']; 
 		if( $typeAttr != 'distributor' ) {
@@ -79,6 +82,8 @@
 				$idAttr    = $value['ID']; 
 
 				if($typeAttr == "short_description"){
+						$query = "UPDATE entity_value_text SET text_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr"; 
+				} else if($typeAttr == 'description') {
 						$query = "UPDATE entity_value_text SET text_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr"; 
 				} else {
 						$query = "UPDATE entity_value_varchar SET varchar_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr";

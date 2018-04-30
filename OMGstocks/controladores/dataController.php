@@ -31,8 +31,7 @@
                       } */      
                     }   
                     echo (json_encode($dataIngram)); 
-       }
-       if( $_POST['type'] == 'export'){ 
+       } if( $_POST['type'] == 'export'){ 
 
             $url = $_POST['url']; 
             $WS  = $_POST['WS']; 
@@ -47,7 +46,7 @@
                 $dbObject->insertarIngramMicro($object->getDataIngram()); 
                 //print_r($object->getDataIngram()); 
             }
-
-
+       } else if( $_POST['type'] == 'flat' ) {
+          echo ( json_encode($object->getDataTechDataFlat()) ); 
        }
 

@@ -31,7 +31,7 @@ if ($conn->connect_error) {
 		    
     		if ($resultado->num_rows > 0) {
 			    while($row = $resultado->fetch_assoc()) {
-			    	if($row['main_image_url'] == 'media/users/no-img.jpg') {
+			    	if($row['main_image_url'] == 'users/no-img.jpg') {
 			    		$main_img = true; 
 			    		$id_picture = $row['id_picture']; 
 			    	}
@@ -58,7 +58,7 @@ if ($conn->connect_error) {
 					$label = explode('.', $nomCat[0]); 
 					$sql = ''; 
 					if($main_img == true) {
-						$nameFile = 'media/'.$nameFile; 
+						//$nameFile = $nameFile; 
 						$sql = "UPDATE product_pictures SET main_image_url = '$nameFile', medium_image_url = '$nameFile', thumb_image_url = '$nameFile' WHERE idproduct_pictures = $id_picture"; 
 					} else {
 						$sql = "INSERT INTO product_gall(url, url_min, id_entity) VALUES('$nameFile', '$nameFile', $nomCat[1])"; 

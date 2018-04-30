@@ -219,7 +219,7 @@
 				$MensajeError    = $value['MensajeError'];
 				$stockMonterrey  = $value['stockMonterrey'];
 				$stockCentral    = $value['stockCentral'];
-				$query = "CALL create_product(2,'$descripcion', '$codigo', $precio, '$descripcion', '$partNumber', $stockTotal, '$fabricante', '$categoria', 'media/users/no-img.jpg');";   
+				$query = "CALL create_product(2,'$descripcion', '$codigo', $precio, '$descripcion', '$partNumber', $stockTotal, '$fabricante', '$categoria', 'users/no-img.jpg');";   
 				/*$query = 'INSERT INTO techData_products(codigo, partNumber, descripcion, stockTotal, precio, moneda, categoria, fabricante, stockMonterrey,stockCentral) VALUES( "'. $codigo .'","'. 
 							$partNumber .'","'. 
 							$descripcion.'",'. 
@@ -347,6 +347,20 @@
 		$string = substr($string, 0, count($string) - 3); 
 		return $string;
 	}
+
+ function techDataFlat ($array){
+			foreach ($array as $key => $value) {
+				$db = new db();   
+		 		$codigo 	     = $value['codigo']; 
+				$stockTotal      = $value['stockTotal']; 
+				$precio  	     = $value['precio']; 
+				$fabricante      = $value['fabricante'];}
+				$query = "CALL create_product('$codigo', 'Tech Data', 1, $stockTotal, '$fabricante', $precio);";   
+			    mysqli_query($db, $query);
+		 		mysqli_close($db); 		 	
+			}  
+		echo 'Tech Data Importado'; 
+ } 
 
 
 }

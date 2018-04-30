@@ -34,14 +34,69 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
         echo " 
 \t<script type=\"text/javascript\" src=\"skin/configuracion.js\"></script>
 \t<div class=\"col-md-12\">
-\t\t<h2 style=\"font-weight: 300;\">Configuración</h2>
-\t\t <div class=\"export-controllers\">
-\t\t \t<div class=\"form\">
-\t\t\t  \t<button data-toggle=\"modal\" data-target=\"#exportOptions\" class=\"btn btn-default\">Importar</button>
-\t\t\t  \t<button id=\"deleteDataDB\" class=\"btn btn-default\">Borrar todo</button>
-\t\t \t</div>
-\t\t  \t<br> 
-\t\t  </div>
+\t\t<div class=\"col-md-4\">
+\t\t\t<h2 style=\"font-weight: 300;\">Configuración</h2>
+\t\t\t <div class=\"export-controllers\">
+\t\t\t \t<div class=\"form\">
+\t\t\t\t  \t<button data-toggle=\"modal\" data-target=\"#exportOptions\" class=\"btn btn-default\">Importar</button>
+\t\t\t\t  \t<button id=\"deleteDataDB\" class=\"btn btn-default\">Borrar todo</button>
+\t\t\t \t</div>
+\t\t\t  \t<br> 
+\t\t\t  </div>
+\t\t\t  <div>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>WS</th>
+\t\t\t  \t\t\t<th>Method</th>
+\t\t\t  \t\t\t<th>Products</th>
+\t\t\t  \t\t\t<th>Local</th>
+\t\t\t  \t\t\t<th>Action</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>Ingram</td>
+\t\t\t  \t\t\t\t<td>.NET</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>CVA</td>
+\t\t\t  \t\t\t\t<td>GET</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>Tech Data</td>
+\t\t\t  \t\t\t\t<td>FTP/CSV</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
+\t\t\t  <div>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>FLAT</th>
+\t\t\t  \t\t\t<th>LOCAL</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
+\t\t</div>
+\t\t<div class=\"col-md-8\">
 \t\t  \t<!-- loading --> 
 \t\t    <div id=\"loading\">
 \t    \t\t<p></p>
@@ -53,12 +108,12 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t    </div>
 \t\t    <!-- tabla CVA --> 
 \t\t\t\t<div id=\"cvaDiv\" style=\"width: 100%; overflow-x: visible;\">
-\t\t\t\t\t<hr>
 \t\t\t\t\t<h2>CVA</h2>
 \t\t\t\t\t<div>\t\t
 \t\t\t\t\t    <table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"100%\" style=\"width: 100%; overflow-x: visible; font-size: 12px;\">
 \t\t\t\t      \t  <thead></thead> 
-\t\t\t\t     \t   <tbody></tbody>
+\t\t\t\t     \t   <tbody>
+\t\t\t\t     \t   </tbody>
 \t\t\t\t   \t\t </table>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -78,6 +133,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t     \t   <tbody></tbody>
 \t\t\t   \t\t </table>
 \t\t\t\t</div> \t\t
+\t\t</div>
 \t</div>
 
 
@@ -161,14 +217,69 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t{{parent()}} 
 \t<script type=\"text/javascript\" src=\"skin/configuracion.js\"></script>
 \t<div class=\"col-md-12\">
-\t\t<h2 style=\"font-weight: 300;\">Configuración</h2>
-\t\t <div class=\"export-controllers\">
-\t\t \t<div class=\"form\">
-\t\t\t  \t<button data-toggle=\"modal\" data-target=\"#exportOptions\" class=\"btn btn-default\">Importar</button>
-\t\t\t  \t<button id=\"deleteDataDB\" class=\"btn btn-default\">Borrar todo</button>
-\t\t \t</div>
-\t\t  \t<br> 
-\t\t  </div>
+\t\t<div class=\"col-md-4\">
+\t\t\t<h2 style=\"font-weight: 300;\">Configuración</h2>
+\t\t\t <div class=\"export-controllers\">
+\t\t\t \t<div class=\"form\">
+\t\t\t\t  \t<button data-toggle=\"modal\" data-target=\"#exportOptions\" class=\"btn btn-default\">Importar</button>
+\t\t\t\t  \t<button id=\"deleteDataDB\" class=\"btn btn-default\">Borrar todo</button>
+\t\t\t \t</div>
+\t\t\t  \t<br> 
+\t\t\t  </div>
+\t\t\t  <div>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>WS</th>
+\t\t\t  \t\t\t<th>Method</th>
+\t\t\t  \t\t\t<th>Products</th>
+\t\t\t  \t\t\t<th>Local</th>
+\t\t\t  \t\t\t<th>Action</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>Ingram</td>
+\t\t\t  \t\t\t\t<td>.NET</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>CVA</td>
+\t\t\t  \t\t\t\t<td>GET</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>Tech Data</td>
+\t\t\t  \t\t\t\t<td>FTP/CSV</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
+\t\t\t  <div>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>FLAT</th>
+\t\t\t  \t\t\t<th>LOCAL</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
+\t\t</div>
+\t\t<div class=\"col-md-8\">
 \t\t  \t<!-- loading --> 
 \t\t    <div id=\"loading\">
 \t    \t\t<p></p>
@@ -180,12 +291,12 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t    </div>
 \t\t    <!-- tabla CVA --> 
 \t\t\t\t<div id=\"cvaDiv\" style=\"width: 100%; overflow-x: visible;\">
-\t\t\t\t\t<hr>
 \t\t\t\t\t<h2>CVA</h2>
 \t\t\t\t\t<div>\t\t
 \t\t\t\t\t    <table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"100%\" style=\"width: 100%; overflow-x: visible; font-size: 12px;\">
 \t\t\t\t      \t  <thead></thead> 
-\t\t\t\t     \t   <tbody></tbody>
+\t\t\t\t     \t   <tbody>
+\t\t\t\t     \t   </tbody>
 \t\t\t\t   \t\t </table>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -205,6 +316,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t     \t   <tbody></tbody>
 \t\t\t   \t\t </table>
 \t\t\t\t</div> \t\t
+\t\t</div>
 \t</div>
 
 

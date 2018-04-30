@@ -1,6 +1,8 @@
 
 var productData = null; 
 var main_img_data = null; 
+var img_to_main = null; 
+var url_to_main = null; 
 
 var quitSpace = function(str) {
     var cadena = '';
@@ -22,20 +24,30 @@ var quitSpace = function(str) {
 		 	success: function(mensaje){
 		 		  var gallery = JSON.parse(mensaje); 
 		 		   for( var i in gallery ) {
-		 		   		var element = '<li><img src="media/'+gallery[i].url+'"><p><a href="media/'+gallery[i].url+'">ver</a></p></li>';  
+		 		   	
+		 		   		if( gallery[i].url.substr(0, 4) == 'http' ) {
+		 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="'+gallery[i].url+'"><p><a href="'+gallery[i].url+'">ver</a></p></li>';  
+		 		   		} else {
+		 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="media/'+gallery[i].url+'"><p><a href="media/'+gallery[i].url+'">ver</a></p></li>';  
+		 		   		}
+
 		 		  		$('#entityGallery').append(element);  
 		 		   }
 		 		   $('#entityGallery').off('click'); 
 		 		   $('#entityGallery').on('click', 'img', function(event) {
-	 		   		   if ( $(event.target).attr('mainImg')) {
-							$('#imgMainSet').attr('checked', true); 
+		 		   	    img_to_main = $(event.target).attr('idGallery'); 
+		 		   	    url_to_main = $(event.target).attr('protectedUrl'); 
+	 		   		    if ( $(event.target).attr('mainImg') ) {
+							$('#imgMainSet').prop('checked', true); 
+							$('#imgMainSet').prop('disabled', 'disabled'); 
 						} else {
-							$('#imgMainSet').attr('checked', false); 
+							$('#imgMainSet').prop('checked', false); 
+							$('#imgMainSet').removeAttr('disabled');
 						}
+
 	 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
-			 		   $('#infoImg').modal({
-									        show: 'false'
-									    }); 
+			 		   $('#infoImg').modal({ show: 'false' }); 
+
 		 		   }); 
 
 		 	}
@@ -45,7 +57,27 @@ var quitSpace = function(str) {
 $(document).ready(function(){ 
 
 	$('#saveImg').click( function() {
-		alert('..'); 
+		var idProduct = productData[0].ID; 
+		//alert('to main: ' +url_to_main); 
+
+	    if( $('#imgMainSet').prop('checked') ) {
+			$.ajax({
+			 	url: 'controladores/updateMainImg.php', 
+			 	method: 'POST', 
+			 	data: { idMainPic: idProduct, 
+			 			toMainUrl: url_to_main, 
+			 			toMainId : img_to_main}, 
+			 	success: function(mensaje){
+			 		  console.log(mensaje); 
+			 		  window.location.reload(); 
+			 	}
+			 });   
+	    }  
+		/* alert('main: ' +main_img_data.url); 
+		alert('id to main: ' +img_to_main); */ 
+		//alert(idProduct);  
+		
+	
 	}); 
 
 	// guardar datos del producto 
@@ -100,7 +132,13 @@ $(document).ready(function(){
 			  		  } else if(productData[x].type_attr == 'main_img') { 
 			  		  			urlImg = productData[x].value_attr; 
 			  		  			main_img_data = {'url' : urlImg}; 
+			  		  			
+			  		  			if( urlImg.substr(0, 4) != 'http' ) {
+			  		  				urlImg = 'media/'+urlImg; 
+			  		  			}
+
 				  		  		var element = '<li><img mainImg="true" src="'+urlImg+'"><p><a href="'+urlImg+'">ver</a><label class="label label-primary">Main</label></p></li>';  
+
 			 		  			$('#entityGallery').append(element);
 			 		  			$('#entityGallery').off('click'); 
 						 		$('#entityGallery').on('click', 'img', function(event) {
@@ -112,10 +150,9 @@ $(document).ready(function(){
 													    show: 'false'
 												    }); 
 						        }); 
-			  		  }else if( productData[x].type_attr == 'short_description' ) {
-
+			  		  } else if( productData[x].type_attr == 'description' ) {
 			  		  		data = '<div class="form-group">' + 
-		                        ' <label for="inputPassword3" class="col-sm-2 control-label">Descripción</label>' + 
+		                        ' <label for="inputPassword3" class="col-sm-2 control-label">Description</label>' + 
 		                        ' <div class="col-sm-10"> ' + 
 		                         ' <form method="post"> ' + 
 		                                ' <textarea style="width: 100%;" id="'+productData[x].type_attr+'" name="editordata"></textarea>' + 
@@ -132,11 +169,30 @@ $(document).ready(function(){
 								});
 			  		  		var description = productData[x].value_attr; 
 			  				$('#'+productData[x].type_attr).summernote('code', description);  
+			  		  } else if( productData[x].type_attr == 'short_description' ) {
+			  		  		data = '<div class="form-group">' + 
+		                        ' <label for="inputPassword3" class="col-sm-2 control-label">Short description</label>' + 
+		                        ' <div class="col-sm-10"> ' + 
+		                         ' <form method="post"> ' + 
+		                                ' <textarea style="width: 100%;" id="'+productData[x].type_attr+'" name="editordata"></textarea>' + 
+		                         ' </form>' + 
+		                        ' </div> ' + 
+		                       ' </div>'; 
+
+			  		  		$('.attributes_product').append(data); 
+
+			  		  		//$(data).prependTo($('.attributes_product')).slideDown("fast");
+
+			  		  		$('#'+productData[x].type_attr).summernote({
+								 	height : 200
+								});
+			  		  		var description = productData[x].value_attr; 
+			  				$('#'+productData[x].type_attr).summernote('code', description);  
 			  		  } else {
 			  		  		data = '<div class="form-group">'+ 
 		                        '<label for="inputEmail3" class="col-sm-2 control-label">'+productData[x].type_attr+'</label>' + 
 		                        ' <div class="col-sm-10">' + 
-		                          ' <input type="input" id="'+quitSpace(productData[x].type_attr)+'" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control" name="">' + 
+		                          ' <input type="input" id="'+quitSpace(productData[x].type_attr)+'" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control input-sm" name="">' + 
 		                        ' </div> ' + 
 		                      ' </div> '; 
 							$(data).prependTo($('.attributes_product')).slideDown('fast');  

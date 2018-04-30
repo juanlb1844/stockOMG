@@ -94,6 +94,19 @@ $(document).ready(function() {
 		}); 
 	}
 
+	// Import Flat 
+	function importTechDataFlat() {
+				alert('Importar tech data'); 
+				$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'flat'}, 
+						 	success: function(mensaje){
+							 		 	 console.log(mensaje);
+						 	}
+					});
+	}
+
 
 	// REINICIAR 
 	$('#deleteDataDB').click(   function deleteAll() {
@@ -108,6 +121,7 @@ $(document).ready(function() {
 					 	}
 					});
    }); 
+
 
 	// EXPORT 
 	$('#importIngram').click( function() { 

@@ -179,6 +179,6 @@ jQuery(document).ready( function () {
 
 
 {% endblock %}
-", "uploadFiles.html.twig", "C:\\xampp\\htdocs\\projects\\OMGstocks\\OMGstocks\\templates\\uploadFiles.html.twig");
+", "uploadFiles.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\stockOMG\\OMGstocks\\templates\\uploadFiles.html.twig");
     }
 }
