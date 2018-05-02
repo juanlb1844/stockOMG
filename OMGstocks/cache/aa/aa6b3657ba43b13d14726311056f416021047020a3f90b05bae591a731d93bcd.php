@@ -108,6 +108,24 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>
 \t\t\t  </div>
+\t\t\t   <div>
+\t\t\t   \t<h4>Comparar FLAT | FEED LOCAL</h4>
+\t\t\t   \t<button id=\"updateCompare\" class=\"btn btn-primary btn-sm\" style=\"margin-bottom: 10px;\">Actualizar</button>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>SKU</th>
+\t\t\t  \t\t\t<th>PRECIO</th>
+\t\t\t  \t\t\t<th>NOMBRE</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody id=\"comparedBody\">
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>ABC</td>
+\t\t\t  \t\t\t\t<td>10101</td>
+\t\t\t  \t\t\t\t<td>Cardador USB</td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
 \t\t</div>
 \t\t<div class=\"col-md-8\">
 \t\t  \t<!-- loading --> 
@@ -300,6 +318,24 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t\t<td id=\"countFlatTD\"><span id=\"nFlatTD\">?</span></td>
 \t\t\t  \t\t\t\t<td id=\"countRelatedTD\"><span id=\"countTD\">?</span></td>
 \t\t\t  \t\t\t\t<td><button id=\"exportFlatTD\" class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
+\t\t\t   <div>
+\t\t\t   \t<h4>Comparar FLAT | FEED LOCAL</h4>
+\t\t\t   \t<button id=\"updateCompare\" class=\"btn btn-primary btn-sm\" style=\"margin-bottom: 10px;\">Actualizar</button>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>SKU</th>
+\t\t\t  \t\t\t<th>PRECIO</th>
+\t\t\t  \t\t\t<th>NOMBRE</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody id=\"comparedBody\">
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td>ABC</td>
+\t\t\t  \t\t\t\t<td>10101</td>
+\t\t\t  \t\t\t\t<td>Cardador USB</td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>

@@ -363,7 +363,10 @@
 				$stockTotal      = $value['stockTotal']; 
 				$precio  	     = $value['precio']; 
 				$fabricante      = $value['fabricante'];
-				$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio) VALUES('$partNumber', 'Tech Data', 2, $stockTotal, '$fabricante', $precio);";   
+				$nameProduct     = $value['descripcion'];
+				$categoria       = $value['categoria'];
+				$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio) 
+									VALUES('$partNumber', '$nameProduct', '$categoria', 'Tech Data', 2, $stockTotal, '$fabricante', $precio);";   
 			    mysqli_query($db, $query);
 		 		mysqli_close($db); 		 	
 			}  
@@ -387,8 +390,8 @@
 				$d22    		 =  $value['22'];	 $d23    	 	 =  $value['23'];
 				$d24    		 =  $value['24'];	 $inStock   	 =  $value['25'];
 				
-				$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio)
-							VALUES('$sku', 'Ingram Micro', 3, $inStock, '$proveedor', $precio)";   
+				$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio)
+							VALUES('$sku', '$nombreProducto', '$clase', 'Ingram Micro', 3, $inStock, '$proveedor', $precio)";   
 
 				mysqli_query($db, $query);
 				mysqli_close($db); 
@@ -408,8 +411,11 @@
 					$disponible = $value['disponible']; 
 					$codigo_fabricante = $value['codigo_fabricante'];
 					$precio = $value['precio'];
+					$descripcion = $value['descripcion'];
+					$grupo = $value['grupo'];
 
-					$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio) VALUES('$codigo_fabricante', 'CVA', 1, $disponible, '$marca', $precio)";   
+					$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio) 
+								VALUES('$codigo_fabricante', '$descripcion', '$grupo','CVA', 1, $disponible, '$marca', $precio)";   
 				    if( mysqli_query($db, $query) ) 
 				    	echo '1'; 
 				    else 

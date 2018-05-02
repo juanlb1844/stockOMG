@@ -153,10 +153,13 @@
 	          foreach ($catalogo as $key => $value) {
 
 	            foreach($value as $k => $v){
-	                $arrayTechData_products[$num]['partNumber']         = $v->partNumber; 
-	                $arrayTechData_products[$num]['stockTotal']     = $v->stockTotal; 
-	                $arrayTechData_products[$num]['precio']         = $v->precio; 
-	                $arrayTechData_products[$num]['fabricante']     = $v->fabricante;	                
+	                $arrayTechData_products[$num]['partNumber']  = $v->partNumber; 
+	                $arrayTechData_products[$num]['stockTotal']  = $v->stockTotal; 
+	                $arrayTechData_products[$num]['precio']      = $v->precio; 
+	                $arrayTechData_products[$num]['fabricante']  = $v->fabricante;
+					$arrayTechData_products[$num]['descripcion'] = $v->descripcion;
+					$arrayTechData_products[$num]['categoria']   = $v->categoria;  
+	                
 	                $num++; 
 	            }
 
@@ -225,6 +228,8 @@
 				$items[$num]['grupo'] 	    	  	  = (string) $item->{'grupo'}; 
 				$items[$num]['precio'] 	  		  	  = (string) $item->{'precio'};
 				$items[$num]['fechaactualizatipoc']   = (string) $item->{'fechaactualizatipoc'};
+				$items[$num]['descripcion'] 	  	  = (string) $item->{'descripcion'};
+
 				$num++; 
 			}
 

@@ -99,6 +99,28 @@ $(document).ready(function() {
 		}); 
 	}
 
+	// Compare FEED FLAT 
+	$('#updateCompare').click(function() {
+		$.ajax({
+						 	url: 'controladores/compareFeedFlat.php', 
+						 	method: 'POST', 
+						 	data: { }, 
+						 	success: function(response){
+						 				if(response != 'sin datos') {
+								 		 	 var comparedProducts = JSON.parse(response); 
+								 		 	 console.log(comparedProducts); 
+								 		 	 $('#comparedBody').html(''); 
+								 		 	 for(i in comparedProducts) {
+								 		 	 	$('#comparedBody').append('<tr>' + 
+								 		 	 			'<td>'+ comparedProducts[i].sku  +'</td>'+ 
+								 		 	 			'<td>'+ comparedProducts[i].precio  +'</td>'+ 
+								 		 	 			'<td>'+ comparedProducts[i].name_product  +'</td>'+ 
+								 		 	 		'</tr>'); 
+								 		 	 }
+						 				}
+						 	}
+					});
+	}); 
 
 	// Restart FLAT 
 	$('#restartIngram').click(function(event){
@@ -186,9 +208,9 @@ $(document).ready(function() {
 						 	method: 'POST', 
 						 	data: {  type: 'flat', action : 'import', ws : 'TechData'}, 
 						 	success: function(response){
-						 			 	 $(event.target).removeClass('btn-loading').text('Reiniciar');
+						 			 	 $(event.target).removeClass('btn-loading').text('Actualizar');
 							 		 	 console.log(response);
-							 		 	 checkDbCountFlat = setInterval(getFlatCount, 2000); 
+							 		 	 clearInterval(checkDbCountFlat); 
 										 $('.respFlatTD').remove(); 
 										 getFlatCount(); 
 						 	}
@@ -532,7 +554,7 @@ function appendTableIngram(objJson){
 	 * 
 	 * 
 	 ***************************************/ 
-
+	//https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0&dt=1&dc=1
 	var urli = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0'; 
 
  	function cargaCVA(){
