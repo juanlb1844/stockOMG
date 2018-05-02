@@ -47,6 +47,22 @@
                 //print_r($object->getDataIngram()); 
             }
        } else if( $_POST['type'] == 'flat' ) {
-          echo ( json_encode($object->getDataTechDataFlat()) ); 
+          $action = $_POST['action']; 
+          $ws     = $_POST['ws']; 
+          if($action == 'import') {
+              if($ws == 'TechData') {
+                 $dbObject->techDataFlat( $object->getDataTechDataFlat() ); 
+                //echo ( json_encode($object->getDataTechDataFlat()) ); 
+              } if($ws == 'Ingram') {
+                $dbObject->insertarIngramMicroFlat( $object->getDataIngramFlat() ); 
+              } if($ws == 'CVA' ) {
+                echo $dbObject->insertarCVAFlat( $object->getDataXMLFeed('https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0') ); 
+              }
+          } else if($action == 'restart') {
+              $dbObject->restartFlat('flat_data_products'); 
+              echo 'restarted';
+          }
+
        }
+
 

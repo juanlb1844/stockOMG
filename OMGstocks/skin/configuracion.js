@@ -93,6 +93,84 @@ $(document).ready(function() {
 			$('#CVAgroups').append('<option>'+value.trim()+'</option>'); 
 		}); 
 	}
+	// Restart FLAT 
+	$('#restartTD').click(function(){
+		$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'flat', action : 'restart', ws : 'TechData'}, 
+						 	success: function(mensaje){
+						 				alert(mensaje); 			
+							 		 	 //console.log(JSON.parse(mensaje));
+						 	}
+					});
+	}); 
+
+	// Export FLAT
+	$('#exportCVAFlat').click(function() {
+		alert('CVA --'); 
+		$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'flat', action : 'import', ws : 'CVA'}, 
+						 	success: function(response){
+						 				alert(response); 
+							 		 	console.log(JSON.parse(response)); 
+						 	}
+					});
+	});  
+
+	$('#exportIngram').click(function() {
+		alert('Ingram --'); 
+		$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'flat', action : 'import', ws : 'Ingram'}, 
+						 	success: function(response){
+						 				alert(response); 
+							 		 	//console.log(JSON.parse(response)); 
+						 	}
+					});
+	});  
+
+	$('#exportFlatTD').click(function() {
+		$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'flat', action : 'import', ws : 'TechData'}, 
+						 	success: function(mensaje){
+							 		 	 console.log(JSON.parse(mensaje));
+										 alert('FLATED!'); 
+						 	}
+					});
+	}); 
+	// Get flat count 
+
+	getFlatCount(); 
+	function getFlatCount() {
+		$.ajax({
+						 	url: 'controladores/getFlatCount.php', 
+						 	method: 'POST', 
+						 	data: {  }, 
+						 	success: function(response){
+						 				if(response != 'sin datos') {
+						 				 var countFlat = JSON.parse(response); 
+							 		 	 for(i in countFlat) {
+							 		 	 	 var provider = countFlat[i].provider_name;
+							 		 	 	 var provider_c = countFlat[i].count_providers;
+							 		 	 	 switch(provider) {
+							 		 	 	 	case 'Tech Data' : $('#countFlatTD').html(provider_c);  
+							 		 	 	 	break; 
+							 		 	 	 	case 'CVA' : $('#countFlatCVA').html(provider_c); 
+							 		 	 	 	break; 
+							 		 	 	 	case 'Ingram Micro' : $('#countFlatIngramMicro').html(provider_c); 
+							 		 	 	 	break; 
+							 		 	 	 }
+							 		 	 }
+						 				}
+						 	}
+					});
+	}
 
 	// Import Flat 
 	function importTechDataFlat() {
@@ -121,6 +199,7 @@ $(document).ready(function() {
 					 	}
 					});
    }); 
+
 
 
 	// EXPORT 

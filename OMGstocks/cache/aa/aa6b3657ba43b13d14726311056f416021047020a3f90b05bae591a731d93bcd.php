@@ -48,7 +48,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t<thead>
 \t\t\t  \t\t\t<th>WS</th>
 \t\t\t  \t\t\t<th>Method</th>
-\t\t\t  \t\t\t<th>Products</th>
+\t\t\t  \t\t\t<th>FLAT</th>
 \t\t\t  \t\t\t<th>Local</th>
 \t\t\t  \t\t\t<th>Action</th>
 \t\t\t  \t\t</thead>
@@ -56,23 +56,23 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>Ingram</td>
 \t\t\t  \t\t\t\t<td>.NET</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatIngramMicro\">?</td>
 \t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"exportIngram\" class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>CVA</td>
 \t\t\t  \t\t\t\t<td>GET</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatCVA\">?</td>
 \t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"exportCVAFlat\" class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>Tech Data</td>
 \t\t\t  \t\t\t\t<td>FTP/CSV</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatTD\">?</td>
 \t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"exportFlatTD\" class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>
@@ -91,6 +91,22 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
+\t\t\t    <div>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>TechData</th>
+\t\t\t  \t\t\t<th>CVA</th>
+\t\t\t  \t\t\t<th>Ingram</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td><button id=\"restartTD\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Reiniciar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>
@@ -231,7 +247,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t<thead>
 \t\t\t  \t\t\t<th>WS</th>
 \t\t\t  \t\t\t<th>Method</th>
-\t\t\t  \t\t\t<th>Products</th>
+\t\t\t  \t\t\t<th>FLAT</th>
 \t\t\t  \t\t\t<th>Local</th>
 \t\t\t  \t\t\t<th>Action</th>
 \t\t\t  \t\t</thead>
@@ -239,23 +255,23 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>Ingram</td>
 \t\t\t  \t\t\t\t<td>.NET</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatIngramMicro\">?</td>
 \t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"exportIngram\" class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>CVA</td>
 \t\t\t  \t\t\t\t<td>GET</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatCVA\">?</td>
 \t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"exportCVAFlat\" class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>Tech Data</td>
 \t\t\t  \t\t\t\t<td>FTP/CSV</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatTD\">?</td>
 \t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"exportFlatTD\" class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>
@@ -274,6 +290,22 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
+\t\t\t    <div>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>TechData</th>
+\t\t\t  \t\t\t<th>CVA</th>
+\t\t\t  \t\t\t<th>Ingram</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td><button id=\"restartTD\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Reiniciar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>
@@ -367,6 +399,6 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 </div>
 
 {% endblock %}
-", "configuracion.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\stockOMG\\OMGstocks\\templates\\configuracion.html.twig");
+", "configuracion.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\stockOMG\\OMGstocks\\templates\\configuracion.html.twig");
     }
 }

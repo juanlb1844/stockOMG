@@ -18,7 +18,7 @@
 			  		<thead>
 			  			<th>WS</th>
 			  			<th>Method</th>
-			  			<th>Products</th>
+			  			<th>FLAT</th>
 			  			<th>Local</th>
 			  			<th>Action</th>
 			  		</thead>
@@ -26,23 +26,23 @@
 			  			<tr>
 			  				<td>Ingram</td>
 			  				<td>.NET</td>
+			  				<td id="countFlatIngramMicro">?</td>
 			  				<td>?</td>
-			  				<td>?</td>
-			  				<td><button class="btn-sm form-control">Actualizar</button></td>
+			  				<td><button id="exportIngram" class="btn-sm form-control">Actualizar</button></td>
 			  			</tr>
 			  			<tr>
 			  				<td>CVA</td>
 			  				<td>GET</td>
+			  				<td id="countFlatCVA">?</td>
 			  				<td>?</td>
-			  				<td>?</td>
-			  				<td><button class="btn-sm form-control">Actualizar</button></td>
+			  				<td><button id="exportCVAFlat" class="btn-sm form-control">Actualizar</button></td>
 			  			</tr>
 			  			<tr>
 			  				<td>Tech Data</td>
 			  				<td>FTP/CSV</td>
+			  				<td id="countFlatTD">?</td>
 			  				<td>?</td>
-			  				<td>?</td>
-			  				<td><button class="btn-sm form-control">Actualizar</button></td>
+			  				<td><button id="exportFlatTD" class="btn-sm form-control">Actualizar</button></td>
 			  			</tr>
 			  		</tbody>
 			  	</table>
@@ -61,6 +61,22 @@
 			  			<tr>
 			  				<td><button class="btn-sm form-control">Actualizar</button></td>
 			  				<td><button class="btn-sm form-control">Actualizar</button></td>
+			  			</tr>
+			  		</tbody>
+			  	</table>
+			  </div>
+			    <div>
+			  	<table class="table table-striped table-bordered table-hover">
+			  		<thead>
+			  			<th>TechData</th>
+			  			<th>CVA</th>
+			  			<th>Ingram</th>
+			  		</thead>
+			  		<tbody>
+			  			<tr>
+			  				<td><button id="restartTD" class="btn-sm form-control">Reiniciar</button></td>
+			  				<td><button class="btn-sm form-control">Reiniciar</button></td>
+			  				<td><button class="btn-sm form-control">Reiniciar</button></td>
 			  			</tr>
 			  		</tbody>
 			  	</table>

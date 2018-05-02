@@ -348,19 +348,77 @@
 		return $string;
 	}
 
+ function restartFlat ($ws) {
+				$db = new db();
+				$query = "DELETE FROM $ws";   
+			    mysqli_query($db, $query);
+		 		mysqli_close($db); 		 	
+ }
+
  function techDataFlat ($array){
-			foreach ($array as $key => $value) {
+ 		$query = ''; 
+		foreach ($array as $key => $value) {
 				$db = new db();   
-		 		$codigo 	     = $value['codigo']; 
+		 		$partNumber 	     = $value['partNumber']; 
 				$stockTotal      = $value['stockTotal']; 
 				$precio  	     = $value['precio']; 
-				$fabricante      = $value['fabricante'];}
-				$query = "CALL create_product('$codigo', 'Tech Data', 1, $stockTotal, '$fabricante', $precio);";   
+				$fabricante      = $value['fabricante'];
+				$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio) VALUES('$partNumber', 'Tech Data', 1, $stockTotal, '$fabricante', $precio);";   
 			    mysqli_query($db, $query);
 		 		mysqli_close($db); 		 	
 			}  
-		echo 'Tech Data Importado'; 
+		echo $query;  
  } 
 
+	function insertarIngramMicroFlat($array){
+			foreach ($array as $key => $value) {
+				$db = new db(); 
+		 		$clase 	     	 =  $value['0'];   	 $sku 	 		 =  $value['1']; 
+				$d3 		     =  $value['2'];   	 $proveedor      =  $value['3']; 
+				$nombreProducto  =  $value['4'];   	 $modelo  	     =  $value['5']; 
+				$d6 		 	 =  $value['6'];   	 $vpn	     	 =  $value['7']; 
+				$d8      		 =	$value['8'];   	 $d9    		 =  $value['9'];
+				$d10  			 =  $value['10'];    $d11    		 =  $value['11'];
+				$d12    		 =  $value['12'];    $d13   		 =  $value['13'];
+				$precio   		 =  $value['14']; 	 $d15    		 =  $value['15'];
+				$d16    		 =  $value['16']; 	 $d17    		 =  $value['17'];
+				$d18    		 =  $value['18'];	 $d19    		 =  $value['19'];
+				$d20    		 =  $value['20'];	 $d21    		 =  $value['21'];
+				$d22    		 =  $value['22'];	 $d23    	 	 =  $value['23'];
+				$d24    		 =  $value['24'];	 $inStock   	 =  $value['25'];
+				
+				$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio)
+							VALUES('$sku', 'Ingram Micro', 2, $inStock, '$proveedor', $precio)";   
+
+				mysqli_query($db, $query);
+				mysqli_close($db); 
+			} 		
+		echo $query; 
+	}
+
+		function insertarCVAFlat($array){
+		//echo json_encode($array);
+		//return; 
+		$interations = 0;  
+		foreach ($array as $key => $value) {
+		$db = new db(); 
+			$interations++; 
+			 		$marca 	    = $value['marca']; 
+					$clave 	    = $value['clave']; 
+					$disponible = $value['disponible']; 
+					$codigo_fabricante = $value['codigo_fabricante'];
+					$precio = $value['precio'];
+
+					$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio) VALUES('$codigo_fabricante', 'CVA', 3, $disponible, '$marca', $precio)";   
+				    if( mysqli_query($db, $query) ) 
+				    	echo '1'; 
+				    else 
+				    	echo '0'; 
+				    echo $query; 
+				    $query = ''; 
+				    $db->close();
+		}
+		echo 'CVA | Flat'; 
+	}
 
 }
