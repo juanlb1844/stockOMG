@@ -2,6 +2,16 @@
 
 {% block content %} 
 	{{parent()}} 
+
+	<style type="text/css">
+		.btn-loading {
+		    background-image: url(media/users/loading.gif);
+		    background-position: center;
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		}
+	</style>
+
 	<script type="text/javascript" src="skin/configuracion.js"></script>
 	<div class="col-md-12">
 		<div class="col-md-4">
@@ -16,6 +26,22 @@
 			  <div>
 			  	<table class="table table-striped table-bordered table-hover">
 			  		<thead>
+			  			<th>TechData</th>
+			  			<th>CVA</th>
+			  			<th>Ingram</th>
+			  		</thead>
+			  		<tbody>
+			  			<tr>
+			  				<td><button id="restartTD" class="btn-sm form-control">Reiniciar</button></td>
+			  				<td><button id="restartCVA" class="btn-sm form-control">Reiniciar</button></td>
+			  				<td><button id="restartIngram" class="btn-sm form-control">Reiniciar</button></td>
+			  			</tr>
+			  		</tbody>
+			  	</table>
+			  </div>
+			  <div>
+			  	<table class="table table-striped table-bordered table-hover">
+			  		<thead>
 			  			<th>WS</th>
 			  			<th>Method</th>
 			  			<th>FLAT</th>
@@ -25,58 +51,29 @@
 			  		<tbody>
 			  			<tr>
 			  				<td>Ingram</td>
-			  				<td>.NET</td>
-			  				<td id="countFlatIngramMicro">?</td>
-			  				<td>?</td>
+			  				<td>FTP/CSV</td>
+			  				<td id="countFlatIngramMicro"><span id="nFlatIngram">?</span></td>
+			  				<td id="countRelatedIngramMicro"><span id="countIngramMicro">?</span></td>
 			  				<td><button id="exportIngram" class="btn-sm form-control">Actualizar</button></td>
 			  			</tr>
 			  			<tr>
 			  				<td>CVA</td>
-			  				<td>GET</td>
-			  				<td id="countFlatCVA">?</td>
-			  				<td>?</td>
-			  				<td><button id="exportCVAFlat" class="btn-sm form-control">Actualizar</button></td>
+			  				<td>GET/XML</td>
+			  				<td id="countFlatCVA"><span id="nFlatCVA">?</span></td>
+			  				<td id="countRelatedCVA" ><span id="countCVA">?</span></td>
+			  				<td>
+			  					<button id="exportCVAFlat" class="btn-sm form-control">Actualizar</button>
+			  					<p></p>
+			  					<select id="CVAgroupsFlat" class="form-control">
+			  					</select>
+			  				</td>
 			  			</tr>
 			  			<tr>
 			  				<td>Tech Data</td>
-			  				<td>FTP/CSV</td>
-			  				<td id="countFlatTD">?</td>
-			  				<td>?</td>
+			  				<td>SOAP</td>
+			  				<td id="countFlatTD"><span id="nFlatTD">?</span></td>
+			  				<td id="countRelatedTD"><span id="countTD">?</span></td>
 			  				<td><button id="exportFlatTD" class="btn-sm form-control">Actualizar</button></td>
-			  			</tr>
-			  		</tbody>
-			  	</table>
-			  </div>
-			  <div>
-			  	<table class="table table-striped table-bordered table-hover">
-			  		<thead>
-			  			<th>FLAT</th>
-			  			<th>LOCAL</th>
-			  		</thead>
-			  		<tbody>
-			  			<tr>
-			  				<td>?</td>
-			  				<td>?</td>
-			  			</tr>
-			  			<tr>
-			  				<td><button class="btn-sm form-control">Actualizar</button></td>
-			  				<td><button class="btn-sm form-control">Actualizar</button></td>
-			  			</tr>
-			  		</tbody>
-			  	</table>
-			  </div>
-			    <div>
-			  	<table class="table table-striped table-bordered table-hover">
-			  		<thead>
-			  			<th>TechData</th>
-			  			<th>CVA</th>
-			  			<th>Ingram</th>
-			  		</thead>
-			  		<tbody>
-			  			<tr>
-			  				<td><button id="restartTD" class="btn-sm form-control">Reiniciar</button></td>
-			  				<td><button class="btn-sm form-control">Reiniciar</button></td>
-			  				<td><button class="btn-sm form-control">Reiniciar</button></td>
 			  			</tr>
 			  		</tbody>
 			  	</table>
@@ -141,7 +138,7 @@
           <div class="col-md-12" style="margin-bottom: 10px;">
             <label for="recipient-name" class="col-md-3 col-form-label">Importar: </label>
             <div class="col-md-4">
-            	<button id="importCVA" class="btn btn-primary">CVA</button>  
+            	<button id="importCVA" data-dismiss="modal" class="btn btn-primary">CVA</button>  
             </div>
             <div class="col-md-5">
 	            <select class="form-control" id="CVAgroups">
@@ -151,13 +148,13 @@
           <div class="col-md-12" style="margin-bottom: 10px;">
             <label for="message-text" class="col-md-3 col-form-label">Importar: </label>
             <div class="col-md-9">
-            	<button id="importTechData" class="btn btn-primary">Tech Data</button>
+            	<button id="importTechData" data-dismiss="modal" class="btn btn-primary">Tech Data</button>
             </div>
           </div>
           <div class="col-md-12" style="margin-bottom: 10px;">
             <label for="recipient-name" class="col-md-3 col-form-label">Importar: </label>
             <div class="col-md-9">
-            	<button id="importIngram" class="btn btn-primary">Ingram</button>
+            	<button id="importIngram" data-dismiss="modal" class="btn btn-primary">Ingram</button>
             </div>
           </div>
       </div>

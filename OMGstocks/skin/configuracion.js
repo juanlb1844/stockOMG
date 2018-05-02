@@ -1,3 +1,5 @@
+var checkDbCount = null; 
+var checkDbCountFlat = null; 
 $(document).ready(function() {
 
 	initModal(); 
@@ -92,78 +94,153 @@ $(document).ready(function() {
 		grouposCva.forEach(function(value, index) {
 			$('#CVAgroups').append('<option>'+value.trim()+'</option>'); 
 		}); 
+		grouposCva.forEach(function(value, index) {
+			$('#CVAgroupsFlat').append('<option>'+value.trim()+'</option>'); 
+		}); 
 	}
+
+
 	// Restart FLAT 
-	$('#restartTD').click(function(){
+	$('#restartIngram').click(function(event){
+		$(event.target).addClass('btn-loading').text(''); 
+		$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'flat', action : 'restart', ws : 'Ingram'}, 
+						 	success: function(response){
+							 		 	 console.log(response);
+							 		 	 $(event.target).removeClass('btn-loading').text('Reiniciar'); 
+						 	}
+					});
+	}); 
+	$('#restartCVA').click(function(event){
+		$(event.target).addClass('btn-loading').text(''); 
+		$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'flat', action : 'restart', ws : 'CVA'}, 
+						 	success: function(response){
+							 		 	 console.log(response);
+							 		 	 $(event.target).removeClass('btn-loading').text('Reiniciar'); 
+						 	}
+					});
+	}); 
+	$('#restartTD').click(function(event){
+		$(event.target).addClass('btn-loading').text(''); 
 		$.ajax({
 						 	url: 'controladores/dataController.php', 
 						 	method: 'POST', 
 						 	data: {  type: 'flat', action : 'restart', ws : 'TechData'}, 
-						 	success: function(mensaje){
-						 				alert(mensaje); 			
-							 		 	 //console.log(JSON.parse(mensaje));
+						 	success: function(response){
+							 		 	 console.log(response);
+							 		 	 $(event.target).removeClass('btn-loading').text('Reiniciar'); 
 						 	}
 					});
 	}); 
 
 	// Export FLAT
-	$('#exportCVAFlat').click(function() {
-		alert('CVA --'); 
+	$('#exportCVAFlat').click(function(event) {
+		checkDbCountFlat = setInterval(getFlatCount, 2000); 
+		$('#countFlatCVA').append('<img class="respCVA" src="media/users/loading.gif" style="width:25px;">');
+		var groupFlatCVA = $('#CVAgroupsFlat').val(); 
+		var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupFlatCVA+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0'; 
+		console.log(urlCva); 
+		$(event.target).addClass('btn-loading').text(''); 
 		$.ajax({
 						 	url: 'controladores/dataController.php', 
 						 	method: 'POST', 
-						 	data: {  type: 'flat', action : 'import', ws : 'CVA'}, 
+						 	data: {  type: 'flat', action : 'import', ws : 'CVA', url : urlCva}, 
 						 	success: function(response){
-						 				alert(response); 
-							 		 	console.log(JSON.parse(response)); 
+						 				clearInterval(checkDbCountFlat);
+						 				$('.respCVA').remove(); 
+										$(event.target).removeClass('btn-loading').text('Actualizar'); 
+										console.log(response);
 						 	}
 					});
 	});  
 
-	$('#exportIngram').click(function() {
-		alert('Ingram --'); 
+	$('#exportIngram').click(function(event) {
+		$('#countFlatIngramMicro').append('<img class="respFlatIngram" src="media/users/loading.gif" style="width:25px;">');
+		checkDbCountFlat = setInterval(getFlatCount, 2000); 
+		$(event.target).addClass('btn-loading').text(''); 
 		$.ajax({
 						 	url: 'controladores/dataController.php', 
 						 	method: 'POST', 
 						 	data: {  type: 'flat', action : 'import', ws : 'Ingram'}, 
-						 	success: function(response){
-						 				alert(response); 
-							 		 	//console.log(JSON.parse(response)); 
+						 	success: function(response){	
+							 		 	clearInterval(checkDbCountFlat);
+										$(event.target).removeClass('btn-loading').text('Reiniciar'); 
+							 		 	console.log(response);
+							 		 	getFlatCount(); 
+							 		 	$('.respFlatIngram').remove(); 
 						 	}
 					});
 	});  
 
-	$('#exportFlatTD').click(function() {
+	$('#exportFlatTD').click(function(event) {
+		$('#countFlatTD').append('<img class="respFlatTD" src="media/users/loading.gif" style="width:25px;">');
+		checkDbCountFlat = setInterval(getFlatCount, 2000); 
+		$(event.target).addClass('btn-loading').text('');
 		$.ajax({
 						 	url: 'controladores/dataController.php', 
 						 	method: 'POST', 
 						 	data: {  type: 'flat', action : 'import', ws : 'TechData'}, 
-						 	success: function(mensaje){
-							 		 	 console.log(JSON.parse(mensaje));
-										 alert('FLATED!'); 
+						 	success: function(response){
+						 			 	 $(event.target).removeClass('btn-loading').text('Reiniciar');
+							 		 	 console.log(response);
+							 		 	 checkDbCountFlat = setInterval(getFlatCount, 2000); 
+										 $('.respFlatTD').remove(); 
+										 getFlatCount(); 
 						 	}
 					});
 	}); 
 	// Get flat count 
 
 	getFlatCount(); 
-	function getFlatCount() {
+	getRelatedCount(); 
+	function getRelatedCount() {
+		console.log('inicio..'); 
 		$.ajax({
 						 	url: 'controladores/getFlatCount.php', 
 						 	method: 'POST', 
-						 	data: {  }, 
-						 	success: function(response){
+						 	data: { type : 'related' }, 
+						 	success: function(response){ 
+						 				if(response != 'sin datos') {
+						 				 	 var countRelated = JSON.parse(response); 
+								 		 	 for(i in countRelated) {
+								 		 	 	 var provider = countRelated[i].provider_name;
+								 		 	 	 var provider_c = countRelated[i].cant_entities;
+								 		 	 	 switch(provider) {
+								 		 	 	 	case 'Tech Data' : $('#countTD').html(provider_c);  
+								 		 	 	 	break; 
+								 		 	 	 	case 'CVA' : $('#countCVA').html(provider_c); 
+								 		 	 	 	break; 
+								 		 	 	 	case 'Ingram micro' : $('#countIngramMicro').html(provider_c); 
+								 		 	 	 	break; 
+								 		 	 	 }
+								 		 	 }
+						 				}
+						 	}
+					});
+	}
+	function getFlatCount() {
+		console.log('....'); 
+		$.ajax({
+						 	url: 'controladores/getFlatCount.php', 
+						 	method: 'POST', 
+						 	data: { type : 'flat' }, 
+						 	success: function(response){ 
 						 				if(response != 'sin datos') {
 						 				 var countFlat = JSON.parse(response); 
 							 		 	 for(i in countFlat) {
 							 		 	 	 var provider = countFlat[i].provider_name;
 							 		 	 	 var provider_c = countFlat[i].count_providers;
 							 		 	 	 switch(provider) {
-							 		 	 	 	case 'Tech Data' : $('#countFlatTD').html(provider_c);  
+							 		 	 	 	case 'Tech Data' : $('#nFlatTD').html(provider_c);  
 							 		 	 	 	break; 
-							 		 	 	 	case 'CVA' : $('#countFlatCVA').html(provider_c); 
+							 		 	 	 	case 'CVA' : $('#nFlatCVA').html(provider_c); 
 							 		 	 	 	break; 
-							 		 	 	 	case 'Ingram Micro' : $('#countFlatIngramMicro').html(provider_c); 
+							 		 	 	 	case 'Ingram Micro' : $('#nFlatIngram').html(provider_c); 
 							 		 	 	 	break; 
 							 		 	 	 }
 							 		 	 }
@@ -204,9 +281,8 @@ $(document).ready(function() {
 
 	// EXPORT 
 	$('#importIngram').click( function() { 
-		alert('Importar'); 
-		//PORTATILES
-		//ACCESORIOS 
+		checkDbCount = setInterval(getRelatedCount, 2000);
+		$('#countRelatedIngramMicro').append('<img class="responseIngramMicro" src="media/users/loading.gif" style="width:25px;">');
 		$.ajax({
 				 	url: 'controladores/dataController.php', 
 				 	method: 'POST', 
@@ -215,13 +291,17 @@ $(document).ready(function() {
 				 		   	 WS:   'Ingram' }, 
 				 	success: function(mensaje){
 					 		 	 console.log(mensaje);
-					 		 	 alert(mensaje); 
+					 		 	 getRelatedCount(); 
+					 		 	 $('.responseIngramMicro').remove(); 
+					 		 	 clearInterval(checkDbCount); 
 				 	}
 			});
 	});
 
 
 	$('#importTechData').click( function importTechData() { 
+		checkDbCount = setInterval(getRelatedCount, 2000); 
+		$('#countRelatedTD').append('<img class="responseTD" src="media/users/loading.gif" style="width:25px;">');
 		$.ajax({
 		 	url: 'controladores/dataController.php', 
 		 	method: 'POST', 
@@ -229,18 +309,22 @@ $(document).ready(function() {
 		 			type: 'export', 
 		 			WS:   'TechData' }, 
 		 	success: function(mensaje){
-		 		 	 alert(mensaje); 
+		 		 	 getRelatedCount(); 
+		 			 console.log(mensaje)
+		 		 	 clearInterval(checkDbCount); 
+		 		 	 $('.responseTD').remove(); 
 		 	}
 		});  
    });
 
+	var checkDbCount = null; 
+
     $('#importCVA').click( function importCVA() {
+    	checkDbCount = setInterval(getRelatedCount, 2000); 
+    	$('#countRelatedCVA').append('<img class="responseCVA" src="media/users/loading.gif" style="width:25px;">');
     	var groupCvaSelected = $('#CVAgroups').val(); 
     	var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupCvaSelected+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0'; 
     	console.log(urlCva); 
-    	//https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0
-    	//ACCESORIOS 
-    	
    		$.ajax({
 						 	url: 'controladores/dataController.php', 
 						 	method: 'POST', 
@@ -248,8 +332,10 @@ $(document).ready(function() {
 						 		     type: 'export',  
 						 		     WS:   'CVA' }, 
 						 	success: function(mensaje){
+						 				 getRelatedCount(); 
 							 		 	 console.log(mensaje);
-							 		 	 alert('TERMINADO CVA'); 
+							 		 	 $('.responseCVA').remove(); 
+							 		 	 clearInterval(checkDbCount); 
 						 	}
 					});   
    }); 

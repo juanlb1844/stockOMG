@@ -56,11 +56,24 @@
               } if($ws == 'Ingram') {
                 $dbObject->insertarIngramMicroFlat( $object->getDataIngramFlat() ); 
               } if($ws == 'CVA' ) {
-                echo $dbObject->insertarCVAFlat( $object->getDataXMLFeed('https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=HP&grupo=PORTATILES%&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0') ); 
+                $url = $_POST['url']; 
+                echo $dbObject->insertarCVAFlat( $object->getDataXMLFeed($url) ); 
               }
           } else if($action == 'restart') {
-              $dbObject->restartFlat('flat_data_products'); 
-              echo 'restarted';
+              switch($ws) {
+                case 'TechData' : 
+                        $dbObject->restartFlat(2); 
+                        echo 'restarted';
+                break; 
+                case 'CVA' : 
+                        $dbObject->restartFlat(1); 
+                        echo 'restarted';
+                break; 
+                case 'Ingram' : 
+                        $dbObject->restartFlat(3); 
+                        echo 'restarted';
+                break; 
+              }
           }
 
        }

@@ -172,7 +172,6 @@
 		//ftp://UserID:password@PartnerReports.ingrammicro.com/FUSION/ 
 		$source = file_get_contents($url);
 		file_put_contents(getcwd().'/PRICE.zip', $source); 
-
 		//echo 'Descargado';
 
 		// Descomprimir ... 
@@ -180,11 +179,9 @@
 			if ($zip->open('PRICE.zip') === TRUE) {
 			    $zip->extractTo(getcwd());
 			    $zip->close();
-			    //echo 'ok';
 			} else {
 			    echo 'failed';
 			}
-
 
 			chmod('PRICE.TXT', 0755); 
 			$productosIngram = array(); 
@@ -200,7 +197,7 @@
 				$productosIngram[] = $producto; 
 		    }  */ 				  
 				 	     
-		    for($i = 0; $i < 10; $i++){
+		    for($i = 0; $i < 25; $i++){
 				$linea = fgets($fp);
 				$linea = utf8_encode($linea); 
 				$producto = explode(',', $linea);
@@ -215,9 +212,9 @@
  	} 
 
  		 function getDataXMLFeed($url){
- 
+ 				
 			$content = file_get_contents($url);  
-
+			$items = null; 
 			$xml = simplexml_load_string($content); 
 			$num = 0; 
 			foreach($xml->item as $item){

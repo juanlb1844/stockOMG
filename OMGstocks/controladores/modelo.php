@@ -348,9 +348,9 @@
 		return $string;
 	}
 
- function restartFlat ($ws) {
+ function restartFlat ($idProvider) {
 				$db = new db();
-				$query = "DELETE FROM $ws";   
+				$query = "DELETE FROM flat_data_products WHERE provider_id = $idProvider";   
 			    mysqli_query($db, $query);
 		 		mysqli_close($db); 		 	
  }
@@ -363,7 +363,7 @@
 				$stockTotal      = $value['stockTotal']; 
 				$precio  	     = $value['precio']; 
 				$fabricante      = $value['fabricante'];
-				$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio) VALUES('$partNumber', 'Tech Data', 1, $stockTotal, '$fabricante', $precio);";   
+				$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio) VALUES('$partNumber', 'Tech Data', 2, $stockTotal, '$fabricante', $precio);";   
 			    mysqli_query($db, $query);
 		 		mysqli_close($db); 		 	
 			}  
@@ -388,7 +388,7 @@
 				$d24    		 =  $value['24'];	 $inStock   	 =  $value['25'];
 				
 				$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio)
-							VALUES('$sku', 'Ingram Micro', 2, $inStock, '$proveedor', $precio)";   
+							VALUES('$sku', 'Ingram Micro', 3, $inStock, '$proveedor', $precio)";   
 
 				mysqli_query($db, $query);
 				mysqli_close($db); 
@@ -409,7 +409,7 @@
 					$codigo_fabricante = $value['codigo_fabricante'];
 					$precio = $value['precio'];
 
-					$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio) VALUES('$codigo_fabricante', 'CVA', 3, $disponible, '$marca', $precio)";   
+					$query = "INSERT INTO flat_data_products(sku, provider_name, provider_id, stock, fabricante, precio) VALUES('$codigo_fabricante', 'CVA', 1, $disponible, '$marca', $precio)";   
 				    if( mysqli_query($db, $query) ) 
 				    	echo '1'; 
 				    else 

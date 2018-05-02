@@ -32,6 +32,16 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
         // line 4
         $this->displayParentBlock("content", $context, $blocks);
         echo " 
+
+\t<style type=\"text/css\">
+\t\t.btn-loading {
+\t\t    background-image: url(media/users/loading.gif);
+\t\t    background-position: center;
+\t\t    background-size: contain;
+\t\t    background-repeat: no-repeat;
+\t\t}
+\t</style>
+
 \t<script type=\"text/javascript\" src=\"skin/configuracion.js\"></script>
 \t<div class=\"col-md-12\">
 \t\t<div class=\"col-md-4\">
@@ -46,6 +56,22 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  <div>
 \t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
 \t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>TechData</th>
+\t\t\t  \t\t\t<th>CVA</th>
+\t\t\t  \t\t\t<th>Ingram</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td><button id=\"restartTD\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"restartCVA\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"restartIngram\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
+\t\t\t  <div>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
 \t\t\t  \t\t\t<th>WS</th>
 \t\t\t  \t\t\t<th>Method</th>
 \t\t\t  \t\t\t<th>FLAT</th>
@@ -55,58 +81,29 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t<tbody>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>Ingram</td>
-\t\t\t  \t\t\t\t<td>.NET</td>
-\t\t\t  \t\t\t\t<td id=\"countFlatIngramMicro\">?</td>
-\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>FTP/CSV</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatIngramMicro\"><span id=\"nFlatIngram\">?</span></td>
+\t\t\t  \t\t\t\t<td id=\"countRelatedIngramMicro\"><span id=\"countIngramMicro\">?</span></td>
 \t\t\t  \t\t\t\t<td><button id=\"exportIngram\" class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>CVA</td>
-\t\t\t  \t\t\t\t<td>GET</td>
-\t\t\t  \t\t\t\t<td id=\"countFlatCVA\">?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td><button id=\"exportCVAFlat\" class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td>GET/XML</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatCVA\"><span id=\"nFlatCVA\">?</span></td>
+\t\t\t  \t\t\t\t<td id=\"countRelatedCVA\" ><span id=\"countCVA\">?</span></td>
+\t\t\t  \t\t\t\t<td>
+\t\t\t  \t\t\t\t\t<button id=\"exportCVAFlat\" class=\"btn-sm form-control\">Actualizar</button>
+\t\t\t  \t\t\t\t\t<p></p>
+\t\t\t  \t\t\t\t\t<select id=\"CVAgroupsFlat\" class=\"form-control\">
+\t\t\t  \t\t\t\t\t</select>
+\t\t\t  \t\t\t\t</td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>Tech Data</td>
-\t\t\t  \t\t\t\t<td>FTP/CSV</td>
-\t\t\t  \t\t\t\t<td id=\"countFlatTD\">?</td>
-\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>SOAP</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatTD\"><span id=\"nFlatTD\">?</span></td>
+\t\t\t  \t\t\t\t<td id=\"countRelatedTD\"><span id=\"countTD\">?</span></td>
 \t\t\t  \t\t\t\t<td><button id=\"exportFlatTD\" class=\"btn-sm form-control\">Actualizar</button></td>
-\t\t\t  \t\t\t</tr>
-\t\t\t  \t\t</tbody>
-\t\t\t  \t</table>
-\t\t\t  </div>
-\t\t\t  <div>
-\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
-\t\t\t  \t\t<thead>
-\t\t\t  \t\t\t<th>FLAT</th>
-\t\t\t  \t\t\t<th>LOCAL</th>
-\t\t\t  \t\t</thead>
-\t\t\t  \t\t<tbody>
-\t\t\t  \t\t\t<tr>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t</tr>
-\t\t\t  \t\t\t<tr>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
-\t\t\t  \t\t\t</tr>
-\t\t\t  \t\t</tbody>
-\t\t\t  \t</table>
-\t\t\t  </div>
-\t\t\t    <div>
-\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
-\t\t\t  \t\t<thead>
-\t\t\t  \t\t\t<th>TechData</th>
-\t\t\t  \t\t\t<th>CVA</th>
-\t\t\t  \t\t\t<th>Ingram</th>
-\t\t\t  \t\t</thead>
-\t\t\t  \t\t<tbody>
-\t\t\t  \t\t\t<tr>
-\t\t\t  \t\t\t\t<td><button id=\"restartTD\" class=\"btn-sm form-control\">Reiniciar</button></td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Reiniciar</button></td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Reiniciar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>
@@ -171,7 +168,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
           <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
             <label for=\"recipient-name\" class=\"col-md-3 col-form-label\">Importar: </label>
             <div class=\"col-md-4\">
-            \t<button id=\"importCVA\" class=\"btn btn-primary\">CVA</button>  
+            \t<button id=\"importCVA\" data-dismiss=\"modal\" class=\"btn btn-primary\">CVA</button>  
             </div>
             <div class=\"col-md-5\">
 \t            <select class=\"form-control\" id=\"CVAgroups\">
@@ -181,13 +178,13 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
           <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
             <label for=\"message-text\" class=\"col-md-3 col-form-label\">Importar: </label>
             <div class=\"col-md-9\">
-            \t<button id=\"importTechData\" class=\"btn btn-primary\">Tech Data</button>
+            \t<button id=\"importTechData\" data-dismiss=\"modal\" class=\"btn btn-primary\">Tech Data</button>
             </div>
           </div>
           <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
             <label for=\"recipient-name\" class=\"col-md-3 col-form-label\">Importar: </label>
             <div class=\"col-md-9\">
-            \t<button id=\"importIngram\" class=\"btn btn-primary\">Ingram</button>
+            \t<button id=\"importIngram\" data-dismiss=\"modal\" class=\"btn btn-primary\">Ingram</button>
             </div>
           </div>
       </div>
@@ -231,6 +228,16 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 
 {% block content %} 
 \t{{parent()}} 
+
+\t<style type=\"text/css\">
+\t\t.btn-loading {
+\t\t    background-image: url(media/users/loading.gif);
+\t\t    background-position: center;
+\t\t    background-size: contain;
+\t\t    background-repeat: no-repeat;
+\t\t}
+\t</style>
+
 \t<script type=\"text/javascript\" src=\"skin/configuracion.js\"></script>
 \t<div class=\"col-md-12\">
 \t\t<div class=\"col-md-4\">
@@ -245,6 +252,22 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  <div>
 \t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
 \t\t\t  \t\t<thead>
+\t\t\t  \t\t\t<th>TechData</th>
+\t\t\t  \t\t\t<th>CVA</th>
+\t\t\t  \t\t\t<th>Ingram</th>
+\t\t\t  \t\t</thead>
+\t\t\t  \t\t<tbody>
+\t\t\t  \t\t\t<tr>
+\t\t\t  \t\t\t\t<td><button id=\"restartTD\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"restartCVA\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button id=\"restartIngram\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t</tr>
+\t\t\t  \t\t</tbody>
+\t\t\t  \t</table>
+\t\t\t  </div>
+\t\t\t  <div>
+\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
+\t\t\t  \t\t<thead>
 \t\t\t  \t\t\t<th>WS</th>
 \t\t\t  \t\t\t<th>Method</th>
 \t\t\t  \t\t\t<th>FLAT</th>
@@ -254,58 +277,29 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t<tbody>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>Ingram</td>
-\t\t\t  \t\t\t\t<td>.NET</td>
-\t\t\t  \t\t\t\t<td id=\"countFlatIngramMicro\">?</td>
-\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>FTP/CSV</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatIngramMicro\"><span id=\"nFlatIngram\">?</span></td>
+\t\t\t  \t\t\t\t<td id=\"countRelatedIngramMicro\"><span id=\"countIngramMicro\">?</span></td>
 \t\t\t  \t\t\t\t<td><button id=\"exportIngram\" class=\"btn-sm form-control\">Actualizar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>CVA</td>
-\t\t\t  \t\t\t\t<td>GET</td>
-\t\t\t  \t\t\t\t<td id=\"countFlatCVA\">?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td><button id=\"exportCVAFlat\" class=\"btn-sm form-control\">Actualizar</button></td>
+\t\t\t  \t\t\t\t<td>GET/XML</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatCVA\"><span id=\"nFlatCVA\">?</span></td>
+\t\t\t  \t\t\t\t<td id=\"countRelatedCVA\" ><span id=\"countCVA\">?</span></td>
+\t\t\t  \t\t\t\t<td>
+\t\t\t  \t\t\t\t\t<button id=\"exportCVAFlat\" class=\"btn-sm form-control\">Actualizar</button>
+\t\t\t  \t\t\t\t\t<p></p>
+\t\t\t  \t\t\t\t\t<select id=\"CVAgroupsFlat\" class=\"form-control\">
+\t\t\t  \t\t\t\t\t</select>
+\t\t\t  \t\t\t\t</td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
 \t\t\t  \t\t\t\t<td>Tech Data</td>
-\t\t\t  \t\t\t\t<td>FTP/CSV</td>
-\t\t\t  \t\t\t\t<td id=\"countFlatTD\">?</td>
-\t\t\t  \t\t\t\t<td>?</td>
+\t\t\t  \t\t\t\t<td>SOAP</td>
+\t\t\t  \t\t\t\t<td id=\"countFlatTD\"><span id=\"nFlatTD\">?</span></td>
+\t\t\t  \t\t\t\t<td id=\"countRelatedTD\"><span id=\"countTD\">?</span></td>
 \t\t\t  \t\t\t\t<td><button id=\"exportFlatTD\" class=\"btn-sm form-control\">Actualizar</button></td>
-\t\t\t  \t\t\t</tr>
-\t\t\t  \t\t</tbody>
-\t\t\t  \t</table>
-\t\t\t  </div>
-\t\t\t  <div>
-\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
-\t\t\t  \t\t<thead>
-\t\t\t  \t\t\t<th>FLAT</th>
-\t\t\t  \t\t\t<th>LOCAL</th>
-\t\t\t  \t\t</thead>
-\t\t\t  \t\t<tbody>
-\t\t\t  \t\t\t<tr>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t\t<td>?</td>
-\t\t\t  \t\t\t</tr>
-\t\t\t  \t\t\t<tr>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Actualizar</button></td>
-\t\t\t  \t\t\t</tr>
-\t\t\t  \t\t</tbody>
-\t\t\t  \t</table>
-\t\t\t  </div>
-\t\t\t    <div>
-\t\t\t  \t<table class=\"table table-striped table-bordered table-hover\">
-\t\t\t  \t\t<thead>
-\t\t\t  \t\t\t<th>TechData</th>
-\t\t\t  \t\t\t<th>CVA</th>
-\t\t\t  \t\t\t<th>Ingram</th>
-\t\t\t  \t\t</thead>
-\t\t\t  \t\t<tbody>
-\t\t\t  \t\t\t<tr>
-\t\t\t  \t\t\t\t<td><button id=\"restartTD\" class=\"btn-sm form-control\">Reiniciar</button></td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Reiniciar</button></td>
-\t\t\t  \t\t\t\t<td><button class=\"btn-sm form-control\">Reiniciar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>
@@ -370,7 +364,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
           <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
             <label for=\"recipient-name\" class=\"col-md-3 col-form-label\">Importar: </label>
             <div class=\"col-md-4\">
-            \t<button id=\"importCVA\" class=\"btn btn-primary\">CVA</button>  
+            \t<button id=\"importCVA\" data-dismiss=\"modal\" class=\"btn btn-primary\">CVA</button>  
             </div>
             <div class=\"col-md-5\">
 \t            <select class=\"form-control\" id=\"CVAgroups\">
@@ -380,13 +374,13 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
           <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
             <label for=\"message-text\" class=\"col-md-3 col-form-label\">Importar: </label>
             <div class=\"col-md-9\">
-            \t<button id=\"importTechData\" class=\"btn btn-primary\">Tech Data</button>
+            \t<button id=\"importTechData\" data-dismiss=\"modal\" class=\"btn btn-primary\">Tech Data</button>
             </div>
           </div>
           <div class=\"col-md-12\" style=\"margin-bottom: 10px;\">
             <label for=\"recipient-name\" class=\"col-md-3 col-form-label\">Importar: </label>
             <div class=\"col-md-9\">
-            \t<button id=\"importIngram\" class=\"btn btn-primary\">Ingram</button>
+            \t<button id=\"importIngram\" data-dismiss=\"modal\" class=\"btn btn-primary\">Ingram</button>
             </div>
           </div>
       </div>
@@ -399,6 +393,6 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 </div>
 
 {% endblock %}
-", "configuracion.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\stockOMG\\OMGstocks\\templates\\configuracion.html.twig");
+", "configuracion.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\stockOMG\\OMGstocks\\templates\\configuracion.html.twig");
     }
 }
