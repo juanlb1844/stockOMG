@@ -119,6 +119,9 @@
 	    mysqli_close($db); 
 	}
 
+
+  // Obtener producto por ID para la vista 
+
 	function showProduct($idProd) {
 		
 		$db = new db(); 
@@ -154,6 +157,8 @@
 
 	}
 
+	// Ingram micro [ mandar llamar el procedimiento alamacenado para insertar los productos ]
+
 	function insertarIngramMicro($array){
 			foreach ($array as $key => $value) {
 				$db = new db(); 
@@ -170,41 +175,16 @@
 				$d20    		 =  $value['20'];	 $d21    		 =  $value['21'];
 				$d22    		 =  $value['22'];	 $d23    	 	 =  $value['23'];
 				$d24    		 =  $value['24'];	 $inStock   	 =  $value['25'];
-				/*$query = 'INSERT INTO ingram_products(clase, sku, proveedor, d3, nombreProducto, modelo, d6, vpn, d8, d9, d10, d11, d12, d13, precio, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, inStock) VALUES('. $clase .', '. 
-															$sku .','. 
-															$proveedor.','. 
-															$d3.','. 
-															$nombreProducto.','. 
-															$modelo.','. 
-															$d6.','. 
-															$vpn.','. 
-															$d8.','. 
-															$d9.','. 
-															$d10.','. 
-															$d11.','.
-															$d12.','.
-															$d13.','.
-															$precio.','.
-															$d15.','.
-															$d16.','.
-															$d17.','.
-															$d18.','.
-															$d19.','.
-															$d20.','.
-															$d21.','.
-															$d22.','.
-															$d23.','.
-															$d24.','.
-															$inStock.')'; */ 
-						$query = "CALL create_product(3,'$nombreProducto', '$sku', $precio, '$nombreProducto', '$vpn', $inStock, '$proveedor', '$clase', 'media/users/no-img.jpg');";   
 
-					    mysqli_query($db, $query);
-				 		mysqli_close($db); 
+				$query = "CALL create_product(3,'$nombreProducto', '$sku', $precio, '$nombreProducto', '$vpn', $inStock, '$proveedor', '$clase', 'media/users/no-img.jpg');";   
+
+			    mysqli_query($db, $query);
+		 		mysqli_close($db); 
 			} 		
 		echo 'Ingram Micro | Importado'; 
 	}
 
-
+	// Tech Data [ mandar llamar procedimiento almacenado para crear productos ]
 		function insertarArrayTechData($array){
 			foreach ($array as $key => $value) {
 				$db = new db();   
@@ -220,25 +200,15 @@
 				$stockMonterrey  = $value['stockMonterrey'];
 				$stockCentral    = $value['stockCentral'];
 				$query = "CALL create_product(2,'$descripcion', '$codigo', $precio, '$descripcion', '$partNumber', $stockTotal, '$fabricante', '$categoria', 'users/no-img.jpg');";   
-				/*$query = 'INSERT INTO techData_products(codigo, partNumber, descripcion, stockTotal, precio, moneda, categoria, fabricante, stockMonterrey,stockCentral) VALUES( "'. $codigo .'","'. 
-							$partNumber .'","'. 
-							$descripcion.'",'. 
-							$stockTotal.','. 
-							$precio.',"'. 
-							$moneda.'","'. 
-							$categoria.'","'. 
-							$fabricante.'",'. 
-							$stockMonterrey.','. 
-							$stockCentral.')'; */
 			    mysqli_query($db, $query);
 		 		mysqli_close($db); 		 	
 			}  
 		echo 'Tech Data Importado'; 
 	}
 
+	// CVA [ mandar llamar procedimiento almacenado para crear producto ] CALL__create_product
+
 	function insertarArray2($array){
-		//echo json_encode($array);
-		//return; 
 		$interations = 0;  
 		foreach ($array as $key => $value) {
 		$db = new db(); 
@@ -266,42 +236,21 @@
 					$VencimientoPromocion = $value['VencimientoPromocion'];
 					$DisponibleEnPromocion = $value['DisponibleEnPromocion'];
 
-					$query = "CALL create_product(1,'$descripcion', '$codigo_fabricante', $precio, '$descripcion', '0000', $disponible, '$marca', '$grupo', '$imagen');";   
-					/*$query = 'INSERT INTO cva_products(marca, clave, garantia, clase, disponible, moneda, imagen, codigo_fabricante, grupo, descripcion, precio, disponibleCD, tipoCambio, fechaactualizatipoc, TotalDescuento, MonedaDescuento, PrecioDescuento, MonedaPrecioDescuento, ClavePromocion, DescripcionPromocion, VencimientoPromocion, DisponibleEnPromocion) VALUES( "'. $marca .'","'. 
-								$clave .'","'. 
-								$garantia.'","'. 
-								$clase.'",'. 
-								$disponible.',"'. 
-								$moneda.'","'. 
-								$imagen.'","'. 
-								$codigo_fabricante.'","'. 
-								$grupo.'","'. 
-								$descripcion.'",'. 
-								$precio.',"'. 
-								$disponibleCD.'",'. 
-								$tipoCambio.',"'. 
-								$fechaactualizatipoc.'","'. 
-								$TotalDescuento.'","'. 
-								$MonedaDescuento.'","'. 
-								$PrecioDescuento.'","'. 
-								$MonedaPrecioDescuento.'","'. 
-								$ClavePromocion.'","'. 
-								$DescripcionPromocion.'","'. 
-								$VencimientoPromocion.'","'. 
-								$DisponibleEnPromocion.'")'; */ 
-			 		//echo $query; 
+					$query = "CALL create_product(1,'$descripcion', '$codigo_fabricante', $precio, '$descripcion', '0000', $disponible, '$marca', '$grupo', '$imagen');";  
 				    if( mysqli_query($db, $query) ) 
 				    	echo '1'; 
 				    else 
 				    	echo '0'; 
 				    echo $query; 
-				    echo '::::::::::::::..'; 
 				    $query = ''; 
 				    $db->close();
 		}
 		//mysql_close($db);
 		echo $query.$interations;   
 	}
+
+
+
 
 	function insertarArray($array){
 		$db = new db(); 
@@ -348,6 +297,8 @@
 		return $string;
 	}
 
+ // Reiniciar tabla para productos FLAT 
+
  function restartFlat ($idProvider) {
 				$db = new db();
 				$query = "DELETE FROM flat_data_products WHERE provider_id = $idProvider";   
@@ -355,24 +306,136 @@
 		 		mysqli_close($db); 		 	
  }
 
- function techDataFlat ($array){
- 		$query = ''; 
+
+// [[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+// [[[[[[[[[[[[[[[[[[[[[              ]]]]]]]]]]]]]]]]]]]]]
+// [[[[[[[[[[[[[[[   ____INSERT FLAT____   ]]]]]]]]]]]]]]]
+// [[[[[[[[[[[[[[[[[[[[[[          ]]]]]]]]]]]]]]]]]]]]]]]
+// [[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+// INSERT FROM FLAT  
+
+function flatToRelated_CVA($param) {
+    $db = new db(); 
+    // Obtener productos de CVA del FLAT 
+	$query = "SELECT * FROM flat_data_products WHERE provider_id = 1 "; 
+
+	if ($resultado = mysqli_query($db, $query)) {
+    	if ($resultado->num_rows > 0) {
+			while($row = $resultado->fetch_assoc()) {
+			    //$rows[] = $row;
+			    //$query = "CALL create_product(1,'$descripcion', '$codigo_fabricante', $precio, '$descripcion', '0000', $disponible, '$marca', '$grupo', '$imagen');";  
+			   	$codigo = $row['sku']; 
+			   	$name_product = $row['name_product']; 
+			   	$precio = $row['precio']; 
+			   	$short_description = $row['short_description']; 
+			   	$stock = $row['stock']; 
+			   	$marca = $row['fabricante']; 
+			   	$grupo = $row['grupo']; 
+			   	$imagen = $row['imagen']; 
+			   	$db2 = new db(); 
+			   	$query2 = "CALL create_product(1, '$name_product', '$codigo', $precio, '$short_description', '0000', $stock,  '$marca', '$grupo', '$imagen');";  
+			   	if ( mysqli_query($db2, $query2) ) 
+			   			echo $codigo; 
+			  }
+			} else {
+			    echo "0 results";
+			}
+			//print_r( json_encode($rows) );
+   		}
+	 mysqli_close($db); 
+}
+
+
+// CVA [[ NSERT ]]
+
+function insertarCVAFlat($array){
+		$interations = 0;  
 		foreach ($array as $key => $value) {
-				$db = new db();   
-		 		$partNumber 	     = $value['partNumber']; 
-				$stockTotal      = $value['stockTotal']; 
-				$precio  	     = $value['precio']; 
-				$fabricante      = $value['fabricante'];
-				$nameProduct     = $value['descripcion'];
-				$categoria       = $value['categoria'];
-				$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio) 
-									VALUES('$partNumber', '$nameProduct', '$categoria', 'Tech Data', 2, $stockTotal, '$fabricante', $precio);";   
-			    mysqli_query($db, $query);
-		 		mysqli_close($db); 		 	
-			}  
-		echo $query;  
+		$db = new db(); 
+			$interations++; 
+			 		$marca 	    = $value['marca']; 
+					$clave 	    = $value['clave']; 
+					$disponible = $value['disponible']; 
+					$codigo_fabricante = $value['codigo_fabricante'];
+					$precio = $value['precio'];
+					$descripcion = $value['descripcion'];
+					$grupo = $value['grupo'];
+					$imagen = $value['imagen'];
+					$ft = $value['ficha_tecnica'];
+					$fc = $value['ficha_comercial'];
+					$garantia = $value['garantia'];
+					$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio, imagen, short_description, long_description, garantia, upc) 
+								VALUES('$codigo_fabricante', '$descripcion', '$grupo','CVA', 1, $disponible, '$marca', $precio, '$imagen', '$ft', '$fc', '$garantia', '00000000')";   
+				    if( mysqli_query($db, $query) ) 
+				    	echo '1'; 
+				    else 
+				    	echo '0'; 
+				    echo $query; 
+				    $query = ''; 
+				    $db->close();
+		}
+		echo 'CVA | Flat'; 
+	}
+
+
+// Tech Data FLAT [[ INSERT ]]
+
+ function techDataFlat ($array){
+	$query = ''; 
+	foreach ($array as $key => $value) {
+			$db = new db();   
+	 		$partNumber 	 = $value['partNumber']; 
+			$stockTotal      = $value['stockTotal']; 
+			$precio  	     = $value['precio']; 
+			$fabricante      = $value['fabricante'];
+			$nameProduct     = $value['descripcion'];
+			$categoria       = $value['categoria'];
+			$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio, imagen) 
+								VALUES('$partNumber', '$nameProduct', '$categoria', 'Tech Data', 2, $stockTotal, '$fabricante', $precio, '/users/no-img.jpg');";   
+		    mysqli_query($db, $query);
+	 		mysqli_close($db); 		 	
+		}  
+	echo $query;  
  } 
 
+ function flatToRelated_TechData() {
+ 	    $db = new db(); 
+    // Obtener productos de CVA del FLAT 
+	$query = "SELECT * FROM flat_data_products WHERE provider_id = 2 "; 
+
+	if ($resultado = mysqli_query($db, $query)) {
+    	if ($resultado->num_rows > 0) {
+			while($row = $resultado->fetch_assoc()) {
+			    //$rows[] = $row;
+			    //$query = "CALL create_product(1,'$descripcion', '$codigo_fabricante', $precio, '$descripcion', '0000', $disponible, '$marca', '$grupo', '$imagen');";  
+			   	$codigo = $row['sku']; 
+			   	$name_product = $row['name_product']; 
+			   	$precio = $row['precio']; 
+			   	$short_description = $row['short_description']; 
+			   	$stock = $row['stock']; 
+			   	$marca = $row['fabricante']; 
+			   	$grupo = $row['grupo']; 
+			   	$imagen = $row['imagen']; 
+			   	$db2 = new db();  
+			   	$query2 = "CALL create_product(2, '$name_product', '$codigo', $precio, '$short_description', '0000', $stock,  '$marca', '$grupo', '$imagen');";  
+			   	if ( mysqli_query($db2, $query2) ) 
+			   			echo $codigo; 
+			  }
+			} else {
+			    echo "0 results";
+			}
+			//print_r( json_encode($rows) );
+   		}
+	 mysqli_close($db); 
+ }
+
+
+
+
+
+
+ //  Ingram Micro [[ INSERT ]]
 	function insertarIngramMicroFlat($array){
 			foreach ($array as $key => $value) {
 				$db = new db(); 
@@ -390,8 +453,8 @@
 				$d22    		 =  $value['22'];	 $d23    	 	 =  $value['23'];
 				$d24    		 =  $value['24'];	 $inStock   	 =  $value['25'];
 				
-				$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio)
-							VALUES('$sku', '$nombreProducto', '$clase', 'Ingram Micro', 3, $inStock, '$proveedor', $precio)";   
+				$query = "INSERT INTO flat_data_products(sku, name_product, grupo, upc, provider_name, provider_id, stock, fabricante, precio, imagen)
+							VALUES('$sku', '$nombreProducto', '$d19', '$d9', 'Ingram Micro', 3, $inStock, '$proveedor', $precio, '/users/no-img.jpg')";   
 
 				mysqli_query($db, $query);
 				mysqli_close($db); 
@@ -399,32 +462,39 @@
 		echo $query; 
 	}
 
-		function insertarCVAFlat($array){
-		//echo json_encode($array);
-		//return; 
-		$interations = 0;  
-		foreach ($array as $key => $value) {
-		$db = new db(); 
-			$interations++; 
-			 		$marca 	    = $value['marca']; 
-					$clave 	    = $value['clave']; 
-					$disponible = $value['disponible']; 
-					$codigo_fabricante = $value['codigo_fabricante'];
-					$precio = $value['precio'];
-					$descripcion = $value['descripcion'];
-					$grupo = $value['grupo'];
 
-					$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio) 
-								VALUES('$codigo_fabricante', '$descripcion', '$grupo','CVA', 1, $disponible, '$marca', $precio)";   
-				    if( mysqli_query($db, $query) ) 
-				    	echo '1'; 
-				    else 
-				    	echo '0'; 
-				    echo $query; 
-				    $query = ''; 
-				    $db->close();
-		}
-		echo 'CVA | Flat'; 
-	}
+
+// FLAT TO RELATED [[ Ingram Micro ]]
+
+ function flatToRelated_Ingram() {
+ 	    $db = new db(); 
+    // Obtener productos de CVA del FLAT 
+	$query = "SELECT * FROM flat_data_products WHERE provider_id = 3 "; 
+
+	if ($resultado = mysqli_query($db, $query)) {
+    	if ($resultado->num_rows > 0) {
+			while($row = $resultado->fetch_assoc()) {
+			    //$rows[] = $row;
+			    //$query = "CALL create_product(1,'$descripcion', '$codigo_fabricante', $precio, '$descripcion', '0000', $disponible, '$marca', '$grupo', '$imagen');";  
+			   	$codigo = $row['sku']; 
+			   	$name_product = $row['name_product']; 
+			   	$precio = $row['precio']; 
+			   	$short_description = $row['short_description']; 
+			   	$stock = $row['stock']; 
+			   	$marca = $row['fabricante']; 
+			   	$grupo = $row['grupo']; 
+			   	$imagen = $row['imagen']; 
+			   	$db2 = new db(); 
+			   	$query2 = "CALL create_product(3, '$name_product', '$codigo', $precio, '$short_description', '0000', $stock,  '$marca', '$grupo', '$imagen');";  
+			   	if ( mysqli_query($db2, $query2) ) 
+			   			echo $codigo; 
+			  }
+			} else {
+			    echo "0 results";
+			}
+			//print_r( json_encode($rows) );
+   		}
+	 mysqli_close($db); 
+ }
 
 }

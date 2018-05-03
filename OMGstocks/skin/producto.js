@@ -3,6 +3,50 @@ var productData = null;
 var main_img_data = null; 
 var img_to_main = null; 
 var url_to_main = null; 
+var relatedProducts = null; 
+
+
+(function() {
+
+  function decimalAdjust(type, value, exp) {
+    // Si el exp no está definido o es cero...
+    if (typeof exp === 'undefined' || +exp === 0) {
+      return Math[type](value);
+    }
+    value = +value;
+    exp = +exp;
+    // Si el valor no es un número o el exp no es un entero...
+    if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+      return NaN;
+    }
+    // Shift
+    value = value.toString().split('e');
+    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+    // Shift back
+    value = value.toString().split('e');
+    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+  }
+
+  // Decimal round
+  if (!Math.round10) {
+    Math.round10 = function(value, exp) {
+      return decimalAdjust('round', value, exp);
+    };
+  }
+  // Decimal floor
+  if (!Math.floor10) {
+    Math.floor10 = function(value, exp) {
+      return decimalAdjust('floor', value, exp);
+    };
+  }
+  // Decimal ceil
+  if (!Math.ceil10) {
+    Math.ceil10 = function(value, exp) {
+      return decimalAdjust('ceil', value, exp);
+    };
+  }
+})();
+
 
 var quitSpace = function(str) {
     var cadena = '';
@@ -189,7 +233,7 @@ $(document).ready(function(){
 			  		  		var description = productData[x].value_attr; 
 			  				$('#'+productData[x].type_attr).summernote('code', description);  
 			  		  } else {
-			  		  		data = '<div class="form-group">'+ 
+			  		  		data = '<div id="__'+quitSpace(productData[x].type_attr)+'" class="form-group">'+ 
 		                        '<label for="inputEmail3" class="col-sm-2 control-label">'+productData[x].type_attr+'</label>' + 
 		                        ' <div class="col-sm-10">' + 
 		                          ' <input type="input" id="'+quitSpace(productData[x].type_attr)+'" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control input-sm" name="">' + 
@@ -203,17 +247,24 @@ $(document).ready(function(){
 				
 			// Agregar datos a table [relación de coincidencias de porductos por proveedor]
 			for(var i in productData) {
+				if ( productData[i].type_attr == 'SKU' )  {
+					initFeedWindow('controladores/getXProductsByAttrVal.php', { attributeName : 'sku', attributeVal: productData[i].value_attr }); 
+				}
+				/* 
 				if(productData[i].type_attr == 'distributor') {
 	  		  		$('#relationDis').text(productData[i].value_attr); 
 				} else if ( productData[i].type_attr == 'Name Product' ) {
 					$('#relationName').text(productData[i].value_attr); 
 				} else if ( productData[i].type_attr == 'SKU' ) {
+					alert('lanzar busqueda: '+ productData[i].value_attr);
+					initFeedWindow('controladores/getXProductsByAttrVal.php', { attributeName : 'sku', attributeVal: 'AACIE041' }); 
 					$('#relationSku').text(productData[i].value_attr); 
 				} else if ( productData[i].type_attr == 'stock' ) {
 					$('#relationStock').text(productData[i].value_attr); 
 				} else if ( productData[i].type_attr == 'Normal Price' ) {
 					$('#relationPrice').text(productData[i].value_attr); 
-				}
+				} */ 
+
 			}
 
 			getGallery(); 
@@ -232,9 +283,82 @@ $(document).ready(function(){
 			 		  }
 			 	}
 			 });
-	
+			
 	 	}
 	 });
+	
+	function listRelateds() {
+			if(relatedProducts.length > 0 ) {
+				for( var i in relatedProducts) {
+					$('#relationProduct').append("<tr>"+ 
+							"<td>"+ relatedProducts[i][0] +"</td>"+ 
+							"<td>"+ relatedProducts[i][1] +"</td>"+ 
+							"<td>"+ relatedProducts[i][2] +"</td>"+ 
+							"<td>"+ relatedProducts[i][3] +"</td>"+ 
+							"<td>//</td>"+ 
+							"<td>"+ relatedProducts[i][6] +"</td>"+ 
+						"</tr>"); 
+				}
+			}
+		
+	}
+	
+	function initFeedWindow(url, dataService) {
+		 $.ajax({
+			 	url: url, 
+			 	type: 'post', 
+			 	data: dataService, 
+			 	success: function(mensaje){
+			 			 if(mensaje == 'sin datos') {
+			 			 	$("#tableFeed").html('<h2>Sin datos</h2>'); 
+			 			 	return; 
+			 			 }
+			 			 viewData = JSON.parse(mensaje); //datos brutos 
+			 			 // LOCAL 
+			 			 	var testObject = { 'one': 1, 'two': 2, 'three': 3 };
+							// Put the object into storage
+							localStorage.setItem('testObject', JSON.stringify(testObject));
+							// Retrieve the object from storage
+							var retrievedObject = localStorage.getItem('testObject');
+							console.log('retrievedObject: ', JSON.parse(retrievedObject));
+			 			 // LOCAL 
+			 			 lineProduct = [];
+			 			 row = [];  
+			 			 console.log(viewData); 
+						 viewData.forEach( function(val) {  
+							if( val.type_attr == 'Name Product') { 
+								row.push( val.value_attr ); 
+							} else if ( val.type_attr == 'SKU' ) {
+								row.push( val.value_attr ); 
+							} else if ( val.type_attr == 'Normal Price' ) {
+								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'stock' ) {
+								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'distributor' ) {
+									row.push( val.value_attr ); 
+									row.push(val.ID); 
+									var styleRow = '';
+									if(row[3] > 10) {
+										styleRow = 'style="font-size: 12px; font-weight: bold; color: green;"'; 
+									} else {
+										styleRow = 'style="font-size: 12px; font-weight: bold; color: orange;"'; 
+									}
+									lineProduct.push(Array(row[4], 
+														   row[0], 
+														   row[1], 
+														   row[3], 
+														   '<span style="font-size:13px;">$'+Math.round10(row[2], -1)+'</span>', 
+														   '<span style="font-size: 14px; color:#03a87c;">&bullet; publicado</span>', 
+														   row[5]));
+							        row = []; 
+							}
+						 } ); 	
+						 relatedProducts = lineProduct; 
+						 listRelateds();
+			 	}
+			 }); 
+
+		}
 	
 	$('#getDescription').on('click', function(){
 		var markupStr = $('#summernote').summernote('code');
@@ -247,7 +371,7 @@ $(document).ready(function(){
 		 			description: markupStr  
 		 			}, 
 		 	success: function(mensaje){
-		 		  alert(mensaje); 
+		 		  //alert(mensaje); 
 		 	}
 		 });
 	}); 

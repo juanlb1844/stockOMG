@@ -65,6 +65,10 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       border: 0px;
       text-align: center; 
     }
+
+     #__familia, #__stock, #__NormalPrice {
+      display: none!important; 
+    }
   </style>
 
             <div class=\"dashboard-window col-md-9\">
@@ -72,6 +76,9 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <ul id=\"entityGallery\">
             </ul>
             <br> 
+            <div style=\"padding-bottom: 10px;\">
+              <button class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#selectRelated\">Agrupar</button>
+            </div>
             <table class=\"table table-striped table-hover\"> 
                                         <thead> 
                                              <tr style=\"border: 3px solid #dbdbdb;\"> 
@@ -84,14 +91,14 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                                              </tr> 
                                         </thead> 
                                         <tbody id=\"relationProduct\"> 
-                                          <tr>
+                                         <!-- <tr>
                                             <td id=\"relationDis\"></td>
                                             <td id=\"relationName\">Nombre del producto</td>
                                             <td id=\"relationSku\">ABC-SKU</td>
                                             <td id=\"relationStock\">10</td>
                                             <td id=\"relationUpdated\">1 hour ago</td>
                                             <td id=\"relationPrice\">\$2,200.00</td>
-                                          </tr>
+                                          </tr> --> 
                                         </tbody> 
                                    </table> 
                             
@@ -154,7 +161,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                       <div class=\"form-group\">
                         <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                           ";
-        // line 126
+        // line 133
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
                       </div>
@@ -172,13 +179,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 141
+        // line 148
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 144
+        // line 151
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -221,6 +228,40 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 </div>
 
 
+<div class=\"modal fade\" id=\"selectRelated\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"editarCategoria\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\" role=\"document\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\" id=\"newCatLabel\">Seleccionar productos</h5>
+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+          <span aria-hidden=\"true\">&times;</span>
+        </button>
+      </div>
+      <div class=\"modal-body\">
+        <table class=\"table table-striped table-bordered table-hover\">
+            <thead>
+              <th>SKU</th>
+              <th>PRECIO</th>
+              <th>NOMBRE</th>
+              <th></th>
+            </thead>
+            <tbody id=\"comparedBody\">
+              <tr>
+                <td>ABC</td>
+                <td>10101</td>
+                <td>Cardador USB</td>
+                <th> <input type=\"checkbox\" name=\"\"> </th>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
+        <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 ";
     }
@@ -237,7 +278,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  182 => 144,  176 => 141,  158 => 126,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  189 => 151,  183 => 148,  165 => 133,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -287,6 +328,10 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       border: 0px;
       text-align: center; 
     }
+
+     #__familia, #__stock, #__NormalPrice {
+      display: none!important; 
+    }
   </style>
 
             <div class=\"dashboard-window col-md-9\">
@@ -294,6 +339,9 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <ul id=\"entityGallery\">
             </ul>
             <br> 
+            <div style=\"padding-bottom: 10px;\">
+              <button class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#selectRelated\">Agrupar</button>
+            </div>
             <table class=\"table table-striped table-hover\"> 
                                         <thead> 
                                              <tr style=\"border: 3px solid #dbdbdb;\"> 
@@ -306,14 +354,14 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                                              </tr> 
                                         </thead> 
                                         <tbody id=\"relationProduct\"> 
-                                          <tr>
+                                         <!-- <tr>
                                             <td id=\"relationDis\"></td>
                                             <td id=\"relationName\">Nombre del producto</td>
                                             <td id=\"relationSku\">ABC-SKU</td>
                                             <td id=\"relationStock\">10</td>
                                             <td id=\"relationUpdated\">1 hour ago</td>
                                             <td id=\"relationPrice\">\$2,200.00</td>
-                                          </tr>
+                                          </tr> --> 
                                         </tbody> 
                                    </table> 
                             
@@ -434,6 +482,40 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 </div>
 
 
+<div class=\"modal fade\" id=\"selectRelated\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"editarCategoria\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\" role=\"document\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\" id=\"newCatLabel\">Seleccionar productos</h5>
+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+          <span aria-hidden=\"true\">&times;</span>
+        </button>
+      </div>
+      <div class=\"modal-body\">
+        <table class=\"table table-striped table-bordered table-hover\">
+            <thead>
+              <th>SKU</th>
+              <th>PRECIO</th>
+              <th>NOMBRE</th>
+              <th></th>
+            </thead>
+            <tbody id=\"comparedBody\">
+              <tr>
+                <td>ABC</td>
+                <td>10101</td>
+                <td>Cardador USB</td>
+                <th> <input type=\"checkbox\" name=\"\"> </th>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
+        <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
 

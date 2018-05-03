@@ -76,6 +76,14 @@
               }
           }
 
+       } else if( $_POST['type'] == 'export_from_flat' ) {
+          if($_POST['ws'] == 'CVA') {
+              echo $dbObject->flatToRelated_CVA('parametro'); 
+          } else if( $_POST['ws'] == 'Ingram' ) {
+              echo $dbObject->flatToRelated_Ingram(); 
+          } else if( $_POST['ws'] == 'TD' ) {
+              echo $dbObject->flatToRelated_TechData(); 
+          }
        }
 
 

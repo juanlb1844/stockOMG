@@ -31,7 +31,7 @@ if ($conn->connect_error) {
 		    
     		if ($resultado->num_rows > 0) {
 			    while($row = $resultado->fetch_assoc()) {
-			    	if($row['main_image_url'] == 'users/no-img.jpg') {
+			    	if($row['main_image_url'] == '/users/no-img.jpg') {
 			    		$main_img = true; 
 			    		$id_picture = $row['id_picture']; 
 			    	}

@@ -165,7 +165,7 @@ $(document).ready(function() {
 		checkDbCountFlat = setInterval(getFlatCount, 2000); 
 		$('#countFlatCVA').append('<img class="respCVA" src="media/users/loading.gif" style="width:25px;">');
 		var groupFlatCVA = $('#CVAgroupsFlat').val(); 
-		var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupFlatCVA+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0'; 
+		var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupFlatCVA+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0&dt=1&dc=1'; 
 		console.log(urlCva); 
 		$(event.target).addClass('btn-loading').text(''); 
 		$.ajax({
@@ -345,7 +345,7 @@ $(document).ready(function() {
     	checkDbCount = setInterval(getRelatedCount, 2000); 
     	$('#countRelatedCVA').append('<img class="responseCVA" src="media/users/loading.gif" style="width:25px;">');
     	var groupCvaSelected = $('#CVAgroups').val(); 
-    	var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupCvaSelected+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0'; 
+    	var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupCvaSelected+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0&dt=1&dc=1'; 
     	console.log(urlCva); 
    		$.ajax({
 						 	url: 'controladores/dataController.php', 
@@ -361,14 +361,49 @@ $(document).ready(function() {
 						 	}
 					});   
    }); 
-	// EXPORT --> 
+	
+    // [[[[[[[[[[[   CONTROLS FLAT EXPORT ]]]]]]]]]]]]
 
+    $('#fFlat_cva').click(function() {
+    	$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'export_from_flat', ws : 'CVA'}, 
+						 	success: function(response){
+						 				 alert(response); 
+						 	}
+					});
+    }); 
 
-	//SHOW DATA 
+    $('#fFlat_ingram').click(function() {
+    	$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'export_from_flat', ws : 'Ingram'}, 
+						 	success: function(response){
+						 				 alert(response); 
+						 	}
+					});
+    }); 
 
-	cargaCVA(); 
+    $('#fFlat_td').click(function() {
+    	$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'export_from_flat', ws : 'TD'}, 
+						 	success: function(response){
+						 				 alert(response); 
+						 	}
+					});
+    }); 
+
+	// [[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]
+	// [[[[[[[[[[[[[[[[[   SHOW DATA    ]]]]]]]]]]]]]]]]]
+	// [[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]
+
+	/* cargaCVA(); 
 	techDataFun(); 
-	ingramFun(); 
+	ingramFun(); */ 
 
 	// INGRAM 
 	/* 

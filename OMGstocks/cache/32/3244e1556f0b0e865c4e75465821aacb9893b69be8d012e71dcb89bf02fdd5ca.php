@@ -132,7 +132,19 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
         </div> 
         <div class=\"row col-md-9\">
-        \t<h1 class=\"title-template\">Datos del feed</h1>
+        <div class=\"col-md-12\" style=\"padding: 0px; margin-bottom: 40px; \">
+          <div class=\"col-md-6\" style=\"padding-left: 0px;\">
+              <h3 style=\"margin: 0px;\" class=\"title-template\">Busqueda general</h3>
+          </div>
+          <div class=\"col-md-6\">
+            <div class=\"col-md-8\">
+              <input id=\"attr_val_search\" type=\"\" name=\"\" placeholder=\"SKU\" class=\"form-control\">
+            </div>
+            <div class=\"col-md-4\">
+              <button id=\"generalSearch\" class=\"btn btn-default\">Buscar</button>   
+            </div>
+          </div>
+        </div>
      \t\t<div style=\"height: 200px;  width: 100%; margin: auto; \">            
          \t\t<table id=\"tableFeed\" class=\"display table\" cellspacing=\"0\" width=\"100%\" style=\"font-size: 10px;\">
 \t\t\t      \t<thead></thead>
@@ -143,7 +155,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 112
+        // line 124
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -245,7 +257,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 
     public function getDebugInfo()
     {
-        return array (  147 => 112,  130 => 98,  34 => 5,  28 => 3,  11 => 1,);
+        return array (  159 => 124,  130 => 98,  34 => 5,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -359,7 +371,19 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
         </div> 
         <div class=\"row col-md-9\">
-        \t<h1 class=\"title-template\">Datos del feed</h1>
+        <div class=\"col-md-12\" style=\"padding: 0px; margin-bottom: 40px; \">
+          <div class=\"col-md-6\" style=\"padding-left: 0px;\">
+              <h3 style=\"margin: 0px;\" class=\"title-template\">Busqueda general</h3>
+          </div>
+          <div class=\"col-md-6\">
+            <div class=\"col-md-8\">
+              <input id=\"attr_val_search\" type=\"\" name=\"\" placeholder=\"SKU\" class=\"form-control\">
+            </div>
+            <div class=\"col-md-4\">
+              <button id=\"generalSearch\" class=\"btn btn-default\">Buscar</button>   
+            </div>
+          </div>
+        </div>
      \t\t<div style=\"height: 200px;  width: 100%; margin: auto; \">            
          \t\t<table id=\"tableFeed\" class=\"display table\" cellspacing=\"0\" width=\"100%\" style=\"font-size: 10px;\">
 \t\t\t      \t<thead></thead>

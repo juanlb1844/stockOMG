@@ -55,6 +55,13 @@ var dataLocalCategory = {
 
 $(document).ready( function(){
 
+
+$('#generalSearch').click(function() {
+	var val_to_search = $('#attr_val_search').val(); 
+	initFeedWindow('controladores/generalSearch.php', { attr_val : val_to_search });  
+}); 
+
+
 /* FILTRO OBJECTS */ 
 function filterFee(config) {
 	this.config = config ; 
