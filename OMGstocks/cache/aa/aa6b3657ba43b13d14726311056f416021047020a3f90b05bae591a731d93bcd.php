@@ -34,6 +34,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
         echo " 
 
 \t<style type=\"text/css\">
+
 \t\t.btn-loading {
 \t\t    background-image: url(media/users/loading.gif);
 \t\t    background-position: center;
@@ -62,9 +63,9 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t</thead>
 \t\t\t  \t\t<tbody>
 \t\t\t  \t\t\t<tr>
-\t\t\t  \t\t\t\t<td><button id=\"restartTD\" class=\"btn-sm form-control\">Reiniciar</button></td>
-\t\t\t  \t\t\t\t<td><button id=\"restartCVA\" class=\"btn-sm form-control\">Reiniciar</button></td>
-\t\t\t  \t\t\t\t<td><button id=\"restartIngram\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button ws=\"TechData\" id=\"restartTD\" class=\"restart-flat btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button ws=\"CVA\" id=\"restartCVA\" class=\"restart-flat btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button ws=\"Ingram\" id=\"restartIngram\" class=\"restart-flat btn-sm form-control\">Reiniciar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>
@@ -86,7 +87,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t\t<td id=\"countRelatedIngramMicro\"><span id=\"countIngramMicro\">?</span></td>
 \t\t\t  \t\t\t\t<td>
 \t\t\t  \t\t\t\t\t<button id=\"exportIngram\" class=\"btn-sm form-control\">Actualizar</button>
-\t\t\t  \t\t\t\t\t<button id=\"fFlat_ingram\" class=\"btn-sm btn btn-primary\">FF</button>
+\t\t\t  \t\t\t\t\t<!-- <button id=\"fFlat_ingram\" class=\"btn-sm btn btn-primary\">FF</button> -->
 \t\t\t  \t\t\t\t</td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
@@ -96,7 +97,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t\t<td id=\"countRelatedCVA\" ><span id=\"countCVA\">?</span></td>
 \t\t\t  \t\t\t\t<td>
 \t\t\t  \t\t\t\t\t<button id=\"exportCVAFlat\" class=\"btn-sm form-control\">Actualizar</button>
-\t\t\t  \t\t\t\t\t<button id=\"fFlat_cva\" class=\"btn-sm btn btn-primary\">FF</button>
+\t\t\t  \t\t\t\t\t<!-- <button id=\"fFlat_cva\" class=\"btn-sm btn btn-primary\">FF</button> --> 
 \t\t\t  \t\t\t\t\t<p></p>
 \t\t\t  \t\t\t\t\t<select id=\"CVAgroupsFlat\" class=\"form-control\">
 \t\t\t  \t\t\t\t\t</select>
@@ -109,7 +110,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t\t<td id=\"countRelatedTD\"><span id=\"countTD\">?</span></td>
 \t\t\t  \t\t\t\t<td>
 \t\t\t  \t\t\t\t\t<button id=\"exportFlatTD\" class=\"btn-sm form-control\">Actualizar</button>
-\t\t\t  \t\t\t\t\t<button id=\"fFlat_td\" class=\"btn-sm btn btn-primary\">FF</button>
+\t\t\t  \t\t\t\t\t<!-- <button id=\"fFlat_td\" class=\"btn-sm btn btn-primary\">FF</button> --> 
 \t\t\t  \t\t\t\t</td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
@@ -255,6 +256,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t{{parent()}} 
 
 \t<style type=\"text/css\">
+
 \t\t.btn-loading {
 \t\t    background-image: url(media/users/loading.gif);
 \t\t    background-position: center;
@@ -283,9 +285,9 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t</thead>
 \t\t\t  \t\t<tbody>
 \t\t\t  \t\t\t<tr>
-\t\t\t  \t\t\t\t<td><button id=\"restartTD\" class=\"btn-sm form-control\">Reiniciar</button></td>
-\t\t\t  \t\t\t\t<td><button id=\"restartCVA\" class=\"btn-sm form-control\">Reiniciar</button></td>
-\t\t\t  \t\t\t\t<td><button id=\"restartIngram\" class=\"btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button ws=\"TechData\" id=\"restartTD\" class=\"restart-flat btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button ws=\"CVA\" id=\"restartCVA\" class=\"restart-flat btn-sm form-control\">Reiniciar</button></td>
+\t\t\t  \t\t\t\t<td><button ws=\"Ingram\" id=\"restartIngram\" class=\"restart-flat btn-sm form-control\">Reiniciar</button></td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>
 \t\t\t  \t</table>
@@ -307,7 +309,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t\t<td id=\"countRelatedIngramMicro\"><span id=\"countIngramMicro\">?</span></td>
 \t\t\t  \t\t\t\t<td>
 \t\t\t  \t\t\t\t\t<button id=\"exportIngram\" class=\"btn-sm form-control\">Actualizar</button>
-\t\t\t  \t\t\t\t\t<button id=\"fFlat_ingram\" class=\"btn-sm btn btn-primary\">FF</button>
+\t\t\t  \t\t\t\t\t<!-- <button id=\"fFlat_ingram\" class=\"btn-sm btn btn-primary\">FF</button> -->
 \t\t\t  \t\t\t\t</td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t\t<tr>
@@ -317,7 +319,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t\t<td id=\"countRelatedCVA\" ><span id=\"countCVA\">?</span></td>
 \t\t\t  \t\t\t\t<td>
 \t\t\t  \t\t\t\t\t<button id=\"exportCVAFlat\" class=\"btn-sm form-control\">Actualizar</button>
-\t\t\t  \t\t\t\t\t<button id=\"fFlat_cva\" class=\"btn-sm btn btn-primary\">FF</button>
+\t\t\t  \t\t\t\t\t<!-- <button id=\"fFlat_cva\" class=\"btn-sm btn btn-primary\">FF</button> --> 
 \t\t\t  \t\t\t\t\t<p></p>
 \t\t\t  \t\t\t\t\t<select id=\"CVAgroupsFlat\" class=\"form-control\">
 \t\t\t  \t\t\t\t\t</select>
@@ -330,7 +332,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t\t\t  \t\t\t\t<td id=\"countRelatedTD\"><span id=\"countTD\">?</span></td>
 \t\t\t  \t\t\t\t<td>
 \t\t\t  \t\t\t\t\t<button id=\"exportFlatTD\" class=\"btn-sm form-control\">Actualizar</button>
-\t\t\t  \t\t\t\t\t<button id=\"fFlat_td\" class=\"btn-sm btn btn-primary\">FF</button>
+\t\t\t  \t\t\t\t\t<!-- <button id=\"fFlat_td\" class=\"btn-sm btn btn-primary\">FF</button> --> 
 \t\t\t  \t\t\t\t</td>
 \t\t\t  \t\t\t</tr>
 \t\t\t  \t\t</tbody>

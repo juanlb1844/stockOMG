@@ -1,6 +1,29 @@
-var checkDbCount = null; 
+var checkDbCount     = null; 
 var checkDbCountFlat = null; 
 $(document).ready(function() {
+
+
+	// CREATE NOTIFIER 
+	function notifier() {
+		this.container = $('<div>'); 
+		this.styles_notifier =  {
+		'width': '400px', 
+		'height' : '80px', 
+		'background-color' : 'gray', 
+		'position' : 'fixed', 
+		'bottom' : '10px', 
+		'right' : '10px', 
+		'border-radius' : '4px'
+		}
+		this.iniciar = function() { 
+			$(this.container).click(function(event){ $(event.target).fadeOut(); }); 
+			$(this.container).html('<span>Se están cargando...</span>'); 
+			$('body').append(this.container.css(this.styles_notifier)); 
+		}
+	}
+ 
+	(new notifier()).iniciar();
+
 
 	initModal(); 
 	function initModal() {
@@ -91,13 +114,29 @@ $(document).ready(function() {
 						"  VIDEOCONFERENCIA", 
 						"  VIDEOGRABADORES", 
 						"  VIDEOPROYECTOR"]; 
+
+		// Agregar a modal select 
 		grouposCva.forEach(function(value, index) {
 			$('#CVAgroups').append('<option>'+value.trim()+'</option>'); 
 		}); 
+		// Agregar a tabla select 
 		grouposCva.forEach(function(value, index) {
 			$('#CVAgroupsFlat').append('<option>'+value.trim()+'</option>'); 
 		}); 
 	}
+
+	// REINICIAR  | Delete all related products 
+	$('#deleteDataDB').click( function deleteAll() {
+   		$.ajax({
+			 	url: 'controladores/dataController.php', 
+			 	method: 'POST', 
+			 	data: { type: 'restart', 
+			 		      WS: 'CVA' }, 
+			 	success: function(mensaje){
+				 		 	 alert(mensaje); 
+					 	}
+				});
+   });
 
 	// Compare FEED FLAT 
 	$('#updateCompare').click(function() {
@@ -122,43 +161,22 @@ $(document).ready(function() {
 					});
 	}); 
 
-	// Restart FLAT 
-	$('#restartIngram').click(function(event){
+
+	// Restart FLAT by attr WS button 
+	$('.restart-flat').click(function(event){
+		var name_flat = $(event.target).attr("ws"); 
 		$(event.target).addClass('btn-loading').text(''); 
 		$.ajax({
 						 	url: 'controladores/dataController.php', 
 						 	method: 'POST', 
-						 	data: {  type: 'flat', action : 'restart', ws : 'Ingram'}, 
+						 	data: {  type: 'flat', action : 'restart', ws : name_flat}, 
 						 	success: function(response){
 							 		 	 console.log(response);
 							 		 	 $(event.target).removeClass('btn-loading').text('Reiniciar'); 
 						 	}
 					});
 	}); 
-	$('#restartCVA').click(function(event){
-		$(event.target).addClass('btn-loading').text(''); 
-		$.ajax({
-						 	url: 'controladores/dataController.php', 
-						 	method: 'POST', 
-						 	data: {  type: 'flat', action : 'restart', ws : 'CVA'}, 
-						 	success: function(response){
-							 		 	 console.log(response);
-							 		 	 $(event.target).removeClass('btn-loading').text('Reiniciar'); 
-						 	}
-					});
-	}); 
-	$('#restartTD').click(function(event){
-		$(event.target).addClass('btn-loading').text(''); 
-		$.ajax({
-						 	url: 'controladores/dataController.php', 
-						 	method: 'POST', 
-						 	data: {  type: 'flat', action : 'restart', ws : 'TechData'}, 
-						 	success: function(response){
-							 		 	 console.log(response);
-							 		 	 $(event.target).removeClass('btn-loading').text('Reiniciar'); 
-						 	}
-					});
-	}); 
+
 
 	// Export FLAT
 	$('#exportCVAFlat').click(function(event) {
@@ -177,6 +195,7 @@ $(document).ready(function() {
 						 				$('.respCVA').remove(); 
 										$(event.target).removeClass('btn-loading').text('Actualizar'); 
 										console.log(response);
+										getFlatCount(); 
 						 	}
 					});
 	});  
@@ -216,8 +235,8 @@ $(document).ready(function() {
 						 	}
 					});
 	}); 
-	// Get flat count 
 
+	// Get flat count 
 	getFlatCount(); 
 	getRelatedCount(); 
 	function getRelatedCount() {
@@ -245,6 +264,7 @@ $(document).ready(function() {
 						 	}
 					});
 	}
+
 	function getFlatCount() {
 		console.log('....'); 
 		$.ajax({
@@ -285,58 +305,39 @@ $(document).ready(function() {
 	}
 
 
-	// REINICIAR 
-	$('#deleteDataDB').click(   function deleteAll() {
-   		alert('Deleted'); 
-   		$.ajax({
-			 	url: 'controladores/dataController.php', 
-			 	method: 'POST', 
-			 	data: { type: 'restart', 
-			 		      WS: 'CVA' }, 
-			 	success: function(mensaje){
-				 		 	 alert(mensaje); 
-					 	}
-					});
-   }); 
-
-
-
 	// EXPORT 
 	$('#importIngram').click( function() { 
 		checkDbCount = setInterval(getRelatedCount, 2000);
 		$('#countRelatedIngramMicro').append('<img class="responseIngramMicro" src="media/users/loading.gif" style="width:25px;">');
-		$.ajax({
-				 	url: 'controladores/dataController.php', 
-				 	method: 'POST', 
-				 	data: {  url:  '', 
-				 		     type: 'export',  
-				 		   	 WS:   'Ingram' }, 
-				 	success: function(mensaje){
-					 		 	 console.log(mensaje);
+
+			$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'export_from_flat', ws : 'Ingram'}, 
+						 	success: function(response){
+						 		 console.log(response);
 					 		 	 getRelatedCount(); 
 					 		 	 $('.responseIngramMicro').remove(); 
 					 		 	 clearInterval(checkDbCount); 
-				 	}
-			});
+						 	}
+					});
 	});
 
 
 	$('#importTechData').click( function importTechData() { 
 		checkDbCount = setInterval(getRelatedCount, 2000); 
 		$('#countRelatedTD').append('<img class="responseTD" src="media/users/loading.gif" style="width:25px;">');
-		$.ajax({
-		 	url: 'controladores/dataController.php', 
-		 	method: 'POST', 
-		 	data: { url : '', 
-		 			type: 'export', 
-		 			WS:   'TechData' }, 
-		 	success: function(mensaje){
-		 		 	 getRelatedCount(); 
-		 			 console.log(mensaje)
-		 		 	 clearInterval(checkDbCount); 
-		 		 	 $('.responseTD').remove(); 
-		 	}
-		});  
+			$.ajax({
+						 	url: 'controladores/dataController.php', 
+						 	method: 'POST', 
+						 	data: {  type: 'export_from_flat', ws : 'TD'}, 
+						 	success: function(response){
+						 			 getRelatedCount(); 
+						 			 console.log(response); 
+						 		 	 clearInterval(checkDbCount); 
+						 		 	 $('.responseTD').remove(); 
+						 	}
+					}); 
    });
 
 	var checkDbCount = null; 
@@ -347,55 +348,24 @@ $(document).ready(function() {
     	var groupCvaSelected = $('#CVAgroups').val(); 
     	var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupCvaSelected+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0&dt=1&dc=1'; 
     	console.log(urlCva); 
-   		$.ajax({
-						 	url: 'controladores/dataController.php', 
-						 	method: 'POST', 
-						 	data: {  url:  urlCva, 
-						 		     type: 'export',  
-						 		     WS:   'CVA' }, 
-						 	success: function(mensaje){
-						 				 getRelatedCount(); 
-							 		 	 console.log(mensaje);
-							 		 	 $('.responseCVA').remove(); 
-							 		 	 clearInterval(checkDbCount); 
-						 	}
-					});   
-   }); 
-	
-    // [[[[[[[[[[[   CONTROLS FLAT EXPORT ]]]]]]]]]]]]
 
-    $('#fFlat_cva').click(function() {
-    	$.ajax({
+					$.ajax({
 						 	url: 'controladores/dataController.php', 
 						 	method: 'POST', 
 						 	data: {  type: 'export_from_flat', ws : 'CVA'}, 
 						 	success: function(response){
-						 				 alert(response); 
+						 				 getRelatedCount(); 
+							 		 	 console.log(response);
+							 		 	 $('.responseCVA').remove(); 
+							 		 	 clearInterval(checkDbCount);
 						 	}
 					});
-    }); 
+   }); 
+	
 
-    $('#fFlat_ingram').click(function() {
-    	$.ajax({
-						 	url: 'controladores/dataController.php', 
-						 	method: 'POST', 
-						 	data: {  type: 'export_from_flat', ws : 'Ingram'}, 
-						 	success: function(response){
-						 				 alert(response); 
-						 	}
-					});
-    }); 
 
-    $('#fFlat_td').click(function() {
-    	$.ajax({
-						 	url: 'controladores/dataController.php', 
-						 	method: 'POST', 
-						 	data: {  type: 'export_from_flat', ws : 'TD'}, 
-						 	success: function(response){
-						 				 alert(response); 
-						 	}
-					});
-    }); 
+
+
 
 	// [[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]
 	// [[[[[[[[[[[[[[[[[   SHOW DATA    ]]]]]]]]]]]]]]]]]

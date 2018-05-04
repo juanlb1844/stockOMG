@@ -4,6 +4,7 @@
 	{{parent()}} 
 
 	<style type="text/css">
+
 		.btn-loading {
 		    background-image: url(media/users/loading.gif);
 		    background-position: center;
@@ -32,9 +33,9 @@
 			  		</thead>
 			  		<tbody>
 			  			<tr>
-			  				<td><button id="restartTD" class="btn-sm form-control">Reiniciar</button></td>
-			  				<td><button id="restartCVA" class="btn-sm form-control">Reiniciar</button></td>
-			  				<td><button id="restartIngram" class="btn-sm form-control">Reiniciar</button></td>
+			  				<td><button ws="TechData" id="restartTD" class="restart-flat btn-sm form-control">Reiniciar</button></td>
+			  				<td><button ws="CVA" id="restartCVA" class="restart-flat btn-sm form-control">Reiniciar</button></td>
+			  				<td><button ws="Ingram" id="restartIngram" class="restart-flat btn-sm form-control">Reiniciar</button></td>
 			  			</tr>
 			  		</tbody>
 			  	</table>
@@ -56,7 +57,7 @@
 			  				<td id="countRelatedIngramMicro"><span id="countIngramMicro">?</span></td>
 			  				<td>
 			  					<button id="exportIngram" class="btn-sm form-control">Actualizar</button>
-			  					<button id="fFlat_ingram" class="btn-sm btn btn-primary">FF</button>
+			  					<!-- <button id="fFlat_ingram" class="btn-sm btn btn-primary">FF</button> -->
 			  				</td>
 			  			</tr>
 			  			<tr>
@@ -66,7 +67,7 @@
 			  				<td id="countRelatedCVA" ><span id="countCVA">?</span></td>
 			  				<td>
 			  					<button id="exportCVAFlat" class="btn-sm form-control">Actualizar</button>
-			  					<button id="fFlat_cva" class="btn-sm btn btn-primary">FF</button>
+			  					<!-- <button id="fFlat_cva" class="btn-sm btn btn-primary">FF</button> --> 
 			  					<p></p>
 			  					<select id="CVAgroupsFlat" class="form-control">
 			  					</select>
@@ -79,7 +80,7 @@
 			  				<td id="countRelatedTD"><span id="countTD">?</span></td>
 			  				<td>
 			  					<button id="exportFlatTD" class="btn-sm form-control">Actualizar</button>
-			  					<button id="fFlat_td" class="btn-sm btn btn-primary">FF</button>
+			  					<!-- <button id="fFlat_td" class="btn-sm btn btn-primary">FF</button> --> 
 			  				</td>
 			  			</tr>
 			  		</tbody>
