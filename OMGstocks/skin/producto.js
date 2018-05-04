@@ -65,34 +65,34 @@ var quitSpace = function(str) {
 		 	url: 'controladores/getGallery.php', 
 		 	method: 'POST', 
 		 	data: {  idProd : productData[0].ID  }, 
-		 	success: function(mensaje){
-		 		  var gallery = JSON.parse(mensaje); 
-		 		   for( var i in gallery ) {
-		 		   	
-		 		   		if( gallery[i].url.substr(0, 4) == 'http' ) {
-		 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="'+gallery[i].url+'"><p><a href="'+gallery[i].url+'">ver</a></p></li>';  
-		 		   		} else {
-		 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="media/'+gallery[i].url+'"><p><a href="media/'+gallery[i].url+'">ver</a></p></li>';  
-		 		   		}
+		 	success: function(response){
+		 		  if( response != 'sin resultados' ) {
+			 		  var gallery = JSON.parse(response); 
+			 		   for( var i in gallery ) {
+			 		   		if( gallery[i].url.substr(0, 4) == 'http' ) {
+			 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="'+gallery[i].url+'"><p><a href="'+gallery[i].url+'">ver</a></p></li>';  
+			 		   		} else {
+			 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="media/'+gallery[i].url+'"><p><a href="media/'+gallery[i].url+'">ver</a></p></li>';  
+			 		   		}
+			 		  	$('#entityGallery').append(element);  
+			 		   }
+			 		   $('#entityGallery').off('click'); 
+			 		   $('#entityGallery').on('click', 'img', function(event) {
+			 		   	    img_to_main = $(event.target).attr('idGallery'); 
+			 		   	    url_to_main = $(event.target).attr('protectedUrl'); 
+		 		   		    if ( $(event.target).attr('mainImg') ) {
+								$('#imgMainSet').prop('checked', true); 
+								$('#imgMainSet').prop('disabled', 'disabled'); 
+							} else {
+								$('#imgMainSet').prop('checked', false); 
+								$('#imgMainSet').removeAttr('disabled');
+							}
 
-		 		  		$('#entityGallery').append(element);  
-		 		   }
-		 		   $('#entityGallery').off('click'); 
-		 		   $('#entityGallery').on('click', 'img', function(event) {
-		 		   	    img_to_main = $(event.target).attr('idGallery'); 
-		 		   	    url_to_main = $(event.target).attr('protectedUrl'); 
-	 		   		    if ( $(event.target).attr('mainImg') ) {
-							$('#imgMainSet').prop('checked', true); 
-							$('#imgMainSet').prop('disabled', 'disabled'); 
-						} else {
-							$('#imgMainSet').prop('checked', false); 
-							$('#imgMainSet').removeAttr('disabled');
-						}
+		 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
+				 		   $('#infoImg').modal({ show: 'false' }); 
 
-	 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
-			 		   $('#infoImg').modal({ show: 'false' }); 
-
-		 		   }); 
+			 		   }); 
+		 		  }
 
 		 	}
 		 });
@@ -100,10 +100,9 @@ var quitSpace = function(str) {
 
 $(document).ready(function(){ 
 
+ // cambiar imágen principal 
 	$('#saveImg').click( function() {
 		var idProduct = productData[0].ID; 
-		//alert('to main: ' +url_to_main); 
-
 	    if( $('#imgMainSet').prop('checked') ) {
 			$.ajax({
 			 	url: 'controladores/updateMainImg.php', 
@@ -117,14 +116,10 @@ $(document).ready(function(){
 			 	}
 			 });   
 	    }  
-		/* alert('main: ' +main_img_data.url); 
-		alert('id to main: ' +img_to_main); */ 
-		//alert(idProduct);  
-		
 	
 	}); 
 
-	// guardar datos del producto 
+// guardar datos del producto 
 	$('#saveProduct').click(function() {
 		var selecteds = $('.tree-categories input:checked'); 
 		var idCatSelecteds = []; 
@@ -155,9 +150,6 @@ $(document).ready(function(){
 
 	//id producto general 
 	var idProd = null; 
-	$('#summernote').summernote({
-	 	height : 200
-	});
 
 
 	var url = window.location.href; 
@@ -309,6 +301,8 @@ $(document).ready(function(){
 			 	type: 'post', 
 			 	data: dataService, 
 			 	success: function(mensaje){
+			 			console.log(dataService);
+			 			console.log(url);  
 			 			 if(mensaje == 'sin datos') {
 			 			 	$("#tableFeed").html('<h2>Sin datos</h2>'); 
 			 			 	return; 

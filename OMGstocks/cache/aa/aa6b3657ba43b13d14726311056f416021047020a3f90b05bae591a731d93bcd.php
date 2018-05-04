@@ -443,6 +443,6 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 </div>
 
 {% endblock %}
-", "configuracion.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\stockOMG\\OMGstocks\\templates\\configuracion.html.twig");
+", "configuracion.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\configuracion.html.twig");
     }
 }

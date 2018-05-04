@@ -47,6 +47,6 @@ class __TwigTemplate_0d2fc86cd111cbd9a587c58fd40e64e7bcab3694a2a28eebab05cc90e78
 \t<p>
 \t\t LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG  LaptopMexico OMG 
 \t</p>
-</div>", "footer.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\stockOMG\\OMGstocks\\templates\\footer.html.twig");
+</div>", "footer.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\footer.html.twig");
     }
 }

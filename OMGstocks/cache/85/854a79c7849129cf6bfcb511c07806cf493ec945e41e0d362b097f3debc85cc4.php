@@ -229,6 +229,6 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 
 \t\t
 
-</script>", "filters.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\stockOMG\\OMGstocks\\templates\\filters.html.twig");
+</script>", "filters.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\filters.html.twig");
     }
 }
