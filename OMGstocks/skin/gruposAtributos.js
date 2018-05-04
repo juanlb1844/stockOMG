@@ -163,9 +163,9 @@ $(document).ready( function() {
 					 	method: 'POST', 
 					 	data: { idCat: idCatSelected }, 
 					 	success: function(response){
+					 			if(response != 'sin datos') { 
 					 		  		dataAttributes = JSON.parse(response);
 					 		  		attrsByCats = dataAttributes; 
-					 		  		console.log('______________________'); 
 					 		  		console.log(attrsByCats);
 					 		  		iter = dataAttributes;  
 					 		  		var deff = ''; 
@@ -178,24 +178,27 @@ $(document).ready( function() {
 								  		'<td>'+attrsByCats[x].id_attribute+'</td>');
 									}  
 
-								$('.attributes').off('click'); 
-								$('.attributes').on('click', 'tr', function(event) {
-									idAttributeEdit = $( $($(event.target).parent().find('td'))[3]).text(); 
-									for( x in attrsByCats) { 
-										if( attrsByCats[x].id_attribute == idAttributeEdit ) {
-											var nameAttr = attrsByCats[x].name_attribute; 
-											var dataType = attrsByCats[x].type_value; 
-											var defaultValue = attrsByCats[x].default_value; 
-											$('#editNameAttr').val(nameAttr); 
-											$('#editDataType').val(dataType); 
-											$('#editDefaultData').val(defaultValue); 
+									$('.attributes').off('click'); 
+									$('.attributes').on('click', 'tr', function(event) {
+										idAttributeEdit = $( $($(event.target).parent().find('td'))[3]).text(); 
+										for( x in attrsByCats) { 
+											if( attrsByCats[x].id_attribute == idAttributeEdit ) {
+												var nameAttr = attrsByCats[x].name_attribute; 
+												var dataType = attrsByCats[x].type_value; 
+												var defaultValue = attrsByCats[x].default_value; 
+												$('#editNameAttr').val(nameAttr); 
+												$('#editDataType').val(dataType); 
+												$('#editDefaultData').val(defaultValue); 
+											}
 										}
-									}
-									$('#editAttribute').modal({
-								        show: 'false'
-								    }); 
-								}); 
-					 	  }
+										$('#editAttribute').modal({
+									        show: 'false'
+									    }); 
+									}); 
+						 	  } else {
+						 	  	$('.attributes').html('').append('<tr><td>Sin atributos</td><td></td><td></td><td></td><td></td></tr>');
+						 	  } // 
+							} 
 					 });
 			});
 

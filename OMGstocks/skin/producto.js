@@ -1,45 +1,30 @@
 
-var productData = null; 
-var main_img_data = null; 
-var img_to_main = null; 
-var url_to_main = null; 
-var relatedProducts = null; 
-
-
+// auto iniciar funciones para redondeo 
 (function() {
-
   function decimalAdjust(type, value, exp) {
-    // Si el exp no está definido o es cero...
     if (typeof exp === 'undefined' || +exp === 0) {
       return Math[type](value);
     }
     value = +value;
     exp = +exp;
-    // Si el valor no es un número o el exp no es un entero...
     if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
       return NaN;
     }
-    // Shift
     value = value.toString().split('e');
     value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-    // Shift back
     value = value.toString().split('e');
     return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
   }
-
-  // Decimal round
   if (!Math.round10) {
     Math.round10 = function(value, exp) {
       return decimalAdjust('round', value, exp);
     };
   }
-  // Decimal floor
   if (!Math.floor10) {
     Math.floor10 = function(value, exp) {
       return decimalAdjust('floor', value, exp);
     };
   }
-  // Decimal ceil
   if (!Math.ceil10) {
     Math.ceil10 = function(value, exp) {
       return decimalAdjust('ceil', value, exp);
@@ -47,7 +32,7 @@ var relatedProducts = null;
   }
 })();
 
-
+// función para quitar espacios laterales e intermedios | asignar atributo como ID de campo 
 var quitSpace = function(str) {
     var cadena = '';
     var arrayString = str.split(' ');
@@ -59,46 +44,52 @@ var quitSpace = function(str) {
     return cadena;
 };	
 
-	// obtener galería del producto 
-	function getGallery () {
-		$.ajax({
-		 	url: 'controladores/getGallery.php', 
-		 	method: 'POST', 
-		 	data: {  idProd : productData[0].ID  }, 
-		 	success: function(response){
-		 		  if( response != 'sin resultados' ) {
-			 		  var gallery = JSON.parse(response); 
-			 		   for( var i in gallery ) {
-			 		   		if( gallery[i].url.substr(0, 4) == 'http' ) {
-			 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="'+gallery[i].url+'"><p><a href="'+gallery[i].url+'">ver</a></p></li>';  
-			 		   		} else {
-			 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="media/'+gallery[i].url+'"><p><a href="media/'+gallery[i].url+'">ver</a></p></li>';  
-			 		   		}
-			 		  	$('#entityGallery').append(element);  
-			 		   }
-			 		   $('#entityGallery').off('click'); 
-			 		   $('#entityGallery').on('click', 'img', function(event) {
-			 		   	    img_to_main = $(event.target).attr('idGallery'); 
-			 		   	    url_to_main = $(event.target).attr('protectedUrl'); 
-		 		   		    if ( $(event.target).attr('mainImg') ) {
-								$('#imgMainSet').prop('checked', true); 
-								$('#imgMainSet').prop('disabled', 'disabled'); 
-							} else {
-								$('#imgMainSet').prop('checked', false); 
-								$('#imgMainSet').removeAttr('disabled');
-							}
+var productData = null; 
+var main_img_data = null; 
+var img_to_main = null; 
+var url_to_main = null; 
+var relatedProducts = null; 
 
-		 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
-				 		   $('#infoImg').modal({ show: 'false' }); 
 
-			 		   }); 
-		 		  }
+// obtener galería del producto 
+ function getGallery () {
+	$.ajax({
+	 	url: 'controladores/getGallery.php', 
+	 	method: 'POST', 
+	 	data: {  idProd : productData[0].ID  }, 
+	 	success: function(response){
+	 		  if( response != 'sin resultados' ) {
+		 		  var gallery = JSON.parse(response); 
+		 		   for( var i in gallery ) {
+		 		   		if( gallery[i].url.substr(0, 4) == 'http' ) {
+		 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="'+gallery[i].url+'"><p><a href="'+gallery[i].url+'">ver</a></p></li>';  
+		 		   		} else {
+		 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="media/'+gallery[i].url+'"><p><a href="media/'+gallery[i].url+'">ver</a></p></li>';  
+		 		   		}
+		 		  	$('#entityGallery').append(element);  
+		 		   }
+		 		   $('#entityGallery').off('click'); 
+		 		   $('#entityGallery').on('click', 'img', function(event) {
+		 		   	    img_to_main = $(event.target).attr('idGallery'); 
+		 		   	    url_to_main = $(event.target).attr('protectedUrl'); 
+	 		   		    if ( $(event.target).attr('mainImg') ) {
+							$('#imgMainSet').prop('checked', true); 
+							$('#imgMainSet').prop('disabled', 'disabled'); 
+						} else {
+							$('#imgMainSet').prop('checked', false); 
+							$('#imgMainSet').removeAttr('disabled');
+						}
 
-		 	}
-		 });
+	 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
+			 		   $('#infoImg').modal({ show: 'false' }); 
+
+		 		   }); 
+	 		  }
+	 	}
+	 });
 	}
 
-$(document).ready(function(){ 
+$(document).ready(function(){
 
  // cambiar imágen principal 
 	$('#saveImg').click( function() {
@@ -115,11 +106,10 @@ $(document).ready(function(){
 			 		  window.location.reload(); 
 			 	}
 			 });   
-	    }  
-	
+	    }  	
 	}); 
 
-// guardar datos del producto 
+ // guardar datos del producto 
 	$('#saveProduct').click(function() {
 		var selecteds = $('.tree-categories input:checked'); 
 		var idCatSelecteds = []; 
@@ -148,12 +138,12 @@ $(document).ready(function(){
 		console.log( productData ); 
 	}); 
 
-	//id producto general 
-	var idProd = null; 
+// id producto general 
+var idProd = null; 
 
+var url = window.location.href; 
+idProd = url.split('=')[2];
 
-	var url = window.location.href; 
-	idProd = url.split('=')[2];
 	 $.ajax({
 	 	url: 'controladores/getProducto.php', 
 	 	method: 'POST', 
@@ -217,8 +207,6 @@ $(document).ready(function(){
 
 			  		  		$('.attributes_product').append(data); 
 
-			  		  		//$(data).prependTo($('.attributes_product')).slideDown("fast");
-
 			  		  		$('#'+productData[x].type_attr).summernote({
 								 	height : 200
 								});
@@ -240,32 +228,17 @@ $(document).ready(function(){
 			// Agregar datos a table [relación de coincidencias de porductos por proveedor]
 			for(var i in productData) {
 				if ( productData[i].type_attr == 'SKU' )  {
-					initFeedWindow('controladores/getXProductsByAttrVal.php', { attributeName : 'sku', attributeVal: productData[i].value_attr }); 
+					initFeedWindow('controladores/getProductsByAttrVal.php', { attributeName : 'SKU', attributeVal: productData[i].value_attr }); 
 				}
-				/* 
-				if(productData[i].type_attr == 'distributor') {
-	  		  		$('#relationDis').text(productData[i].value_attr); 
-				} else if ( productData[i].type_attr == 'Name Product' ) {
-					$('#relationName').text(productData[i].value_attr); 
-				} else if ( productData[i].type_attr == 'SKU' ) {
-					alert('lanzar busqueda: '+ productData[i].value_attr);
-					initFeedWindow('controladores/getXProductsByAttrVal.php', { attributeName : 'sku', attributeVal: 'AACIE041' }); 
-					$('#relationSku').text(productData[i].value_attr); 
-				} else if ( productData[i].type_attr == 'stock' ) {
-					$('#relationStock').text(productData[i].value_attr); 
-				} else if ( productData[i].type_attr == 'Normal Price' ) {
-					$('#relationPrice').text(productData[i].value_attr); 
-				} */ 
-
 			}
 
 			getGallery(); 
+
 			// Seleccionar categorías a las que pertenece 	
 			$.ajax({
 			 	url: 'controladores/getRelationCategory.php', 
 			 	method: 'POST', 
-			 	data: { idProd: productData[0].ID,  
-			 			}, 
+			 	data: { idProd: productData[0].ID }, 
 			 	success: function(mensaje){
 			 		  var relation = JSON.parse(mensaje); 
 			 		  console.log(relation); 
@@ -275,10 +248,10 @@ $(document).ready(function(){
 			 		  }
 			 	}
 			 });
-			
 	 	}
 	 });
-	
+
+	// llena la tabla de coincidencias con otros proveedores 
 	function listRelateds() {
 			if(relatedProducts.length > 0 ) {
 				for( var i in relatedProducts) {
@@ -292,9 +265,10 @@ $(document).ready(function(){
 						"</tr>"); 
 				}
 			}
-		
 	}
 	
+
+	// Obtener datos y formatear en arreglo 
 	function initFeedWindow(url, dataService) {
 		 $.ajax({
 			 	url: url, 
@@ -309,12 +283,12 @@ $(document).ready(function(){
 			 			 }
 			 			 viewData = JSON.parse(mensaje); //datos brutos 
 			 			 // LOCAL 
-			 			 	var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-							// Put the object into storage
-							localStorage.setItem('testObject', JSON.stringify(testObject));
-							// Retrieve the object from storage
-							var retrievedObject = localStorage.getItem('testObject');
-							console.log('retrievedObject: ', JSON.parse(retrievedObject));
+		 			 	var testObject = { 'one': 1, 'two': 2, 'three': 3 };
+						// Put the object into storage
+						localStorage.setItem('testObject', JSON.stringify(testObject));
+						// Retrieve the object from storage
+						var retrievedObject = localStorage.getItem('testObject');
+						console.log('retrievedObject: ', JSON.parse(retrievedObject));
 			 			 // LOCAL 
 			 			 lineProduct = [];
 			 			 row = [];  
@@ -351,24 +325,7 @@ $(document).ready(function(){
 						 listRelateds();
 			 	}
 			 }); 
-
-		}
-	
-	$('#getDescription').on('click', function(){
-		var markupStr = $('#summernote').summernote('code');
-		alert( markupStr ); 
-		alert(idProd);
-		$.ajax({
-		 	url: 'controladores/setSaveProduct.php', 
-		 	method: 'POST', 
-		 	data: { idProd: idProd, 
-		 			description: markupStr  
-		 			}, 
-		 	success: function(mensaje){
-		 		  //alert(mensaje); 
-		 	}
-		 });
-	}); 
+	}
 
 }); 
 

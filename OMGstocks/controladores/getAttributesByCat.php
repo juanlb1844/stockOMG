@@ -20,7 +20,8 @@
 			    $rows[] = $row;
 			  }
 			} else {
-			    echo "0 results";
+			    echo "sin datos"; 
+			    return; 
 			}
 			print_r( json_encode($rows) );
    		}
