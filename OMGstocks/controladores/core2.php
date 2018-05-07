@@ -159,6 +159,8 @@
 	                $arrayTechData_products[$num]['fabricante']  = $v->fabricante;
 					$arrayTechData_products[$num]['descripcion'] = $v->descripcion;
 					$arrayTechData_products[$num]['categoria']   = $v->categoria;  
+					$arrayTechData_products[$num]['codigo']      = $v->Codigo; 
+
 	                
 	                $num++; 
 	            }
@@ -215,7 +217,6 @@
  	} 
 
  		 function getDataXMLFeed($url){
- 				
 			$content = file_get_contents($url);  
 			$items = null; 
 			$xml = simplexml_load_string($content); 
@@ -233,6 +234,7 @@
 				$items[$num]['garantia'] 	      	  = (string) $item->{'garantia'}; 
 				$items[$num]['ficha_tecnica'] 	      = (string) $item->{'ficha_tecnica'}; 
 				$items[$num]['ficha_comercial'] 	  = (string) $item->{'ficha_comercial'}; 
+				$items[$num]['upc'] 	  			  = (string) $item->{'upc'};  
 				$num++; 
 			}
 

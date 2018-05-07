@@ -329,12 +329,16 @@ function flatToRelated_CVA($param) {
 			   	$name_product = $row['name_product']; 
 			   	$precio = $row['precio']; 
 			   	$short_description = $row['short_description']; 
+			   	$long_description = $row['long_description']; 
 			   	$stock = $row['stock']; 
 			   	$marca = $row['fabricante']; 
 			   	$grupo = $row['grupo']; 
-			   	$imagen = $row['imagen']; 
+			   	$imagen = $row['imagen'];
+			   	$part_number = $row['numero_parte'];  
+			   	$upc = $row['upc'];  
+			   	if(strlen($upc) < 1) $upc = '0000'; 
 			   	$db2 = new db(); 
-			   	$query2 = "CALL create_product(1, '$name_product', '$codigo', $precio, '$short_description', '0000', $stock,  '$marca', '$grupo', '$imagen');";  
+			   	$query2 = "CALL create_product(1, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '..');";  
 			   	if ( mysqli_query($db2, $query2) ) 
 			   			echo $codigo; 
 			  }
@@ -365,8 +369,10 @@ function insertarCVAFlat($array){
 					$ft = $value['ficha_tecnica'];
 					$fc = $value['ficha_comercial'];
 					$garantia = $value['garantia'];
-					$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio, imagen, short_description, long_description, garantia, upc) 
-								VALUES('$codigo_fabricante', '$descripcion', '$grupo','CVA', 1, $disponible, '$marca', $precio, '$imagen', '$ft', '$fc', '$garantia', '00000000')";   
+					$upc = $value['upc'];
+
+					$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio, imagen, short_description, long_description, garantia, upc, numero_parte) 
+								VALUES('$clave', '$descripcion', '$grupo','CVA', 1, $disponible, '$marca', $precio, '$imagen', '$ft', '$fc', '$garantia', '$upc', '$codigo_fabricante')";   
 				    if( mysqli_query($db, $query) ) 
 				    	echo '1'; 
 				    else 
@@ -391,8 +397,9 @@ function insertarCVAFlat($array){
 			$fabricante      = $value['fabricante'];
 			$nameProduct     = $value['descripcion'];
 			$categoria       = $value['categoria'];
-			$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio, imagen) 
-								VALUES('$partNumber', '$nameProduct', '$categoria', 'Tech Data', 2, $stockTotal, '$fabricante', $precio, '/users/no-img.jpg');";   
+			$sku 			 = $value['codigo']; 
+			$query = "INSERT INTO flat_data_products(sku, name_product, grupo, provider_name, provider_id, stock, fabricante, precio, imagen, numero_parte) 
+								VALUES('$sku', '$nameProduct', '$categoria', 'Tech Data', 2, $stockTotal, '$fabricante', $precio, '/users/no-img.jpg', '$partNumber');";   
 		    mysqli_query($db, $query);
 	 		mysqli_close($db); 		 	
 		}  
@@ -417,8 +424,9 @@ function insertarCVAFlat($array){
 			   	$marca = $row['fabricante']; 
 			   	$grupo = $row['grupo']; 
 			   	$imagen = $row['imagen']; 
+			   	$part_number = $row['numero_parte']; 
 			   	$db2 = new db();  
-			   	$query2 = "CALL create_product(2, '$name_product', '$codigo', $precio, '$short_description', '0000', $stock,  '$marca', '$grupo', '$imagen');";  
+			   	$query2 = "CALL create_product(2, '$name_product', '$codigo', $precio, '..', '0000', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '..', '..');";  
 			   	if ( mysqli_query($db2, $query2) ) 
 			   			echo $codigo; 
 			  }
@@ -436,7 +444,7 @@ function insertarCVAFlat($array){
 
 
  //  Ingram Micro [[ INSERT ]]
-	function insertarIngramMicroFlat($array){
+	function insertarIngramMicroFlat($array){ 
 			foreach ($array as $key => $value) {
 				$db = new db(); 
 		 		$clase 	     	 =  $value['0'];   	 $sku 	 		 =  $value['1']; 
@@ -452,9 +460,9 @@ function insertarCVAFlat($array){
 				$d20    		 =  $value['20'];	 $d21    		 =  $value['21'];
 				$d22    		 =  $value['22'];	 $d23    	 	 =  $value['23'];
 				$d24    		 =  $value['24'];	 $inStock   	 =  $value['25'];
-				
-				$query = "INSERT INTO flat_data_products(sku, name_product, grupo, upc, provider_name, provider_id, stock, fabricante, precio, imagen)
-							VALUES('$sku', '$nombreProducto', '$d19', '$d9', 'Ingram Micro', 3, $inStock, '$proveedor', $precio, '/users/no-img.jpg')";   
+				$description = $nombreProducto .' '. $modelo; 
+				$query = "INSERT INTO flat_data_products(sku, name_product, grupo, upc, provider_name, provider_id, stock, fabricante, precio, imagen, numero_parte, modelo, short_description, long_description)
+							VALUES('$sku', '$nombreProducto', '$d19', '$d9', 'Ingram Micro', 3, $inStock, '$proveedor', $precio, '/users/no-img.jpg', '$vpn', '$modelo', '$description', '$description')";    
 
 				mysqli_query($db, $query);
 				mysqli_close($db); 
@@ -480,12 +488,16 @@ function insertarCVAFlat($array){
 			   	$name_product = $row['name_product']; 
 			   	$precio = $row['precio']; 
 			   	$short_description = $row['short_description']; 
+			   	$long_description = $row['long_description']; 
 			   	$stock = $row['stock']; 
 			   	$marca = $row['fabricante']; 
 			   	$grupo = $row['grupo']; 
 			   	$imagen = $row['imagen']; 
+			   	$modelo = $row['modelo']; 
+			   	$upc    = $row['upc']; 
+			   	$part_number = $row['numero_parte']; 
 			   	$db2 = new db(); 
-			   	$query2 = "CALL create_product(3, '$name_product', '$codigo', $precio, '$short_description', '0000', $stock,  '$marca', '$grupo', '$imagen');";  
+			   	$query2 = "CALL create_product(3, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '$modelo');";  
 			   	if ( mysqli_query($db2, $query2) ) 
 			   			echo $codigo; 
 			  }
