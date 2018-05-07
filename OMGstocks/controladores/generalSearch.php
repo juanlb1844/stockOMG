@@ -15,7 +15,7 @@
 				   product_entity AS E INNER JOIN distributor AS DIS
 				   ON E.`id_distributor` = DIS.`id_distributor`) ) AS S1 
 				   WHERE ID IN ( SELECT product_entity_id FROM entity_value_varchar WHERE name_attribute = 'SKU' AND varchar_value = '$attr_val')
-				   ORDER BY ID ASC LIMIT 10"; 
+				   ORDER BY ID ASC LIMIT 13"; 
  
 	if ($resultado = mysqli_query($db, $query)) {
     	if ($resultado->num_rows > 0) {

@@ -233,10 +233,8 @@ idProd = url.split('=')[2];
 			// Agregar datos a table [relación de coincidencias de porductos por proveedor]
 			for(var i in productData) {
 				if( productData[i].type_attr == 'SKU' ){
-					alert(valAttr); 
 					var valAttr = productData[i].value_attr; 
 					attrSKU = ( valAttr.length > 1 && valAttr != '0000') ? valAttr : '-a-a-a-a'; 
-					alert(attrSKU); 
 				} 
 				if( productData[i].type_attr == 'UPC' ) {
 					var valAttr = productData[i].value_attr; 
@@ -251,7 +249,6 @@ idProd = url.split('=')[2];
 					attrModel = ( valAttr.length > 1 && valAttr != '0000' && valAttr != '..') ? valAttr : '-a-a-a-a'; 
 				}
 			}
-			alert(attrSKU); 
 			initFeedWindow('controladores/getRelatedProducts.php', 
 							{ sku : attrSKU,  
 							  upc : attrUPC, 
