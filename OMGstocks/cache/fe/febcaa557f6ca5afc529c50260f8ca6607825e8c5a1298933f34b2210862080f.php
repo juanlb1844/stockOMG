@@ -91,6 +91,9 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         <th>Stock</th>
                         <th>Stock Updated</th>
                         <th>Price</th>
+                        <th>Part Number</th>
+                        <th>UPC</th>
+                        <th>Model</th>
                    </tr> 
               </thead> 
               <tbody id=\"relationProduct\"> 
@@ -112,7 +115,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"form-group\">
               <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                 ";
-        // line 84
+        // line 87
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
             </div>
@@ -129,13 +132,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 98
+        // line 101
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 101
+        // line 104
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -235,7 +238,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  139 => 101,  133 => 98,  116 => 84,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  142 => 104,  136 => 101,  119 => 87,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -311,6 +314,9 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         <th>Stock</th>
                         <th>Stock Updated</th>
                         <th>Price</th>
+                        <th>Part Number</th>
+                        <th>UPC</th>
+                        <th>Model</th>
                    </tr> 
               </thead> 
               <tbody id=\"relationProduct\"> 

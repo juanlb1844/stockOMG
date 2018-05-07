@@ -225,12 +225,38 @@ idProd = url.split('=')[2];
 
 				}
 				
+			var attrSKU = null; 
+			var attrUPC = null; 
+			var attrNP = null; 
+			var attrModel = null; 
+
 			// Agregar datos a table [relación de coincidencias de porductos por proveedor]
 			for(var i in productData) {
-				if ( productData[i].type_attr == 'SKU' )  {
-					initFeedWindow('controladores/getProductsByAttrVal.php', { attributeName : 'SKU', attributeVal: productData[i].value_attr }); 
+				if( productData[i].type_attr == 'SKU' ){
+					alert(valAttr); 
+					var valAttr = productData[i].value_attr; 
+					attrSKU = ( valAttr.length > 1 && valAttr != '0000') ? valAttr : '-a-a-a-a'; 
+					alert(attrSKU); 
+				} 
+				if( productData[i].type_attr == 'UPC' ) {
+					var valAttr = productData[i].value_attr; 
+					attrUPC = ( valAttr.length > 1 && valAttr.trim() != '0000') ? valAttr : '-a-a-a-a'; 
+				}
+				if( productData[i].type_attr == 'Number Part'){
+					var valAttr = productData[i].value_attr;
+					attrNP = ( valAttr.length > 1 && valAttr != '0000') ? valAttr : '-a-a-a-a'; 
+				}
+				if ( productData[i].type_attr == 'Model' ){
+					var valAttr = productData[i].value_attr; 
+					attrModel = ( valAttr.length > 1 && valAttr != '0000' && valAttr != '..') ? valAttr : '-a-a-a-a'; 
 				}
 			}
+			alert(attrSKU); 
+			initFeedWindow('controladores/getRelatedProducts.php', 
+							{ sku : attrSKU,  
+							  upc : attrUPC, 
+							  np  : attrNP, 
+							  model : attrModel }); 
 
 			getGallery(); 
 
@@ -256,11 +282,14 @@ idProd = url.split('=')[2];
 			if(relatedProducts.length > 0 ) {
 				for( var i in relatedProducts) {
 					$('#relationProduct').append("<tr>"+ 
+							"<td>"+ relatedProducts[i][7] +"</td>"+ 
 							"<td>"+ relatedProducts[i][0] +"</td>"+ 
 							"<td>"+ relatedProducts[i][1] +"</td>"+ 
-							"<td>"+ relatedProducts[i][2] +"</td>"+ 
-							"<td>"+ relatedProducts[i][3] +"</td>"+ 
+							"<td>"+ relatedProducts[i][4] +"</td>"+ 
 							"<td>//</td>"+ 
+							"<td>"+ relatedProducts[i][2] +"</td>"+ 
+							"<td>"+ relatedProducts[i][5] +"</td>"+
+							"<td>"+ relatedProducts[i][3] +"</td>"+
 							"<td>"+ relatedProducts[i][6] +"</td>"+ 
 						"</tr>"); 
 				}
@@ -275,8 +304,7 @@ idProd = url.split('=')[2];
 			 	type: 'post', 
 			 	data: dataService, 
 			 	success: function(mensaje){
-			 			console.log(dataService);
-			 			console.log(url);  
+			 			console.log(mensaje);
 			 			 if(mensaje == 'sin datos') {
 			 			 	$("#tableFeed").html('<h2>Sin datos</h2>'); 
 			 			 	return; 
@@ -302,6 +330,12 @@ idProd = url.split('=')[2];
 								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'stock' ) {
 								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'Number Part' ) {
+								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'UPC' ) {
+								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'Model' ) {
+								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'distributor' ) {
 									row.push( val.value_attr ); 
 									row.push(val.ID); 
@@ -311,13 +345,14 @@ idProd = url.split('=')[2];
 									} else {
 										styleRow = 'style="font-size: 12px; font-weight: bold; color: orange;"'; 
 									}
-									lineProduct.push(Array(row[4], 
-														   row[0], 
+									lineProduct.push(Array(row[0], 
 														   row[1], 
-														   row[3], 
 														   '<span style="font-size:13px;">$'+Math.round10(row[2], -1)+'</span>', 
-														   '<span style="font-size: 14px; color:#03a87c;">&bullet; publicado</span>', 
-														   row[5]));
+														   row[3],
+														   row[4],
+														   row[5],
+														   row[6],
+														   row[7],));
 							        row = []; 
 							}
 						 } ); 	
