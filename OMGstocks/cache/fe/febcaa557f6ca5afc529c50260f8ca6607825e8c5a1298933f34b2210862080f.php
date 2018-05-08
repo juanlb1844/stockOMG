@@ -82,6 +82,37 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     .select-attrs:hover {
       cursor: pointer;
     }
+    .mod-container-attr {
+      padding-top: 10px; 
+      padding-bottom: 10px; 
+    }
+    .mod-distributor-name {
+      background-color: #eeeeee;
+    }
+    .mod-distributor-name:hover {
+      background-color: #dbdd15;
+      cursor: pointer; 
+    }
+    .mod-distributor-name:active {
+      transform: scale(.95);
+    }
+    .createGroup {
+      position: fixed;
+      bottom: 10px; 
+      left: 10px;
+      height: 70px; 
+      width: 70px; 
+      border-radius: 50%; 
+      z-index: 99;
+          padding-top: 20px;
+    color: white;
+    background-color: #03A9F4;
+    font-weight: bold;
+    text-align: center;
+    }
+    .selected-attr {
+      color: #03A9F4;
+    }
   </style>
 
     <div class=\"dashboard-window col-md-9\">
@@ -90,9 +121,10 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
         <ul id=\"entityGallery\">
         </ul>
         
-        <div style=\"padding-bottom: 10px;\">
-           <button class=\"btn btn-default selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">Agrupar</button>
-        </div>
+        
+           <div class=\"createGroup selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">  <span style=\"line-height: 20px;\">Agrupar</span> 
+           </div>
+        
 
         <!-- Relación con otros productos --> 
         <table class=\"table table-striped table-hover table-condensed\"> 
@@ -128,7 +160,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"form-group\">
               <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                 ";
-        // line 100
+        // line 132
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
             </div>
@@ -145,13 +177,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 114
+        // line 146
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 117
+        // line 149
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -210,24 +242,27 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
           <span aria-hidden=\"true\">&times;</span>
         </button>
       </div>
-      <div class=\"modal-body\">
+      <div class=\"modal-body\" style=\"overflow-y: auto; \">
         <div class=\"row\">
-            <div class=\"col-md-4\"> 
+            <div class=\"col-md-3\"> 
               <div class=\"atributes-to-fill\">
                 
               </div>
             </div>
-            <div class=\"col-md-8\">
-              <div class=\"attrs-distributor\" style=\"padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid gray;\">
-                <p class=\"distributor-name-attr\"></p>
-                
+            <div class=\"col-md-9\">
+              <div class=\"mod-container-attrs\">
+                <p class=\"mod-distributor-name\"></p>
+                <div class=\"mod-attr-value\">
+                  
+                </div>
+              </div>
               </div>
             </div>
         </div>
-      </div>
-      <div class=\"modal-footer\">
-        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
-        <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
+        <div class=\"modal-footer\">
+          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
+          <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -284,7 +319,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  155 => 117,  149 => 114,  132 => 100,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  187 => 149,  181 => 146,  164 => 132,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -351,6 +386,37 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     .select-attrs:hover {
       cursor: pointer;
     }
+    .mod-container-attr {
+      padding-top: 10px; 
+      padding-bottom: 10px; 
+    }
+    .mod-distributor-name {
+      background-color: #eeeeee;
+    }
+    .mod-distributor-name:hover {
+      background-color: #dbdd15;
+      cursor: pointer; 
+    }
+    .mod-distributor-name:active {
+      transform: scale(.95);
+    }
+    .createGroup {
+      position: fixed;
+      bottom: 10px; 
+      left: 10px;
+      height: 70px; 
+      width: 70px; 
+      border-radius: 50%; 
+      z-index: 99;
+          padding-top: 20px;
+    color: white;
+    background-color: #03A9F4;
+    font-weight: bold;
+    text-align: center;
+    }
+    .selected-attr {
+      color: #03A9F4;
+    }
   </style>
 
     <div class=\"dashboard-window col-md-9\">
@@ -359,9 +425,10 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
         <ul id=\"entityGallery\">
         </ul>
         
-        <div style=\"padding-bottom: 10px;\">
-           <button class=\"btn btn-default selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">Agrupar</button>
-        </div>
+        
+           <div class=\"createGroup selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">  <span style=\"line-height: 20px;\">Agrupar</span> 
+           </div>
+        
 
         <!-- Relación con otros productos --> 
         <table class=\"table table-striped table-hover table-condensed\"> 
@@ -470,24 +537,27 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
           <span aria-hidden=\"true\">&times;</span>
         </button>
       </div>
-      <div class=\"modal-body\">
+      <div class=\"modal-body\" style=\"overflow-y: auto; \">
         <div class=\"row\">
-            <div class=\"col-md-4\"> 
+            <div class=\"col-md-3\"> 
               <div class=\"atributes-to-fill\">
                 
               </div>
             </div>
-            <div class=\"col-md-8\">
-              <div class=\"attrs-distributor\" style=\"padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid gray;\">
-                <p class=\"distributor-name-attr\"></p>
-                
+            <div class=\"col-md-9\">
+              <div class=\"mod-container-attrs\">
+                <p class=\"mod-distributor-name\"></p>
+                <div class=\"mod-attr-value\">
+                  
+                </div>
+              </div>
               </div>
             </div>
         </div>
-      </div>
-      <div class=\"modal-footer\">
-        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
-        <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
+        <div class=\"modal-footer\">
+          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
+          <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
+        </div>
       </div>
     </div>
   </div>

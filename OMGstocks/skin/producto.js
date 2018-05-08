@@ -50,6 +50,7 @@ var img_to_main = null;
 var url_to_main = null; 
 var relatedProducts = null; 
 
+var selectedAttr = null // atributo seleccionado en modal | combinar entidades 
 
 // obtener galería del producto 
  function getGallery () {
@@ -178,7 +179,7 @@ idProd = url.split('=')[2];
 						        }); 
 			  		  } else if( productData[x].type_attr == 'description' ) {
 			  		  		data = '<div class="form-group">' + 
-		                        ' <label for="inputPassword3" class="col-sm-2 control-label">Description</label>' + 
+		                        ' <label for="inputPassword3" class="col-sm-2 control-label entity_attr" entityAttr="'+productData[x].type_attr+'">Description</label>' + 
 		                        ' <div class="col-sm-10"> ' + 
 		                         ' <form method="post"> ' + 
 		                                ' <textarea style="width: 100%;" id="'+productData[x].type_attr+'" name="editordata"></textarea>' + 
@@ -197,7 +198,7 @@ idProd = url.split('=')[2];
 			  				$('#'+productData[x].type_attr).summernote('code', description);  
 			  		  } else if( productData[x].type_attr == 'short_description' ) {
 			  		  		data = '<div class="form-group">' + 
-		                        ' <label for="inputPassword3" class="col-sm-2 control-label">Short description</label>' + 
+		                        ' <label for="inputPassword3" class="col-sm-2 control-label entity_attr" entityAttr="'+productData[x].type_attr+'">Short description</label>' + 
 		                        ' <div class="col-sm-10"> ' + 
 		                         ' <form method="post"> ' + 
 		                                ' <textarea style="width: 100%;" id="'+productData[x].type_attr+'" name="editordata"></textarea>' + 
@@ -214,7 +215,7 @@ idProd = url.split('=')[2];
 			  				$('#'+productData[x].type_attr).summernote('code', description);  
 			  		  } else {
 			  		  		data = '<div id="__'+quitSpace(productData[x].type_attr)+'" class="form-group">'+ 
-		                        '<label for="inputEmail3" class="col-sm-2 control-label">'+productData[x].type_attr+'</label>' + 
+		                        '<label for="inputEmail3" class="col-sm-2 control-label entity_attr" entityAttr="'+productData[x].type_attr+'">'+productData[x].type_attr+'</label>' + 
 		                        ' <div class="col-sm-10">' + 
 		                          ' <input type="input" id="'+quitSpace(productData[x].type_attr)+'" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control input-sm" name="">' + 
 		                        ' </div> ' + 
@@ -224,6 +225,15 @@ idProd = url.split('=')[2];
 			  		  }
 
 				}
+			$('body').on('click', '.entity_attr', function(event){
+				//alert( $(event.target).attr('entityAttr') ); 
+				selectedAttr = $(event.target).attr('entityAttr'); 
+				$('#selectRelated').modal({
+				        show: 'false'
+				    }); 
+				initModalIntegration(); 
+				renderValuesRelated();
+			}); 
 				
 			var attrSKU = null; 
 			var attrUPC = null; 
@@ -360,23 +370,64 @@ idProd = url.split('=')[2];
 
 
 /* ************* Seleccionar valor atributos ***********/  
-
-	$('.selectAttrsVal').click(function() {
+	function initModalIntegration() {
+		$('.atributes-to-fill').html(''); 
 		for(i in productData) {
-			$('.atributes-to-fill').append('<p class="select-attrs" attribute-name="'+productData[i].type_attr+'">'+productData[i].type_attr+'</p>');
+			$('.atributes-to-fill').append('<p class="select-attrs attr_'+quitSpace(productData[i].type_attr)+'" attribute-name="'+productData[i].type_attr+'">'+productData[i].type_attr+'</p>');
 		}
 
-		$('.attrs-distributor').append('<span class="attr-name">'+relatedProducts[0][0]+'</span>'); 
-		$('.attrs-distributor .distributor-name-attr').append(relatedProducts[0][8]); 
+		var layout = ' <p class="mod-distributor-name">'+relatedProducts[0][0]+'</p> ' + 
+                		' <div class="mod-attr-value"> ' + relatedProducts[0][8] 
+                	  ' </div> '; 
+        $('.mod-container-attrs').append(layout); 
+
+        //alert(".attr_"+quitSpace(selectedAttr)); 
+		$(".attr_"+quitSpace(selectedAttr)).addClass('selected-attr'); 
+	}
+
+	$('.selectAttrsVal').click(function() {	
+		initModalIntegration(); 
 	}); 
 
+	function renderValuesRelated() {
+			$('.mod-container-attrs').html(''); 
+			viewData.forEach(function(val) {
+			if( selectedAttr == val.type_attr ) {
+				var layout = '<div class="mod-container-attr" data-dismiss="modal"> <p class="mod-distributor-name">'+val.ID + ' - ' + getDistributor(val.ID) + '</p> ' + 
+                		' <div class="mod-attr-value"> ' + val.value_attr + 
+                	  ' </div> </div>'; 
+               	$('.mod-container-attrs').append(layout);  
+               	$('body').off('click', '.mod-distributor-name'); 
+               	$('body').on('click', '.mod-distributor-name', function(event){ 
+               		if ( selectedAttr == 'description' || selectedAttr == 'short_description') {
+               			$('#'+selectedAttr).summernote('code', $(event.target).next().html());  
+               		} else {
+               			console.log($(event.target).next().html()); 
+               			$('#'+quitSpace(selectedAttr)).val($(event.target).next().html());  
+               		}
+               	} );
+			}
+		});
+	}
+
+	// Renderizar valores de productos para Seleccionar 
+
 	$('body').on('click', '.select-attrs', function(event){
-		var selectedAttr = $(event.target).attr('attribute-name');  
-		alert( $(event.target).attr('attribute-name') ); 
-		viewData.forEach(function(val) {
-			consle.log(val.value_attr); 
-		}); 
+		selectedAttr = $(event.target).attr('attribute-name');  
+		$('.selected-attr').removeClass('selected-attr'); 
+		$(event.target).addClass('selected-attr'); 
+		renderValuesRelated();
 	}); 
+
+	function getDistributor(idProd) {
+		var distributor = '----'; 
+		viewData.forEach(function(val) {
+			if( val.type_attr == 'distributor' && parseInt(val.ID) == parseInt(idProd) ) {
+				distributor = val.value_attr; 
+			}
+		});
+		return distributor; 
+	}
 
 }); 
 
