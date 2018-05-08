@@ -11,7 +11,8 @@
 			    	$rows[] = $row;
 			    }
 			} else {
-			    echo "0 results";
+			    echo "sin resultados";
+			    return; 
 			}
 			echo json_encode($rows); 
    		}

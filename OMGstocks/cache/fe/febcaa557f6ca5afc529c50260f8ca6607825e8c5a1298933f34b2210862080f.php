@@ -74,6 +74,16 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     }
   </style>
 
+
+  <style type=\"text/css\">
+    .select-attrs {
+      font-weight: bold;
+    }
+    .select-attrs:hover {
+      cursor: pointer;
+    }
+  </style>
+
     <div class=\"dashboard-window col-md-9\">
         <a href=\"?p=feedLocal\">Atrás</a> 
         <!-- Galería --> 
@@ -81,7 +91,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
         </ul>
         
         <div style=\"padding-bottom: 10px;\">
-           <button class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#selectRelated\">Agrupar</button>
+           <button class=\"btn btn-default selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">Agrupar</button>
         </div>
 
         <!-- Relación con otros productos --> 
@@ -118,7 +128,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"form-group\">
               <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                 ";
-        // line 90
+        // line 100
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
             </div>
@@ -135,13 +145,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 104
+        // line 114
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 107
+        // line 117
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -192,7 +202,41 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
 
 <div class=\"modal fade\" id=\"selectRelated\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"editarCategoria\" aria-hidden=\"true\">
-  <div class=\"modal-dialog\" role=\"document\">
+  <div class=\"modal-dialog modal-lg\" role=\"document\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\" id=\"newCatLabel\">Seleccionar valores</h5>
+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+          <span aria-hidden=\"true\">&times;</span>
+        </button>
+      </div>
+      <div class=\"modal-body\">
+        <div class=\"row\">
+            <div class=\"col-md-4\"> 
+              <div class=\"atributes-to-fill\">
+                
+              </div>
+            </div>
+            <div class=\"col-md-8\">
+              <div class=\"attrs-distributor\" style=\"padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid gray;\">
+                <p class=\"distributor-name-attr\"></p>
+                
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
+        <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class=\"modal fade\" id=\"selectRelatedProduct\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"editarCategoria\" aria-hidden=\"true\">
+  <div class=\"modal-dialog modal-lg\" role=\"document\">
     <div class=\"modal-content\">
       <div class=\"modal-header\">
         <h5 class=\"modal-title\" id=\"newCatLabel\">Seleccionar productos</h5>
@@ -225,7 +269,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     </div>
   </div>
 </div>
-
 ";
     }
 
@@ -241,7 +284,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  145 => 107,  139 => 104,  122 => 90,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  155 => 117,  149 => 114,  132 => 100,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -300,6 +343,16 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     }
   </style>
 
+
+  <style type=\"text/css\">
+    .select-attrs {
+      font-weight: bold;
+    }
+    .select-attrs:hover {
+      cursor: pointer;
+    }
+  </style>
+
     <div class=\"dashboard-window col-md-9\">
         <a href=\"?p=feedLocal\">Atrás</a> 
         <!-- Galería --> 
@@ -307,7 +360,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
         </ul>
         
         <div style=\"padding-bottom: 10px;\">
-           <button class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#selectRelated\">Agrupar</button>
+           <button class=\"btn btn-default selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">Agrupar</button>
         </div>
 
         <!-- Relación con otros productos --> 
@@ -409,7 +462,41 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
 
 <div class=\"modal fade\" id=\"selectRelated\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"editarCategoria\" aria-hidden=\"true\">
-  <div class=\"modal-dialog\" role=\"document\">
+  <div class=\"modal-dialog modal-lg\" role=\"document\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\" id=\"newCatLabel\">Seleccionar valores</h5>
+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+          <span aria-hidden=\"true\">&times;</span>
+        </button>
+      </div>
+      <div class=\"modal-body\">
+        <div class=\"row\">
+            <div class=\"col-md-4\"> 
+              <div class=\"atributes-to-fill\">
+                
+              </div>
+            </div>
+            <div class=\"col-md-8\">
+              <div class=\"attrs-distributor\" style=\"padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid gray;\">
+                <p class=\"distributor-name-attr\"></p>
+                
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>
+        <button type=\"button\" class=\"btn btn-primary\" id=\"editCategoryBtn\">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class=\"modal fade\" id=\"selectRelatedProduct\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"editarCategoria\" aria-hidden=\"true\">
+  <div class=\"modal-dialog modal-lg\" role=\"document\">
     <div class=\"modal-content\">
       <div class=\"modal-header\">
         <h5 class=\"modal-title\" id=\"newCatLabel\">Seleccionar productos</h5>
@@ -442,7 +529,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     </div>
   </div>
 </div>
-
 {% endblock %}
 
 ", "producto.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\producto.html.twig");

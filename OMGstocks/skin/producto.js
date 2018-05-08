@@ -263,12 +263,14 @@ idProd = url.split('=')[2];
 			 	method: 'POST', 
 			 	data: { idProd: productData[0].ID }, 
 			 	success: function(mensaje){
-			 		  var relation = JSON.parse(mensaje); 
-			 		  console.log(relation); 
-			 		  for( var i = 0; i < relation.length; i++) {
-			 		  	var idRel = relation[i].category_id_categories; 
-			 		  	$('.tree-categories #idCat'+idRel+' input').first().attr('checked', true); 
-			 		  }
+			 			if(mensaje != 'sin resultados') {
+					 		  var relation = JSON.parse(mensaje); 
+					 		  console.log(relation); 
+					 		  for( var i = 0; i < relation.length; i++) {
+					 		  	var idRel = relation[i].category_id_categories; 
+					 		  	$('.tree-categories #idCat'+idRel+' input').first().attr('checked', true); 
+					 		  }
+			 			}
 			 	}
 			 });
 	 	}
@@ -279,7 +281,7 @@ idProd = url.split('=')[2];
 			if(relatedProducts.length > 0 ) {
 				for( var i in relatedProducts) {
 					$('#relationProduct').append("<tr>"+ 
-							"<td>"+ relatedProducts[i][7] +"</td>"+ 
+							"<td>"+ relatedProducts[i][relatedProducts[i].length-1] +"</td>"+ 
 							"<td>"+ relatedProducts[i][0] +"</td>"+ 
 							"<td>"+ relatedProducts[i][1] +"</td>"+ 
 							"<td>"+ relatedProducts[i][4] +"</td>"+ 
@@ -295,29 +297,23 @@ idProd = url.split('=')[2];
 	
 
 	// Obtener datos y formatear en arreglo 
-	function initFeedWindow(url, dataService) {
+	function initFeedWindow(url, dataService) { 	
 		 $.ajax({
 			 	url: url, 
 			 	type: 'post', 
 			 	data: dataService, 
 			 	success: function(mensaje){
-			 			console.log(mensaje);
 			 			 if(mensaje == 'sin datos') {
 			 			 	$("#tableFeed").html('<h2>Sin datos</h2>'); 
 			 			 	return; 
 			 			 }
-			 			 viewData = JSON.parse(mensaje); //datos brutos 
-			 			 // LOCAL 
-		 			 	var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-						// Put the object into storage
-						localStorage.setItem('testObject', JSON.stringify(testObject));
-						// Retrieve the object from storage
-						var retrievedObject = localStorage.getItem('testObject');
-						console.log('retrievedObject: ', JSON.parse(retrievedObject));
-			 			 // LOCAL 
+
+			 			 viewData 	=  JSON.parse(mensaje); //datos brutos 
+			 			console.log(viewData);
+			 			 
 			 			 lineProduct = [];
 			 			 row = [];  
-			 			 console.log(viewData); 
+
 						 viewData.forEach( function(val) {  
 							if( val.type_attr == 'Name Product') { 
 								row.push( val.value_attr ); 
@@ -332,6 +328,8 @@ idProd = url.split('=')[2];
 							}else if ( val.type_attr == 'UPC' ) {
 								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'Model' ) {
+								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'description' ) {
 								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'distributor' ) {
 									row.push( val.value_attr ); 
@@ -349,7 +347,8 @@ idProd = url.split('=')[2];
 														   row[4],
 														   row[5],
 														   row[6],
-														   row[7],));
+														   row[7], 
+														   row[8]));
 							        row = []; 
 							}
 						 } ); 	
@@ -358,6 +357,26 @@ idProd = url.split('=')[2];
 			 	}
 			 }); 
 	}
+
+
+/* ************* Seleccionar valor atributos ***********/  
+
+	$('.selectAttrsVal').click(function() {
+		for(i in productData) {
+			$('.atributes-to-fill').append('<p class="select-attrs" attribute-name="'+productData[i].type_attr+'">'+productData[i].type_attr+'</p>');
+		}
+
+		$('.attrs-distributor').append('<span class="attr-name">'+relatedProducts[0][0]+'</span>'); 
+		$('.attrs-distributor .distributor-name-attr').append(relatedProducts[0][8]); 
+	}); 
+
+	$('body').on('click', '.select-attrs', function(event){
+		var selectedAttr = $(event.target).attr('attribute-name');  
+		alert( $(event.target).attr('attribute-name') ); 
+		viewData.forEach(function(val) {
+			consle.log(val.value_attr); 
+		}); 
+	}); 
 
 }); 
 
