@@ -139,6 +139,8 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         <th>Part Number</th>
                         <th>UPC</th>
                         <th>Model</th>
+                        <th>Currency</th>
+                        <th></th>
                    </tr> 
               </thead> 
               <tbody id=\"relationProduct\"> 
@@ -160,7 +162,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"form-group\">
               <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                 ";
-        // line 132
+        // line 134
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
             </div>
@@ -177,13 +179,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 146
+        // line 148
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 149
+        // line 151
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -244,12 +246,12 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       </div>
       <div class=\"modal-body\" style=\"overflow-y: auto; \">
         <div class=\"row\">
-            <div class=\"col-md-3\"> 
+            <div class=\"col-md-2\"> 
               <div class=\"atributes-to-fill\">
                 
               </div>
             </div>
-            <div class=\"col-md-9\">
+            <div class=\"col-md-10\">
               <div class=\"mod-container-attrs\">
                 <p class=\"mod-distributor-name\"></p>
                 <div class=\"mod-attr-value\">
@@ -319,7 +321,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  187 => 149,  181 => 146,  164 => 132,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  189 => 151,  183 => 148,  166 => 134,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -443,6 +445,8 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
                         <th>Part Number</th>
                         <th>UPC</th>
                         <th>Model</th>
+                        <th>Currency</th>
+                        <th></th>
                    </tr> 
               </thead> 
               <tbody id=\"relationProduct\"> 
@@ -539,12 +543,12 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       </div>
       <div class=\"modal-body\" style=\"overflow-y: auto; \">
         <div class=\"row\">
-            <div class=\"col-md-3\"> 
+            <div class=\"col-md-2\"> 
               <div class=\"atributes-to-fill\">
                 
               </div>
             </div>
-            <div class=\"col-md-9\">
+            <div class=\"col-md-10\">
               <div class=\"mod-container-attrs\">
                 <p class=\"mod-distributor-name\"></p>
                 <div class=\"mod-attr-value\">
@@ -601,6 +605,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 </div>
 {% endblock %}
 
-", "producto.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\producto.html.twig");
+", "producto.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\stockOMG\\OMGstocks\\templates\\producto.html.twig");
     }
 }

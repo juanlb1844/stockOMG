@@ -30,6 +30,14 @@ $(document).ready( function() {
 							}
 						}
 					}
+					$('body').off('click', '.tree-categories ul'); 
+					$('body').on('click', '.tree-categories ul', function (event) { 
+													console.log($(event.target).find('ul').first().css('display')+'--'); 
+													if( $(event.target).find('ul').first().css('display') == 'block') 
+														$(event.target).find('ul').slideUp(); 
+													else 
+														$(event.target).find('ul').slideDown(); 
+												}); 
 				} 
 			}); 
 		} 

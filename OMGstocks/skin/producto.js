@@ -292,7 +292,7 @@ idProd = url.split('=')[2];
 	function listRelateds() {
 			if(relatedProducts.length > 0 ) {
 				for( var i in relatedProducts) {
-					$('#relationProduct').append("<tr>"+ 
+					$('#relationProduct').append("<tr idProductList="+relatedProducts[i][10]+">"+ 
 							"<td>"+ relatedProducts[i][relatedProducts[i].length-1] +"</td>"+ 
 							"<td>"+ relatedProducts[i][0] +"</td>"+ 
 							"<td>"+ relatedProducts[i][1] +"</td>"+ 
@@ -301,10 +301,15 @@ idProd = url.split('=')[2];
 							"<td>"+ relatedProducts[i][2] +"</td>"+ 
 							"<td>"+ relatedProducts[i][5] +"</td>"+
 							"<td>"+ relatedProducts[i][3] +"</td>"+
-							"<td>"+ relatedProducts[i][6] +"</td>"+ 
+							"<td>"+ relatedProducts[i][6] +"</td>"+ 	
+							"<td>"+ relatedProducts[i][7] +"</td>"+ 
+							"<td><input type='checkbox' checked='checked'></td>"+ 
 						"</tr>"); 
 				}
 			}
+		$('#relationProduct').on('click', 'input', function (event) {
+			console.log($(event.target).parent().parent().attr('idProductList') );
+		}); 
 	}
 	
 
@@ -343,6 +348,8 @@ idProd = url.split('=')[2];
 								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'description' ) {
 								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'currency' ) {
+								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'distributor' ) {
 									row.push( val.value_attr ); 
 									row.push(val.ID); 
@@ -361,7 +368,9 @@ idProd = url.split('=')[2];
 														   row[5],
 														   row[6],
 														   row[7], 
-														   row[8]));
+														   row[8], 
+														   row[9], 
+														   row[10]));
 							        row = []; 
 							}
 						 } ); 	

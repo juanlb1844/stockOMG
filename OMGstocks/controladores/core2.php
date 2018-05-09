@@ -202,7 +202,7 @@
 				$productosIngram[] = $producto; 
 		    }  */ 				  
 				 	     
-		    for($i = 0; $i < 1000; $i++){
+		    for($i = 0; $i < 2000; $i++){
 				$linea = fgets($fp);
 				$linea = utf8_encode($linea); 
 				$producto = explode(',', $linea);
@@ -235,6 +235,7 @@
 				$items[$num]['ficha_tecnica'] 	      = (string) $item->{'ficha_tecnica'}; 
 				$items[$num]['ficha_comercial'] 	  = (string) $item->{'ficha_comercial'}; 
 				$items[$num]['upc'] 	  			  = (string) $item->{'upc'};  
+				$items[$num]['moneda'] 	  			  = (string) $item->{'moneda'}; 
 				$num++; 
 			}
 
