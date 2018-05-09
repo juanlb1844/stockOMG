@@ -44,6 +44,8 @@ var quitSpace = function(str) {
     return cadena;
 };	
 
+var idRelateds = []; 
+
 var productData = null; 
 var main_img_data = null; 
 var img_to_main = null; 
@@ -344,6 +346,7 @@ idProd = url.split('=')[2];
 							}else if ( val.type_attr == 'distributor' ) {
 									row.push( val.value_attr ); 
 									row.push(val.ID); 
+									idRelateds.push(val.ID); 
 									var styleRow = '';
 									if(row[3] > 10) {
 										styleRow = 'style="font-size: 12px; font-weight: bold; color: green;"'; 
