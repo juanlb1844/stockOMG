@@ -131,7 +131,8 @@ $(document).ready(function(){
 		 	method: 'POST', 
 		 	data: { dataProduct: productData, 
 		 			selectedCats: idCatSelecteds, 
-		 			idProd : productData[0].ID 
+		 			idProd : productData[0].ID, 
+		 			idRelateds : idRelateds 
 		 			}, 
 		 	success: function(mensaje){
 		 		  console.log(mensaje); 
@@ -308,7 +309,19 @@ idProd = url.split('=')[2];
 				}
 			}
 		$('#relationProduct').on('click', 'input', function (event) {
-			console.log($(event.target).parent().parent().attr('idProductList') );
+			var controlAction = $(event.target).prop('checked'); 
+			var idToExclude = $(event.target).parent().parent().attr('idProductList'); 
+			console.log( idToExclude );
+			if( !controlAction ) {
+				idRelateds.forEach( function(val, index) {
+					if( idToExclude == val) {
+						idRelateds.splice(index, 1);
+					}
+				});
+			} else {
+				idRelateds.push(idToExclude); 
+			}
+
 		}); 
 	}
 	

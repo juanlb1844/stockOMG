@@ -1,7 +1,7 @@
 <?php 
 	include_once 'database.php'; 
 
-
+	$idRelateds = $_POST['idRelateds']; 
 	$productData = $_POST['dataProduct']; 
 	$idCats = isset($_POST['selectedCats']) ? $_POST['selectedCats'] : null; 
 	$idProd = $_POST['idProd']; 
@@ -97,5 +97,18 @@
 
 			    mysqli_close($db); 
 		}
+	}
 
+	// Crear Grupos 
+
+	foreach ($idRelateds as $ke => $val) {
+		$db = new db(); 
+		$sql_to_group = "UPDATE entity_value_varchar SET varchar_value = '2' WHERE name_attribute = 'meta_product' AND product_entity_id = $val"; 
+		if ($resultado = mysqli_query($db, $sql_to_group)) {
+		    echo "UPDATED"; 
+		} else {
+		   	echo "ERROR FATAL ALV"; 
+		}
+
+		mysqli_close($db); 
 	}
