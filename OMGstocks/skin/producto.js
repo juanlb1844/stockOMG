@@ -261,13 +261,20 @@ idProd = url.split('=')[2];
 					var valAttr = productData[i].value_attr; 
 					attrModel = ( valAttr.length > 1 && valAttr != '0000' && valAttr != '..') ? valAttr : '-a-a-a-a'; 
 				}
+				if ( productData[i].type_attr == 'meta_product' ){
+					var meta = productData[i].value_attr; 
+					attrMeta = meta; 
+				}
 			}
+
+			alert(meta); 
+
 			initFeedWindow('controladores/getRelatedProducts.php', 
 							{ sku : attrSKU,  
 							  upc : attrUPC, 
 							  np  : attrNP, 
-							  model : attrModel }); 
-
+							  model : attrModel, 
+							  meta : attrMeta }); 
 			getGallery(); 
 
 			// Seleccionar categorías a las que pertenece 	
@@ -337,7 +344,7 @@ idProd = url.split('=')[2];
 			 			 	$("#tableFeed").html('<h2>Sin datos</h2>'); 
 			 			 	return; 
 			 			 }
-
+			 			 console.log('.............'); 
 			 			 viewData 	=  JSON.parse(mensaje); //datos brutos 
 			 			console.log(viewData);
 			 			 
@@ -363,6 +370,8 @@ idProd = url.split('=')[2];
 								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'currency' ) {
 								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'meta_product' ) {
+								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'distributor' ) {
 									row.push( val.value_attr ); 
 									row.push(val.ID); 
@@ -383,7 +392,8 @@ idProd = url.split('=')[2];
 														   row[7], 
 														   row[8], 
 														   row[9], 
-														   row[10]));
+														   row[10], 
+														   row[11]));
 							        row = []; 
 							}
 						 } ); 	

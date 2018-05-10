@@ -7,9 +7,9 @@
 	$attrUPC = isset($_POST['upc']) ? $_POST['upc'] : ''; 
 	$attrNP = isset($_POST['np']) ? $_POST['np'] : ''; 
 	$attrModel = isset($_POST['model']) ? $_POST['model'] : ''; 
- 
-	$query = "CALL getRelatedProducts('$attrSKU', '$attrUPC', '$attrNP', '$attrModel')"; 
- 
+	$attrMeta = isset($_POST['meta']) ? $_POST['meta'] : ''; 
+ 	
+	$query = "CALL getRelatedProducts('$attrSKU', '$attrUPC', '$attrNP', '$attrModel', '$attrMeta')"; 
 	if ($resultado = mysqli_query($db, $query)) {
     	if ($resultado->num_rows > 0) {
 			while($row = $resultado->fetch_assoc()) {
