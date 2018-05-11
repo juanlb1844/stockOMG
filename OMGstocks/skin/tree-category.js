@@ -24,9 +24,9 @@ $(document).ready( function() {
 							var idCategory = categories[key].id_category; 
 							var parentId = categories[key].parent_id; 
 							if ( $($('#idCat'+parentId).find('ul')).html() != null && parentId != 1) {
-								$($('#idCat'+parentId).find('ul')).append('<li id="idCat'+idCategory+'"><input type="checkbox"><img src="'+urlImg+'">'+nameCategory+'</li>');
+								$($('#idCat'+parentId).find('ul')).append('<li id="idCat'+idCategory+'"><span class="tree-child"></span><input type="checkbox"><img src="'+urlImg+'">'+nameCategory+'</li>');
 							} else {
-								$('#idCat'+parentId).append('<ul><li id="idCat'+idCategory+'"><input type="checkbox"><img src="'+urlImg+'">'+nameCategory+'</li></ul>'); 
+								$('#idCat'+parentId).append('<ul><li id="idCat'+idCategory+'"><span class="tree-child"></span><input type="checkbox"><img src="'+urlImg+'">'+nameCategory+'</li></ul>'); 
 							}
 						}
 					}

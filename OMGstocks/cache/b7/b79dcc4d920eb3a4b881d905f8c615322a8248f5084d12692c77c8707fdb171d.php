@@ -40,6 +40,26 @@ class __TwigTemplate_ce2dd0b0dceeeec605d7519278869dcc3660d3261095f7e52513b1ebc77
             cursor: pointer;
           }
      </style>
+      <!-- TREE --> 
+  <style type=\"text/css\">
+    .tree-child {
+      background-image: url('media/users/d.png');
+      height: 10px;
+      display: inline-block;
+      z-index: 9999;
+      left: 0px;
+      background-size: 10px;
+      background-position: -42px -1px;
+      background-size: auto;
+      width: 11px;
+      background-repeat: no-repeat; 
+      margin-left: -4px; 
+    } 
+  ul {
+      padding-left: 15px; 
+    }
+  </style>
+
      <script type=\"text/javascript\" src=\"skin/tree-category.js\"></script>
      <div class=\"col-sm-12\" style=\"border-radius: 4px; background-color: #eff3f6; padding-top: 10px; padding-bottom: 10px; \">
 \t\t<div class=\"col-sm-12\" style=\"margin-bottom: 10px; \">
@@ -120,6 +140,26 @@ class __TwigTemplate_ce2dd0b0dceeeec605d7519278869dcc3660d3261095f7e52513b1ebc77
             cursor: pointer;
           }
      </style>
+      <!-- TREE --> 
+  <style type=\"text/css\">
+    .tree-child {
+      background-image: url('media/users/d.png');
+      height: 10px;
+      display: inline-block;
+      z-index: 9999;
+      left: 0px;
+      background-size: 10px;
+      background-position: -42px -1px;
+      background-size: auto;
+      width: 11px;
+      background-repeat: no-repeat; 
+      margin-left: -4px; 
+    } 
+  ul {
+      padding-left: 15px; 
+    }
+  </style>
+
      <script type=\"text/javascript\" src=\"skin/tree-category.js\"></script>
      <div class=\"col-sm-12\" style=\"border-radius: 4px; background-color: #eff3f6; padding-top: 10px; padding-bottom: 10px; \">
 \t\t<div class=\"col-sm-12\" style=\"margin-bottom: 10px; \">
