@@ -176,7 +176,7 @@
 				$d22    		 =  $value['22'];	 $d23    	 	 =  $value['23'];
 				$d24    		 =  $value['24'];	 $inStock   	 =  $value['25'];
 
-				$query = "CALL create_product(3,'$nombreProducto', '$sku', $precio, '$nombreProducto', '$vpn', $inStock, '$proveedor', '$clase', 'media/users/no-img.jpg');";   
+				$query = "CALL create_product(3,'$nombreProducto', '$sku', $precio, '$nombreProducto', '$vpn', $inStock, '$proveedor', '$clase', 'media/users/no-img.jpg', 'origen');";   
 
 			    mysqli_query($db, $query);
 		 		mysqli_close($db); 
@@ -199,7 +199,7 @@
 				$MensajeError    = $value['MensajeError'];
 				$stockMonterrey  = $value['stockMonterrey'];
 				$stockCentral    = $value['stockCentral'];
-				$query = "CALL create_product(2,'$descripcion', '$codigo', $precio, '$descripcion', '$partNumber', $stockTotal, '$fabricante', '$categoria', 'users/no-img.jpg');";   
+				$query = "CALL create_product(2,'$descripcion', '$codigo', $precio, '$descripcion', '$partNumber', $stockTotal, '$fabricante', '$categoria', 'users/no-img.jpg', 'origen');";   
 			    mysqli_query($db, $query);
 		 		mysqli_close($db); 		 	
 			}  
@@ -236,7 +236,7 @@
 					$VencimientoPromocion = $value['VencimientoPromocion'];
 					$DisponibleEnPromocion = $value['DisponibleEnPromocion'];
 
-					$query = "CALL create_product(1,'$descripcion', '$codigo_fabricante', $precio, '$descripcion', '0000', $disponible, '$marca', '$grupo', '$imagen');";  
+					$query = "CALL create_product(1,'$descripcion', '$codigo_fabricante', $precio, '$descripcion', '0000', $disponible, '$marca', '$grupo', '$imagen', 'origen');";  
 				    if( mysqli_query($db, $query) ) 
 				    	echo '1'; 
 				    else 
@@ -339,7 +339,7 @@ function flatToRelated_CVA($param) {
 			   	$moneda = $row['moneda'];  
 			   	if(strlen($upc) < 1) $upc = '0000'; 
 			   	$db2 = new db(); 
-			   	$query2 = "CALL create_product(1, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '..', '$moneda');";  
+			   	$query2 = "CALL create_product(1, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '..', '$moneda', 'origen');";  
 			   	if ( mysqli_query($db2, $query2) ) 
 			   			echo $codigo; 
 			  }
@@ -428,7 +428,7 @@ function insertarCVAFlat($array){
 			   	$imagen = $row['imagen']; 
 			   	$part_number = $row['numero_parte']; 
 			   	$db2 = new db();  
-			   	$query2 = "CALL create_product(2, '$name_product', '$codigo', $precio, '..', '0000', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '..', '..', 'Pesos');";  
+			   	$query2 = "CALL create_product(2, '$name_product', '$codigo', $precio, '..', '0000', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '..', '..', 'Pesos', 'origen');";  
 			   	if ( mysqli_query($db2, $query2) ) 
 			   			echo $codigo; 
 			  }
@@ -499,7 +499,7 @@ function insertarCVAFlat($array){
 			   	$upc    = $row['upc']; 
 			   	$part_number = $row['numero_parte']; 
 			   	$db2 = new db(); 
-			   	$query2 = "CALL create_product(3, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '$modelo', 'Pesos');";  
+			   	$query2 = "CALL create_product(3, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '$modelo', 'Pesos', 'origen');";  
 			   	if ( mysqli_query($db2, $query2) ) 
 			   			echo $codigo; 
 			  }

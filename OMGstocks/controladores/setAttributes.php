@@ -5,17 +5,36 @@
 	$productData = $_POST['dataProduct']; 
 	$idCats = isset($_POST['selectedCats']) ? $_POST['selectedCats'] : null; 
 	$idProd = $_POST['idProd']; 
+	$attrStatus = $_POST['attrStatus']; 
 
+	// Crear una nueva entidad | (ER) entidad real 
+		if($attrStatus == 'origen') {
+				$db = new db();  
+				$queryNew = "CALL create_product(4, 'nn', 'nn', 1, '..', '0000', 1,  'nn', 'nn', 'nn', 'nn', '..', '..', 'Pesos', 'revision');";  
 
+				if( $resultado = mysqli_query($db, $queryNew) ) {
+					//echo 'nuevo producto creado'; 
+					if ($resultado->num_rows > 0) {
+						while($row = $resultado->fetch_assoc()) { 
+							$idProd = $row['id_product'];  
+						} 
+					}
+				} else {
+					//echo 'CONFLICTO EN SQL:: '.$query; 
+				}
+				mysqli_close($db);  
+				//echo '..........';
+		}
+			
 	if( count($idCats) > 0 ) {
 		$db = new db();  
-		
+
 		// Reiniciar relación con categorías 
 		$query = "DELETE FROM category_has_entity WHERE product_entity_id = $idProd"; 
 		if( $resultado = mysqli_query($db, $query) ) {
-			echo 'EJECUTADO'; 
+			//echo 'EJECUTADO'; 
 		} else {
-			echo 'CONFLICTO EN SQL:: '.$query; 
+			//echo 'CONFLICTO EN SQL:: '.$query; 
 		}
 		mysqli_close($db);  
 
@@ -26,9 +45,9 @@
 					$query = "INSERT INTO category_has_entity(category_id_categories, product_entity_id) VALUES($value, $idProd); ";
 
 					if ($resultado = mysqli_query($db, $query)) {
-			    		echo "UPDATED::"; 
+			    		//echo "UPDATED::"; 
 			   		}else {
-			   			echo "ERROR FATAL ALV::".$query; 
+			   			//echo "ERROR FATAL ALV::".$query; 
 			   		}
 				    mysqli_close($db); 
 
@@ -45,17 +64,17 @@
 							    	$db2 = new db();  
 							    	$query = "INSERT INTO entity_value_varchar(varchar_value, product_entity_id, name_attribute) VALUES('CREADO', $idProd, '$attr_name');"; 
 							    	if( $resNewAttr = mysqli_query($db2, $query) ) {
-							    		echo '_EJECUTADO_'; 
+							    		//echo '_EJECUTADO_'; 
 							    	} else {
-							    		echo '_PROBLEMA_'; 
-							    		echo $query; 
+							    		//echo '_PROBLEMA_'; 
+							    		//echo $query; 
 							    	}
 							    	mysqli_close($db2);  
 						    	}
 
 						    }
 						} else {
-						    echo "0 results";
+						    //echo "0 results";
 						}
 						//echo json_encode($rows); 
 			   		}
@@ -63,13 +82,13 @@
 		}
 	  // Si se han borrado las relaciones de categorías 
 	} else {
-		echo 'nada'; 
+		//echo 'nada'; 
 		$db = new db();  
 		$query = "DELETE FROM category_has_entity WHERE product_entity_id = $idProd"; 
 		if( $resultado = mysqli_query($db, $query) ) {
-			echo 'EJECUTADO'; 
+			//echo 'EJECUTADO'; 
 		} else {
-			echo 'CONFLICTO EN SQL:: '.$query; 
+			//echo 'CONFLICTO EN SQL:: '.$query; 
 		}
 		mysqli_close($db); 
 	}
@@ -80,21 +99,25 @@
 		$typeAttr  = $value['type_attr']; 
 		if( $typeAttr != 'distributor' ) {
 				$db = new db();  
-				$valueAttr = $value['localValue']; 
 				$idAttr    = $value['ID']; 
+				try {
+					$valueAttr = isset($value['localValue']) ? $value['localValue'] : ''; 
+				} catch (Exception $e) {
+					$valueAttr = ''; 
+				}
 
 				if($typeAttr == "short_description"){
-						$query = "UPDATE entity_value_text SET text_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr"; 
+						$query = "UPDATE entity_value_text SET text_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idProd"; 
 				} else if($typeAttr == 'description') {
-						$query = "UPDATE entity_value_text SET text_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr"; 
+						$query = "UPDATE entity_value_text SET text_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idProd"; 
 				} else {
-						$query = "UPDATE entity_value_varchar SET varchar_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idAttr";
+						$query = "UPDATE entity_value_varchar SET varchar_value = '$valueAttr' WHERE name_attribute = '$typeAttr' AND product_entity_id = $idProd";
 				}
 
 				if ($resultado = mysqli_query($db, $query)) {
-		    		echo "UPDATED"; 
+		    		//echo "UPDATED"; 
 		   		}else {
-		   			echo "ERROR FATAL ALV"; 
+		   			//echo "ERROR FATAL ALV"; 
 		   		}
 
 			    mysqli_close($db); 
@@ -105,13 +128,15 @@
 
 	foreach ($idRelateds as $ke => $val) {
 		$db = new db(); 
-		$sql_to_group = "UPDATE product_entity SET flag_status = 'revisar' 
+		$sql_to_group = "UPDATE product_entity SET flag_status = 'revision' 
 							WHERE id_entity = $val"; 
 		if ($resultado = mysqli_query($db, $sql_to_group)) {
-		    echo "UPDATED"; 
+		    //echo "UPDATED"; 
 		} else {
-		   	echo "ERROR FATAL ALV"; 
+		   	//echo "ERROR FATAL ALV"; 
 		}
 
 		mysqli_close($db); 
 	}
+
+echo $idProd; 

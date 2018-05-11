@@ -43,6 +43,7 @@ var quitSpace = function(str) {
     }
     return cadena;
 };	
+var attrStatus = null; 
 
 var idRelateds = []; 
 
@@ -138,11 +139,13 @@ $(document).ready(function(){
 		 	data: { dataProduct: productData, 
 		 			selectedCats: idCatSelecteds, 
 		 			idProd : productData[0].ID, 
-		 			idRelateds : idRelateds 
+		 			idRelateds : idRelateds, 
+		 			attrStatus : attrStatus 
 		 			}, 
 		 	success: function(mensaje){
 		 		  console.log(mensaje); 
-		 		  window.location.reload(); 
+		 		  //window.location.reload(); 
+				  window.location.href = '?p=producto&idProducto='+mensaje;
 		 	}
 		 });
 		console.log( productData ); 
@@ -277,7 +280,7 @@ idProd = url.split('=')[2];
 				}
 			}
 
-			alert(attrStatus); 
+			//alert(attrStatus); 
 
 			initFeedWindow('controladores/getRelatedProducts.php', 
 							{ sku : attrSKU,  
@@ -311,7 +314,7 @@ idProd = url.split('=')[2];
 			if(relatedProducts.length > 0 ) {
 				for( var i in relatedProducts) {
 					$('#relationProduct').append("<tr idProductList="+relatedProducts[i][13]+">"+ 
-							"<td>"+ relatedProducts[i][relatedProducts[i].length-1] +"</td>"+ 
+							"<td>"+ relatedProducts[i][relatedProducts[i].length-3] +"</td>"+ 
 							"<td>"+ relatedProducts[i][0] +"</td>"+ 
 							"<td>"+ relatedProducts[i][1] +"</td>"+ 
 							"<td>"+ relatedProducts[i][4] +"</td>"+ 
@@ -322,6 +325,7 @@ idProd = url.split('=')[2];
 							"<td>"+ relatedProducts[i][6] +"</td>"+ 	
 							"<td>"+ relatedProducts[i][7] +"</td>"+ 
 							"<td><input type='checkbox' checked='checked'></td>"+ 
+							"<td>"+ relatedProducts[i][relatedProducts[i].length-2] +"</td>"+ 
 						"</tr>"); 
 				}
 			}

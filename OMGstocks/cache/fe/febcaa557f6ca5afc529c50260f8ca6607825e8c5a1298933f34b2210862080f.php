@@ -113,6 +113,9 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     .selected-attr {
       color: #03A9F4;
     }
+    #nextProduct:hover {
+      cursor: pointer;
+    }
   </style>
 
     <div class=\"dashboard-window col-md-9\">
@@ -164,7 +167,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"form-group\">
               <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                 ";
-        // line 136
+        // line 139
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
             </div>
@@ -181,13 +184,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 150
+        // line 153
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 153
+        // line 156
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -323,7 +326,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  191 => 153,  185 => 150,  168 => 136,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  194 => 156,  188 => 153,  171 => 139,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -420,6 +423,9 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
     }
     .selected-attr {
       color: #03A9F4;
+    }
+    #nextProduct:hover {
+      cursor: pointer;
     }
   </style>
 
