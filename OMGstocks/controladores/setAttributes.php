@@ -5,9 +5,11 @@
 	$productData = $_POST['dataProduct']; 
 	$idCats = isset($_POST['selectedCats']) ? $_POST['selectedCats'] : null; 
 	$idProd = $_POST['idProd']; 
-	if( count($idCats) > 0 ) {
 
+
+	if( count($idCats) > 0 ) {
 		$db = new db();  
+		
 		// Reiniciar relación con categorías 
 		$query = "DELETE FROM category_has_entity WHERE product_entity_id = $idProd"; 
 		if( $resultado = mysqli_query($db, $query) ) {

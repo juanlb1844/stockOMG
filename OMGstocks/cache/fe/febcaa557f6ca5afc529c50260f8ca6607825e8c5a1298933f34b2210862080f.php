@@ -117,6 +117,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     <div class=\"dashboard-window col-md-9\">
         <a href=\"?p=feedLocal\">Atrás</a> 
+        <a id=\"nextProduct\" class=\"pull-right\" next>Siguiente</a>
         <!-- Galería --> 
         <ul id=\"entityGallery\">
         </ul>
@@ -163,7 +164,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"form-group\">
               <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                 ";
-        // line 135
+        // line 136
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
             </div>
@@ -180,13 +181,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 149
+        // line 150
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 152
+        // line 153
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -322,7 +323,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  190 => 152,  184 => 149,  167 => 135,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  191 => 153,  185 => 150,  168 => 136,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -424,6 +425,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     <div class=\"dashboard-window col-md-9\">
         <a href=\"?p=feedLocal\">Atrás</a> 
+        <a id=\"nextProduct\" class=\"pull-right\" next>Siguiente</a>
         <!-- Galería --> 
         <ul id=\"entityGallery\">
         </ul>

@@ -54,6 +54,7 @@ var relatedProducts = null;
 
 var selectedAttr = null // atributo seleccionado en modal | combinar entidades 
 
+
 // obtener galería del producto 
  function getGallery () {
 	$.ajax({
@@ -93,6 +94,11 @@ var selectedAttr = null // atributo seleccionado en modal | combinar entidades
 	}
 
 $(document).ready(function(){
+
+	$('#nextProduct').click(function() {
+		var idProd = productData[0].ID;
+		window.location.href = '?p=producto&idProducto='+ (parseInt(idProd)+1);
+	}); 
 
  // cambiar imágen principal 
 	$('#saveImg').click( function() {
@@ -271,7 +277,7 @@ idProd = url.split('=')[2];
 				}
 			}
 
-			alert(meta); 
+			alert(attrStatus); 
 
 			initFeedWindow('controladores/getRelatedProducts.php', 
 							{ sku : attrSKU,  
