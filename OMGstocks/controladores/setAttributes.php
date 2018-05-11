@@ -103,7 +103,8 @@
 
 	foreach ($idRelateds as $ke => $val) {
 		$db = new db(); 
-		$sql_to_group = "UPDATE entity_value_varchar SET varchar_value = '2' WHERE name_attribute = 'meta_product' AND product_entity_id = $val"; 
+		$sql_to_group = "UPDATE product_entity SET flag_status = 'revisar' 
+							WHERE id_entity = $val"; 
 		if ($resultado = mysqli_query($db, $sql_to_group)) {
 		    echo "UPDATED"; 
 		} else {

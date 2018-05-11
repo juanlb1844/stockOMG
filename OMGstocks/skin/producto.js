@@ -265,6 +265,10 @@ idProd = url.split('=')[2];
 					var meta = productData[i].value_attr; 
 					attrMeta = meta; 
 				}
+				if ( productData[i].type_attr == 'flag_status' ){
+					var status = productData[i].value_attr; 
+					attrStatus = status; 
+				}
 			}
 
 			alert(meta); 
@@ -274,7 +278,7 @@ idProd = url.split('=')[2];
 							  upc : attrUPC, 
 							  np  : attrNP, 
 							  model : attrModel, 
-							  meta : attrMeta }); 
+							  status : attrStatus }); 
 			getGallery(); 
 
 			// Seleccionar categorías a las que pertenece 	
@@ -300,7 +304,7 @@ idProd = url.split('=')[2];
 	function listRelateds() {
 			if(relatedProducts.length > 0 ) {
 				for( var i in relatedProducts) {
-					$('#relationProduct').append("<tr idProductList="+relatedProducts[i][10]+">"+ 
+					$('#relationProduct').append("<tr idProductList="+relatedProducts[i][13]+">"+ 
 							"<td>"+ relatedProducts[i][relatedProducts[i].length-1] +"</td>"+ 
 							"<td>"+ relatedProducts[i][0] +"</td>"+ 
 							"<td>"+ relatedProducts[i][1] +"</td>"+ 
@@ -358,21 +362,25 @@ idProd = url.split('=')[2];
 								row.push( val.value_attr ); 
 							} else if ( val.type_attr == 'Normal Price' ) {
 								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'UPC' ){
+								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'stock' ) {
 								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'Number Part' ) {
 								row.push( val.value_attr ); 
-							}else if ( val.type_attr == 'UPC' ) {
-								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'Model' ) {
-								row.push( val.value_attr ); 
-							}else if ( val.type_attr == 'description' ) {
-								row.push( val.value_attr ); 
-							}else if ( val.type_attr == 'currency' ) {
 								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'meta_product' ) {
 								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'currency' ) {
+								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'short_description' ) {
+								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'description' ) {
+								row.push( val.value_attr ); 
 							}else if ( val.type_attr == 'distributor' ) {
+								row.push( val.value_attr ); 
+							}else if ( val.type_attr == 'flag_status' ) {
 									row.push( val.value_attr ); 
 									row.push(val.ID); 
 									idRelateds.push(val.ID); 
@@ -393,7 +401,9 @@ idProd = url.split('=')[2];
 														   row[8], 
 														   row[9], 
 														   row[10], 
-														   row[11]));
+														   row[11],
+														   row[12],
+														   row[13]));
 							        row = []; 
 							}
 						 } ); 	
