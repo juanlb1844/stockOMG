@@ -6,11 +6,12 @@
 	$idCats = isset($_POST['selectedCats']) ? $_POST['selectedCats'] : null; 
 	$idProd = $_POST['idProd']; 
 	$attrStatus = $_POST['attrStatus']; 
+	$idER = $_POST['idER'];
 
 	// Crear una nueva entidad | (ER) entidad real 
 		if($attrStatus == 'origen') {
 				$db = new db();  
-				$queryNew = "CALL create_product(4, 'nn', 'nn', 1, '..', '0000', 1,  'nn', 'nn', 'nn', 'nn', '..', '..', 'Pesos', 'revision');";  
+				$queryNew = "CALL create_product(4, 'nn', 'nn', 1, '..', '0000', 1,  'nn', 'nn', 'nn', 'nn', '..', '..', 'Pesos', 'revision', 'RR');";  
 
 				if( $resultado = mysqli_query($db, $queryNew) ) {
 					//echo 'nuevo producto creado'; 
@@ -124,9 +125,9 @@
 		}
 	}
 
-	// Crear Grupos 
-
+	// Cambiar FLAG_STATUS & IDER
 	foreach ($idRelateds as $ke => $val) {
+
 		$db = new db(); 
 		$sql_to_group = "UPDATE product_entity SET flag_status = 'revision' 
 							WHERE id_entity = $val"; 
@@ -137,6 +138,22 @@
 		}
 
 		mysqli_close($db); 
+
+
+ 		/* cambiar el IDER en entity_value_varchar */ 
+
+		$db = new db(); 
+		$sql_to_ider = "UPDATE entity_value_varchar SET varchar_value = '$idER' 
+							WHERE product_entity_id = '$val' AND 
+							name_attribute = 'EntityID'"; 
+		if ($resultado = mysqli_query($db, $sql_to_ider)) {
+		    //echo "UPDATED"; 
+		} else {
+		   	//echo "ERROR FATAL ALV"; 
+		}
+
+		mysqli_close($db); 
+
 	}
 
 echo $idProd; 

@@ -170,6 +170,6 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t</div>
 \t\t{{ include('footer.html.twig') }}
 </body>
-</html> ", "layout.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\layout.html.twig");
+</html> ", "layout.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\last\\stockOMG\\OMGstocks\\templates\\layout.html.twig");
     }
 }

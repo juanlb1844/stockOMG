@@ -149,6 +149,6 @@ jQuery(document).ready( function () {
 });
 </script>
 
-", "uploaderFiles.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\uploaderFiles.html.twig");
+", "uploaderFiles.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\last\\stockOMG\\OMGstocks\\templates\\uploaderFiles.html.twig");
     }
 }

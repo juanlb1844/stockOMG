@@ -128,9 +128,14 @@ $(document).ready(function(){
 			var idCat = $( $(selecteds[x]).parent() ).attr('id'); 
 			idCatSelecteds.push( idCat.substr(5, idCat.length) ); 
 		}
-		 
+		
+		var idEntity = ''; 
 		for( i in productData) {
 			productData[i].localValue = $('#'+quitSpace(productData[i].type_attr)).val(); 
+			if(productData[i].type_attr == 'EntityID') {
+				productData[i].localValue = productData[0].ID+'-E-R'; 
+			}
+			idER = idProd+'-E-R'; 
 		}
 		$('.save-action').html('<img src="media/users/loading.gif" style="width:40px;"><span style="color:#2e6da4;">Guardando</span>');
 		$.ajax({
@@ -140,12 +145,13 @@ $(document).ready(function(){
 		 			selectedCats: idCatSelecteds, 
 		 			idProd : productData[0].ID, 
 		 			idRelateds : idRelateds, 
-		 			attrStatus : attrStatus 
+		 			attrStatus : attrStatus, 
+		 			idER : idER 
 		 			}, 
 		 	success: function(mensaje){
 		 		  console.log(mensaje); 
 		 		  //window.location.reload(); 
-				  window.location.href = '?p=producto&idProducto='+mensaje;
+				  window.location.href = '?p=producto&idProducto='+mensaje; 
 		 	}
 		 });
 		console.log( productData ); 
@@ -278,16 +284,19 @@ idProd = url.split('=')[2];
 					var status = productData[i].value_attr; 
 					attrStatus = status; 
 				}
+				if ( productData[i].type_attr == 'EntityID' ){
+					var idProdER = productData[i].value_attr; 
+					idProdER = idProdER; 
+				}
 			}
-
-			//alert(attrStatus); 
 
 			initFeedWindow('controladores/getRelatedProducts.php', 
 							{ sku : attrSKU,  
 							  upc : attrUPC, 
 							  np  : attrNP, 
 							  model : attrModel, 
-							  status : attrStatus }); 
+							  status : attrStatus, 
+							  IDER : idProdER }); 
 			getGallery(); 
 
 			// Seleccionar categorías a las que pertenece 	
