@@ -2,39 +2,34 @@ $(document).ready( function() {
 
 
 
-            initGraphs(); 
+initGraphs(); 
 
     function initGraphs() {
+
                 setTimeout(function(){
                 var ctx = document.getElementById('myChart0').getContext('2d');
                 var chart = new Chart(ctx, {
-                    type: 'line',
+                    type: 'bar',
                     data: {
-                        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"],
+                        labels: ["CVA", "TechData", "Ingram", "Existentes"],
                         datasets: [{
-                            label: "Ventas del mes",
-                            backgroundColor: 'rgb(255, 99, 132)',
-                            borderColor: 'rgb(255, 99, 132)',
-                            data: [0, 10, 5, 2, 20, 30, 45],
+                            label: "Proveedores",
+                            backgroundColor: '#337ab7',
+                            borderColor: 'white',
+                            data: [200, 400, 900, 1500],
                         }]
                     }, 
                     // Configuration options go here
                     options: {}
                 });
-            }, 1000);  
+            }, 200);  
 
               setTimeout(function(){
                $('#addWidget').click();
-              }, 500); 
+              }, 1000); 
               setTimeout(function(){
                $('#addWidget').click();
-              }, 900); 
-              setTimeout(function(){
-               $('#addWidget').click();
-              }, 1300);
-              setTimeout(function(){
-               $('#addWidget').click();
-              }, 1700);
+              }, 2000); 
     }
 
         

@@ -75,7 +75,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 \t\tdiv {
 \t\t\ttransition-property: all!important; 
 \t\t\ttransition-duration: .2s; 
-\t\t}
+\t\t} 
+
 \t</style>
 
 \t<div class=\"col-md-9\">
@@ -92,7 +93,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 64
+        // line 65
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -154,7 +155,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                         //width: Math.floor(1 + 3 * Math.random()),
                         //height: Math.floor(1 + 3 * Math.random()),
                         height: 4,
-                        width: 4, 
+                        width: 6, 
                         auto_position: true
                     });
                     ///////////////////////////////////////////////////////////////
@@ -165,19 +166,19 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                             var charts = new Chart(ctx, {
                                 type: typeGr[ Math.floor((Math.random() * 3) + 1)], 
                                 data: {
-                                    labels: [\"Enero\", \"Febrero\", \"Marzo\", \"Abril\", \"Mayo\", \"Junio\", \"Julio\"],
+                                    labels: [\"Faltantes\", \"Revision\", \"Aprovados\", \"Retornados\"],
                                     datasets: [{
-                                        label: \"Ventas del mes\",
+                                        label: \"Estados del catálogo\",
                                         /*backgroundColor: 'rgb(255, 99, 132)',*/
-                                        backgroundColor: 'orange',
-                                        borderColor: 'rgb(255, 99, 132)',
-                                        data: [0, 10, 5, 2, 20, 30, 45],
+                                        backgroundColor: '#337ab7',
+                                        borderColor: 'gray',
+                                        data: [12302, 200, 1200, 120],
                                     }]
                                 }, 
                                 // Configuration options go here
                                 options: {}
                             });
-                        }, 100); 
+                        }, 200); 
                     ///////////////////////////////////////////////////////////////
 
                     return false;
@@ -218,7 +219,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 
     public function getDebugInfo()
     {
-        return array (  96 => 64,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  97 => 65,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -278,7 +279,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 \t\tdiv {
 \t\t\ttransition-property: all!important; 
 \t\t\ttransition-duration: .2s; 
-\t\t}
+\t\t} 
+
 \t</style>
 
 \t<div class=\"col-md-9\">
@@ -354,7 +356,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                         //width: Math.floor(1 + 3 * Math.random()),
                         //height: Math.floor(1 + 3 * Math.random()),
                         height: 4,
-                        width: 4, 
+                        width: 6, 
                         auto_position: true
                     });
                     ///////////////////////////////////////////////////////////////
@@ -365,19 +367,19 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                             var charts = new Chart(ctx, {
                                 type: typeGr[ Math.floor((Math.random() * 3) + 1)], 
                                 data: {
-                                    labels: [\"Enero\", \"Febrero\", \"Marzo\", \"Abril\", \"Mayo\", \"Junio\", \"Julio\"],
+                                    labels: [\"Faltantes\", \"Revision\", \"Aprovados\", \"Retornados\"],
                                     datasets: [{
-                                        label: \"Ventas del mes\",
+                                        label: \"Estados del catálogo\",
                                         /*backgroundColor: 'rgb(255, 99, 132)',*/
-                                        backgroundColor: 'orange',
-                                        borderColor: 'rgb(255, 99, 132)',
-                                        data: [0, 10, 5, 2, 20, 30, 45],
+                                        backgroundColor: '#337ab7',
+                                        borderColor: 'gray',
+                                        data: [12302, 200, 1200, 120],
                                     }]
                                 }, 
                                 // Configuration options go here
                                 options: {}
                             });
-                        }, 100); 
+                        }, 200); 
                     ///////////////////////////////////////////////////////////////
 
                     return false;
@@ -404,6 +406,6 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 
 </script>
 {% endblock %}
-", "content.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\content.html.twig");
+", "content.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\last\\stockOMG\\OMGstocks\\templates\\content.html.twig");
     }
 }

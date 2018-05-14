@@ -80,7 +80,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
   } 
   </style>
 
-     <div class=\"show-data col-md-9 hiding-window\"> 
+     <div class=\"show-data col-md-9 hiding-window\" style=\"padding-right: 0px; \"> 
         <div class=\"row col-md-3\">
             <div class=\"col-md-12\">
                 <h4>Categorías</h4>
@@ -131,7 +131,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
         echo "
             </div>
         </div> 
-        <div class=\"row col-md-9\">
+        <div class=\"row col-md-9\" style=\"padding-right: 0px;\">
         <div class=\"col-md-12\" style=\"padding: 0px; margin-bottom: 40px; \">
           <div class=\"col-md-6\" style=\"padding-left: 0px;\">
               <h3 style=\"margin: 0px;\" class=\"title-template\">Busqueda general</h3>
@@ -322,7 +322,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
   } 
   </style>
 
-     <div class=\"show-data col-md-9 hiding-window\"> 
+     <div class=\"show-data col-md-9 hiding-window\" style=\"padding-right: 0px; \"> 
         <div class=\"row col-md-3\">
             <div class=\"col-md-12\">
                 <h4>Categorías</h4>
@@ -370,7 +370,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
                {{ include('filters.html.twig') }}
             </div>
         </div> 
-        <div class=\"row col-md-9\">
+        <div class=\"row col-md-9\" style=\"padding-right: 0px;\">
         <div class=\"col-md-12\" style=\"padding: 0px; margin-bottom: 40px; \">
           <div class=\"col-md-6\" style=\"padding-left: 0px;\">
               <h3 style=\"margin: 0px;\" class=\"title-template\">Busqueda general</h3>
