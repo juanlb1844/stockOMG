@@ -119,11 +119,12 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
   </style>
 
     <div class=\"dashboard-window col-md-9\">
-        <a href=\"?p=feedLocal\">Atrás</a> 
-        <a id=\"nextProduct\" class=\"pull-right\" next>Siguiente</a>
-        <!-- Galería --> 
-        <ul id=\"entityGallery\">
-        </ul>
+          <a style=\"padding:2px 7px 2px 7px; font-weight: bold; font-size: 12px;\" href=\"?p=feedLocal\" class=\"btn btn-primary btn-sm\">Atrás</a> 
+          <button style=\"padding:2px 7px 2px 7px; font-weight: bold; font-size: 12px;\" id=\"nextProduct\" class=\"btn btn-primary btn-sm pull-right\">Siguiente</button>
+          <!-- Galería --> 
+
+          <ul style=\"margin-top: 10px;\" id=\"entityGallery\">
+          </ul>
         
         
            <div class=\"createGroup selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">  <span style=\"line-height: 20px;\">Agrupar</span> 
@@ -167,7 +168,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"form-group\">
               <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                 ";
-        // line 139
+        // line 140
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
             </div>
@@ -184,13 +185,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 153
+        // line 154
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 156
+        // line 157
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -326,7 +327,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  194 => 156,  188 => 153,  171 => 139,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  195 => 157,  189 => 154,  172 => 140,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -430,11 +431,12 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
   </style>
 
     <div class=\"dashboard-window col-md-9\">
-        <a href=\"?p=feedLocal\">Atrás</a> 
-        <a id=\"nextProduct\" class=\"pull-right\" next>Siguiente</a>
-        <!-- Galería --> 
-        <ul id=\"entityGallery\">
-        </ul>
+          <a style=\"padding:2px 7px 2px 7px; font-weight: bold; font-size: 12px;\" href=\"?p=feedLocal\" class=\"btn btn-primary btn-sm\">Atrás</a> 
+          <button style=\"padding:2px 7px 2px 7px; font-weight: bold; font-size: 12px;\" id=\"nextProduct\" class=\"btn btn-primary btn-sm pull-right\">Siguiente</button>
+          <!-- Galería --> 
+
+          <ul style=\"margin-top: 10px;\" id=\"entityGallery\">
+          </ul>
         
         
            <div class=\"createGroup selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">  <span style=\"line-height: 20px;\">Agrupar</span> 

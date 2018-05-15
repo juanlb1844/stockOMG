@@ -26,6 +26,7 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 \t\tbackground-color: #eff3f6; 
 \t\tborder-radius: 4px;
 \t\tfont-size: 11px;
+\t\tborder: 1px solid #e5e5e5;
 \t}
 \t.filter p {
 \t\tmargin-bottom: 2px; 
@@ -144,6 +145,7 @@ class __TwigTemplate_60f685175e96abb0052d23ed5c03ffb50a9a0f156d061d3209ae9a9b77a
 \t\tbackground-color: #eff3f6; 
 \t\tborder-radius: 4px;
 \t\tfont-size: 11px;
+\t\tborder: 1px solid #e5e5e5;
 \t}
 \t.filter p {
 \t\tmargin-bottom: 2px; 

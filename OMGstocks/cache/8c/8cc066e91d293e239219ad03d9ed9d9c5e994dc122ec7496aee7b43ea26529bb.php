@@ -20,8 +20,13 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
         echo "<!DOCTYPE html>
 <html>
 <head> 
+\t<style type=\"text/css\">
+\t\t.navbar-header {
+\t\t\tfont-weight: 400!important; 
+\t\t}
+\t</style>
 \t<title>";
-        // line 4
+        // line 9
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["seo"]) ? $context["seo"] : null), "title", array()), "html", null, true);
         echo "</title>
 \t<!-- javascript  --> 
@@ -45,20 +50,32 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t <nav class=\"navbar navbar-default menu-header\" style=\"background-color: white;\">
 \t\t  <div class=\"container-fluid\">
 \t\t    <div class=\"navbar-header\" style=\"font-weight: bold;\">
-\t\t      <a class=\"navbar-brand\" href=\"#\">
-\t\t        <img style=\"width: 80px;\" alt=\"OMG Stock\" src=\"media/users/logo.png\"> 
-\t\t      </a>
-\t\t      <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=upload_files\">Upload</a></p>
-\t\t      <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=grupos_atributos\">Grupos de atributos</a></p>  
-\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=proveedores\">Proveedores</a></p>
-\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"feed\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=feedLocal\">FeedLocal</a></p>
-\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"dashboard-tab\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=dashboard\">Dashboard</a></p>
-\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=configuracion\">Configuración</a></p>
+\t\t       <a class=\"navbar-brand\" href=\"#\" style=\"padding-top: 5px;\">
+\t\t        <img style=\"width: 40px;\" alt=\"OMG Stock\" src=\"skin/media/images.png\"> 
+\t\t       </a>
+\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">
+\t\t      \t<a href=\"?p=upload_files\">Upload</a>
+\t\t       </p>
+\t\t       
+\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=grupos_atributos\">Grupos de atributos</a>
+\t\t       </p>  
+\t\t       
+\t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=proveedores\">Proveedores</a>
+\t\t       </p>
+\t\t       
+\t\t       <p id=\"feed\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=feedLocal\">FeedLocal</a>
+\t\t       </p>
+\t\t       
+\t\t       <p id=\"dashboard-tab\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=dashboard\">Dashboard</a>
+\t\t       </p>
+\t\t       
+\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=configuracion\">Configuración</a>
+\t\t       </p>
 \t\t    </div> 
 \t\t    <div class=\"pull-right\">
 \t\t    \t<div style=\"padding-top: 3px;\">
@@ -70,23 +87,23 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t</nav>
 \t\t<div class=\"col-md-12\" style=\"min-height: 600px; padding-bottom: 100px;\">
 \t\t\t";
-        // line 50
+        // line 67
         $this->displayBlock('content', $context, $blocks);
-        // line 52
+        // line 69
         echo "\t\t</div>
 \t</div>
 \t\t";
-        // line 54
+        // line 71
         echo twig_include($this->env, $context, "footer.html.twig");
         echo "
 </body>
 </html> ";
     }
 
-    // line 50
+    // line 67
     public function block_content($context, array $blocks = array())
     {
-        // line 51
+        // line 68
         echo "\t\t\t";
     }
 
@@ -102,7 +119,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 
     public function getDebugInfo()
     {
-        return array (  90 => 51,  87 => 50,  80 => 54,  76 => 52,  74 => 50,  25 => 4,  20 => 1,);
+        return array (  107 => 68,  104 => 67,  97 => 71,  93 => 69,  91 => 67,  30 => 9,  20 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -118,6 +135,11 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
         return new Twig_Source("<!DOCTYPE html>
 <html>
 <head> 
+\t<style type=\"text/css\">
+\t\t.navbar-header {
+\t\t\tfont-weight: 400!important; 
+\t\t}
+\t</style>
 \t<title>{{seo.title}}</title>
 \t<!-- javascript  --> 
 \t<script type=\"text/javascript\" src=\"skin/js/jQuery-v3-3-1.js\"></script>
@@ -140,20 +162,32 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t <nav class=\"navbar navbar-default menu-header\" style=\"background-color: white;\">
 \t\t  <div class=\"container-fluid\">
 \t\t    <div class=\"navbar-header\" style=\"font-weight: bold;\">
-\t\t      <a class=\"navbar-brand\" href=\"#\">
-\t\t        <img style=\"width: 80px;\" alt=\"OMG Stock\" src=\"media/users/logo.png\"> 
-\t\t      </a>
-\t\t      <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=upload_files\">Upload</a></p>
-\t\t      <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=grupos_atributos\">Grupos de atributos</a></p>  
-\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=proveedores\">Proveedores</a></p>
-\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"feed\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=feedLocal\">FeedLocal</a></p>
-\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"dashboard-tab\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=dashboard\">Dashboard</a></p>
-\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">|</p>
-\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\"><a href=\"?p=configuracion\">Configuración</a></p>
+\t\t       <a class=\"navbar-brand\" href=\"#\" style=\"padding-top: 5px;\">
+\t\t        <img style=\"width: 40px;\" alt=\"OMG Stock\" src=\"skin/media/images.png\"> 
+\t\t       </a>
+\t\t       <p id=\"uploadFiles\" class=\"option-menu navbar-text navbar-right\">
+\t\t      \t<a href=\"?p=upload_files\">Upload</a>
+\t\t       </p>
+\t\t       
+\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=grupos_atributos\">Grupos de atributos</a>
+\t\t       </p>  
+\t\t       
+\t\t       <p id=\"providers\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=proveedores\">Proveedores</a>
+\t\t       </p>
+\t\t       
+\t\t       <p id=\"feed\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=feedLocal\">FeedLocal</a>
+\t\t       </p>
+\t\t       
+\t\t       <p id=\"dashboard-tab\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=dashboard\">Dashboard</a>
+\t\t       </p>
+\t\t       
+\t\t       <p id=\"configuration\" class=\"option-menu navbar-text navbar-right\">
+\t\t       \t<a href=\"?p=configuracion\">Configuración</a>
+\t\t       </p>
 \t\t    </div> 
 \t\t    <div class=\"pull-right\">
 \t\t    \t<div style=\"padding-top: 3px;\">

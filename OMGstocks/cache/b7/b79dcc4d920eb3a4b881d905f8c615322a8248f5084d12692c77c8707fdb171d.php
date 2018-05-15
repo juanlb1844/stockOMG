@@ -61,15 +61,23 @@ class __TwigTemplate_ce2dd0b0dceeeec605d7519278869dcc3660d3261095f7e52513b1ebc77
   </style>
 
      <script type=\"text/javascript\" src=\"skin/tree-category.js\"></script>
-     <div class=\"col-sm-12\" style=\"border-radius: 4px; background-color: #eff3f6; padding-top: 10px; padding-bottom: 10px; \">
-\t\t<div class=\"col-sm-12\" style=\"margin-bottom: 10px; \">
-\t\t          <div class=\"col-sm-6\">
-\t\t               <a href=\"\">Desplegar</a>
-\t\t          </div>
-\t\t          <div class=\"col-sm-6\">
-\t\t               <a href=\"\">Contraer</a>
-\t\t          </div>
+\t\t<div class=\"col-sm-12\" style=\"border: 1px solid #e5e5e5; background-color: #e8edf1; border-top-left-radius: 4px; border-top-right-radius: 4px;\">
+\t\t          <div class=\"col-md-8\" style=\"\">
+      <h4 style=\"font-weight: bold; font-size: 17px; color: #656565;\">Categorías</h4> 
+    </div>
+    <div class=\"col-md-4\" style=\"padding-top: 10px;\">
+      <a href=\"\">Administrar</a>
+    </div>
 \t\t     </div>
+     <div class=\"col-sm-12\" style=\"border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border: 1px solid #e5e5e5; background-color: #eff3f6; padding-top: 10px; padding-bottom: 10px; \">
+          <div class=\"col-sm-12\" style=\"padding-bottom: 10px; padding-left: 0px; padding-right: 0px; background-color: #eff3f6;\">
+              <div class=\"col-sm-6\">
+                   <button class=\"btn btn-default\" style=\"background-color: #c7cfd8; padding:2px 7px 2px 7px; font-weight: bold; font-size: 9px;\">Expander todo</button>
+              </div>
+              <div class=\"col-sm-6\">
+                   <button class=\"btn btn-default\" style=\"background-color: #c7cfd8; padding:2px 7px 2px 7px; font-weight: bold; font-size: 9px;\">Contraer todo</button>
+              </div>
+         </div>
           <ul class=\"tree-categories\" style=\"clear: both;\"> 
                <li>
                     <img style=\"width: 20px;\" src=\"skin/media/folder-open.png\"> Electrónicos
@@ -161,15 +169,23 @@ class __TwigTemplate_ce2dd0b0dceeeec605d7519278869dcc3660d3261095f7e52513b1ebc77
   </style>
 
      <script type=\"text/javascript\" src=\"skin/tree-category.js\"></script>
-     <div class=\"col-sm-12\" style=\"border-radius: 4px; background-color: #eff3f6; padding-top: 10px; padding-bottom: 10px; \">
-\t\t<div class=\"col-sm-12\" style=\"margin-bottom: 10px; \">
-\t\t          <div class=\"col-sm-6\">
-\t\t               <a href=\"\">Desplegar</a>
-\t\t          </div>
-\t\t          <div class=\"col-sm-6\">
-\t\t               <a href=\"\">Contraer</a>
-\t\t          </div>
+\t\t<div class=\"col-sm-12\" style=\"border: 1px solid #e5e5e5; background-color: #e8edf1; border-top-left-radius: 4px; border-top-right-radius: 4px;\">
+\t\t          <div class=\"col-md-8\" style=\"\">
+      <h4 style=\"font-weight: bold; font-size: 17px; color: #656565;\">Categorías</h4> 
+    </div>
+    <div class=\"col-md-4\" style=\"padding-top: 10px;\">
+      <a href=\"\">Administrar</a>
+    </div>
 \t\t     </div>
+     <div class=\"col-sm-12\" style=\"border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border: 1px solid #e5e5e5; background-color: #eff3f6; padding-top: 10px; padding-bottom: 10px; \">
+          <div class=\"col-sm-12\" style=\"padding-bottom: 10px; padding-left: 0px; padding-right: 0px; background-color: #eff3f6;\">
+              <div class=\"col-sm-6\">
+                   <button class=\"btn btn-default\" style=\"background-color: #c7cfd8; padding:2px 7px 2px 7px; font-weight: bold; font-size: 9px;\">Expander todo</button>
+              </div>
+              <div class=\"col-sm-6\">
+                   <button class=\"btn btn-default\" style=\"background-color: #c7cfd8; padding:2px 7px 2px 7px; font-weight: bold; font-size: 9px;\">Contraer todo</button>
+              </div>
+         </div>
           <ul class=\"tree-categories\" style=\"clear: both;\"> 
                <li>
                     <img style=\"width: 20px;\" src=\"skin/media/folder-open.png\"> Electrónicos

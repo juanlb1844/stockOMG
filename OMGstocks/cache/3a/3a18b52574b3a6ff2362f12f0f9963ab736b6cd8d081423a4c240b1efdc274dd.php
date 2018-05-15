@@ -530,6 +530,6 @@ class __TwigTemplate_ba6cf01b59bcef7b73760d16fd6ba2092747cf30374cab345a6ee9c76db
 
 
 {% endblock %}
-", "gruposAtributos.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\gruposAtributos.html.twig");
+", "gruposAtributos.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\last\\stockOMG\\OMGstocks\\templates\\gruposAtributos.html.twig");
     }
 }

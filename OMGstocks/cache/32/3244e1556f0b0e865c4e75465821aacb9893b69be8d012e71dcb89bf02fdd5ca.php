@@ -80,7 +80,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
   } 
   </style>
 
-     <div class=\"show-data col-md-9 hiding-window\" style=\"padding-right: 0px; \"> 
+     <div class=\"show-data col-md-9 hiding-window\" style=\"padding-left: 0px; \"> 
         <div class=\"row col-md-3\">
             <div class=\"col-md-12\">
                 <h4>Categorías</h4>
@@ -90,7 +90,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
                 </div>
             </div>
             <div class=\"col-md-12\">
-              <div class=\"container-tree-categories\" style=\"background-color: #eff3f6; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
+              <div class=\"container-tree-categories\" style=\"border: 1px solid #e5e5e5; background-color: #eff3f6; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
                 <div class=\"row\" style=\"margin-bottom: 10px;\">
                   <div class=\"col-md-6\">
                     <a href=\"\" style=\"background-color: #9e9e9e; color:white; padding: 2px 4px 2px 4px; border-radius: 4px;\">contraer</a>
@@ -322,7 +322,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
   } 
   </style>
 
-     <div class=\"show-data col-md-9 hiding-window\" style=\"padding-right: 0px; \"> 
+     <div class=\"show-data col-md-9 hiding-window\" style=\"padding-left: 0px; \"> 
         <div class=\"row col-md-3\">
             <div class=\"col-md-12\">
                 <h4>Categorías</h4>
@@ -332,7 +332,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
                 </div>
             </div>
             <div class=\"col-md-12\">
-              <div class=\"container-tree-categories\" style=\"background-color: #eff3f6; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
+              <div class=\"container-tree-categories\" style=\"border: 1px solid #e5e5e5; background-color: #eff3f6; border-top-right-radius: 4px; border-bottom-right-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
                 <div class=\"row\" style=\"margin-bottom: 10px;\">
                   <div class=\"col-md-6\">
                     <a href=\"\" style=\"background-color: #9e9e9e; color:white; padding: 2px 4px 2px 4px; border-radius: 4px;\">contraer</a>
