@@ -44,6 +44,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t</style>
 
 \t<script type=\"text/javascript\" src=\"skin/configuracion.js\"></script>
+\t<script type=\"text/javascript\" src=\"skin/configuracion-data.js\"></script>
 \t<div class=\"col-md-12\">
 \t\t<div class=\"col-md-4\">
 \t\t\t<h2 style=\"font-weight: 300;\">Configuración</h2>
@@ -266,6 +267,7 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 \t</style>
 
 \t<script type=\"text/javascript\" src=\"skin/configuracion.js\"></script>
+\t<script type=\"text/javascript\" src=\"skin/configuracion-data.js\"></script>
 \t<div class=\"col-md-12\">
 \t\t<div class=\"col-md-4\">
 \t\t\t<h2 style=\"font-weight: 300;\">Configuración</h2>
@@ -445,6 +447,6 @@ class __TwigTemplate_68189fef93d8ed54a452995106f4710e8c43e0c9781b0eff3c3c3c6220b
 </div>
 
 {% endblock %}
-", "configuracion.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\configuracion.html.twig");
+", "configuracion.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\last\\stockOMG\\OMGstocks\\templates\\configuracion.html.twig");
     }
 }
