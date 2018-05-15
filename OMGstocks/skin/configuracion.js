@@ -112,7 +112,7 @@ $(document).ready(function() {
 		checkDbCountFlat = setInterval(getFlatCount, 2000); 
 		$('#countFlatCVA').append('<img class="respCVA" src="media/users/loading.gif" style="width:25px;">');
 		var groupFlatCVA = $('#CVAgroupsFlat').val(); 
-		var urlCva = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupFlatCVA+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0&dt=1&dc=1&upc=1';  
+		var urlCva 		 = 'https://www.grupocva.com/catalogo_clientes_xml/lista_precios.xml?cliente=236&marca=%&grupo='+groupFlatCVA+'&clave=%&codigo=%&tc=1&promos=1&porcentaje=0&promos=1&porcentaje=0&dt=1&dc=1&upc=1';  
 		console.log(urlCva); 
 		$(event.target).addClass('btn-loading').text(''); 
 		$.ajax({

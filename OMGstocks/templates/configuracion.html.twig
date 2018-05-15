@@ -4,7 +4,7 @@
 	{{parent()}} 
 
 	<style type="text/css">
-
+	 /* import/export & flat */ 
 		.btn-loading {
 		    background-image: url(media/users/loading.gif);
 		    background-position: center;
@@ -58,7 +58,6 @@
 			  				<td id="countRelatedIngramMicro"><span id="countIngramMicro">?</span></td>
 			  				<td>
 			  					<button id="exportIngram" class="btn-sm form-control">Actualizar</button>
-			  					<!-- <button id="fFlat_ingram" class="btn-sm btn btn-primary">FF</button> -->
 			  				</td>
 			  			</tr>
 			  			<tr>
@@ -68,7 +67,6 @@
 			  				<td id="countRelatedCVA" ><span id="countCVA">?</span></td>
 			  				<td>
 			  					<button id="exportCVAFlat" class="btn-sm form-control">Actualizar</button>
-			  					<!-- <button id="fFlat_cva" class="btn-sm btn btn-primary">FF</button> --> 
 			  					<p></p>
 			  					<select id="CVAgroupsFlat" class="form-control">
 			  					</select>
@@ -118,7 +116,7 @@
 		    </div>
 		    <!-- tabla CVA --> 
 				<div id="cvaDiv" style="width: 100%; overflow-x: visible;">
-					<h2>CVA</h2>
+					<h3>CVA</h3>
 					<div>		
 					    <table id="example" class="display" cellspacing="0" width="100%" style="width: 100%; overflow-x: visible; font-size: 12px;">
 				      	  <thead></thead> 
@@ -129,7 +127,7 @@
 				</div>
             <!-- tabla techData --> 
 				<div id="techDataDiv" class="inactive">
-					<h2>TechData</h2>
+					<h3>TechData</h3>
 					<table id="techData" class="display" cellspacing="0" width="100%" style="font-size: 10px;">
 			      	  <thead> </thead>
 			     	   <tbody></tbody>
@@ -137,7 +135,7 @@
 				</div>
             <!-- tabla ingram --> 
 			   <div id="ingramDiv" class="inactive">
-			   		<h2>Ingram</h2>
+			   		<h3>Ingram</h3>
 					<table id="ingram" class="display table" cellspacing="0" width="100%" style="font-size: 10px;">
 			      	   <thead></thead>
 			     	   <tbody></tbody>

@@ -339,7 +339,7 @@ function flatToRelated_CVA($param) {
 			   	$moneda = $row['moneda'];  
 			   	if(strlen($upc) < 1) $upc = '0000'; 
 			   	$db2 = new db(); 
-			   	$query2 = "CALL create_product(1, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '..', '$moneda', 'origen');";  
+			   	$query2 = "CALL create_product(1, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '..', '$moneda', 'origen', 'E-NOT-REAL');";  
 			   	if ( mysqli_query($db2, $query2) ) 
 			   			echo $codigo; 
 			  }
