@@ -48,4 +48,4 @@
 					  WHERE (ATR.name_attribute = 'sku') AND (PD.flag_status = 'aprovado')
 					
 					)
-						ORDER BY ID ASC; 
+						ORDER BY ID ASC; */ 

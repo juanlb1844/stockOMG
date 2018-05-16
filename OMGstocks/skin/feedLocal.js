@@ -42,7 +42,6 @@
 
 
 
-
 // datos generales 
 // ID de la categoría seleccionada | para editar / borrar  
 // ID de la categoría por defecto 
@@ -50,8 +49,6 @@
 var dataLocalCategory = {
 			idCatSelected : 1
 	};  
-
-
 
 $(document).ready( function(){
 
@@ -220,11 +217,11 @@ function filterFee(config) {
 	$('.tree-categories').click(function(event){
 		$('.tree-categories li').css('font-weight', '400');
 		$('.tree-categories li').css('color', '#333333');
-		console.log($(event.target).css('font-weight', 'bold'));
+		$(event.target).css('font-weight', 'bold'); 
 		$(event.target).css('color', '#337ab7'); 
 		$(event.target).addClass('selected-category');
 		var cadIdCat = $(event.target).attr('id');
-		cadIdCat = cadIdCat.substr( 5, cadIdCat.length );  
+		cadIdCat = cadIdCat.substr( 5, cadIdCat.length );
 		dataLocalCategory.idCatSelected = cadIdCat; 
 		if( cadIdCat == 58) {
 				//initFeedWindow('controladores/getXProductsByAttrVal.php', { attributeName : 'marca', attributeVal: 'CISCO' }); 
@@ -243,6 +240,16 @@ function filterFee(config) {
 			getFilters('controladores/getAttrsByCat.php', { idCat : cadIdCat, attrName : 'marca' }); 
 		}
 	});
+
+
+	$('body').off('click', '.tree-categories ul'); 
+	$('body').on('click', '.tree-categories ul', function (event) { 
+		console.log($(event.target).find('ul').first().css('display')+'--'); 
+		if( $(event.target).find('ul').first().css('display') == 'block') 
+			$(event.target).find('ul').slideUp(); 
+		else 
+			$(event.target).find('ul').slideDown(); 
+	}); 
 
 	// Armar árbol de categorías 
 	function getCategories() {
@@ -278,25 +285,18 @@ function filterFee(config) {
 // -- Obtener productos para la tabla 
 
 	function initFeedWindow(url, dataService) {
-		 $('#tableFeed').html('<img src="media/users/loading.gif" style="width:70px;">');
+		 $('#tableFeed').html('<div style="text-align: center; padding-top:150px; padding-bottom: 150px;"> <img src="media/users/loading.gif" style="width:70px;"> <div>');
 		 $.ajax({
 			 	url: url, 
 			 	type: 'post', 
 			 	data: dataService, 
 			 	success: function(mensaje){
+			 			console.log(mensaje); 
 			 			 if(mensaje == 'sin datos') {
 			 			 	$("#tableFeed").html('<h2>Sin datos</h2>'); 
 			 			 	return; 
 			 			 }
 			 			 viewData = JSON.parse(mensaje); //datos brutos 
-			 			 // LOCAL 
-			 			 	var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-							// Put the object into storage
-							localStorage.setItem('testObject', JSON.stringify(testObject));
-							// Retrieve the object from storage
-							var retrievedObject = localStorage.getItem('testObject');
-							console.log('retrievedObject: ', JSON.parse(retrievedObject));
-			 			 // LOCAL 
 			 			 lineProduct = [];
 			 			 row = [];  
 			 			 console.log(viewData); 
