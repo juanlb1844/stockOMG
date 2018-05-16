@@ -52,8 +52,6 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     .paginate_button .current {
       background-color: gray; 
     }
-
-    /* buscador de tabla */  
     input[type=\"search\"] {
       border: none;
       background-color: #efefef;
@@ -79,41 +77,25 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
       width: 11px;
       background-repeat: no-repeat; 
       margin-left: -4px; 
-      } 
-      .container-feed {
-        padding-left: 0px; 
-        border-radius: 4px;
-      }
-
-
-      .small-btn {
-        padding: 2px 7px 2px 7px;
-      }
-
-      /* header widget */
-      .header-widget-tree {
-        background-color: #e8edf1; border-top-left-radius: 4px; border-top-right-radius: 4px; border: 1px solid #e5e5e5; color: #656565; padding: 5px; font-weight: bold; padding-left: 15px;
-      } 
-      .body-widget-tree {
-        border: 1px solid #e5e5e5; background-color: #eff3f6; border-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px;
-      }
+  } 
+  .container-feed {
+    padding-left: 0px; 
+    border-radius: 4px;
+  }
   </style>
 
      <div class=\"show-data col-md-9 hiding-window container-feed\"> 
-        <div class=\"row col-md-3\"> 
-
+        <div class=\"row col-md-3\">
             <div class=\"col-md-12\">
+                <h4>Categorías</h4>
                 <div style=\"\">
-                  \t<button class=\"btn btn-primary btn-sm small-btn\" id=\"newCatBtn\" data-toggle=\"modal\" data-target=\"#newCat\">Nueva</button>
-                    <button class=\"btn btn-primary btn-sm small-btn\" id=\"editCatBtn\" data-toggle=\"modal\" data-target=\"#eddCat\">..</button>
+                  \t<button class=\"btn btn-primary btn-sm\" id=\"newCatBtn\" data-toggle=\"modal\" data-target=\"#newCat\" style=\"padding: 0px 5px 0px 5px;\">Nueva</button>
+                    <button class=\"btn btn-primary btn-sm\" id=\"editCatBtn\" data-toggle=\"modal\" data-target=\"#eddCat\">..</button>
                 </div>
             </div>
-
             <div class=\"col-md-12\" style=\"margin-top: 10px;\">
-                <div class=\"col-md-12 header-widget-tree\">Categorías</div>
-              <div class=\"container-tree-categories body-widget-tree\">
-                <div class=\"row\" style=\"margin-bottom: 10px; margin-top: 10px;\">
-                  <br>
+              <div class=\"container-tree-categories\" style=\"border: 1px solid #e5e5e5; background-color: #eff3f6; border-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
+                <div class=\"row\" style=\"margin-bottom: 10px;\">
                   <div class=\"col-md-6\">
                     <a href=\"\" style=\"background-color: #9e9e9e; color:white; padding: 2px 4px 2px 4px; border-radius: 4px;\">contraer</a>
                   </div>
@@ -148,7 +130,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
             <div class=\"col-md-12\">
                ";
-        // line 120
+        // line 102
         echo twig_include($this->env, $context, "filters.html.twig");
         echo "
             </div>
@@ -177,7 +159,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 146
+        // line 128
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -279,7 +261,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 
     public function getDebugInfo()
     {
-        return array (  181 => 146,  152 => 120,  34 => 5,  28 => 3,  11 => 1,);
+        return array (  163 => 128,  134 => 102,  34 => 5,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -316,8 +298,6 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     .paginate_button .current {
       background-color: gray; 
     }
-
-    /* buscador de tabla */  
     input[type=\"search\"] {
       border: none;
       background-color: #efefef;
@@ -343,41 +323,25 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
       width: 11px;
       background-repeat: no-repeat; 
       margin-left: -4px; 
-      } 
-      .container-feed {
-        padding-left: 0px; 
-        border-radius: 4px;
-      }
-
-
-      .small-btn {
-        padding: 2px 7px 2px 7px;
-      }
-
-      /* header widget */
-      .header-widget-tree {
-        background-color: #e8edf1; border-top-left-radius: 4px; border-top-right-radius: 4px; border: 1px solid #e5e5e5; color: #656565; padding: 5px; font-weight: bold; padding-left: 15px;
-      } 
-      .body-widget-tree {
-        border: 1px solid #e5e5e5; background-color: #eff3f6; border-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px;
-      }
+  } 
+  .container-feed {
+    padding-left: 0px; 
+    border-radius: 4px;
+  }
   </style>
 
      <div class=\"show-data col-md-9 hiding-window container-feed\"> 
-        <div class=\"row col-md-3\"> 
-
+        <div class=\"row col-md-3\">
             <div class=\"col-md-12\">
+                <h4>Categorías</h4>
                 <div style=\"\">
-                  \t<button class=\"btn btn-primary btn-sm small-btn\" id=\"newCatBtn\" data-toggle=\"modal\" data-target=\"#newCat\">Nueva</button>
-                    <button class=\"btn btn-primary btn-sm small-btn\" id=\"editCatBtn\" data-toggle=\"modal\" data-target=\"#eddCat\">..</button>
+                  \t<button class=\"btn btn-primary btn-sm\" id=\"newCatBtn\" data-toggle=\"modal\" data-target=\"#newCat\" style=\"padding: 0px 5px 0px 5px;\">Nueva</button>
+                    <button class=\"btn btn-primary btn-sm\" id=\"editCatBtn\" data-toggle=\"modal\" data-target=\"#eddCat\">..</button>
                 </div>
             </div>
-
             <div class=\"col-md-12\" style=\"margin-top: 10px;\">
-                <div class=\"col-md-12 header-widget-tree\">Categorías</div>
-              <div class=\"container-tree-categories body-widget-tree\">
-                <div class=\"row\" style=\"margin-bottom: 10px; margin-top: 10px;\">
-                  <br>
+              <div class=\"container-tree-categories\" style=\"border: 1px solid #e5e5e5; background-color: #eff3f6; border-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; \">
+                <div class=\"row\" style=\"margin-bottom: 10px;\">
                   <div class=\"col-md-6\">
                     <a href=\"\" style=\"background-color: #9e9e9e; color:white; padding: 2px 4px 2px 4px; border-radius: 4px;\">contraer</a>
                   </div>
