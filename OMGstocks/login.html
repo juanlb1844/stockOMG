@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login STOCK OMG</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.css">
+		<!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css">--> 
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.js"></script>
+		<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>--> 
+		<link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
+
+
+</head>
+<body>
+
+	<div class="container-fluid" style="padding: 0px;"> 
+		<nav class="navbar navbar-default menu-header">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">
+		        <img style="width: 60px;" alt="OMG Stock" src="https://th.content.jobsdbcdn.com/Content/CmsContent/Logo/TH/JobsDBFiles/CompanyLogo/logo-l/9956l.png"> 
+		      </a>
+		       <p class="option-menu navbar-text navbar-right">
+		       <a href="#integraciones" data-ancla="integraciones">Integraciones</a></p>
+		       <p class="option-menu navbar-text navbar-right">Sobre el servicio</a></p>
+		       <p class="option-menu navbar-text navbar-right">Registrarse</a></p>
+		       <p id="login" class="option-menu navbar-text navbar-right">Entrar</p>
+		    </div> 
+		  </div>
+		</nav>
+
+		<div class="row wrapper-omg">
+			<div class="col-md-6 side-left">
+				<h4>Integra tu tienda con nuestro servicio</h4>
+				<h3>
+					<!-- Contactanos para aclarar dudads sobre el servicio -->
+					Miles de productos en tu tienda con un click
+				</h3>
+				<div class="row">
+					<button id="contact-us" class="btn btn-primary btn-contact">CONTÁCTANOS</button>
+				</div>
+				<div style="height: 150px;" class="row plataform">
+					<ul>
+						<li>
+							<img style="width: 150px;" src="https://www.multiplicalia.com/wp-content/uploads/2018/01/dise%C3%B1o-de-tienda-online-magento-logo.png">
+						</li>
+						<li>
+							<img style="width: 120px;" src="https://www.syt.com/images/prestashop.png">
+						</li>
+						<li>
+							<img style="width: 150px;" src="https://i2.wp.com/www.cscartdesign.com.es/wp-content/uploads/2015/06/cscart.png?fit=750%2C350&ssl=1">
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-6 side-right">
+				<!--<h3> Proveedores registrados </h3>--> 
+				<div class="row">
+					<div class="slide-container">
+					  <div class="slide-provider">
+						<div class="slide-provider-element">
+							<!-- <h1>CVA</h1> --> 
+							<img style="width: 320px; padding-top: 100px;" src="https://grupocva.com/page/images/logo.png">							
+							<p style="position: absolute; bottom: 0px;"><a href="">Más información</a></p>
+						</div>
+						<div class="slide-provider-element">
+							<!-- <h1>INGRAM</h1> --> 
+							<img style="width: 320px; padding-top: 100px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ingram_Micro_logo_new.svg/2000px-Ingram_Micro_logo_new.svg.png">
+							<p style="position: absolute; bottom: 0px;"><a href="">Más información</a></p>
+						</div>
+						<div class="slide-provider-element">
+							<!-- <h1>Tech Data</h1> --> 
+							<img style="width: 320px; padding-top: 100px;" src="http://globbpartner.com/wp-content/uploads/2017/11/Logo-Maverick-AV-Solutions.png">
+							<p style="position: absolute; bottom: 0px;"><a href="">Más información</a></p>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="seccond" name="integraciones" id="integraciones" style="background-color: #eff2f6; ">
+			
+		</div>
+
+	</div>
+
+
+</body>
+	<div id="modal">
+			<h2>Envíar correo</h2> 
+	</div>
+	<div id="login-user">
+		<div style="height: 200px; text-align: center; padding-top: 60px;">
+			<button id="login-user" class="btn btn-primary">USUARIO</button>
+			<button id="login-agent" class="btn btn-primary">AGENTE</button>
+		</div>
+	</div>
+</html>
+
+<style type="text/css">
+	html, body {
+		font-family: lato; 
+		overflow-x: hidden;
+	}
+	.side-left {
+		padding-top: 170px; 
+		text-align: center; 
+	}
+	.side-right {
+		padding-top: 100px; 
+	}
+	.menu-header {
+		background-color: white; 
+	}
+	.wrapper-omg {
+		height: 400px; 
+	}
+	.footer-container {
+		padding-top: 20px; 
+		padding-left: 120px; 
+		height: 70px; 
+		background-color: transparent; 
+		position: fixed; 
+		bottom: 0px; 
+		width: 100%; 
+	}
+	.slide-container {
+		height: 350px; 
+		width: 250px; 
+		width: 90%; 
+		margin: auto;
+		text-align: center; 
+		overflow: hidden; 
+		box-shadow: #eff2f6 0px 7px 18px 2px;  
+	}
+	.slide-provider {
+		height: 340px; 
+		width: 300%;
+		background-color: white;
+		margin: auto;
+		display: inline-flex; 
+		animation-name: moveProvaiders;
+		animation-duration: 6s;
+		animation-iteration-count: infinite; 
+		animation-delay: 1s; 
+		position: relative;
+	}
+	.slide-provider-element {
+		width: 100%; 
+		padding-left: 20px; 
+	}
+	@keyframes moveProvaiders {
+		0% { margin-left: 0% }
+		15% { margin-left: 0% } 
+		30% { margin-left: -100%; }
+		45% { margin-left: -100%; }
+		65% { margin-left: -200%; }
+		80% { margin-left: -200%; }
+		100% { margin-left: 0%; }
+	}
+
+	.btn-contact {
+		width: 250px; 
+		border-radius: 12px; 
+		font-size: 20px; 
+	}
+
+	.plataform {
+		padding-top: 40px; 
+	}
+	.plataform ul, .plataform li {
+		display: inline-block;
+		list-style: none; 
+	}
+	.option-menu:hover {
+		color: #337ab7;
+		cursor: pointer;
+		text-decoration: underline;
+	}
+	#contact-us {
+		    box-shadow: #999 1px 3px 10px 0px; 
+	}
+</style>
+
+ 
+
+<script type="text/javascript">
+	$(document).ready( function() {
+		    $("#modal").iziModal({title:'Contactar', 
+								   headerColor: '#88A0B9', 
+								   /*openFullscreen: true */ 
+								   top: 100}); 
+		     $("#login-user").iziModal({title:'ENTRAR', 
+								   headerColor: '#88A0B9', 
+								   top: 100
+								   /*openFullscreen: true*/});
+
+			
+			 $('.wrapper-omg').css('height', (window.innerHeight - 50) ); 
+			 $('.seccond').css('height', (window.innerHeight) ); 
+	}); 
+
+	$('#contact-us').click(function() {
+ 				 //$('#modal').iziModal('open');
+ 				 window.location.href = 'index.php?p=dashboard'; 
+	}); 
+
+	$('#login').click(function() {
+ 				 $('#login-user').iziModal('open');
+	}); 
+
+	$('#login-user').click( function() {
+		window.location.href = 'https://www.laptopmexico.mx/app-ws/front-end/index.html'; 
+	}); 
+
+
+	$('nav a').click(function(e){				
+		e.preventDefault();		//evitar el eventos del enlace normal
+		var strAncla=$(this).attr('href'); //id del ancla
+			$('body,html').stop(true,true).animate({				
+				scrollTop: $(strAncla).offset().top
+			},1000);
+		
+	});
+</script>

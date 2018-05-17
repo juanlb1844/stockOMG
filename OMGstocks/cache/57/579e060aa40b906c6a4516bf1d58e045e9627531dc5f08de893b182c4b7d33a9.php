@@ -62,7 +62,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             text-align: center;
             background-color: #eff3f6; 
             border: 2px solid #e5e5e5;
-            box-shadow: 0px 10px 20px 0px #9E9E9E;
+            box-shadow: 1px 5px 9px 2px #e8edf1;
         }
         .grid-stack-item-content {
 \t\t\tborder-radius: 4px; 
@@ -136,7 +136,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                 [
                     '<div class=\"grid-stack\" data-bind=\"foreach: {data: widgets, afterRender: afterAddWidget}\">',
                     '   <div class=\"grid-stack-item\" data-bind=\"attr: {\\'data-gs-x\\': \$data.x, \\'data-gs-y\\': \$data.y, \\'data-gs-width\\': \$data.width, \\'data-gs-height\\': \$data.height, \\'data-gs-auto-position\\': \$data.auto_position}\">',
-                    '       <div class=\"grid-stack-item-content\"><button data-bind=\"click: \$root.deleteWidget\" class=\"pull-left btn btn-default\" style=\"font-weight: bold;\">&times;</button><canvas id=\"myChart'+(idChart)+'\"></canvas></div>',
+                    '       <div class=\"grid-stack-item-content\"><button data-bind=\"click: \$root.deleteWidget\" class=\"pull-left btn btn-default\" style=\"font-weight: bold; color: #656565; border: 1px solid #e5e5e5;\">&times;</button><canvas id=\"myChart'+(idChart)+'\"></canvas></div>',
                     '   </div>',
                     '</div> '
                 ].join('')
@@ -286,7 +286,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             text-align: center;
             background-color: #eff3f6; 
             border: 2px solid #e5e5e5;
-            box-shadow: 0px 10px 20px 0px #9E9E9E;
+            box-shadow: 1px 5px 9px 2px #e8edf1;
         }
         .grid-stack-item-content {
 \t\t\tborder-radius: 4px; 
@@ -357,7 +357,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                 [
                     '<div class=\"grid-stack\" data-bind=\"foreach: {data: widgets, afterRender: afterAddWidget}\">',
                     '   <div class=\"grid-stack-item\" data-bind=\"attr: {\\'data-gs-x\\': \$data.x, \\'data-gs-y\\': \$data.y, \\'data-gs-width\\': \$data.width, \\'data-gs-height\\': \$data.height, \\'data-gs-auto-position\\': \$data.auto_position}\">',
-                    '       <div class=\"grid-stack-item-content\"><button data-bind=\"click: \$root.deleteWidget\" class=\"pull-left btn btn-default\" style=\"font-weight: bold;\">&times;</button><canvas id=\"myChart'+(idChart)+'\"></canvas></div>',
+                    '       <div class=\"grid-stack-item-content\"><button data-bind=\"click: \$root.deleteWidget\" class=\"pull-left btn btn-default\" style=\"font-weight: bold; color: #656565; border: 1px solid #e5e5e5;\">&times;</button><canvas id=\"myChart'+(idChart)+'\"></canvas></div>',
                     '   </div>',
                     '</div> '
                 ].join('')
