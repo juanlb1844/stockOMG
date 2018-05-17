@@ -98,6 +98,10 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
       .body-widget-tree {
         border: 1px solid #e5e5e5; background-color: #eff3f6; border-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px;
       }
+
+      #myChart0 {
+        padding-right: 10px!important; 
+      }
   </style>
 
      <div class=\"show-data col-md-9 hiding-window container-feed\"> 
@@ -149,7 +153,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
             <div class=\"col-md-12\">
                ";
-        // line 121
+        // line 125
         echo twig_include($this->env, $context, "filters.html.twig");
         echo "
             </div>
@@ -178,7 +182,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 147
+        // line 151
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -282,7 +286,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 
     public function getDebugInfo()
     {
-        return array (  182 => 147,  153 => 121,  34 => 5,  28 => 3,  11 => 1,);
+        return array (  186 => 151,  157 => 125,  34 => 5,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -364,6 +368,10 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
       } 
       .body-widget-tree {
         border: 1px solid #e5e5e5; background-color: #eff3f6; border-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px;
+      }
+
+      #myChart0 {
+        padding-right: 10px!important; 
       }
   </style>
 

@@ -79,21 +79,23 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 
 \t</style>
 
-\t<div class=\"col-md-9\">
-\t\t<h1 class=\"title-template\">Dashbard</h1>
-\t\t\t
-
-\t\t\t        <div style=\"padding-left: 10px;\">
-\t\t\t            <!--<button class=\"btn btn-default btn-sty1\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button>--> 
-\t\t\t        </div>
+    <div class=\"col-md-9\">
+        <div class=\"row\">
+        <div class=\"col-md-6\">
+          <h1 class=\"title-template\">Dashbard</h1>
+        </div>
+        <div class=\"col-md-6\" style=\"padding-top: 25px;\">
+          <button class=\"btn btn-default btn-sty1 pull-right\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button> 
+        </div>
+            
+        </div>
+        
 
 \t\t\t        <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
-
-
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 65
+        // line 67
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -147,38 +149,54 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                 this.widgets = ko.observableArray(widgets);
 
                 this.addNewWidget = function () {
-                    //idChart++; 
-                    //alert(idChart); 
                     this.widgets.push({
                         x: 0,
                         y: 0,
-                        //width: Math.floor(1 + 3 * Math.random()),
-                        //height: Math.floor(1 + 3 * Math.random()),
                         height: 4,
                         width: 6, 
                         auto_position: true
                     });
                     ///////////////////////////////////////////////////////////////
-                        setTimeout(function() {
-                            xx = jQuery('canvas')[jQuery('canvas').length-1];  
-                            //var ctx = document.getElementById('myChart').getContext('2d');
-                            var ctx = xx.getContext('2d');
-                            var charts = new Chart(ctx, {
-                                type: typeGr[ Math.floor((Math.random() * 3) + 1)], 
-                                data: {
-                                    labels: [\"Faltantes\", \"Revision\", \"Aprovados\", \"Retornados\"],
-                                    datasets: [{
-                                        label: \"Estados del catálogo\",
-                                        /*backgroundColor: 'rgb(255, 99, 132)',*/
-                                        backgroundColor: '#337ab7',
-                                        borderColor: 'gray',
-                                        data: [12302, 200, 1200, 120],
-                                    }]
-                                }, 
-                                // Configuration options go here
-                                options: {}
-                            });
-                        }, 200); 
+                        \$.ajax({
+                                url: 'controladores/getDataDashboard.php', 
+                                method: 'POST', 
+                                data: { type : 'cant_status' }, 
+                                success: function(response) {
+                                  var dataDash = JSON.parse(response); 
+                                  console.log(dataDash); 
+                                  var dataArray = []; 
+                                  var dataArray2 = []; 
+                                  for( var i = 0 in dataDash ) {
+                                    dataArray.push(dataDash[i].flag_status); 
+                                  }
+                                  for( var i = 0 in dataDash ) {
+                                    dataArray2.push(parseInt(dataDash[i].CANT)); 
+                                  }
+                                  //console.log(dataArray); 
+                                        setTimeout(function() {
+                                            xx = jQuery('canvas')[jQuery('canvas').length-1];  
+                                            var ctx = xx.getContext('2d');
+                                            var charts = new Chart(ctx, {
+                                                type: typeGr[ Math.floor((Math.random() * 3) + 1)], 
+                                                data: {
+                                                    labels: dataArray,
+                                                    datasets: [{
+                                                        label: \"Estados del catálogo\",
+                                                        /*backgroundColor: 'rgb(255, 99, 132)',*/
+                                                        backgroundColor: '#337ab7',
+                                                        borderColor: 'gray',
+                                                        data: dataArray2,
+                                                    }]
+                                                }, 
+                                                // Configuration options go here
+                                                options: {}
+                                            });
+                                        }, 200); 
+                                  
+                                }
+                               });
+
+
                     ///////////////////////////////////////////////////////////////
 
                     return false;
@@ -191,8 +209,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             };
 
             var widgets = [
-                {x: 0, y: 0, width: 4, height: 4},
-                {x: 4, y: 4, width: 8, height: 4}/*,
+                {x: 0, y: 0, width: 6, height: 4}/*,
+                {x: 4, y: 4, width: 4, height: 4},
                 {x: 0, y: 0, width: 4, height: 4},
                 {x: 4, y: 4, width: 4, height: 4}*/ 
             ];
@@ -219,7 +237,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 
     public function getDebugInfo()
     {
-        return array (  97 => 65,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  99 => 67,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -283,17 +301,19 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 
 \t</style>
 
-\t<div class=\"col-md-9\">
-\t\t<h1 class=\"title-template\">Dashbard</h1>
-\t\t\t
-
-\t\t\t        <div style=\"padding-left: 10px;\">
-\t\t\t            <!--<button class=\"btn btn-default btn-sty1\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button>--> 
-\t\t\t        </div>
+    <div class=\"col-md-9\">
+        <div class=\"row\">
+        <div class=\"col-md-6\">
+          <h1 class=\"title-template\">Dashbard</h1>
+        </div>
+        <div class=\"col-md-6\" style=\"padding-top: 25px;\">
+          <button class=\"btn btn-default btn-sty1 pull-right\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button> 
+        </div>
+            
+        </div>
+        
 
 \t\t\t        <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
-
-
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t{{ include('sidebar.html.twig') }}
@@ -348,38 +368,54 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                 this.widgets = ko.observableArray(widgets);
 
                 this.addNewWidget = function () {
-                    //idChart++; 
-                    //alert(idChart); 
                     this.widgets.push({
                         x: 0,
                         y: 0,
-                        //width: Math.floor(1 + 3 * Math.random()),
-                        //height: Math.floor(1 + 3 * Math.random()),
                         height: 4,
                         width: 6, 
                         auto_position: true
                     });
                     ///////////////////////////////////////////////////////////////
-                        setTimeout(function() {
-                            xx = jQuery('canvas')[jQuery('canvas').length-1];  
-                            //var ctx = document.getElementById('myChart').getContext('2d');
-                            var ctx = xx.getContext('2d');
-                            var charts = new Chart(ctx, {
-                                type: typeGr[ Math.floor((Math.random() * 3) + 1)], 
-                                data: {
-                                    labels: [\"Faltantes\", \"Revision\", \"Aprovados\", \"Retornados\"],
-                                    datasets: [{
-                                        label: \"Estados del catálogo\",
-                                        /*backgroundColor: 'rgb(255, 99, 132)',*/
-                                        backgroundColor: '#337ab7',
-                                        borderColor: 'gray',
-                                        data: [12302, 200, 1200, 120],
-                                    }]
-                                }, 
-                                // Configuration options go here
-                                options: {}
-                            });
-                        }, 200); 
+                        \$.ajax({
+                                url: 'controladores/getDataDashboard.php', 
+                                method: 'POST', 
+                                data: { type : 'cant_status' }, 
+                                success: function(response) {
+                                  var dataDash = JSON.parse(response); 
+                                  console.log(dataDash); 
+                                  var dataArray = []; 
+                                  var dataArray2 = []; 
+                                  for( var i = 0 in dataDash ) {
+                                    dataArray.push(dataDash[i].flag_status); 
+                                  }
+                                  for( var i = 0 in dataDash ) {
+                                    dataArray2.push(parseInt(dataDash[i].CANT)); 
+                                  }
+                                  //console.log(dataArray); 
+                                        setTimeout(function() {
+                                            xx = jQuery('canvas')[jQuery('canvas').length-1];  
+                                            var ctx = xx.getContext('2d');
+                                            var charts = new Chart(ctx, {
+                                                type: typeGr[ Math.floor((Math.random() * 3) + 1)], 
+                                                data: {
+                                                    labels: dataArray,
+                                                    datasets: [{
+                                                        label: \"Estados del catálogo\",
+                                                        /*backgroundColor: 'rgb(255, 99, 132)',*/
+                                                        backgroundColor: '#337ab7',
+                                                        borderColor: 'gray',
+                                                        data: dataArray2,
+                                                    }]
+                                                }, 
+                                                // Configuration options go here
+                                                options: {}
+                                            });
+                                        }, 200); 
+                                  
+                                }
+                               });
+
+
                     ///////////////////////////////////////////////////////////////
 
                     return false;
@@ -392,8 +428,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             };
 
             var widgets = [
-                {x: 0, y: 0, width: 4, height: 4},
-                {x: 4, y: 4, width: 8, height: 4}/*,
+                {x: 0, y: 0, width: 6, height: 4}/*,
+                {x: 4, y: 4, width: 4, height: 4},
                 {x: 0, y: 0, width: 4, height: 4},
                 {x: 4, y: 4, width: 4, height: 4}*/ 
             ];
