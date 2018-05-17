@@ -79,8 +79,8 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t    </div> 
 \t\t    <div class=\"pull-right\">
 \t\t    \t<div style=\"padding-top: 3px;\">
-\t\t    \t\t<img style=\"width: 45px; border-radius: 50%; font-weight: 300px;\" src=\"media/users/user-admin.png\">
-\t\t    \t\t<span>Admin</span>
+\t\t    \t\t<img style=\"width: 40px; border-radius: 50%; font-weight: 300px;\" src=\"media/users/user-admin.png\">
+\t\t    \t\t<span style=\"font-weight: bold; color: #24292e;\">Admin</span>
 \t\t    \t</div>
 \t\t    </div>
 \t\t  </div> 
@@ -91,11 +91,11 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
         $this->displayBlock('content', $context, $blocks);
         // line 69
         echo "\t\t</div>
-\t</div>
 \t\t";
-        // line 71
+        // line 70
         echo twig_include($this->env, $context, "footer.html.twig");
         echo "
+\t</div>
 </body>
 </html> ";
     }
@@ -119,7 +119,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 
     public function getDebugInfo()
     {
-        return array (  107 => 68,  104 => 67,  97 => 71,  93 => 69,  91 => 67,  30 => 9,  20 => 1,);
+        return array (  107 => 68,  104 => 67,  96 => 70,  93 => 69,  91 => 67,  30 => 9,  20 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -191,8 +191,8 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t    </div> 
 \t\t    <div class=\"pull-right\">
 \t\t    \t<div style=\"padding-top: 3px;\">
-\t\t    \t\t<img style=\"width: 45px; border-radius: 50%; font-weight: 300px;\" src=\"media/users/user-admin.png\">
-\t\t    \t\t<span>Admin</span>
+\t\t    \t\t<img style=\"width: 40px; border-radius: 50%; font-weight: 300px;\" src=\"media/users/user-admin.png\">
+\t\t    \t\t<span style=\"font-weight: bold; color: #24292e;\">Admin</span>
 \t\t    \t</div>
 \t\t    </div>
 \t\t  </div> 
@@ -201,9 +201,9 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t\t{% block content %}
 \t\t\t{% endblock %}
 \t\t</div>
-\t</div>
 \t\t{{ include('footer.html.twig') }}
+\t</div>
 </body>
-</html> ", "layout.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\last\\stockOMG\\OMGstocks\\templates\\layout.html.twig");
+</html> ", "layout.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\layout.html.twig");
     }
 }

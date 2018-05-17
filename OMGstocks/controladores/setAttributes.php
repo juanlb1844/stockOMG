@@ -7,11 +7,12 @@
 	$idProd = $_POST['idProd']; 
 	$attrStatus = $_POST['attrStatus']; 
 	$idER = $_POST['idER'];
-
+	$main_img_product = $_POST['mainImg']; 
+	
 	// Crear una nueva entidad | (ER) entidad real 
 		if($attrStatus == 'origen') {
 				$db = new db();  
-				$queryNew = "CALL create_product(4, 'nn', 'nn', 1, '..', '0000', 1,  'nn', 'nn', 'nn', 'nn', '..', '..', 'Pesos', 'revision', 'RR');";  
+				$queryNew = "CALL create_product(4, 'nn', 'nn', 1, '..', '0000', 1,  'nn', 'nn', '$main_img_product', 'nn', '..', '..', 'Pesos', 'revision', 'RR');";  
 
 				if( $resultado = mysqli_query($db, $queryNew) ) {
 					//echo 'nuevo producto creado'; 

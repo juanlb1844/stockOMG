@@ -202,7 +202,7 @@
 				$productosIngram[] = $producto; 
 		    }  */ 				  
 				 	     
-		    for($i = 0; $i < 2000; $i++){
+		    for($i = 0; $i < 20; $i++){
 				$linea = fgets($fp);
 				$linea = utf8_encode($linea); 
 				$producto = explode(',', $linea);

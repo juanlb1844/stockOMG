@@ -26,7 +26,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t\t\t<a href=\"\">Administrar</a>
 \t\t</div>
 \t</div>
-\t<div class=\"container-notifer row\" style=\"border: 1px solid #e5e5e5; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; margin-top: 10px; border-left: 1px solid #e68080;     box-shadow: #d0d0d0 -2px 1px 6px 0px;\">
+\t<div class=\"container-notifer row\" style=\"border: 1px solid #e5e5e5; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; margin-top: 10px; border-left: 1px solid #e68080;     box-shadow: #d0d0d0 0px 1px 6px 0px;\">
 \t\t<div class=\"col-md-3\">
 \t\t\t<img src=\"media/users/user-1.png\" style=\"border: 2px solid #e68080; width: 50px; border-radius: 50%;\">
 \t\t</div>
@@ -35,7 +35,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t\t\t<h6 style=\"color: #828282;\">Social comunity</h6>
 \t\t</div>
 \t</div>
-\t<div class=\"container-notifer row\" style=\"border: 1px solid #e5e5e5; margin-top: 10px; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; border-left: 1px solid #03a87c;     box-shadow: #d0d0d0 -2px 1px 6px 0px;\">
+\t<div class=\"container-notifer row\" style=\"border: 1px solid #e5e5e5; margin-top: 10px; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; border-left: 1px solid #03a87c;     box-shadow: #d0d0d0 0px 1px 6px 0px;\">
 \t\t<div class=\"col-md-3\">
 \t\t\t<img src=\"media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 50px; border-radius: 50%;\">
 \t\t</div>
@@ -121,7 +121,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t\t\t<a href=\"\">Administrar</a>
 \t\t</div>
 \t</div>
-\t<div class=\"container-notifer row\" style=\"border: 1px solid #e5e5e5; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; margin-top: 10px; border-left: 1px solid #e68080;     box-shadow: #d0d0d0 -2px 1px 6px 0px;\">
+\t<div class=\"container-notifer row\" style=\"border: 1px solid #e5e5e5; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; margin-top: 10px; border-left: 1px solid #e68080;     box-shadow: #d0d0d0 0px 1px 6px 0px;\">
 \t\t<div class=\"col-md-3\">
 \t\t\t<img src=\"media/users/user-1.png\" style=\"border: 2px solid #e68080; width: 50px; border-radius: 50%;\">
 \t\t</div>
@@ -130,7 +130,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t\t\t<h6 style=\"color: #828282;\">Social comunity</h6>
 \t\t</div>
 \t</div>
-\t<div class=\"container-notifer row\" style=\"border: 1px solid #e5e5e5; margin-top: 10px; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; border-left: 1px solid #03a87c;     box-shadow: #d0d0d0 -2px 1px 6px 0px;\">
+\t<div class=\"container-notifer row\" style=\"border: 1px solid #e5e5e5; margin-top: 10px; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; border-left: 1px solid #03a87c;     box-shadow: #d0d0d0 0px 1px 6px 0px;\">
 \t\t<div class=\"col-md-3\">
 \t\t\t<img src=\"media/users/user-1.png\" style=\"border: 2px solid #03a87c; width: 50px; border-radius: 50%;\">
 \t\t</div>
@@ -183,6 +183,6 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t\t\twindow.open(link, '_blank', 'width=' + windowSize.width + ', height=' + windowSize.height + ', left=' + windowLocation.left + ', top=' + windowLocation.top);
 \t\t}
 \t}); 
-</script>", "sidebar.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\last\\stockOMG\\OMGstocks\\templates\\sidebar.html.twig");
+</script>", "sidebar.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\sidebar.html.twig");
     }
 }

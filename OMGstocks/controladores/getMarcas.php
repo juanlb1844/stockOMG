@@ -6,7 +6,7 @@
 	$filterType = $_POST['filterType']; 
 
 	if($filterType == 0) {
-		$query = "SELECT * FROM `entity_value_varchar` WHERE name_attribute = '$brandName' GROUP BY varchar_value"; 
+		$query = "CALL getXAttrs('$brandName');"; 
 	} else {
 		$query = "SELECT * FROM `entity_value_varchar` WHERE name_attribute = '$brandName' GROUP BY varchar_value"; 
 	}

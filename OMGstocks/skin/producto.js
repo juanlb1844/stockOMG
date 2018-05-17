@@ -121,12 +121,21 @@ $(document).ready(function(){
 
  // guardar datos del producto 
 	$('#saveProduct').click(function() {
+		var main_img_product = $($('#entityGallery li')[0]).find('img').attr('src'); 
+		if(main_img_product == 'media//users/no-img.jpg') 
+			main_img_product = 'users/no-img.jpg'; 
 		var selecteds = $('.tree-categories input:checked'); 
 		var idCatSelecteds = []; 
+		alert(main_img_product); 
 
 		for( x = 0; x < selecteds.length; x++ ) { 
 			var idCat = $( $(selecteds[x]).parent() ).attr('id'); 
 			idCatSelecteds.push( idCat.substr(5, idCat.length) ); 
+		}
+		
+		if( idCatSelecteds.length < 1 ) {
+			alert('selecciona una categoría'); 
+			return; 
 		}
 		
 		var idEntity = ''; 
@@ -146,7 +155,8 @@ $(document).ready(function(){
 		 			idProd : productData[0].ID, 
 		 			idRelateds : idRelateds, 
 		 			attrStatus : attrStatus, 
-		 			idER : idER 
+		 			idER : idER, 
+		 			mainImg : main_img_product
 		 			}, 
 		 	success: function(mensaje){
 		 		  console.log(mensaje); 
@@ -332,7 +342,7 @@ idProd = url.split('=')[2];
 							"<td>"+ relatedProducts[i][5] +"</td>"+
 							"<td>"+ relatedProducts[i][3] +"</td>"+
 							"<td>"+ relatedProducts[i][6] +"</td>"+ 	
-							"<td>"+ relatedProducts[i][7] +"</td>"+ 
+							"<td>"+ relatedProducts[i][8] +"</td>"+ 
 							"<td><input type='checkbox' checked='checked'></td>"+ 
 							"<td>"+ relatedProducts[i][relatedProducts[i].length-2] +"</td>"+ 
 						"</tr>"); 

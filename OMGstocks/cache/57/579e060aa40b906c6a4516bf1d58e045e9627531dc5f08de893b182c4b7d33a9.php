@@ -191,8 +191,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             };
 
             var widgets = [
-                {x: 0, y: 0, width: 4, height: 4}/*,
-                {x: 4, y: 4, width: 4, height: 4},
+                {x: 0, y: 0, width: 4, height: 4},
+                {x: 4, y: 4, width: 8, height: 4}/*,
                 {x: 0, y: 0, width: 4, height: 4},
                 {x: 4, y: 4, width: 4, height: 4}*/ 
             ];
@@ -392,8 +392,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             };
 
             var widgets = [
-                {x: 0, y: 0, width: 4, height: 4}/*,
-                {x: 4, y: 4, width: 4, height: 4},
+                {x: 0, y: 0, width: 4, height: 4},
+                {x: 4, y: 4, width: 8, height: 4}/*,
                 {x: 0, y: 0, width: 4, height: 4},
                 {x: 4, y: 4, width: 4, height: 4}*/ 
             ];
@@ -406,6 +406,6 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 
 </script>
 {% endblock %}
-", "content.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\last\\stockOMG\\OMGstocks\\templates\\content.html.twig");
+", "content.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\content.html.twig");
     }
 }

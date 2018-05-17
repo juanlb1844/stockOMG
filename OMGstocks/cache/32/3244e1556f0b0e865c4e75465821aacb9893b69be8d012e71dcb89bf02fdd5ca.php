@@ -35,6 +35,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
         echo " 
 
 \t<script type=\"text/javascript\" src=\"skin/feedLocal.js\"></script>
+  <script type=\"text/javascript\" src=\"skin/feedLocalFunctions.js\"></script>
   <link rel=\"stylesheet\" type=\"text/css\" href=\"skin/styles-feedLocal.css\">
   <style type=\"text/css\">
     ul {
@@ -148,7 +149,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
             <div class=\"col-md-12\">
                ";
-        // line 120
+        // line 121
         echo twig_include($this->env, $context, "filters.html.twig");
         echo "
             </div>
@@ -177,11 +178,13 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 146
+        // line 147
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
 
+
+<!-- M o d a l e s --> 
 
 <div class=\"modal fade\" id=\"newCat\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"NuevaCategoria\" aria-hidden=\"true\">
   <div class=\"modal-dialog\" role=\"document\">
@@ -279,7 +282,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 
     public function getDebugInfo()
     {
-        return array (  181 => 146,  152 => 120,  34 => 5,  28 => 3,  11 => 1,);
+        return array (  182 => 147,  153 => 121,  34 => 5,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -299,6 +302,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 \t{{parent()}} 
 
 \t<script type=\"text/javascript\" src=\"skin/feedLocal.js\"></script>
+  <script type=\"text/javascript\" src=\"skin/feedLocalFunctions.js\"></script>
   <link rel=\"stylesheet\" type=\"text/css\" href=\"skin/styles-feedLocal.css\">
   <style type=\"text/css\">
     ul {
@@ -440,6 +444,8 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 \t\t{{ include('sidebar.html.twig') }}
 \t</div>
 
+
+<!-- M o d a l e s --> 
 
 <div class=\"modal fade\" id=\"newCat\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"NuevaCategoria\" aria-hidden=\"true\">
   <div class=\"modal-dialog\" role=\"document\">

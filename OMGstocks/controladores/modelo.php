@@ -428,7 +428,7 @@ function insertarCVAFlat($array){
 			   	$imagen = $row['imagen']; 
 			   	$part_number = $row['numero_parte']; 
 			   	$db2 = new db();  
-			   	$query2 = "CALL create_product(2, '$name_product', '$codigo', $precio, '..', '0000', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '..', '..', 'Pesos', 'origen');";  
+			   	$query2 = "CALL create_product(2, '$name_product', '$codigo', $precio, '..', '0000', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '..', '..', 'Pesos', 'origen', 'E-NOT-REAL');";  
 			   	if ( mysqli_query($db2, $query2) ) 
 			   			echo $codigo; 
 			  }
@@ -499,7 +499,7 @@ function insertarCVAFlat($array){
 			   	$upc    = $row['upc']; 
 			   	$part_number = $row['numero_parte']; 
 			   	$db2 = new db(); 
-			   	$query2 = "CALL create_product(3, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '$modelo', 'Pesos', 'origen');";  
+			   	$query2 = "CALL create_product(3, '$name_product', '$codigo', $precio, '$short_description', '$upc', $stock,  '$marca', '$grupo', '$imagen', '$part_number', '$long_description', '$modelo', 'Pesos', 'origen', 'E-NOT-REAL');";  
 			   	if ( mysqli_query($db2, $query2) ) 
 			   			echo $codigo; 
 			  }
