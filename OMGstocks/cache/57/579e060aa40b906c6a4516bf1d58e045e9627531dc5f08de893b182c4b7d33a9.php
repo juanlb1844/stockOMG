@@ -61,6 +61,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             color: #2c3e50;
             text-align: center;
             background-color: #eff3f6; 
+            border: 2px solid #e5e5e5;
+            box-shadow: 0px 10px 20px 0px #9E9E9E;
         }
         .grid-stack-item-content {
 \t\t\tborder-radius: 4px; 
@@ -95,7 +97,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 67
+        // line 69
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -184,8 +186,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                                                         label: \"Estados del catálogo\",
                                                         /*backgroundColor: 'rgb(255, 99, 132)',*/
                                                         backgroundColor: '#337ab7',
-                                                        borderColor: 'gray',
-                                                        data: dataArray2,
+                                                        borderColor: '#e5e5e5',
+                                                        data: dataArray2, 
                                                     }]
                                                 }, 
                                                 // Configuration options go here
@@ -237,7 +239,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 
     public function getDebugInfo()
     {
-        return array (  99 => 67,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  101 => 69,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -283,6 +285,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             color: #2c3e50;
             text-align: center;
             background-color: #eff3f6; 
+            border: 2px solid #e5e5e5;
+            box-shadow: 0px 10px 20px 0px #9E9E9E;
         }
         .grid-stack-item-content {
 \t\t\tborder-radius: 4px; 
@@ -403,8 +407,8 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                                                         label: \"Estados del catálogo\",
                                                         /*backgroundColor: 'rgb(255, 99, 132)',*/
                                                         backgroundColor: '#337ab7',
-                                                        borderColor: 'gray',
-                                                        data: dataArray2,
+                                                        borderColor: '#e5e5e5',
+                                                        data: dataArray2, 
                                                     }]
                                                 }, 
                                                 // Configuration options go here
