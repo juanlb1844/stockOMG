@@ -1,50 +1,6 @@
 
-// auto iniciar funciones para redondeo 
-(function() {
-  function decimalAdjust(type, value, exp) {
-    if (typeof exp === 'undefined' || +exp === 0) {
-      return Math[type](value);
-    }
-    value = +value;
-    exp = +exp;
-    if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-      return NaN;
-    }
-    value = value.toString().split('e');
-    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-    value = value.toString().split('e');
-    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-  }
-  if (!Math.round10) {
-    Math.round10 = function(value, exp) {
-      return decimalAdjust('round', value, exp);
-    };
-  }
-  if (!Math.floor10) {
-    Math.floor10 = function(value, exp) {
-      return decimalAdjust('floor', value, exp);
-    };
-  }
-  if (!Math.ceil10) {
-    Math.ceil10 = function(value, exp) {
-      return decimalAdjust('ceil', value, exp);
-    };
-  }
-})();
 
-// función para quitar espacios laterales e intermedios | asignar atributo como ID de campo 
-var quitSpace = function(str) {
-    var cadena = '';
-    var arrayString = str.split(' ');
-    for (var i = 0; i < arrayString.length; i++) {
-        if (arrayString[i] != "") {
-            cadena += arrayString[i];
-        }
-    }
-    return cadena;
-};	
 var attrStatus = null; 
-
 var idRelateds = []; 
 
 var productData = null; 
@@ -57,122 +13,58 @@ var selectedAttr = null // atributo seleccionado en modal | combinar entidades
 
 
 // obtener galería del producto 
- function getGallery () {
+ function getGallery (idProd) {
 	$.ajax({
 	 	url: 'controladores/getGallery.php', 
 	 	method: 'POST', 
-	 	data: {  idProd : productData[0].ID  }, 
+	 	data: {  idProd : idProd  }, 
 	 	success: function(response){
 	 		  if( response != 'sin resultados' ) {
-		 		  var gallery = JSON.parse(response); 
-		 		   for( var i in gallery ) {
-		 		   		if( gallery[i].url.substr(0, 4) == 'http' ) {
-		 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="'+gallery[i].url+'"><p><a href="'+gallery[i].url+'">ver</a></p></li>';  
-		 		   		} else {
-		 		   			var element = '<li><img protectedUrl="'+gallery[i].url+'" idGallery="'+gallery[i].id_gallery+'" src="media/'+gallery[i].url+'"><p><a href="media/'+gallery[i].url+'">ver</a></p></li>';  
-		 		   		}
-		 		  	$('#entityGallery').append(element);  
-		 		   }
-		 		   $('#entityGallery').off('click'); 
-		 		   $('#entityGallery').on('click', 'img', function(event) {
-		 		   	    img_to_main = $(event.target).attr('idGallery'); 
-		 		   	    url_to_main = $(event.target).attr('protectedUrl'); 
-	 		   		    if ( $(event.target).attr('mainImg') ) {
-							$('#imgMainSet').prop('checked', true); 
-							$('#imgMainSet').prop('disabled', 'disabled'); 
-						} else {
-							$('#imgMainSet').prop('checked', false); 
-							$('#imgMainSet').removeAttr('disabled');
-						}
+		 		    var gallery = JSON.parse(response); 
+		 		    for( var i in gallery ) {
+			 		   		if( gallery[i].url.substr(0, 4) == 'http' ) {
+			 		   			var element = '<li><img protectedUrl="'+gallery[i].url
+			 		   														+'" idGallery="'+gallery[i].id_gallery+'" src="'
+			 		   																	+gallery[i].url+'"><p><a href="'
+			 		   																	+gallery[i].url+'">ver</a></p></li>';  
+			 		   		} else {
+			 		   			var element = '<li><img protectedUrl="'+gallery[i].url
+			 		   														+'" idGallery="'+gallery[i].id_gallery
+			 		   														+'" src="media/'+gallery[i].url+'"><p><a href="media/'
+			 		   														+gallery[i].url+'">ver</a></p></li>';  
+			 		   		}
+			 		   	  $('#entityGallery').append(element);  
+		 		  	 }
 
-	 		   		   $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
-			 		   $('#infoImg').modal({ show: 'false' }); 
+		 		     $('#entityGallery').off('click'); 
+			 		   $('#entityGallery').on('click', 'img', function(event) {
+			 		   	    img_to_main = $(event.target).attr('idGallery'); 
+			 		   	    url_to_main = $(event.target).attr('protectedUrl'); 
+		 		   		  if ( $(event.target).attr('mainImg') ) {
+									$('#imgMainSet').prop('checked', true); 
+									$('#imgMainSet').prop('disabled', 'disabled'); 
+								} else {
+									$('#imgMainSet').prop('checked', false); 
+									$('#imgMainSet').removeAttr('disabled');
+								}
 
-		 		   }); 
-	 		  }
-	 	}
-	 });
+		 		   		  $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
+				 		    $('#infoImg').modal({ show: 'false' }); 
+			 		   }); 
+	 		     }
+	 	     }
+	   });
 	}
 
 $(document).ready(function(){
 
-	$('#nextProduct').click(function() {
-		var idProd = productData[0].ID;
-		window.location.href = '?p=producto&idProducto='+ (parseInt(idProd)+1);
-	}); 
 
- // cambiar imágen principal 
-	$('#saveImg').click( function() {
-		var idProduct = productData[0].ID; 
-	    if( $('#imgMainSet').prop('checked') ) {
-			$.ajax({
-			 	url: 'controladores/updateMainImg.php', 
-			 	method: 'POST', 
-			 	data: { idMainPic: idProduct, 
-			 			toMainUrl: url_to_main, 
-			 			toMainId : img_to_main}, 
-			 	success: function(mensaje){
-			 		  console.log(mensaje); 
-			 		  window.location.reload(); 
-			 	}
-			 });   
-	    }  	
-	}); 
-
- // guardar datos del producto 
-	$('#saveProduct').click(function() {
-		var main_img_product = $($('#entityGallery li')[0]).find('img').attr('src'); 
-		if(main_img_product == 'media//users/no-img.jpg') 
-			main_img_product = 'users/no-img.jpg'; 
-		var selecteds = $('.tree-categories input:checked'); 
-		var idCatSelecteds = []; 
-		alert(main_img_product); 
-
-		for( x = 0; x < selecteds.length; x++ ) { 
-			var idCat = $( $(selecteds[x]).parent() ).attr('id'); 
-			idCatSelecteds.push( idCat.substr(5, idCat.length) ); 
-		}
-		
-		if( idCatSelecteds.length < 1 ) {
-			alert('selecciona una categoría'); 
-			return; 
-		}
-		
-		var idEntity = ''; 
-		for( i in productData) {
-			productData[i].localValue = $('#'+quitSpace(productData[i].type_attr)).val(); 
-			if(productData[i].type_attr == 'EntityID') {
-				productData[i].localValue = productData[0].ID+'-E-R'; 
-			}
-			idER = idProd+'-E-R'; 
-		}
-		$('.save-action').html('<img src="media/users/loading.gif" style="width:40px;"><span style="color:#2e6da4;">Guardando</span>');
-		$.ajax({
-		 	url: 'controladores/setAttributes.php', 
-		 	method: 'POST', 
-		 	data: { dataProduct: productData, 
-		 			selectedCats: idCatSelecteds, 
-		 			idProd : productData[0].ID, 
-		 			idRelateds : idRelateds, 
-		 			attrStatus : attrStatus, 
-		 			idER : idER, 
-		 			mainImg : main_img_product
-		 			}, 
-		 	success: function(mensaje){
-		 		  console.log(mensaje); 
-		 		  //window.location.reload(); 
-				  window.location.href = '?p=producto&idProducto='+mensaje; 
-		 	}
-		 });
-		console.log( productData ); 
-	}); 
-
-// id producto general 
+// variables generales del producto 
 var idProd = null; 
+var url    = window.location.href; 
+idProd     = url.split('=')[2];
 
-var url = window.location.href; 
-idProd = url.split('=')[2];
-
+// mostrar datos del producto 
 	 $.ajax({
 	 	url: 'controladores/getProducto.php', 
 	 	method: 'POST', 
@@ -185,26 +77,9 @@ idProd = url.split('=')[2];
 			  		  if( productData[x].type_attr == 'distributor') {
 			  		  		console.log('jump'); 
 			  		  } else if(productData[x].type_attr == 'main_img') { 
+			  		  			// mostrar imágen principal y añadir eventos
 			  		  			urlImg = productData[x].value_attr; 
-			  		  			main_img_data = {'url' : urlImg}; 
-			  		  			
-			  		  			if( urlImg.substr(0, 4) != 'http' ) {
-			  		  				urlImg = 'media/'+urlImg; 
-			  		  			}
-
-				  		  		var element = '<li><img mainImg="true" src="'+urlImg+'"><p><a href="'+urlImg+'">ver</a><label class="label label-primary">Main</label></p></li>';  
-
-			 		  			$('#entityGallery').append(element);
-			 		  			$('#entityGallery').off('click'); 
-						 		$('#entityGallery').on('click', 'img', function(event) {
-								if ( $(event.target).attr('mainImg') ) {
-									$('#imgMainSet').attr('checked', true); 
-								} 
-						 		$('#urlImg').val($(event.target).parent().find('a').attr('href')); 
-								$('#infoImg').modal({
-													    show: 'false'
-												    }); 
-						        }); 
+			  		  			showProduct_img(urlImg); 
 			  		  } else if( productData[x].type_attr == 'description' ) {
 			  		  		data = '<div class="form-group">' + 
 		                        ' <label for="inputPassword3" class="col-sm-2 control-label entity_attr" entityAttr="'+productData[x].type_attr+'">Description</label>' + 
@@ -217,13 +92,10 @@ idProd = url.split('=')[2];
 
 			  		  		$('.attributes_product').append(data); 
 
-			  		  		//$(data).prependTo($('.attributes_product')).slideDown("fast");
-
-			  		  		$('#'+productData[x].type_attr).summernote({
-								 	height : 320
-								});
+			  		  		$('#'+productData[x].type_attr).summernote({ height : 320 });
 			  		  		var description = productData[x].value_attr; 
-			  				$('#'+productData[x].type_attr).summernote('code', description);  
+			  				  $('#'+productData[x].type_attr).summernote('code', description);  
+
 			  		  } else if( productData[x].type_attr == 'short_description' ) {
 			  		  		data = '<div class="form-group">' + 
 		                        ' <label for="inputPassword3" class="col-sm-2 control-label entity_attr" entityAttr="'+productData[x].type_attr+'">Short description</label>' + 
@@ -236,11 +108,9 @@ idProd = url.split('=')[2];
 
 			  		  		$('.attributes_product').append(data); 
 
-			  		  		$('#'+productData[x].type_attr).summernote({
-								 	height : 200
-								});
+			  		  		$('#'+productData[x].type_attr).summernote({ height : 200 });
 			  		  		var description = productData[x].value_attr; 
-			  				$('#'+productData[x].type_attr).summernote('code', description);  
+			  				  $('#'+productData[x].type_attr).summernote('code', description);  
 			  		  } else {
 			  		  		data = '<div id="__'+quitSpace(productData[x].type_attr)+'" class="form-group">'+ 
 		                        '<label for="inputEmail3" class="col-sm-2 control-label entity_attr" entityAttr="'+productData[x].type_attr+'">'+productData[x].type_attr+'</label>' + 
@@ -248,17 +118,14 @@ idProd = url.split('=')[2];
 		                          ' <input type="input" id="'+quitSpace(productData[x].type_attr)+'" placeholder="cargando..." value="'+productData[x].value_attr+'" class="form-control input-sm" name="">' + 
 		                        ' </div> ' + 
 		                      ' </div> '; 
-							$(data).prependTo($('.attributes_product')).slideDown('fast');  
-
+									$(data).prependTo($('.attributes_product')).slideDown('fast');  
 			  		  }
-
 				}
+
+			// modal para cambiar/mostrar datos por producto 
 			$('body').on('click', '.entity_attr', function(event){
-				//alert( $(event.target).attr('entityAttr') ); 
 				selectedAttr = $(event.target).attr('entityAttr'); 
-				$('#selectRelated').modal({
-				        show: 'false'
-				    }); 
+				$('#selectRelated').modal({ show: 'false' }); 
 				initModalIntegration(); 
 				renderValuesRelated();
 			}); 
@@ -300,6 +167,7 @@ idProd = url.split('=')[2];
 				}
 			}
 
+			// obtener (E)'s con los que se tiene alguna relación [permutada]
 			initFeedWindow('controladores/getRelatedProducts.php', 
 							{ sku : attrSKU,  
 							  upc : attrUPC, 
@@ -307,13 +175,22 @@ idProd = url.split('=')[2];
 							  model : attrModel, 
 							  status : attrStatus, 
 							  IDER : idProdER }); 
-			getGallery(); 
 
-			// Seleccionar categorías a las que pertenece 	
-			$.ajax({
+			// cargar galería [ a parte de main_img ]
+			getGallery(idProd); 
+			// ckeck=true a checkbox del árbol de categorías 
+			loadCatRelateds(idProd); 
+			
+	 	}
+	});
+	
+	
+	// cargar relación en categorías 
+	function loadCatRelateds(idProd) {
+					$.ajax({
 			 	url: 'controladores/getRelationCategory.php', 
 			 	method: 'POST', 
-			 	data: { idProd: productData[0].ID }, 
+			 	data: { idProd: idProd }, 
 			 	success: function(mensaje){
 			 			if(mensaje != 'sin resultados') {
 					 		  var relation = JSON.parse(mensaje); 
@@ -325,14 +202,107 @@ idProd = url.split('=')[2];
 			 			}
 			 	}
 			 });
-	 	}
-	 });
+	}
+
+
+ // cambiar imágen principal 
+	$('#saveImg').click( function() {
+		var idProduct = productData[0].ID; 
+	    if( $('#imgMainSet').prop('checked') ) {
+			$.ajax({
+			 	url: 'controladores/updateMainImg.php', 
+			 	method: 'POST', 
+			 	data: { idMainPic: idProduct, 
+			 			toMainUrl: url_to_main, 
+			 			toMainId : img_to_main}, 
+			 	success: function(mensaje){
+			 		  console.log(mensaje); 
+			 		  window.location.reload(); 
+			   	}
+			 });   
+	  }  	
+	}); 
+
+ // guardar datos del producto / Crear (ER) o guardar datos en (ER)
+	$('#saveProduct').click(function() {
+		var main_img_product = $($('#entityGallery li')[0]).find('img').attr('src'); 
+		if(main_img_product == 'media//users/no-img.jpg') 
+			main_img_product = 'users/no-img.jpg'; 
+		  var selecteds = $('.tree-categories input:checked'); 
+		  var idCatSelecteds = []; 
+
+		for( x = 0; x < selecteds.length; x++ ) { 
+			var idCat = $( $(selecteds[x]).parent() ).attr('id'); 
+			idCatSelecteds.push( idCat.substr(5, idCat.length) ); 
+		}
+		
+		if( idCatSelecteds.length < 1 ) {
+			alert('selecciona una categoría'); 
+			return; 
+		}
+		
+		var idEntity = ''; 
+		for( i in productData) {
+			productData[i].localValue = $('#'+quitSpace(productData[i].type_attr)).val(); 
+			if(productData[i].type_attr == 'EntityID') {
+				productData[i].localValue = productData[0].ID+'-E-R'; 
+			}
+			idER = idProd+'-E-R'; 
+		}
+		$('.save-action').html('<img src="media/users/loading.gif" style="width:40px;"><span style="color:#2e6da4;">Guardando</span>');
+		$.ajax({
+		 	url: 'controladores/setAttributes.php', 
+		 	method: 'POST', 
+		 	data: { dataProduct: productData, 
+				 			selectedCats: idCatSelecteds, 
+				 			idProd : productData[0].ID, 
+				 			idRelateds : idRelateds, 
+				 			attrStatus : attrStatus, 
+				 			idER : idER, 
+				 			mainImg : main_img_product
+		 			}, 
+		 	success: function(mensaje){
+		 		  console.log(mensaje); 
+				  window.location.href = '?p=producto&idProducto='+mensaje; 
+		 	}
+		 });
+		console.log( productData ); 
+	}); 
+
+	// mostrar imágen principal  [ tuta absoluta / ruta relativa ]	
+	function showProduct_img(urlImg) { 
+			main_img_data = {'url' : urlImg}; 
+			
+			if( urlImg.substr(0, 4) != 'http' ) {
+				urlImg = 'media/'+urlImg; 
+			}
+
+  		var element = '<li><img mainImg="true" src="'+urlImg+'"><p><a href="'+urlImg+'">ver</a><label class="label label-primary">Main</label></p></li>';  
+
+			$('#entityGallery').append(element);
+			$('#entityGallery').off('click'); 
+		  $('#entityGallery').on('click', 'img', function(event) {
+	  if ( $(event.target).attr('mainImg') ) {
+				$('#imgMainSet').attr('checked', true); 
+		} 
+		  $('#urlImg').val($(event.target).parent().find('a').attr('href')); 
+	  $('#infoImg').modal({
+						    show: 'false'
+					    }); 
+      }); 
+	}
+
+
 
 	// llena la tabla de coincidencias con otros proveedores 
 	function listRelateds() {
 			if(relatedProducts.length > 0 ) {
 				for( var i in relatedProducts) {
-					$('#relationProduct').append("<tr idProductList="+relatedProducts[i][13]+">"+ 
+					var classTr = ''; 
+					if ( relatedProducts[i][relatedProducts[i].length-3] == 'ER') {
+							classTr = 'entity-ER'; 
+					} 
+					$('#relationProduct').append("<tr class="+classTr+" idProductList="+relatedProducts[i][13]+">"+ 
 							"<td>"+ relatedProducts[i][relatedProducts[i].length-3] +"</td>"+ 
 							"<td>"+ relatedProducts[i][0] +"</td>"+ 
 							"<td>"+ relatedProducts[i][1] +"</td>"+ 
@@ -361,7 +331,6 @@ idProd = url.split('=')[2];
 			} else {
 				idRelateds.push(idToExclude); 
 			}
-
 		}); 
 	}
 	
@@ -449,19 +418,14 @@ idProd = url.split('=')[2];
 		for(i in productData) {
 			$('.atributes-to-fill').append('<p class="select-attrs attr_'+quitSpace(productData[i].type_attr)+'" attribute-name="'+productData[i].type_attr+'">'+productData[i].type_attr+'</p>');
 		}
-
 		var layout = ' <p class="mod-distributor-name">'+relatedProducts[0][0]+'</p> ' + 
                 		' <div class="mod-attr-value"> ' + relatedProducts[0][8] 
                 	  ' </div> '; 
         $('.mod-container-attrs').append(layout); 
-
-        //alert(".attr_"+quitSpace(selectedAttr)); 
 		$(".attr_"+quitSpace(selectedAttr)).addClass('selected-attr'); 
 	}
 
-	$('.selectAttrsVal').click(function() {	
-		initModalIntegration(); 
-	}); 
+	$('.selectAttrsVal').click(function() {	 initModalIntegration();  }); 
 
 	function renderValuesRelated() {
 			$('.mod-container-attrs').html(''); 
@@ -473,15 +437,15 @@ idProd = url.split('=')[2];
                	$('.mod-container-attrs').append(layout);  
                	$('body').off('click', '.mod-distributor-name'); 
                	$('body').on('click', '.mod-distributor-name', function(event){ 
-               		if ( selectedAttr == 'description' || selectedAttr == 'short_description') {
-               			$('#'+selectedAttr).summernote('code', $(event.target).next().html());  
-               		} else {
-               			console.log($(event.target).next().html()); 
-               			$('#'+quitSpace(selectedAttr)).val($(event.target).next().html());  
-               		}
-               	} );
-			}
-		});
+		               		if ( selectedAttr == 'description' || selectedAttr == 'short_description') {
+		               			$('#'+selectedAttr).summernote('code', $(event.target).next().html());  
+		               		} else {
+		               			console.log($(event.target).next().html()); 
+		               			$('#'+quitSpace(selectedAttr)).val($(event.target).next().html());  
+		               		}
+           			});
+					}
+			});
 	}
 
 	// Renderizar valores de productos para Seleccionar 

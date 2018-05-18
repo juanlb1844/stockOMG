@@ -48,6 +48,12 @@ switch ($page) {
   case 'upload_files': 
     echo $twig->render('uploadFiles.html.twig'); 
   break; 
+   case 'web-services': 
+    echo $twig->render('web-services.html.twig'); 
+  break; 
+  case 'usuarios': 
+    echo $twig->render('usuarios.html.twig'); 
+  break; 
 }
 
 

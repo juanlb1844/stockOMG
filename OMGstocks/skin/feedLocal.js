@@ -8,11 +8,12 @@ var dataLocalCategory = {
 			idCatSelected : 1
 	};  
 
+var F2 = []; 
+
 $(document).ready( function(){
 
 
-
-/* FILTRO OBJECTS */ 
+/* FILTRO OBJECTS ---------------------------------------  */ 
 function filterFee(config) {
 	this.config = config ; 
 	this.brand = 'brandAction'; 
@@ -26,10 +27,10 @@ function filterFee(config) {
   		}
   		// Subscribir eventos 
   		$(this.config.selector).off('.'+this.brand); 
-  		filterSec = this.config.selector; 
+  		filterSec = this.config.selector;
+  		$(filterSec).off('click', '.'+this.brand);  
   		$(filterSec).on('click', '.'+this.brand, this.actionFilter); 
 	}
-
 	this.actionFilter = function (event) {
 		var string = null; 
 		string = $(event.target).text();  
@@ -43,14 +44,13 @@ function filterFee(config) {
 			getFilters('controladores/getMarcas.php', {attrName : config.attrName, filterType : 0}, config.selector);  //mostrar TODAS las marcas 
 		}); 
 	}
-
 	this.restartFilter = function() {
 		$(this.config.selector).html(''); 
 	}
-
 }
+/* FILTRO OBJECTS ---------------------------------------  */
 
-	//initFeedWindow('controladores/core.php', { url : '', type: 'user-view' }); 
+
 	initFeedWindow('controladores/getProductsByCat.php', { idCat : 57 });  
 	getCategories(); 
 	filterStack = []; 
@@ -69,9 +69,10 @@ function filterFee(config) {
 		 		  		response = JSON.parse(response);
 		 		  		console.log('................'); 
 		 		  		console.log(response);   
-						var F1 = new filterFee({response : response, selector : selector, attrName : data.attrName }); 
+						F1 = new filterFee({response : response, selector : selector, attrName : data.attrName }); 
 						F1.initFilter(); 
-						filterStack.push(F1); 
+						filterStack.push(F1);
+						F2.push(F1);  
 		 		  } else {  
 		 		  			$('.filter-content').html(''); 
 		 		  			$('.filter-n-res').text('0');
@@ -103,7 +104,8 @@ function filterFee(config) {
 		} else {
 				initFeedWindow('controladores/getProductsByCat.php', { idCat : cadIdCat });  
 				window.history.pushState('page2', 'Feed Local', globalLocation+'/categorie/'+cadIdCat); 				
-				getFilters('controladores/getAttrsByCat.php', { idCat : cadIdCat, attrName : 'marca' }); 
+				getFilters('controladores/getAttrsByCat.php', { idCat : cadIdCat, attrName : 'marca' }, '.filter-brand'); 
+				getFilters('controladores/getAttrsByCat.php', { idCat : cadIdCat, attrName : 'familia' }, '.filter-family'); 
 		}
 	});
 

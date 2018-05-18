@@ -1,0 +1,55 @@
+{% extends "layout.html.twig" %}
+
+{% block content %} 
+	{{parent()}} 
+	<div class="col-md-9">
+               <div class="tab-providers hiding-window">
+               <div style="width: 80%; margin: auto; ">
+		        <h1 style="font-weight: 600">Usuarios</h1>
+     			 <table class="table table-bordered table-striped">
+     				<thead>
+     					<tr>
+     						<th>
+     							Nombre
+     						</th>
+     						<th>
+     							Tipo
+     						</th>
+                                   <th>
+                                        Estado
+                                   </th>
+     					</tr>
+     				</thead> 
+     				<tbody>
+     					<tr>
+                                   <td>Aadmin</td>
+                                   <td>Aadmin</td>
+                                   <td>Activo</td>                    
+                              </tr>
+                              <tr>
+                                   <td>Aadmin</td>
+                                   <td>Aadmin</td>
+                                   <td>Activo</td>                    
+                              </tr>
+                              <tr>
+                                   <td>Aadmin</td>
+                                   <td>Aadmin</td>
+                                   <td>Activo</td>                    
+                              </tr>
+                              <tr>
+                                   <td>Aadmin</td>
+                                   <td>Aadmin</td>
+                                   <td>Activo</td>                    
+                              </tr>
+     				</tbody>
+     			</table>
+     			<div>
+     			 <h4><a href="">Grupos de permisos</a></h4>
+     			</div>
+     		</div>
+     	</div>	
+	</div>
+	<div class="col-md-3">
+		{{ include('sidebar.html.twig') }}
+	</div>
+{% endblock %}

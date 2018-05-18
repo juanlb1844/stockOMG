@@ -4,6 +4,7 @@
 	{{parent()}} 
   <!-- include summernote css/js -->
 	<script type="text/javascript" src="skin/producto.js"></script>
+  <script type="text/javascript" src="skin/productoFunctions.js"></script>
   <link href="skin/summernote/summernote.css" rel="stylesheet">
   <script src="skin/summernote/summernote.js"></script>
 
@@ -87,6 +88,11 @@
       cursor: pointer;
     }
   </style>
+  <style type="text/css">
+    .entity-ER {
+      display: none; 
+    }
+  </style>
 
     <div class="dashboard-window col-md-9">
           <a style="padding:2px 7px 2px 7px; font-weight: bold; font-size: 12px;" href="?p=feedLocal" class="btn btn-primary btn-sm">Atrás</a> 
@@ -96,9 +102,9 @@
           <ul style="margin-top: 10px;" id="entityGallery">
           </ul>
         
-        
+        <!-- 
            <div class="createGroup selectAttrsVal" data-toggle="modal" data-target="#selectRelated">  <span style="line-height: 20px;">Agrupar</span> 
-           </div>
+           </div> --> 
         
 
         <!-- Relación con otros productos --> 

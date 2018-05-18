@@ -1,14 +1,39 @@
-<div class="col-md-12" style="border: 1px solid #e5e5e5; padding-bottom: 20px; border-radius: 4px;     background-color: #f9f9f9;
-">
-	<div class="row" style="border: 1px solid #e5e5e5; background-color: white; background-color: #e8edf1;">
+<style type="text/css">
+	.container-notifer:hover {
+		cursor: pointer;
+		background-color: #e8edf1;
+	}
+	.container-notifer {
+		border: 1px solid #e5e5e5; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; margin-top: 10px; border-left: 1px solid #e68080;     box-shadow: #d0d0d0 0px 1px 6px 0px;
+	}
+	.on-line { border-left: 1px solid #03a87c; }
+	.container-notifer:active {
+		transform: scale(1.02);
+	}
+	.container-widget-sidebar {
+		border: 1px solid #e5e5e5; padding-bottom: 20px; border-radius: 4px;     background-color: #f9f9f9;
+	}
+	.header-sidebar-widget {
+		border: 1px solid #e5e5e5; background-color: white; background-color: #e8edf1;
+	}
+	.title-header-w-s {
+		font-weight: bold; font-size: 17px; color: #656565;
+	}
+	.option-header-ws {
+		padding-top: 10px;
+	}
+</style>
+
+<div class="col-md-12 container-widget-sidebar">
+	<div class="row header-sidebar-widget">
 		<div class="col-md-8">
-			<h4 style="font-weight: bold; font-size: 17px; color: #656565;">Actividad de agentes</h4> 
+			<h4 class="title-header-w-s">Actividad de agentes</h4> 
 		</div>
-		<div class="col-md-4" style="padding-top: 10px;">
+		<div class="col-md-4 option-header-ws">
 			<a href="">Administrar</a>
 		</div>
 	</div>
-	<div class="container-notifer row" style="border: 1px solid #e5e5e5; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; margin-top: 10px; border-left: 1px solid #e68080;     box-shadow: #d0d0d0 0px 1px 6px 0px;">
+	<div class="container-notifer row">
 		<div class="col-md-3">
 			<img src="media/users/user-1.png" style="border: 2px solid #e68080; width: 50px; border-radius: 50%;">
 		</div>
@@ -17,7 +42,7 @@
 			<h6 style="color: #828282;">Social comunity</h6>
 		</div>
 	</div>
-	<div class="container-notifer row" style="border: 1px solid #e5e5e5; margin-top: 10px; padding: 0px; border-radius: 4px; background-color: #eff3f6; padding-top: 5px; border-left: 1px solid #03a87c;     box-shadow: #d0d0d0 0px 1px 6px 0px;">
+	<div class="container-notifer on-line row">
 		<div class="col-md-3">
 			<img src="media/users/user-1.png" style="border: 2px solid #03a87c; width: 50px; border-radius: 50%;">
 		</div>
@@ -37,8 +62,18 @@
 	</div> 
 	<!-- añadir indicador --> 
 
-<div class="col-md-12" style="height: 40px; margin-top: 20px;">
-	<a id="openGoogle">Google..</a>
+<div class="col-md-12 container-widget-sidebar" style="margin-top: 15px;">
+	<div class="row header-sidebar-widget">
+		<div class="col-md-8">
+			<h4 class="title-header-w-s">Asist</h4> 
+		</div>
+		<div class="col-md-4 option-header-ws">
+			<a href="">Administrar</a>
+		</div>
+	</div>
+	<div class="container-notifer row">
+		<a id="openGoogle">Google..</a>
+	</div>
 </div>
 
 <style type="text/css">

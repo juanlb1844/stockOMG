@@ -85,12 +85,9 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
         padding-left: 0px; 
         border-radius: 4px;
       }
-
-
       .small-btn {
         padding: 2px 7px 2px 7px;
       }
-
       /* header widget */
       .header-widget-tree {
         background-color: #e8edf1; border-top-left-radius: 4px; border-top-right-radius: 4px; border: 1px solid #e5e5e5; color: #656565; padding: 5px; font-weight: bold; padding-left: 15px;
@@ -98,7 +95,6 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
       .body-widget-tree {
         border: 1px solid #e5e5e5; background-color: #eff3f6; border-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px;
       }
-
       #myChart0 {
         padding-right: 10px!important; 
       }
@@ -153,7 +149,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
             <div class=\"col-md-12\">
                ";
-        // line 125
+        // line 121
         echo twig_include($this->env, $context, "filters.html.twig");
         echo "
             </div>
@@ -161,7 +157,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
         <div class=\"row col-md-9\" style=\"padding-right: 0px;\">
         <div class=\"col-md-12\" style=\"padding: 0px; margin-bottom: 40px; \">
           <div class=\"col-md-6\" style=\"padding-left: 0px;\">
-              <h3 style=\"margin: 0px;\" class=\"title-template\">Busqueda general</h3>
+              <h3 style=\"margin: 0px; font-weight: 500;\" class=\"title-template\">Busqueda general</h3>
           </div>
           <div class=\"col-md-6\">
             <div class=\"col-md-8\">
@@ -172,7 +168,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
           </div>
         </div>
-     \t\t<div style=\"height: 200px;  width: 100%; margin: auto; \">            
+     \t\t<div style=\"height: 200px;  width: 100%; margin: auto;\">            
          \t\t<table id=\"tableFeed\" class=\"display table\" cellspacing=\"0\" width=\"100%\" style=\"font-size: 10px;\">
 \t\t\t      \t<thead></thead>
     \t\t\t\t<tbody></tbody>
@@ -182,7 +178,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
     </div> 
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 151
+        // line 147
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -286,7 +282,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
 
     public function getDebugInfo()
     {
-        return array (  186 => 151,  157 => 125,  34 => 5,  28 => 3,  11 => 1,);
+        return array (  182 => 147,  153 => 121,  34 => 5,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -356,12 +352,9 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
         padding-left: 0px; 
         border-radius: 4px;
       }
-
-
       .small-btn {
         padding: 2px 7px 2px 7px;
       }
-
       /* header widget */
       .header-widget-tree {
         background-color: #e8edf1; border-top-left-radius: 4px; border-top-right-radius: 4px; border: 1px solid #e5e5e5; color: #656565; padding: 5px; font-weight: bold; padding-left: 15px;
@@ -369,7 +362,6 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
       .body-widget-tree {
         border: 1px solid #e5e5e5; background-color: #eff3f6; border-radius: 4px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px;
       }
-
       #myChart0 {
         padding-right: 10px!important; 
       }
@@ -429,7 +421,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
         <div class=\"row col-md-9\" style=\"padding-right: 0px;\">
         <div class=\"col-md-12\" style=\"padding: 0px; margin-bottom: 40px; \">
           <div class=\"col-md-6\" style=\"padding-left: 0px;\">
-              <h3 style=\"margin: 0px;\" class=\"title-template\">Busqueda general</h3>
+              <h3 style=\"margin: 0px; font-weight: 500;\" class=\"title-template\">Busqueda general</h3>
           </div>
           <div class=\"col-md-6\">
             <div class=\"col-md-8\">
@@ -440,7 +432,7 @@ class __TwigTemplate_89d6061f75b66e9658ba3be89e8686efce8af33c3a7ad6987b4419f0857
             </div>
           </div>
         </div>
-     \t\t<div style=\"height: 200px;  width: 100%; margin: auto; \">            
+     \t\t<div style=\"height: 200px;  width: 100%; margin: auto;\">            
          \t\t<table id=\"tableFeed\" class=\"display table\" cellspacing=\"0\" width=\"100%\" style=\"font-size: 10px;\">
 \t\t\t      \t<thead></thead>
     \t\t\t\t<tbody></tbody>

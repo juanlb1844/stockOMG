@@ -59,7 +59,7 @@ class __TwigTemplate_0d2fc86cd111cbd9a587c58fd40e64e7bcab3694a2a28eebab05cc90e78
 \t\t\t\t\t<h3 style=\"color:#24292e;\"> Plataform </h3>
 \t\t\t\t</li>
 \t\t\t\t<li style=\"color: #5d6169;\">
-\t\t\t\t\tWeb Services
+\t\t\t\t\t<a href=\"?p=web-services\">Web Services</a>
 \t\t\t\t</li>
 \t\t\t\t<li style=\"color: #5d6169;\">
 \t\t\t\t\tCMS content
@@ -152,7 +152,7 @@ class __TwigTemplate_0d2fc86cd111cbd9a587c58fd40e64e7bcab3694a2a28eebab05cc90e78
 \t\t\t\t\t<h3 style=\"color:#24292e;\"> Plataform </h3>
 \t\t\t\t</li>
 \t\t\t\t<li style=\"color: #5d6169;\">
-\t\t\t\t\tWeb Services
+\t\t\t\t\t<a href=\"?p=web-services\">Web Services</a>
 \t\t\t\t</li>
 \t\t\t\t<li style=\"color: #5d6169;\">
 \t\t\t\t\tCMS content

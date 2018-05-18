@@ -34,6 +34,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
         echo " 
   <!-- include summernote css/js -->
 \t<script type=\"text/javascript\" src=\"skin/producto.js\"></script>
+  <script type=\"text/javascript\" src=\"skin/productoFunctions.js\"></script>
   <link href=\"skin/summernote/summernote.css\" rel=\"stylesheet\">
   <script src=\"skin/summernote/summernote.js\"></script>
 
@@ -117,6 +118,11 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       cursor: pointer;
     }
   </style>
+  <style type=\"text/css\">
+    .entity-ER {
+      display: none; 
+    }
+  </style>
 
     <div class=\"dashboard-window col-md-9\">
           <a style=\"padding:2px 7px 2px 7px; font-weight: bold; font-size: 12px;\" href=\"?p=feedLocal\" class=\"btn btn-primary btn-sm\">Atrás</a> 
@@ -126,9 +132,9 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
           <ul style=\"margin-top: 10px;\" id=\"entityGallery\">
           </ul>
         
-        
+        <!-- 
            <div class=\"createGroup selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">  <span style=\"line-height: 20px;\">Agrupar</span> 
-           </div>
+           </div> --> 
         
 
         <!-- Relación con otros productos --> 
@@ -168,7 +174,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"form-group\">
               <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                 ";
-        // line 140
+        // line 146
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
             </div>
@@ -185,13 +191,13 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 154
+        // line 160
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 157
+        // line 163
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -327,7 +333,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 
     public function getDebugInfo()
     {
-        return array (  195 => 157,  189 => 154,  172 => 140,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  201 => 163,  195 => 160,  178 => 146,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -346,6 +352,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t{{parent()}} 
   <!-- include summernote css/js -->
 \t<script type=\"text/javascript\" src=\"skin/producto.js\"></script>
+  <script type=\"text/javascript\" src=\"skin/productoFunctions.js\"></script>
   <link href=\"skin/summernote/summernote.css\" rel=\"stylesheet\">
   <script src=\"skin/summernote/summernote.js\"></script>
 
@@ -429,6 +436,11 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       cursor: pointer;
     }
   </style>
+  <style type=\"text/css\">
+    .entity-ER {
+      display: none; 
+    }
+  </style>
 
     <div class=\"dashboard-window col-md-9\">
           <a style=\"padding:2px 7px 2px 7px; font-weight: bold; font-size: 12px;\" href=\"?p=feedLocal\" class=\"btn btn-primary btn-sm\">Atrás</a> 
@@ -438,9 +450,9 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
           <ul style=\"margin-top: 10px;\" id=\"entityGallery\">
           </ul>
         
-        
+        <!-- 
            <div class=\"createGroup selectAttrsVal\" data-toggle=\"modal\" data-target=\"#selectRelated\">  <span style=\"line-height: 20px;\">Agrupar</span> 
-           </div>
+           </div> --> 
         
 
         <!-- Relación con otros productos --> 
@@ -617,6 +629,6 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 </div>
 {% endblock %}
 
-", "producto.html.twig", "C:\\xampp\\htdocs\\projects\\OMG\\last\\last\\stockOMG\\OMGstocks\\templates\\producto.html.twig");
+", "producto.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\producto.html.twig");
     }
 }

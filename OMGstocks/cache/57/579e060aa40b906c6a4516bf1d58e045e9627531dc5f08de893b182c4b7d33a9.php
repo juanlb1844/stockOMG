@@ -82,22 +82,20 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 \t</style>
 
     <div class=\"col-md-9\">
-        <div class=\"row\">
+        <div class=\"row\" style=\"margin-bottom: 40px;\">
         <div class=\"col-md-6\">
-          <h1 class=\"title-template\">Dashbard</h1>
+          <h1 class=\"title-template\" style=\"font-weight: 500\">Dashbard</h1>
         </div>
         <div class=\"col-md-6\" style=\"padding-top: 25px;\">
-          <button class=\"btn btn-default btn-sty1 pull-right\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button> 
+          <button class=\"btn btn-default btn-sty1 pull-right\" id=\"addWidget\" data-bind=\"click: addNewWidget\" style=\"    box-shadow: 1px 2px 6px 1px #e5e5e5;\">Añadir Indicador</button> 
         </div>
             
         </div>
-        
-
-\t\t\t        <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
+          <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 69
+        // line 67
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -211,7 +209,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             };
 
             var widgets = [
-                {x: 0, y: 0, width: 6, height: 4}/*,
+                {x: 0, y: 0, width: 4, height: 6}/*,
                 {x: 4, y: 4, width: 4, height: 4},
                 {x: 0, y: 0, width: 4, height: 4},
                 {x: 4, y: 4, width: 4, height: 4}*/ 
@@ -239,7 +237,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 
     public function getDebugInfo()
     {
-        return array (  101 => 69,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  99 => 67,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -306,18 +304,16 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
 \t</style>
 
     <div class=\"col-md-9\">
-        <div class=\"row\">
+        <div class=\"row\" style=\"margin-bottom: 40px;\">
         <div class=\"col-md-6\">
-          <h1 class=\"title-template\">Dashbard</h1>
+          <h1 class=\"title-template\" style=\"font-weight: 500\">Dashbard</h1>
         </div>
         <div class=\"col-md-6\" style=\"padding-top: 25px;\">
-          <button class=\"btn btn-default btn-sty1 pull-right\" id=\"addWidget\" data-bind=\"click: addNewWidget\">Añadir Indicador</button> 
+          <button class=\"btn btn-default btn-sty1 pull-right\" id=\"addWidget\" data-bind=\"click: addNewWidget\" style=\"    box-shadow: 1px 2px 6px 1px #e5e5e5;\">Añadir Indicador</button> 
         </div>
             
         </div>
-        
-
-\t\t\t        <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
+          <div data-bind=\"component: {name: 'dashboard-grid', params: \$data}\"></div>
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t{{ include('sidebar.html.twig') }}
@@ -432,7 +428,7 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
             };
 
             var widgets = [
-                {x: 0, y: 0, width: 6, height: 4}/*,
+                {x: 0, y: 0, width: 4, height: 6}/*,
                 {x: 4, y: 4, width: 4, height: 4},
                 {x: 0, y: 0, width: 4, height: 4},
                 {x: 4, y: 4, width: 4, height: 4}*/ 
