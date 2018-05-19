@@ -36,9 +36,10 @@ class __TwigTemplate_1c8a912cbd21133fb45bb020c0d4140beb4e8cbee7647a45f4f7d60f9b0
                <div class=\"tab-providers hiding-window\">
                <div style=\"width: 80%; margin: auto; \">
 \t\t        <h1 style=\"font-weight: 600\">Usuarios</h1>
+                    <div>
      \t\t\t <table class=\"table table-bordered table-striped\">
      \t\t\t\t<thead>
-     \t\t\t\t\t<tr>
+     \t\t\t\t\t<tr style=\"background-color: #f4f7f9;\">
      \t\t\t\t\t\t<th>
      \t\t\t\t\t\t\tNombre
      \t\t\t\t\t\t</th>
@@ -73,6 +74,7 @@ class __TwigTemplate_1c8a912cbd21133fb45bb020c0d4140beb4e8cbee7647a45f4f7d60f9b0
                               </tr>
      \t\t\t\t</tbody>
      \t\t\t</table>
+                    </div>
      \t\t\t<div>
      \t\t\t <h4><a href=\"\">Grupos de permisos</a></h4>
      \t\t\t</div>
@@ -81,7 +83,7 @@ class __TwigTemplate_1c8a912cbd21133fb45bb020c0d4140beb4e8cbee7647a45f4f7d60f9b0
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 53
+        // line 55
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -100,7 +102,7 @@ class __TwigTemplate_1c8a912cbd21133fb45bb020c0d4140beb4e8cbee7647a45f4f7d60f9b0
 
     public function getDebugInfo()
     {
-        return array (  85 => 53,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  87 => 55,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -121,9 +123,10 @@ class __TwigTemplate_1c8a912cbd21133fb45bb020c0d4140beb4e8cbee7647a45f4f7d60f9b0
                <div class=\"tab-providers hiding-window\">
                <div style=\"width: 80%; margin: auto; \">
 \t\t        <h1 style=\"font-weight: 600\">Usuarios</h1>
+                    <div>
      \t\t\t <table class=\"table table-bordered table-striped\">
      \t\t\t\t<thead>
-     \t\t\t\t\t<tr>
+     \t\t\t\t\t<tr style=\"background-color: #f4f7f9;\">
      \t\t\t\t\t\t<th>
      \t\t\t\t\t\t\tNombre
      \t\t\t\t\t\t</th>
@@ -158,6 +161,7 @@ class __TwigTemplate_1c8a912cbd21133fb45bb020c0d4140beb4e8cbee7647a45f4f7d60f9b0
                               </tr>
      \t\t\t\t</tbody>
      \t\t\t</table>
+                    </div>
      \t\t\t<div>
      \t\t\t <h4><a href=\"\">Grupos de permisos</a></h4>
      \t\t\t</div>

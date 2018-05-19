@@ -83,7 +83,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 <div class=\"col-md-12 container-widget-sidebar\" style=\"margin-top: 15px;\">
 \t<div class=\"row header-sidebar-widget\">
 \t\t<div class=\"col-md-8\">
-\t\t\t<h4 class=\"title-header-w-s\">Asist</h4> 
+\t\t\t<h4 class=\"title-header-w-s\">Asistente</h4> 
 \t\t</div>
 \t\t<div class=\"col-md-4 option-header-ws\">
 \t\t\t<a href=\"\">Administrar</a>
@@ -213,7 +213,7 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 <div class=\"col-md-12 container-widget-sidebar\" style=\"margin-top: 15px;\">
 \t<div class=\"row header-sidebar-widget\">
 \t\t<div class=\"col-md-8\">
-\t\t\t<h4 class=\"title-header-w-s\">Asist</h4> 
+\t\t\t<h4 class=\"title-header-w-s\">Asistente</h4> 
 \t\t</div>
 \t\t<div class=\"col-md-4 option-header-ws\">
 \t\t\t<a href=\"\">Administrar</a>
