@@ -3,17 +3,17 @@
 
 	$db = new db(); 
 	
-	$attr_val = isset($_POST['attr_val']) ? $_POST['attr_val'] : 0; 
- 
-	$query = "CALL generalSearch('$attr_val'); "; 
- 
+	$parent = isset($_POST['parent']) ? $_POST['parent'] : 0; 
+
+	$query = "SELECT * FROM category WHERE parent_id = $parent"; 
+
 	if ($resultado = mysqli_query($db, $query)) {
     	if ($resultado->num_rows > 0) {
 			while($row = $resultado->fetch_assoc()) {
 			    $rows[] = $row;
 			  }
 			} else {
-			    echo "sin datos";
+			    echo "sin resultados";
 			    return; 
 			}
 			print_r( json_encode($rows) );

@@ -76,14 +76,61 @@ class __TwigTemplate_1c8a912cbd21133fb45bb020c0d4140beb4e8cbee7647a45f4f7d60f9b0
      \t\t\t</table>
                     </div>
      \t\t\t<div>
-     \t\t\t <h4><a href=\"\">Grupos de permisos</a></h4>
      \t\t\t</div>
+                    <div class=\"user-form\">
+                         <span>
+                              <img style=\"width: 40px; border: 1px solid #e5e5e5; border-radius: 4px;\" src=\"./skin/media/user-avatar.png\"> 
+                         </span>
+                         <span style=\"font-size: 20px; font-weight: 600;     color: #515865;
+    padding-left: 10px;\">
+                              Credenciales de usuario
+                         </span>
+                    </div>
+
+                    <div class=\"col-md-12\">
+<form style=\"margin-top: 40px;\">
+  <div class=\"form-row\">
+    <div class=\"form-group col-md-6\" style=\"padding-left: 0px; \">
+      <label for=\"inputEmail4\">Email</label>
+      <input type=\"email\" class=\"form-control\" id=\"inputEmail4\" placeholder=\"Email\">
+    </div>
+    <div class=\"form-group col-md-6\">
+      <label for=\"inputPassword4\">Password</label>
+      <input type=\"password\" class=\"form-control\" id=\"inputPassword4\" placeholder=\"Password\">
+    </div>
+  </div>
+  <div class=\"form-group\">
+    <label for=\"inputAddress\">Address</label>
+    <input type=\"text\" class=\"form-control\" id=\"inputAddress\" placeholder=\"1234 Main St\">
+  </div>
+  <div class=\"form-group\">
+    <label for=\"inputAddress2\">Address 2</label>
+    <input type=\"text\" class=\"form-control\" id=\"inputAddress2\" placeholder=\"Apartment, studio, or floor\">
+  </div>
+  <div class=\"form-group\">
+    <div class=\"form-check\">
+      <input class=\"form-check-input\" type=\"checkbox\" id=\"gridCheck\">
+      <label class=\"form-check-label\" for=\"gridCheck\">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <button type=\"submit\" class=\"btn btn-primary\">Sign in</button>
+</form>
+
+
+                    </div>
+
      \t\t</div>
      \t</div>\t
+
+          
+
+
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t";
-        // line 55
+        // line 102
         echo twig_include($this->env, $context, "sidebar.html.twig");
         echo "
 \t</div>
@@ -102,7 +149,7 @@ class __TwigTemplate_1c8a912cbd21133fb45bb020c0d4140beb4e8cbee7647a45f4f7d60f9b0
 
     public function getDebugInfo()
     {
-        return array (  87 => 55,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  134 => 102,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -163,10 +210,57 @@ class __TwigTemplate_1c8a912cbd21133fb45bb020c0d4140beb4e8cbee7647a45f4f7d60f9b0
      \t\t\t</table>
                     </div>
      \t\t\t<div>
-     \t\t\t <h4><a href=\"\">Grupos de permisos</a></h4>
      \t\t\t</div>
+                    <div class=\"user-form\">
+                         <span>
+                              <img style=\"width: 40px; border: 1px solid #e5e5e5; border-radius: 4px;\" src=\"./skin/media/user-avatar.png\"> 
+                         </span>
+                         <span style=\"font-size: 20px; font-weight: 600;     color: #515865;
+    padding-left: 10px;\">
+                              Credenciales de usuario
+                         </span>
+                    </div>
+
+                    <div class=\"col-md-12\">
+<form style=\"margin-top: 40px;\">
+  <div class=\"form-row\">
+    <div class=\"form-group col-md-6\" style=\"padding-left: 0px; \">
+      <label for=\"inputEmail4\">Email</label>
+      <input type=\"email\" class=\"form-control\" id=\"inputEmail4\" placeholder=\"Email\">
+    </div>
+    <div class=\"form-group col-md-6\">
+      <label for=\"inputPassword4\">Password</label>
+      <input type=\"password\" class=\"form-control\" id=\"inputPassword4\" placeholder=\"Password\">
+    </div>
+  </div>
+  <div class=\"form-group\">
+    <label for=\"inputAddress\">Address</label>
+    <input type=\"text\" class=\"form-control\" id=\"inputAddress\" placeholder=\"1234 Main St\">
+  </div>
+  <div class=\"form-group\">
+    <label for=\"inputAddress2\">Address 2</label>
+    <input type=\"text\" class=\"form-control\" id=\"inputAddress2\" placeholder=\"Apartment, studio, or floor\">
+  </div>
+  <div class=\"form-group\">
+    <div class=\"form-check\">
+      <input class=\"form-check-input\" type=\"checkbox\" id=\"gridCheck\">
+      <label class=\"form-check-label\" for=\"gridCheck\">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <button type=\"submit\" class=\"btn btn-primary\">Sign in</button>
+</form>
+
+
+                    </div>
+
      \t\t</div>
      \t</div>\t
+
+          
+
+
 \t</div>
 \t<div class=\"col-md-3\">
 \t\t{{ include('sidebar.html.twig') }}

@@ -167,6 +167,13 @@ idProd     = url.split('=')[2];
 				}
 			}
 
+			if( attrStatus != 'origen' ) {
+				$('.steps-view').css('display', 'none');
+				$('.last-step-element').css('display', 'block');
+				$('#entityGallery').css('display', 'block');  
+				$('.first-step-element').css('display', 'none'); 
+				$('.last-btn-step').css('display', 'none');
+			}
 			// obtener (E)'s con los que se tiene alguna relación [permutada]
 			initFeedWindow('controladores/getRelatedProducts.php', 
 							{ sku : attrSKU,  
@@ -296,6 +303,11 @@ idProd     = url.split('=')[2];
 
 	// llena la tabla de coincidencias con otros proveedores 
 	function listRelateds() {
+			if( relatedProducts.length == 1 ) {
+				$('#msg-related').html('No se encontraron coincidencias'); 
+			} else {
+				$('#msg-related').html('Se encontraron coincidencias'); 
+			}
 			if(relatedProducts.length > 0 ) {
 				for( var i in relatedProducts) {
 					var classTr = ''; 

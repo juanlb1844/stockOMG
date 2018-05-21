@@ -172,7 +172,6 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                                   for( var i = 0 in dataDash ) {
                                     dataArray2.push(parseInt(dataDash[i].CANT)); 
                                   }
-                                  //console.log(dataArray); 
                                         setTimeout(function() {
                                             xx = jQuery('canvas')[jQuery('canvas').length-1];  
                                             var ctx = xx.getContext('2d');
@@ -391,7 +390,6 @@ class __TwigTemplate_e719c41a956cc4bf90b3bfdce89a86c3b835098f9a6385e84d1ae7b3d9e
                                   for( var i = 0 in dataDash ) {
                                     dataArray2.push(parseInt(dataDash[i].CANT)); 
                                   }
-                                  //console.log(dataArray); 
                                         setTimeout(function() {
                                             xx = jQuery('canvas')[jQuery('canvas').length-1];  
                                             var ctx = xx.getContext('2d');
