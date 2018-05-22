@@ -136,10 +136,13 @@ idProd     = url.split('=')[2];
 			var attrModel = null; 
 
 			// Agregar datos a table [relación de coincidencias de porductos por proveedor]
-			for(var i in productData) {
-				if( productData[i].type_attr == 'SKU' ){
+			for(var i in productData) { 
+				 if( productData[i].type_attr == 'SKU' ){
 					var valAttr = productData[i].value_attr; 
 					attrSKU = ( valAttr.length > 1 && valAttr != '0000') ? valAttr : '-a-a-a-a'; 
+				} 
+				if( productData[i].type_attr == 'Name Product' ){
+					$('#ind-name_product').html('<span style="font-weight: bold;">Producto:</span> '+ productData[i].value_attr); 
 				} 
 				if( productData[i].type_attr == 'UPC' ) {
 					var valAttr = productData[i].value_attr; 

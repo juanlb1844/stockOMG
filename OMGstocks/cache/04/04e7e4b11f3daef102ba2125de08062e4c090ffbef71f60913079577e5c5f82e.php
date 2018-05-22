@@ -80,50 +80,14 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t</div> 
 \t<!-- añadir indicador --> 
 
-<div class=\"col-md-12 container-widget-sidebar\" style=\"margin-top: 15px;\">
-\t<div class=\"row header-sidebar-widget\">
-\t\t<div class=\"col-md-8\">
-\t\t\t<h4 class=\"title-header-w-s\">Asistente</h4> 
-\t\t</div>
-\t\t<div class=\"col-md-4 option-header-ws\">
-\t\t\t<a href=\"\">Administrar</a>
-\t\t</div>
-\t</div>
-\t<div class=\"container-notifer row\">
-\t\t<a id=\"openGoogle\">Google..</a>
-\t</div>
-</div>
+
 
 <style type=\"text/css\">
 \t#openGoogle:hover {
 \t\tcursor: pointer;
 \t}
 </style>
-<script type=\"text/javascript\">
-\t\$(document).ready(function() {
-\t\t\$('#openGoogle').click(function() {
-\t\t\tvar param = '&source=lnms&tbm=isch&sa=X'; 
-\t\t\tvar name = null; 
-\t\t\tname = \$('#NameProduct').val(); 
-\t\t\tvar domainUrl = 'https://www.google.com/search?q='; 
-\t\t\tdirection(domainUrl+name+param);
-\t\t}); 
-\t\t
-\t\tfunction direction(link) {
-\t
-\t\t\t\t\tvar windowSize = {
-\t\t\t\t\t    width: 700,
-\t\t\t\t\t    height: 500,
-\t\t\t\t\t};
-\t\t\t\t\tvar windowLocation = {
-\t\t\t\t\t    left:  (window.screen.availLeft + (window.screen.availWidth / 2)) - (windowSize.width / 2),
-\t\t\t\t\t    top: (window.screen.availTop + (window.screen.availHeight / 2)) - (windowSize.height / 2)
-\t\t\t\t\t};
-\t\t\t\t\t
-\t\t\twindow.open(link, '_blank', 'width=' + windowSize.width + ', height=' + windowSize.height + ', left=' + windowLocation.left + ', top=' + windowLocation.top);
-\t\t}
-\t}); 
-</script>";
+";
     }
 
     public function getTemplateName()
@@ -210,49 +174,13 @@ class __TwigTemplate_c1ef93fcda7179a9d6bfff248d952772b437229edb3debc82960e5c6c13
 \t</div> 
 \t<!-- añadir indicador --> 
 
-<div class=\"col-md-12 container-widget-sidebar\" style=\"margin-top: 15px;\">
-\t<div class=\"row header-sidebar-widget\">
-\t\t<div class=\"col-md-8\">
-\t\t\t<h4 class=\"title-header-w-s\">Asistente</h4> 
-\t\t</div>
-\t\t<div class=\"col-md-4 option-header-ws\">
-\t\t\t<a href=\"\">Administrar</a>
-\t\t</div>
-\t</div>
-\t<div class=\"container-notifer row\">
-\t\t<a id=\"openGoogle\">Google..</a>
-\t</div>
-</div>
+
 
 <style type=\"text/css\">
 \t#openGoogle:hover {
 \t\tcursor: pointer;
 \t}
 </style>
-<script type=\"text/javascript\">
-\t\$(document).ready(function() {
-\t\t\$('#openGoogle').click(function() {
-\t\t\tvar param = '&source=lnms&tbm=isch&sa=X'; 
-\t\t\tvar name = null; 
-\t\t\tname = \$('#NameProduct').val(); 
-\t\t\tvar domainUrl = 'https://www.google.com/search?q='; 
-\t\t\tdirection(domainUrl+name+param);
-\t\t}); 
-\t\t
-\t\tfunction direction(link) {
-\t
-\t\t\t\t\tvar windowSize = {
-\t\t\t\t\t    width: 700,
-\t\t\t\t\t    height: 500,
-\t\t\t\t\t};
-\t\t\t\t\tvar windowLocation = {
-\t\t\t\t\t    left:  (window.screen.availLeft + (window.screen.availWidth / 2)) - (windowSize.width / 2),
-\t\t\t\t\t    top: (window.screen.availTop + (window.screen.availHeight / 2)) - (windowSize.height / 2)
-\t\t\t\t\t};
-\t\t\t\t\t
-\t\t\twindow.open(link, '_blank', 'width=' + windowSize.width + ', height=' + windowSize.height + ', left=' + windowLocation.left + ', top=' + windowLocation.top);
-\t\t}
-\t}); 
-</script>", "sidebar.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\sidebar.html.twig");
+", "sidebar.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\sidebar.html.twig");
     }
 }

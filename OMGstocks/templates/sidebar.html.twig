@@ -62,47 +62,10 @@
 	</div> 
 	<!-- añadir indicador --> 
 
-<div class="col-md-12 container-widget-sidebar" style="margin-top: 15px;">
-	<div class="row header-sidebar-widget">
-		<div class="col-md-8">
-			<h4 class="title-header-w-s">Asistente</h4> 
-		</div>
-		<div class="col-md-4 option-header-ws">
-			<a href="">Administrar</a>
-		</div>
-	</div>
-	<div class="container-notifer row">
-		<a id="openGoogle">Google..</a>
-	</div>
-</div>
+
 
 <style type="text/css">
 	#openGoogle:hover {
 		cursor: pointer;
 	}
 </style>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#openGoogle').click(function() {
-			var param = '&source=lnms&tbm=isch&sa=X'; 
-			var name = null; 
-			name = $('#NameProduct').val(); 
-			var domainUrl = 'https://www.google.com/search?q='; 
-			direction(domainUrl+name+param);
-		}); 
-		
-		function direction(link) {
-	
-					var windowSize = {
-					    width: 700,
-					    height: 500,
-					};
-					var windowLocation = {
-					    left:  (window.screen.availLeft + (window.screen.availWidth / 2)) - (windowSize.width / 2),
-					    top: (window.screen.availTop + (window.screen.availHeight / 2)) - (windowSize.height / 2)
-					};
-					
-			window.open(link, '_blank', 'width=' + windowSize.width + ', height=' + windowSize.height + ', left=' + windowLocation.left + ', top=' + windowLocation.top);
-		}
-	}); 
-</script>

@@ -67,7 +67,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       text-align: center; 
     }
 
-     #__familia, #__stock, #__NormalPrice {
+     #__familia, #__stock, #__NormalPrice, #__flag_status, #__EntityID, #__meta_product, #__SKU, #__currency {
       display: none!important; 
     }
     table {
@@ -203,6 +203,11 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
       transition-property: all; 
       color: #03a9f4; 
     }
+
+    /* campos a ocultar [campos privados] */ 
+    #__flag_status {
+      display: none; 
+    }
   </style>
 
     <div class=\"dashboard-window col-md-9\">
@@ -314,7 +319,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
         <div class=\"second-step-element panel-categories\" style=\"height: 500px; overflow-x: auto;  width: 100%; \"> 
              <div class=\"row\" style=\"margin: 0px; padding-left: 10px; color: gray;  border-top: 1px solid #e9eff5;
     border-bottom: 1px solid #e9eff5;\">
-                <h4 id=\"breadcrumbs\" style=\"    font-weight: 300;
+                <h4 id=\"breadcrumbs\" style=\"    font-weight: 600;
     color: #67505c;\"> ROOT / </h4>
             </div>  
             <!-- <div class=\"general-cat\"> 
@@ -341,7 +346,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             </div>
           </div>
             <div class=\"col-md-2\" style=\"text-align: left;\">
-              <button style=\"height: 40px; border-radius: 20px; padding-left: 20px; padding-right: 20px; font-size: 18px;\" class=\"btn btn-primary\">Buscar</button>
+              <button id=\"btn-search_related\" style=\"height: 40px; border-radius: 20px; padding-left: 20px; padding-right: 20px; font-size: 18px;\" class=\"btn btn-primary\">Buscar</button>
             </div>
         </div>
 
@@ -356,7 +361,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
               <!-- construcción de atributos --> 
           </form>
 
-          <form class=\"form-horizontal gallery_upload\">
+          <form class=\"form-horizontal gallery_upload last-step-element\">
             <div class=\"col-md-12\" style=\"text-align: center;\">
               <div class=\"col-md-2\"></div>
               <div class=\"col-md-10\">
@@ -366,7 +371,7 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
             <div class=\"form-group\">
               <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>
                 ";
-        // line 338
+        // line 343
         echo twig_include($this->env, $context, "uploaderFiles.html.twig");
         echo "
             </div>
@@ -391,13 +396,19 @@ class __TwigTemplate_6d35b1274f93d9c24a515baf4294d551be5a97de8567444a047bc3c6971
 \t<div class=\"col-md-3\">
     <div>
       ";
-        // line 360
-        echo twig_include($this->env, $context, "sidebar.html.twig");
+        // line 365
+        echo twig_include($this->env, $context, "sidebar-indications.html.twig");
         echo "
     </div>
     <div>
       ";
-        // line 363
+        // line 368
+        echo twig_include($this->env, $context, "sidebar-assist.html.twig");
+        echo "
+    </div>
+    <div>
+      ";
+        // line 371
         echo twig_include($this->env, $context, "tree-category.html.twig");
         echo " 
     </div>
@@ -495,9 +506,11 @@ var last_id_founded = '';
      \$('.step-indicator').addClass('last-step-position'); 
      \$('#last-step-text').addClass('active-step');  
      \$('#second-step-text').removeClass('active-step');  
+     \$('.table-relateds').css('display', 'block'); 
   }); 
 
   \$('#second-step-return').click( function() {
+    \$('.table-relateds').css('display', 'none'); 
      \$('.last-step-element').css('display', 'none'); 
      \$('.second-step-element').css('display', 'block'); 
      \$('.step-indicator').addClass('second-step-position'); 
@@ -508,18 +521,21 @@ var last_id_founded = '';
 
   \$('.search-icon').click(function(event) {
     \$('.search-input').focus(); 
-    \$(event.target).slideUp('fast'); 
+    \$(event.target).slideUp('fast');
+  }); 
+
+  \$('.search-input').focus(function(event) {
+     \$('.search-icon').slideDown('fast'); 
+     \$('.search-icon').slideUp('fast');
   }); 
 
   \$('.search-input').blur(function(){
     \$('.search-icon').slideDown('fast'); 
   }); 
 
-
-  \$('.search-input').keypress(function(e) {
-    if(e.which == 13) {
+  \$('#btn-search_related').click( function() {
           var paramToSearch = \$('.search-input').val().trim(); 
-         \$('#append-related').modal({ show: 'false' }); 
+          \$('#append-related').modal({ show: 'false' }); 
           \$.ajax({
           url: 'controladores/generalSearch.php', 
           method: 'POST', 
@@ -530,6 +546,21 @@ var last_id_founded = '';
               format_data_search(response); 
             } 
           });
+  }); 
+
+  \$('.search-input').keypress(function(e) {
+    if(e.which == 13) {
+          var paramToSearch = \$('.search-input').val().trim(); 
+          \$('#append-related').modal({ show: 'false' }); 
+          \$.ajax({
+          url: 'controladores/generalSearch.php', 
+          method: 'POST', 
+          data: { attr_val: paramToSearch, 
+                 }, 
+          success: function(response){ 
+              format_data_search(response); 
+            } 
+          });
     } 
   }); 
 
@@ -537,8 +568,10 @@ var last_id_founded = '';
 
       // Obtener datos y formatear en arreglo 
   function format_data_search(mensaje) {   
+
              if(mensaje == 'sin datos') {
-              \$(\"#tableFeed\").html('<h2>Sin datos</h2>'); 
+              \$('#relationProduct_search').html(''); 
+              \$('#relationProduct_search').append('<tr><td>No se incontró ningún producto</td></tr>'); 
               return; 
              }
 
@@ -683,46 +716,9 @@ var last_id_founded = '';
               </thead> 
               <tbody id=\"relationProduct_search\">
                 <tr>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                </tr> 
-                <tr>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                </tr> 
-                <tr>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
+                    <td>
+                      <img style=\"width: 40px;\" src=\"./media/users/loading.gif\">
+                    </td>
                 </tr> 
               </tbody> 
          </table> 
@@ -863,7 +859,7 @@ var last_id_founded = '';
 
     public function getDebugInfo()
     {
-        return array (  401 => 363,  395 => 360,  370 => 338,  33 => 4,  28 => 3,  11 => 1,);
+        return array (  412 => 371,  406 => 368,  400 => 365,  375 => 343,  33 => 4,  28 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -915,7 +911,7 @@ var last_id_founded = '';
       text-align: center; 
     }
 
-     #__familia, #__stock, #__NormalPrice {
+     #__familia, #__stock, #__NormalPrice, #__flag_status, #__EntityID, #__meta_product, #__SKU, #__currency {
       display: none!important; 
     }
     table {
@@ -1051,6 +1047,11 @@ var last_id_founded = '';
       transition-property: all; 
       color: #03a9f4; 
     }
+
+    /* campos a ocultar [campos privados] */ 
+    #__flag_status {
+      display: none; 
+    }
   </style>
 
     <div class=\"dashboard-window col-md-9\">
@@ -1162,7 +1163,7 @@ var last_id_founded = '';
         <div class=\"second-step-element panel-categories\" style=\"height: 500px; overflow-x: auto;  width: 100%; \"> 
              <div class=\"row\" style=\"margin: 0px; padding-left: 10px; color: gray;  border-top: 1px solid #e9eff5;
     border-bottom: 1px solid #e9eff5;\">
-                <h4 id=\"breadcrumbs\" style=\"    font-weight: 300;
+                <h4 id=\"breadcrumbs\" style=\"    font-weight: 600;
     color: #67505c;\"> ROOT / </h4>
             </div>  
             <!-- <div class=\"general-cat\"> 
@@ -1189,7 +1190,7 @@ var last_id_founded = '';
             </div>
           </div>
             <div class=\"col-md-2\" style=\"text-align: left;\">
-              <button style=\"height: 40px; border-radius: 20px; padding-left: 20px; padding-right: 20px; font-size: 18px;\" class=\"btn btn-primary\">Buscar</button>
+              <button id=\"btn-search_related\" style=\"height: 40px; border-radius: 20px; padding-left: 20px; padding-right: 20px; font-size: 18px;\" class=\"btn btn-primary\">Buscar</button>
             </div>
         </div>
 
@@ -1204,7 +1205,7 @@ var last_id_founded = '';
               <!-- construcción de atributos --> 
           </form>
 
-          <form class=\"form-horizontal gallery_upload\">
+          <form class=\"form-horizontal gallery_upload last-step-element\">
             <div class=\"col-md-12\" style=\"text-align: center;\">
               <div class=\"col-md-2\"></div>
               <div class=\"col-md-10\">
@@ -1235,7 +1236,10 @@ var last_id_founded = '';
     </div> 
 \t<div class=\"col-md-3\">
     <div>
-      {{ include('sidebar.html.twig') }}
+      {{ include('sidebar-indications.html.twig') }}
+    </div>
+    <div>
+      {{ include('sidebar-assist.html.twig') }}
     </div>
     <div>
       {{ include('tree-category.html.twig') }} 
@@ -1334,9 +1338,11 @@ var last_id_founded = '';
      \$('.step-indicator').addClass('last-step-position'); 
      \$('#last-step-text').addClass('active-step');  
      \$('#second-step-text').removeClass('active-step');  
+     \$('.table-relateds').css('display', 'block'); 
   }); 
 
   \$('#second-step-return').click( function() {
+    \$('.table-relateds').css('display', 'none'); 
      \$('.last-step-element').css('display', 'none'); 
      \$('.second-step-element').css('display', 'block'); 
      \$('.step-indicator').addClass('second-step-position'); 
@@ -1347,18 +1353,21 @@ var last_id_founded = '';
 
   \$('.search-icon').click(function(event) {
     \$('.search-input').focus(); 
-    \$(event.target).slideUp('fast'); 
+    \$(event.target).slideUp('fast');
+  }); 
+
+  \$('.search-input').focus(function(event) {
+     \$('.search-icon').slideDown('fast'); 
+     \$('.search-icon').slideUp('fast');
   }); 
 
   \$('.search-input').blur(function(){
     \$('.search-icon').slideDown('fast'); 
   }); 
 
-
-  \$('.search-input').keypress(function(e) {
-    if(e.which == 13) {
+  \$('#btn-search_related').click( function() {
           var paramToSearch = \$('.search-input').val().trim(); 
-         \$('#append-related').modal({ show: 'false' }); 
+          \$('#append-related').modal({ show: 'false' }); 
           \$.ajax({
           url: 'controladores/generalSearch.php', 
           method: 'POST', 
@@ -1369,6 +1378,21 @@ var last_id_founded = '';
               format_data_search(response); 
             } 
           });
+  }); 
+
+  \$('.search-input').keypress(function(e) {
+    if(e.which == 13) {
+          var paramToSearch = \$('.search-input').val().trim(); 
+          \$('#append-related').modal({ show: 'false' }); 
+          \$.ajax({
+          url: 'controladores/generalSearch.php', 
+          method: 'POST', 
+          data: { attr_val: paramToSearch, 
+                 }, 
+          success: function(response){ 
+              format_data_search(response); 
+            } 
+          });
     } 
   }); 
 
@@ -1376,8 +1400,10 @@ var last_id_founded = '';
 
       // Obtener datos y formatear en arreglo 
   function format_data_search(mensaje) {   
+
              if(mensaje == 'sin datos') {
-              \$(\"#tableFeed\").html('<h2>Sin datos</h2>'); 
+              \$('#relationProduct_search').html(''); 
+              \$('#relationProduct_search').append('<tr><td>No se incontró ningún producto</td></tr>'); 
               return; 
              }
 
@@ -1522,46 +1548,9 @@ var last_id_founded = '';
               </thead> 
               <tbody id=\"relationProduct_search\">
                 <tr>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                </tr> 
-                <tr>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                </tr> 
-                <tr>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
-                  <td> ACD </td>
+                    <td>
+                      <img style=\"width: 40px;\" src=\"./media/users/loading.gif\">
+                    </td>
                 </tr> 
               </tbody> 
          </table> 
