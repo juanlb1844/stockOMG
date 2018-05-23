@@ -176,6 +176,7 @@ idProd     = url.split('=')[2];
 				$('#entityGallery').css('display', 'block');  
 				$('.first-step-element').css('display', 'none'); 
 				$('.last-btn-step').css('display', 'none');
+				$('.table-relateds').css('display', 'inline-table');
 			}
 			// obtener (E)'s con los que se tiene alguna relación [permutada]
 			initFeedWindow('controladores/getRelatedProducts.php', 

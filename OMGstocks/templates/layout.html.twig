@@ -60,7 +60,7 @@
 		       </p>
 		    </div> 
 		    <div class="pull-right">
-		    	<div style="padding-top: 3px;">
+		    	<div id="actions-user" style="padding-top: 3px;">
 		    		<img style="width: 40px; border-radius: 50%; font-weight: 300px;" src="media/users/user-admin.png">
 		    		<span style="font-weight: bold; color: #24292e;">Admin</span>
 		    	</div>
@@ -75,3 +75,19 @@
 	</div>
 </body>
 </html> 
+
+
+<script type="text/javascript">
+	$('#actions-user').click(function(){
+		$.ajax({
+								'url'     : 'auth.php', 
+								'method' 	  : 'POST', 
+								'data' 	  : { user : '', 'pass' : 'xx' },  
+								'success' : function (response) { 
+									console.log(response); 
+									alert(response); 
+									window.location.reload(); 
+								} 
+							}); 
+	}); 
+</script>

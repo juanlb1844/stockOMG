@@ -506,7 +506,7 @@ var last_id_founded = '';
      \$('.step-indicator').addClass('last-step-position'); 
      \$('#last-step-text').addClass('active-step');  
      \$('#second-step-text').removeClass('active-step');  
-     \$('.table-relateds').css('display', 'block'); 
+     \$('.table-relateds').css('display', 'inline-table'); 
   }); 
 
   \$('#second-step-return').click( function() {
@@ -542,7 +542,6 @@ var last_id_founded = '';
           data: { attr_val: paramToSearch, 
                  }, 
           success: function(response){ 
-              console.log(JSON.parse(response));
               format_data_search(response); 
             } 
           });
@@ -1338,7 +1337,7 @@ var last_id_founded = '';
      \$('.step-indicator').addClass('last-step-position'); 
      \$('#last-step-text').addClass('active-step');  
      \$('#second-step-text').removeClass('active-step');  
-     \$('.table-relateds').css('display', 'block'); 
+     \$('.table-relateds').css('display', 'inline-table'); 
   }); 
 
   \$('#second-step-return').click( function() {
@@ -1374,7 +1373,6 @@ var last_id_founded = '';
           data: { attr_val: paramToSearch, 
                  }, 
           success: function(response){ 
-              console.log(JSON.parse(response));
               format_data_search(response); 
             } 
           });

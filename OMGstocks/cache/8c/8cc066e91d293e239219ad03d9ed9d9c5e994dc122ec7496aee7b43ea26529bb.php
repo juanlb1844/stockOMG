@@ -82,7 +82,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t       </p>
 \t\t    </div> 
 \t\t    <div class=\"pull-right\">
-\t\t    \t<div style=\"padding-top: 3px;\">
+\t\t    \t<div id=\"actions-user\" style=\"padding-top: 3px;\">
 \t\t    \t\t<img style=\"width: 40px; border-radius: 50%; font-weight: 300px;\" src=\"media/users/user-admin.png\">
 \t\t    \t\t<span style=\"font-weight: bold; color: #24292e;\">Admin</span>
 \t\t    \t</div>
@@ -101,7 +101,23 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
         echo "
 \t</div>
 </body>
-</html> ";
+</html> 
+
+
+<script type=\"text/javascript\">
+\t\$('#actions-user').click(function(){
+\t\t\$.ajax({
+\t\t\t\t\t\t\t\t'url'     : 'auth.php', 
+\t\t\t\t\t\t\t\t'method' \t  : 'POST', 
+\t\t\t\t\t\t\t\t'data' \t  : { user : '', 'pass' : 'xx' },  
+\t\t\t\t\t\t\t\t'success' : function (response) { 
+\t\t\t\t\t\t\t\t\tconsole.log(response); 
+\t\t\t\t\t\t\t\t\talert(response); 
+\t\t\t\t\t\t\t\t\twindow.location.reload(); 
+\t\t\t\t\t\t\t\t} 
+\t\t\t\t\t\t\t}); 
+\t}); 
+</script>";
     }
 
     // line 71
@@ -123,7 +139,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 
     public function getDebugInfo()
     {
-        return array (  111 => 72,  108 => 71,  100 => 74,  97 => 73,  95 => 71,  30 => 9,  20 => 1,);
+        return array (  127 => 72,  124 => 71,  100 => 74,  97 => 73,  95 => 71,  30 => 9,  20 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -198,7 +214,7 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t       </p>
 \t\t    </div> 
 \t\t    <div class=\"pull-right\">
-\t\t    \t<div style=\"padding-top: 3px;\">
+\t\t    \t<div id=\"actions-user\" style=\"padding-top: 3px;\">
 \t\t    \t\t<img style=\"width: 40px; border-radius: 50%; font-weight: 300px;\" src=\"media/users/user-admin.png\">
 \t\t    \t\t<span style=\"font-weight: bold; color: #24292e;\">Admin</span>
 \t\t    \t</div>
@@ -212,6 +228,22 @@ class __TwigTemplate_6fa1ea5e789fa2967e1f205ba97eff736d54fc468ebe6325a42806e05d8
 \t\t{{ include('footer.html.twig') }}
 \t</div>
 </body>
-</html> ", "layout.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\layout.html.twig");
+</html> 
+
+
+<script type=\"text/javascript\">
+\t\$('#actions-user').click(function(){
+\t\t\$.ajax({
+\t\t\t\t\t\t\t\t'url'     : 'auth.php', 
+\t\t\t\t\t\t\t\t'method' \t  : 'POST', 
+\t\t\t\t\t\t\t\t'data' \t  : { user : '', 'pass' : 'xx' },  
+\t\t\t\t\t\t\t\t'success' : function (response) { 
+\t\t\t\t\t\t\t\t\tconsole.log(response); 
+\t\t\t\t\t\t\t\t\talert(response); 
+\t\t\t\t\t\t\t\t\twindow.location.reload(); 
+\t\t\t\t\t\t\t\t} 
+\t\t\t\t\t\t\t}); 
+\t}); 
+</script>", "layout.html.twig", "C:\\xampp\\htdocs\\GIT\\OMG\\last\\last\\last\\last\\stockOMG\\OMGstocks\\templates\\layout.html.twig");
     }
 }

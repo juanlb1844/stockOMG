@@ -2,6 +2,16 @@
 
 require 'vendor/autoload.php';
 
+date_default_timezone_set('America/Mazatlan');
+  session_start();
+
+  $autentication = ( isset($_SESSION['loggedIn']) ) ? true  : false; 
+
+  if( !$autentication ) {
+    header('location: ./login.html'); 
+  }
+
+
 // Routing.
 $page = 'home';
 if (isset($_GET['p'])) {
